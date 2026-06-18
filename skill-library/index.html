@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Skill Library</title>
+<style>
+  :root {
+    --bg: #0a0c10;
+    --bg-2: #0e1117;
+    --panel: rgba(255, 255, 255, 0.028);
+    --panel-2: rgba(255, 255, 255, 0.05);
+    --line: rgba(255, 255, 255, 0.09);
+    --line-soft: rgba(255, 255, 255, 0.06);
+    --txt: #e8ecf3;
+    --txt-dim: #9aa5b6;
+    --txt-faint: #66708a;
+    --accent: #8b7bff;
+    --radius: 16px;
+    --maxw: 1320px;
+    --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Inter, "Helvetica Neue", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", "Fira Code", Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: var(--font);
+    color: var(--txt);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+    min-height: 100vh;
+  }
+  /* ambient background */
+  body::before {
+    content: "";
+    position: fixed; inset: 0; z-index: -1;
+    background:
+      radial-gradient(900px 600px at 12% -8%, rgba(139, 123, 255, 0.16), transparent 60%),
+      radial-gradient(800px 520px at 92% 4%, rgba(56, 200, 220, 0.10), transparent 58%),
+      radial-gradient(700px 700px at 60% 110%, rgba(244, 114, 182, 0.08), transparent 60%),
+      linear-gradient(180deg, var(--bg), var(--bg-2));
+  }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
+
+  /* ---------- header ---------- */
+  header { padding: 64px 0 26px; }
+  .eyebrow {
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.28em;
+    text-transform: uppercase; color: var(--txt-faint); margin: 0 0 14px;
+  }
+  h1 {
+    margin: 0; font-size: clamp(38px, 6vw, 68px); line-height: 1.02;
+    font-weight: 720; letter-spacing: -0.035em;
+    background: linear-gradient(96deg, #fff 12%, #c5b8ff 52%, #7fe3e3 96%);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .sub { margin: 16px 0 0; color: var(--txt-dim); font-size: 16px; max-width: 60ch; }
+  .meta-row { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 10px 22px; align-items: center;
+    font-family: var(--mono); font-size: 12.5px; color: var(--txt-faint); }
+  .meta-row b { color: var(--txt-dim); font-weight: 600; }
+
+  /* ---------- toolbar ---------- */
+  .toolbar {
+    position: sticky; top: 0; z-index: 40;
+    padding: 16px 0 14px; margin-top: 8px;
+    background: linear-gradient(180deg, rgba(10,12,16,0.92) 70%, rgba(10,12,16,0));
+    backdrop-filter: blur(10px);
+  }
+  .tabs { display: inline-flex; gap: 4px; padding: 4px; border: 1px solid var(--line);
+    border-radius: 999px; background: var(--panel); }
+  .tab {
+    appearance: none; border: 0; cursor: pointer; font: inherit; font-weight: 600;
+    color: var(--txt-dim); padding: 9px 18px; border-radius: 999px; font-size: 14px;
+    display: inline-flex; align-items: center; gap: 8px; transition: .18s;
+  }
+  .tab .n { font-family: var(--mono); font-size: 11px; opacity: .7; }
+  .tab[aria-selected="true"] {
+    color: #0a0c10; background: linear-gradient(120deg, #c9bcff, #9fe7e7);
+    box-shadow: 0 6px 22px -8px rgba(159, 231, 231, 0.6);
+  }
+  .tab:hover:not([aria-selected="true"]) { color: var(--txt); background: var(--panel-2); }
+
+  .controls { display: flex; gap: 14px; align-items: center; margin-top: 14px; flex-wrap: wrap; }
+  .search {
+    position: relative; flex: 1 1 280px; min-width: 220px;
+  }
+  .search input {
+    width: 100%; font: inherit; font-size: 15px; color: var(--txt);
+    background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+    padding: 12px 14px 12px 42px; outline: none; transition: .18s;
+  }
+  .search input::placeholder { color: var(--txt-faint); }
+  .search input:focus { border-color: rgba(139,123,255,.6); background: var(--panel-2);
+    box-shadow: 0 0 0 4px rgba(139,123,255,.12); }
+  .search svg { position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+    width: 16px; height: 16px; color: var(--txt-faint); }
+  .search kbd { position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+    font-family: var(--mono); font-size: 11px; color: var(--txt-faint);
+    border: 1px solid var(--line); border-radius: 6px; padding: 2px 7px; }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  .chip {
+    appearance: none; cursor: pointer; font: inherit; font-size: 13px; font-weight: 550;
+    color: var(--txt-dim); background: var(--panel); border: 1px solid var(--line);
+    border-radius: 999px; padding: 7px 13px; transition: .15s; display: inline-flex;
+    align-items: center; gap: 7px;
+  }
+  .chip:hover { color: var(--txt); border-color: var(--line); background: var(--panel-2); }
+  .chip .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--c, var(--txt-faint)); }
+  .chip .cnt { font-family: var(--mono); font-size: 11px; color: var(--txt-faint); }
+  .chip[aria-pressed="true"] {
+    color: var(--txt); border-color: color-mix(in srgb, var(--c, #fff) 55%, transparent);
+    background: color-mix(in srgb, var(--c, #fff) 14%, transparent);
+  }
+  .chip[aria-pressed="true"] .cnt { color: var(--txt-dim); }
+
+  /* ---------- grid ---------- */
+  .count-line { color: var(--txt-faint); font-family: var(--mono); font-size: 12.5px;
+    margin: 26px 0 14px; }
+  .grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px; padding-bottom: 80px;
+  }
+  .card {
+    position: relative; text-align: left; cursor: pointer; font: inherit; color: inherit;
+    background: var(--panel); border: 1px solid var(--line-soft); border-radius: var(--radius);
+    padding: 20px 20px 16px; overflow: hidden; transition: transform .2s ease, border-color .2s, box-shadow .2s;
+    display: flex; flex-direction: column; min-height: 184px;
+  }
+  .card::before {
+    content: ""; position: absolute; left: 0; top: 0; height: 3px; width: 100%;
+    background: linear-gradient(90deg, var(--c), transparent 78%); opacity: .85;
+  }
+  .card::after {
+    content: ""; position: absolute; inset: 0; border-radius: var(--radius); pointer-events: none;
+    background: radial-gradient(420px 180px at 50% -40%, color-mix(in srgb, var(--c) 16%, transparent), transparent 70%);
+    opacity: 0; transition: opacity .25s;
+  }
+  .card:hover { transform: translateY(-4px); border-color: color-mix(in srgb, var(--c) 45%, var(--line));
+    box-shadow: 0 18px 40px -22px color-mix(in srgb, var(--c) 70%, black); }
+  .card:hover::after { opacity: 1; }
+  .card:focus-visible { outline: 2px solid var(--c); outline-offset: 2px; }
+  .card .cat { display: inline-flex; align-items: center; gap: 7px; font-size: 11.5px;
+    font-weight: 600; letter-spacing: .02em; color: var(--txt-dim); text-transform: uppercase; }
+  .card .cat .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--c); }
+  .card h3 { margin: 12px 0 8px; font-size: 18px; font-weight: 650; letter-spacing: -0.01em;
+    line-height: 1.25; color: var(--txt); }
+  .card p { margin: 0; color: var(--txt-dim); font-size: 13.5px; line-height: 1.5;
+    display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+  .card .foot { margin-top: auto; padding-top: 14px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .badge { font-family: var(--mono); font-size: 10.5px; font-weight: 600; letter-spacing: .03em;
+    padding: 3px 8px; border-radius: 6px; border: 1px solid var(--line); color: var(--txt-dim);
+    display: inline-flex; align-items: center; gap: 5px; }
+  .badge.on { color: var(--txt); border-color: color-mix(in srgb, var(--bc, #fff) 50%, transparent);
+    background: color-mix(in srgb, var(--bc, #fff) 13%, transparent); }
+  .badge .pip { width: 6px; height: 6px; border-radius: 50%; background: var(--bc, var(--txt-faint)); }
+
+  .empty { text-align: center; padding: 90px 20px; color: var(--txt-faint); }
+  .empty .big { font-size: 17px; color: var(--txt-dim); margin-bottom: 6px; }
+
+  /* ---------- modal ---------- */
+  .modal-bg { position: fixed; inset: 0; z-index: 90; display: none; align-items: center;
+    justify-content: center; padding: 24px; background: rgba(4,5,8,.66); backdrop-filter: blur(6px); }
+  .modal-bg.open { display: flex; animation: fade .18s ease; }
+  @keyframes fade { from { opacity: 0; } }
+  .modal {
+    width: min(640px, 100%); max-height: 86vh; overflow: auto; position: relative;
+    background: linear-gradient(180deg, #12151c, #0e1117); border: 1px solid var(--line);
+    border-radius: 20px; padding: 30px 30px 28px; animation: pop .22s cubic-bezier(.2,.8,.3,1);
+  }
+  @keyframes pop { from { transform: translateY(14px) scale(.98); opacity: 0; } }
+  .modal::before { content: ""; position: absolute; left: 0; top: 0; height: 4px; width: 100%;
+    border-radius: 20px 20px 0 0; background: linear-gradient(90deg, var(--c), transparent 70%); }
+  .modal .cat { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: .04em; color: var(--txt-dim); }
+  .modal .cat .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--c); }
+  .modal h2 { margin: 14px 0 4px; font-size: 27px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; }
+  .modal .desc { margin: 16px 0 0; color: #cdd5e2; font-size: 15px; line-height: 1.62; }
+  .modal .kv { margin-top: 22px; display: grid; grid-template-columns: auto 1fr; gap: 10px 18px;
+    font-size: 13.5px; border-top: 1px solid var(--line-soft); padding-top: 20px; }
+  .modal .kv dt { color: var(--txt-faint); font-family: var(--mono); font-size: 12px; }
+  .modal .kv dd { margin: 0; color: var(--txt); }
+  .modal .badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
+  .x { position: absolute; top: 16px; right: 16px; width: 34px; height: 34px; border-radius: 9px;
+    border: 1px solid var(--line); background: var(--panel); color: var(--txt-dim); cursor: pointer;
+    font-size: 18px; line-height: 1; display: grid; place-items: center; transition: .15s; }
+  .x:hover { color: var(--txt); background: var(--panel-2); }
+  code.path { font-family: var(--mono); font-size: 12.5px; color: #b9c4d6; word-break: break-all; }
+
+  footer { border-top: 1px solid var(--line-soft); padding: 26px 0 50px; color: var(--txt-faint);
+    font-size: 12.5px; font-family: var(--mono); display: flex; flex-wrap: wrap; gap: 6px 18px; }
+
+  @media (max-width: 560px) {
+    .wrap { padding: 0 18px; } header { padding-top: 44px; }
+    .meta-row { gap: 8px 14px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <p class="eyebrow">Personal Skill Base · Reconciled Inventory</p>
+      <h1>Skill Library</h1>
+      <p class="sub">A browsable index of the authored Claude&nbsp;Code / Codex skill library and the Notion cowork-skill registry — searchable, categorized, and cross-referenced by where each skill is installed.</p>
+      <div class="meta-row" id="metaRow"></div>
+    </header>
+
+    <div class="toolbar">
+      <div class="tabs" role="tablist" aria-label="Collections">
+        <button class="tab" role="tab" data-coll="code" aria-selected="true">Code Skills <span class="n" id="nCode"></span></button>
+        <button class="tab" role="tab" data-coll="notion" aria-selected="false">Notion Skills <span class="n" id="nNotion"></span></button>
+      </div>
+      <div class="controls">
+        <div class="search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+          <input id="q" type="text" placeholder="Search skills, descriptions, triggers…" autocomplete="off" spellcheck="false" />
+          <kbd>/</kbd>
+        </div>
+      </div>
+      <div class="chips" id="chips"></div>
+    </div>
+
+    <div class="count-line" id="countLine"></div>
+    <div class="grid" id="grid"></div>
+    <div class="empty" id="empty" style="display:none">
+      <div class="big">No skills match your filters</div>
+      <div>Try clearing the search or selecting “All”.</div>
+    </div>
+
+    <footer id="footer"></footer>
+  </div>
+
+  <div class="modal-bg" id="modalBg" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+    <div class="modal" id="modal">
+      <button class="x" id="modalX" aria-label="Close">×</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="skills-data.js"></script>
+  <script>
+  (function () {
+    const D = (window.SKILL_DATA || { generated: "?", code: [], notion: [] });
+
+    const CODE_COLORS = {
+      "Languages": "#6ea8fe", "AI & Infra": "#b388ff", "DevOps & Deploy": "#ff9e64",
+      "Design & Frontend": "#f472b6", "Code Quality": "#34d399", "Games": "#fbbf24",
+      "Workflow & Process": "#5eead4", "Notion & Media": "#94a3b8", "Other": "#94a3b8"
+    };
+    const NOTION_COLORS = {
+      "Writing": "#6ea8fe", "Formatting": "#b388ff", "Dev": "#34d399",
+      "AV / Production": "#ff9e64", "Productivity": "#fbbf24", "AI / Prompts": "#f472b6",
+      "Uncategorized": "#94a3b8"
+    };
+    const STATUS_COLORS = { "Live": "#34d399", "Draft": "#fbbf24", "WIP": "#ff9e64", "Archived": "#6b7280", "Unset": "#f87171" };
+
+    const colorFor = (coll, cat) => (coll === "code" ? CODE_COLORS : NOTION_COLORS)[cat] || "#94a3b8";
+    const esc = (s) => (s || "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+    const state = { coll: "code", q: "", cat: "all", status: "all" };
+
+    const $ = (id) => document.getElementById(id);
+    $("nCode").textContent = D.code.length;
+    $("nNotion").textContent = D.notion.length;
+
+    // header meta
+    const codexCount = D.code.filter((c) => c.codex).length;
+    $("metaRow").innerHTML =
+      `<span><b>${D.code.length}</b> code skills</span>` +
+      `<span><b>${codexCount}</b> mirrored to Codex</span>` +
+      `<span><b>${D.notion.length}</b> Notion skills</span>` +
+      `<span>generated <b>${esc(D.generated)}</b></span>`;
+    $("footer").innerHTML =
+      `<span>~/.claude/skills · ~/.codex/skills · Notion “DB | Notion Skills”</span>` +
+      `<span>generated ${esc(D.generated)}</span>`;
+
+    function items() { return state.coll === "code" ? D.code : D.notion; }
+
+    function categoriesWithCounts() {
+      const m = new Map();
+      items().forEach((it) => m.set(it.category, (m.get(it.category) || 0) + 1));
+      return [...m.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+    }
+
+    function renderChips() {
+      const wrap = $("chips");
+      let html = `<button class="chip" data-cat="all" aria-pressed="${state.cat === "all"}">All <span class="cnt">${items().length}</span></button>`;
+      categoriesWithCounts().forEach(([cat, n]) => {
+        const c = colorFor(state.coll, cat);
+        html += `<button class="chip" data-cat="${esc(cat)}" style="--c:${c}" aria-pressed="${state.cat === cat}"><span class="dot"></span>${esc(cat)} <span class="cnt">${n}</span></button>`;
+      });
+      if (state.coll === "notion") {
+        html += `<span style="width:1px;height:22px;background:var(--line);margin:0 4px;align-self:center"></span>`;
+        ["all", "Live", "Draft", "Archived", "Unset"].forEach((s) => {
+          const c = s === "all" ? "#8b96ad" : STATUS_COLORS[s];
+          const n = s === "all" ? items().length : items().filter((it) => it.status === s).length;
+          html += `<button class="chip" data-status="${s}" style="--c:${c}" aria-pressed="${state.status === s}"><span class="dot"></span>${s === "all" ? "Any status" : esc(s)} <span class="cnt">${n}</span></button>`;
+        });
+      }
+      wrap.innerHTML = html;
+      wrap.querySelectorAll("[data-cat]").forEach((b) => b.onclick = () => { state.cat = b.dataset.cat; render(); });
+      wrap.querySelectorAll("[data-status]").forEach((b) => b.onclick = () => { state.status = b.dataset.status; render(); });
+    }
+
+    function matches(it) {
+      if (state.cat !== "all" && it.category !== state.cat) return false;
+      if (state.coll === "notion" && state.status !== "all" && it.status !== state.status) return false;
+      if (state.q) {
+        const hay = [it.name, it.desc, it.summary, it.trigger, it.category, it.file].filter(Boolean).join(" ").toLowerCase();
+        if (!hay.includes(state.q)) return false;
+      }
+      return true;
+    }
+
+    function descOf(it) {
+      if (state.coll === "code") return it.desc || "";
+      return it.summary || (it.trigger ? "Trigger: " + it.trigger : "") || "Notion cowork skill.";
+    }
+
+    function cardHTML(it, idx) {
+      const c = colorFor(state.coll, it.category);
+      let foot = "";
+      if (state.coll === "code") {
+        foot += `<span class="badge ${it.claude ? "on" : ""}" style="--bc:#9fe7e7"><span class="pip"></span>Claude</span>`;
+        foot += `<span class="badge ${it.codex ? "on" : ""}" style="--bc:#c9bcff"><span class="pip"></span>Codex</span>`;
+        if (it.multiFile) foot += `<span class="badge on" style="--bc:#ff9e64"><span class="pip"></span>multi-file</span>`;
+      } else {
+        const sc = STATUS_COLORS[it.status] || "#94a3b8";
+        foot += `<span class="badge on" style="--bc:${sc}"><span class="pip"></span>${esc(it.status)}</span>`;
+        if (it.trigger) foot += `<span class="badge">⌘ ${esc(it.trigger.length > 26 ? it.trigger.slice(0, 24) + "…" : it.trigger)}</span>`;
+      }
+      return `<button class="card" style="--c:${c}" data-idx="${idx}">
+        <span class="cat"><span class="dot"></span>${esc(it.category)}</span>
+        <h3>${esc(it.name)}</h3>
+        <p>${esc(descOf(it)) || "<span style='color:var(--txt-faint)'>No description.</span>"}</p>
+        <div class="foot">${foot}</div>
+      </button>`;
+    }
+
+    let filtered = [];
+    function render() {
+      renderChips();
+      filtered = items().filter(matches);
+      $("grid").innerHTML = filtered.map((it, i) => cardHTML(it, i)).join("");
+      $("empty").style.display = filtered.length ? "none" : "block";
+      $("grid").style.display = filtered.length ? "grid" : "none";
+      $("countLine").textContent = `Showing ${filtered.length} of ${items().length} ${state.coll === "code" ? "code" : "Notion"} skills`;
+      $("grid").querySelectorAll(".card").forEach((el) => el.onclick = () => openModal(filtered[+el.dataset.idx]));
+    }
+
+    function openModal(it) {
+      const c = colorFor(state.coll, it.category);
+      let kv = "";
+      if (state.coll === "code") {
+        kv = `<dt>category</dt><dd>${esc(it.category)}</dd>
+              <dt>installed</dt><dd>${it.claude ? "Claude Code" : "—"}${it.codex ? " · Codex" : ""}</dd>
+              <dt>type</dt><dd>${it.multiFile ? "multi-file Codex port + Claude single-file" : "single-file"}</dd>
+              <dt>file</dt><dd><code class="path">~/.claude/skills/${esc(it.file)}</code></dd>
+              <dt>size</dt><dd>${(it.bytes / 1024).toFixed(1)} KB</dd>`;
+      } else {
+        kv = `<dt>category</dt><dd>${esc(it.category)}</dd>
+              <dt>status</dt><dd>${esc(it.status)}</dd>
+              ${it.trigger ? `<dt>trigger</dt><dd>${esc(it.trigger)}</dd>` : ""}
+              <dt>source</dt><dd>Notion · DB | Notion Skills</dd>`;
+      }
+      $("modalBody").innerHTML = `
+        <div class="cat" style="--c:${c}"><span class="dot"></span>${esc(it.category)}${state.coll === "notion" ? " · " + esc(it.status) : ""}</div>
+        <h2 id="mTitle">${esc(it.name)}</h2>
+        <p class="desc">${esc(descOf(it)) || "No description recorded."}</p>
+        <dl class="kv">${kv}</dl>`;
+      $("modal").style.setProperty("--c", c);
+      $("modalBg").classList.add("open");
+    }
+    function closeModal() { $("modalBg").classList.remove("open"); }
+
+    // tabs
+    document.querySelectorAll(".tab").forEach((t) => t.onclick = () => {
+      document.querySelectorAll(".tab").forEach((x) => x.setAttribute("aria-selected", x === t));
+      state.coll = t.dataset.coll; state.cat = "all"; state.status = "all"; render();
+    });
+
+    // search
+    $("q").addEventListener("input", (e) => { state.q = e.target.value.trim().toLowerCase(); render(); });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "/" && document.activeElement !== $("q")) { e.preventDefault(); $("q").focus(); }
+      if (e.key === "Escape") { if ($("modalBg").classList.contains("open")) closeModal(); else if (document.activeElement === $("q")) { $("q").value = ""; state.q = ""; render(); $("q").blur(); } }
+    });
+    $("modalX").onclick = closeModal;
+    $("modalBg").addEventListener("click", (e) => { if (e.target === $("modalBg")) closeModal(); });
+
+    render();
+  })();
+  </script>
+</body>
+</html>
