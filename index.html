@@ -13,6 +13,7 @@
       const theme=saved==='dark' || saved==='light' ? saved : 'light';
       document.documentElement.dataset.theme=theme;
       document.documentElement.style.colorScheme=theme;
+      if(localStorage.getItem('quickStartDensity')==='compact') document.documentElement.dataset.density='compact';
     }catch(err){
       document.documentElement.dataset.theme='light';
       document.documentElement.style.colorScheme='light';
@@ -460,6 +461,45 @@
     .kpi .n{font-size:25px}
     .topbar h2{font-size:23px}
   }
+
+  /* command map — top-of-page one-glance triage + quick-jump (mirrors the nav LEDs) */
+  .cmdmap{display:flex;gap:7px;flex-wrap:wrap;align-items:center;margin:-4px 0 22px}
+  .cmdmap .cm-title{font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-right:3px}
+  .cmdmap a{display:inline-flex;align-items:center;gap:7px;padding:6px 11px;border-radius:999px;
+    background:var(--panel);border:1px solid var(--line);font-size:12px;font-weight:700;color:var(--ink2);
+    box-shadow:var(--shadow-sm);transition:transform .16s var(--ease),box-shadow .16s,border-color .16s,color .16s}
+  .cmdmap a:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);color:var(--ink);text-decoration:none;border-color:var(--line2)}
+  .cmdmap a .led{width:8px;height:8px;border-radius:50%;background:var(--ink3);flex:none}
+  .cmdmap a .led.green{background:var(--green)}
+  .cmdmap a .led.amber{background:var(--amber)}
+  .cmdmap a .led.red{background:var(--red)}
+  .cmdmap a .cm-ct{font-family:var(--mono);font-size:10px;color:var(--ink3);background:var(--bg2);
+    border:1px solid var(--line);border-radius:20px;padding:0 6px}
+  @media(prefers-reduced-motion:no-preference){.cmdmap a .led.red{animation:breathe 1.8s var(--ease) infinite}}
+
+  /* all-clear / empty state (reusable) */
+  .allclear{display:flex;align-items:center;gap:10px;padding:13px 15px;border-radius:var(--radius-sm);
+    background:linear-gradient(135deg,var(--green-bg),transparent);border:1px solid var(--green-line);
+    color:var(--green);font-size:13px;font-weight:650}
+  .allclear .ac-ic{font-size:17px}
+
+  /* density: compact mode for power-user scanning */
+  html[data-density="compact"] main{padding:18px 24px 60px}
+  html[data-density="compact"] section{margin-bottom:24px}
+  html[data-density="compact"] .freshbar{padding:9px 13px;gap:8px;margin-bottom:14px}
+  html[data-density="compact"] .cmdmap{margin-bottom:14px}
+  html[data-density="compact"] .kpis{gap:9px;margin-bottom:18px}
+  html[data-density="compact"] .kpi{padding:10px 12px}
+  html[data-density="compact"] .kpi .n{font-size:24px}
+  html[data-density="compact"] .sec-head{margin-bottom:10px}
+  html[data-density="compact"] .grid{gap:10px}
+  html[data-density="compact"] .card{padding:11px 13px}
+  html[data-density="compact"] .card .cb{padding:11px 13px}
+  html[data-density="compact"] .card .ch{padding:9px 13px}
+  html[data-density="compact"] details.row{margin-bottom:5px}
+  html[data-density="compact"] details.row>summary{padding:8px 12px}
+  html[data-density="compact"] .nextlist .item{padding:8px 11px}
+  html[data-density="compact"] .density-switcher button{padding:5px 6px}
 </style>
 </head>
 <body>
@@ -480,6 +520,10 @@
     <div class="theme-switcher" role="group" aria-label="Theme">
       <button type="button" data-theme-choice="light" aria-pressed="true">☀️ Light</button>
       <button type="button" data-theme-choice="dark" aria-pressed="false">🌙 Dark</button>
+    </div>
+    <div class="theme-switcher density-switcher" role="group" aria-label="Density">
+      <button type="button" data-density-choice="comfortable" aria-pressed="true">⊟ Comfortable</button>
+      <button type="button" data-density-choice="compact" aria-pressed="false">≣ Compact</button>
     </div>
 
     <div class="filter"><input id="q" type="search" placeholder="🔎 Filter sections…" autocomplete="off"></div>
@@ -1826,6 +1870,52 @@ If a live row query fails, mark it grey and fall back to fetched schemas + scope
     if(e.key==='/' && q && tag!=='input' && tag!=='textarea'){ e.preventDefault(); q.focus(); if(q.select)q.select(); }
     else if(e.key==='Escape' && document.activeElement===q && q.value){ q.value=''; q.dispatchEvent(new Event('input')); q.blur(); }
   });
+
+  /* command map — compact triage strip mirroring the nav LEDs, with quick-jump */
+  (function(){
+    var nav=document.querySelector('nav.toc'), main=document.querySelector('main'), fresh=document.querySelector('.freshbar');
+    if(!nav||!main||document.querySelector('.cmdmap')) return;
+    var map=document.createElement('nav'); map.className='cmdmap'; map.setAttribute('aria-label','Section map');
+    var t=document.createElement('span'); t.className='cm-title'; t.textContent='Map'; map.appendChild(t);
+    nav.querySelectorAll('a[href^="#"]').forEach(function(a){
+      var href=a.getAttribute('href'), sec=document.querySelector(href); if(!sec) return;
+      var clone=a.cloneNode(true); clone.querySelectorAll('.ic,.ct,.nav-dot').forEach(function(n){n.remove();});
+      var label=clone.textContent.trim(); if(!label) return;
+      var led='green';
+      if(sec.querySelector('.chip.red')||/🔴/.test(sec.textContent)) led='red';
+      else if(sec.querySelector('.chip.amber')||/🟡|⚠/.test(sec.textContent)) led='amber';
+      var ctEl=a.querySelector('.ct'), ct=ctEl?ctEl.textContent.trim():'';
+      var link=document.createElement('a'); link.href=href; link.title=label;
+      var dot=document.createElement('span'); dot.className='led '+led; link.appendChild(dot);
+      link.appendChild(document.createTextNode(label));
+      if(ct){ var c=document.createElement('span'); c.className='cm-ct'; c.textContent=ct; link.appendChild(c); }
+      map.appendChild(link);
+    });
+    if(fresh&&fresh.parentNode) fresh.parentNode.insertBefore(map, fresh.nextSibling); else main.insertBefore(map, main.firstChild);
+  })();
+
+  /* density toggle (compact <-> comfortable), persisted like the theme */
+  (function(){
+    var btns=[].slice.call(document.querySelectorAll('[data-density-choice]'));
+    function set(d,persist){
+      var v=(d==='compact')?'compact':'comfortable';
+      if(v==='compact') document.documentElement.dataset.density='compact'; else document.documentElement.removeAttribute('data-density');
+      btns.forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.densityChoice===v?'true':'false'); });
+      if(persist){ try{localStorage.setItem('quickStartDensity',v);}catch(e){} }
+    }
+    btns.forEach(function(b){ b.addEventListener('click',function(){ set(b.dataset.densityChoice,true); }); });
+    set(document.documentElement.dataset.density==='compact'?'compact':'comfortable',false);
+  })();
+
+  /* empty / all-clear states for known lanes */
+  (function(){
+    var ov=document.querySelector('#today table.tb');
+    if(ov && ov.querySelectorAll('tr').length<=1){
+      var ac=document.createElement('div'); ac.className='allclear';
+      ac.innerHTML='<span class="ac-ic">✅</span> All clear — no overdue tasks.';
+      if(ov.parentNode) ov.parentNode.replaceChild(ac, ov);
+    }
+  })();
 })();
 </script>
 </body>
