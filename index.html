@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Command Center — 2026-06-18 (Quick Start @Yesterday)</title>
+<title>Command Center — 2026-06-20 (Automated Cloud ~6:03 PM ET)</title>
 <link rel="icon" href="data:,">
 <script>
   (function(){
@@ -13,12 +13,20 @@
       const theme=saved==='dark' || saved==='light' ? saved : 'light';
       document.documentElement.dataset.theme=theme;
       document.documentElement.style.colorScheme=theme;
+      if(localStorage.getItem('quickStartDensity')==='compact') document.documentElement.dataset.density='compact';
     }catch(err){
       document.documentElement.dataset.theme='light';
       document.documentElement.style.colorScheme='light';
     }
   })();
 </script>
+<!-- ============================================================
+     DESIGN LAYER — hand-tuned. Automated reconcilers (cloud routine):
+     do NOT modify the <style> block below or the trailing
+     "v2 microinteractions" <script>. Edit ONLY page data: the banner,
+     KPIs, section content, data-ts stamps, the source-registry JSON,
+     and the footer. The look must persist across automated refreshes.
+     ============================================================ -->
 <style>
   :root{
     color-scheme:light;
@@ -303,6 +311,195 @@
     .totop{transition:none}
     details.row>summary::before{transition:none}
   }
+
+  /* ============================================================
+     v2 — visual hierarchy, navigation & microinteractions
+     Additive layer. The hourly cloud reconciler edits page DATA,
+     never this <style> block, so the look persists across refreshes.
+     ============================================================ */
+  :root{
+    --ease:cubic-bezier(.22,.61,.36,1);
+    --ease-out:cubic-bezier(.16,1,.3,1);
+    --shadow-sm:0 1px 2px rgba(15,23,42,.05),0 3px 10px rgba(15,23,42,.05);
+    --shadow-md:0 8px 24px rgba(15,23,42,.11);
+    --shadow-lg:0 24px 60px rgba(15,23,42,.18);
+  }
+  html[data-theme="dark"]{
+    --shadow-sm:0 1px 2px rgba(0,0,0,.45),0 3px 12px rgba(0,0,0,.32);
+    --shadow-md:0 10px 28px rgba(0,0,0,.5);
+    --shadow-lg:0 26px 64px rgba(0,0,0,.6);
+  }
+
+  /* refined type rhythm */
+  .topbar h2{font-size:27px;font-weight:800;letter-spacing:-.4px}
+  section{margin-bottom:38px}
+  .sec-head{padding-bottom:2px}
+
+  /* scroll-progress ribbon */
+  .scrollprog{position:fixed;top:0;left:0;height:3px;width:0;z-index:70;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));box-shadow:0 0 10px var(--accent);opacity:.92}
+
+  /* cards: soft elevation + hover lift */
+  .card{box-shadow:var(--shadow-sm);
+    transition:transform .24s var(--ease-out),box-shadow .24s var(--ease-out),border-color .2s}
+  .card:not(.hd):hover{transform:translateY(-2px);box-shadow:var(--shadow-md);border-color:var(--line2)}
+  .card.hd:hover{box-shadow:var(--shadow-md)}
+  .g3 .card:hover{transform:translateY(-2px)}
+
+  /* KPI tiles: larger numerals, gradient face, lift, growing accent rail */
+  .kpi{background:linear-gradient(180deg,var(--panel),var(--panel2));box-shadow:var(--shadow-sm);
+    transition:transform .24s var(--ease-out),box-shadow .24s var(--ease-out)}
+  .kpi:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+  .kpi::after{width:4px;transition:width .22s var(--ease)}
+  .kpi:hover::after{width:7px}
+  .kpi .n{font-size:30px;letter-spacing:-.8px}
+
+  /* live (hourly) breathing dot — honest: auto-refreshes hourly, not realtime */
+  @keyframes breathe{0%,100%{box-shadow:0 0 0 0 rgba(4,120,87,.5)}50%{box-shadow:0 0 0 6px rgba(4,120,87,0)}}
+  .livedot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--green);vertical-align:middle}
+  @media(prefers-reduced-motion:no-preference){.livedot{animation:breathe 2.4s var(--ease) infinite}}
+
+  /* premium local-time clock widget */
+  .clock{display:flex;flex-direction:column;gap:1px;background:linear-gradient(135deg,var(--panel),var(--panel2));
+    box-shadow:var(--shadow-sm);padding:10px 12px}
+  .clock .clk-label{display:flex;align-items:center;gap:6px;font-family:var(--sans);font-size:9px;font-weight:800;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
+  .clock b{font-size:19px;letter-spacing:.3px;font-variant-numeric:tabular-nums;margin-top:3px}
+  .clock .clk-d{font-family:var(--sans);font-size:11.5px;color:var(--ink2);font-weight:600}
+  .clock .clk-snap{font-size:9.5px;color:var(--ink3);margin-top:5px;padding-top:5px;border-top:1px dashed var(--line);
+    font-family:var(--mono);overflow-wrap:anywhere}
+
+  /* sidebar brand mark */
+  .brand .dot{box-shadow:0 6px 16px rgba(37,99,235,.35);transition:transform .3s var(--ease)}
+  .brand:hover .dot{transform:rotate(-8deg) scale(1.06)}
+
+  /* navigation: active rail, hover slide, status LEDs (the site map) */
+  nav.toc a{position:relative;transition:background .18s,color .18s,padding-left .2s var(--ease)}
+  nav.toc a::before{content:"";position:absolute;left:0;top:50%;height:0;width:3px;border-radius:0 3px 3px 0;
+    background:linear-gradient(180deg,var(--accent),var(--accent2));transform:translateY(-50%);transition:height .22s var(--ease)}
+  nav.toc a:hover{padding-left:13px}
+  nav.toc a.active{padding-left:13px}
+  nav.toc a.active::before{height:62%}
+  nav.toc a.active .ct{background:var(--blue-bg);color:var(--accent);border-color:var(--blue-line)}
+  nav.toc a .nav-dot{flex:none;width:7px;height:7px;border-radius:50%;margin-left:7px;background:var(--ink3);
+    opacity:.5;transition:background .25s,opacity .25s}
+  nav.toc a .nav-dot.green{background:var(--green);opacity:1}
+  nav.toc a .nav-dot.amber{background:var(--amber);opacity:1}
+  nav.toc a .nav-dot.red{background:var(--red);opacity:1}
+  nav.toc a .ct{transition:background .2s,color .2s,border-color .2s}
+
+  /* status ribbon (freshbar) + pills */
+  .freshbar{box-shadow:var(--shadow-sm)}
+  .freshbar .pill{background:var(--panel);transition:transform .16s var(--ease),box-shadow .16s,border-color .16s}
+  .freshbar .pill:hover{transform:translateY(-1px);box-shadow:var(--shadow-sm);border-color:var(--line2)}
+
+  /* section heads */
+  .sec-head .ic{display:inline-block;transition:transform .25s var(--ease)}
+  .sec-head:hover .ic{transform:scale(1.12) rotate(-4deg)}
+  .sec-head .fresh{transition:color .2s,background .2s}
+
+  /* chips */
+  .chip{transition:transform .14s var(--ease),box-shadow .16s,filter .16s}
+  .chip.active{box-shadow:0 3px 10px rgba(37,99,235,.32)}
+  .selectable-task:hover .chip{filter:saturate(1.15)}
+
+  /* disclosure rows: hover, open elevation, body reveal */
+  details.row{transition:border-color .2s,box-shadow .22s,background .2s}
+  details.row>summary{transition:background .16s,padding-left .18s var(--ease)}
+  details.row>summary:hover{background:var(--hover-panel);padding-left:17px}
+  details.row[open]{box-shadow:var(--shadow-sm)}
+  details.row[open]>summary{background:var(--hover-panel)}
+  @media(prefers-reduced-motion:no-preference){
+    details.row[open]>.body{animation:disc .26s var(--ease-out)}
+  }
+  @keyframes disc{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:none}}
+
+  /* buttons: hover + press feedback */
+  .copybtn,.theme-switcher button,.task-related button,.task-inspector-close{
+    transition:transform .14s var(--ease),background .16s,box-shadow .18s,color .16s,border-color .16s}
+  .copybtn:hover{transform:translateY(-1px);box-shadow:var(--shadow-sm)}
+  .copybtn:active,.theme-switcher button:active,.task-related button:active,.task-inspector-close:active{transform:scale(.95)}
+  .task-related button:hover{transform:translateY(-1px)}
+  .theme-switcher button[aria-pressed="true"]{box-shadow:var(--shadow-sm)}
+  .totop:hover{transform:translateY(-3px) scale(1.06);box-shadow:var(--shadow-lg)}
+  .totop:active{transform:scale(.94)}
+
+  /* filter focus glow */
+  .side .filter input:focus{box-shadow:0 0 0 3px var(--blue-bg);border-color:var(--accent);outline:none}
+
+  /* task inspector entrance */
+  @media(prefers-reduced-motion:no-preference){
+    .task-inspector:not([hidden]){animation:tin .3s var(--ease-out)}
+  }
+  @keyframes tin{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:none}}
+
+  /* reveal-on-scroll (JS adds body.reveal-on; never leaves content hidden) */
+  @media(prefers-reduced-motion:no-preference){
+    body.reveal-on main>section{opacity:0;transform:translateY(16px);
+      transition:opacity .5s var(--ease-out),transform .5s var(--ease-out)}
+    body.reveal-on main>section.in{opacity:1;transform:none}
+  }
+
+  /* tables */
+  table.tb tr,table.srcgrid tr{transition:background .14s}
+
+  /* empty / loading state utility (reusable) */
+  .empty-state{display:flex;align-items:center;gap:8px;color:var(--ink3);font-size:12.5px;font-style:italic;
+    padding:10px 12px;border:1px dashed var(--line2);border-radius:var(--radius-sm);background:var(--panel2)}
+
+  /* mobile: sticky translucent nav rail + horizontal chip scroller */
+  @media(max-width:900px){
+    .side{position:sticky;top:0;z-index:50;height:auto;box-shadow:var(--shadow-sm);
+      background:linear-gradient(180deg,var(--side-bg-a),var(--side-bg-b))}
+    nav.toc{flex-wrap:nowrap;overflow-x:auto;gap:6px;padding:2px 2px 6px;scrollbar-width:thin}
+    nav.toc a{flex:none;white-space:nowrap;border:1px solid var(--line);background:var(--panel)}
+    nav.toc a.active{border-color:var(--accent)}
+    nav.toc a::before{display:none}
+    nav.toc a .ct{display:inline-block}
+  }
+  @media(max-width:420px){
+    .kpi .n{font-size:25px}
+    .topbar h2{font-size:23px}
+  }
+
+  /* command map — top-of-page one-glance triage + quick-jump (mirrors the nav LEDs) */
+  .cmdmap{display:flex;gap:7px;flex-wrap:wrap;align-items:center;margin:-4px 0 22px}
+  .cmdmap .cm-title{font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-right:3px}
+  .cmdmap a{display:inline-flex;align-items:center;gap:7px;padding:6px 11px;border-radius:999px;
+    background:var(--panel);border:1px solid var(--line);font-size:12px;font-weight:700;color:var(--ink2);
+    box-shadow:var(--shadow-sm);transition:transform .16s var(--ease),box-shadow .16s,border-color .16s,color .16s}
+  .cmdmap a:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);color:var(--ink);text-decoration:none;border-color:var(--line2)}
+  .cmdmap a .led{width:8px;height:8px;border-radius:50%;background:var(--ink3);flex:none}
+  .cmdmap a .led.green{background:var(--green)}
+  .cmdmap a .led.amber{background:var(--amber)}
+  .cmdmap a .led.red{background:var(--red)}
+  .cmdmap a .cm-ct{font-family:var(--mono);font-size:10px;color:var(--ink3);background:var(--bg2);
+    border:1px solid var(--line);border-radius:20px;padding:0 6px}
+  @media(prefers-reduced-motion:no-preference){.cmdmap a .led.red{animation:breathe 1.8s var(--ease) infinite}}
+
+  /* all-clear / empty state (reusable) */
+  .allclear{display:flex;align-items:center;gap:10px;padding:13px 15px;border-radius:var(--radius-sm);
+    background:linear-gradient(135deg,var(--green-bg),transparent);border:1px solid var(--green-line);
+    color:var(--green);font-size:13px;font-weight:650}
+  .allclear .ac-ic{font-size:17px}
+
+  /* density: compact mode for power-user scanning */
+  html[data-density="compact"] main{padding:18px 24px 60px}
+  html[data-density="compact"] section{margin-bottom:24px}
+  html[data-density="compact"] .freshbar{padding:9px 13px;gap:8px;margin-bottom:14px}
+  html[data-density="compact"] .cmdmap{margin-bottom:14px}
+  html[data-density="compact"] .kpis{gap:9px;margin-bottom:18px}
+  html[data-density="compact"] .kpi{padding:10px 12px}
+  html[data-density="compact"] .kpi .n{font-size:24px}
+  html[data-density="compact"] .sec-head{margin-bottom:10px}
+  html[data-density="compact"] .grid{gap:10px}
+  html[data-density="compact"] .card{padding:11px 13px}
+  html[data-density="compact"] .card .cb{padding:11px 13px}
+  html[data-density="compact"] .card .ch{padding:9px 13px}
+  html[data-density="compact"] details.row{margin-bottom:5px}
+  html[data-density="compact"] details.row>summary{padding:8px 12px}
+  html[data-density="compact"] .nextlist .item{padding:8px 11px}
+  html[data-density="compact"] .density-switcher button{padding:5px 6px}
 </style>
 </head>
 <body>
@@ -312,12 +509,21 @@
   <aside class="side">
     <div class="brand">
       <div class="dot">🛰️</div>
-      <div><h1>Command Center</h1><small>Thu 2026-06-18 · @Yesterday</small></div>
+      <div><h1>Command Center</h1><small>Sat 2026-06-20 · Cloud ~6:03 PM ET</small></div>
     </div>
-    <div class="clock"><b id="clk-time">--:--:--</b><br><span id="clk-date">loading…</span></div>
+    <div class="clock">
+      <div class="clk-label"><span class="livedot" title="Live local time"></span>Local · Eastern</div>
+      <b id="clk-time">--:--:--</b>
+      <span class="clk-d" id="clk-date">loading…</span>
+      <span class="clk-snap" id="clk-snap"></span>
+    </div>
     <div class="theme-switcher" role="group" aria-label="Theme">
       <button type="button" data-theme-choice="light" aria-pressed="true">☀️ Light</button>
       <button type="button" data-theme-choice="dark" aria-pressed="false">🌙 Dark</button>
+    </div>
+    <div class="theme-switcher density-switcher" role="group" aria-label="Density">
+      <button type="button" data-density-choice="comfortable" aria-pressed="true">⊟ Comfortable</button>
+      <button type="button" data-density-choice="compact" aria-pressed="false">≣ Compact</button>
     </div>
 
     <div class="filter"><input id="q" type="search" placeholder="🔎 Filter sections…" autocomplete="off"></div>
@@ -341,7 +547,7 @@
     <div class="topbar">
       <div>
         <h2>Workspace Command Center</h2>
-        <p><time id="dashboard-date" datetime="2026-06-18">Thursday, June 18, 2026</time> · midday re-pass · static snapshot from Source Map, <strong>live DB view queries</strong> (Status Runs · Dev Logs · LLM Notes re-queried; Projects · Action Items carried), Quick Start &amp; Notes (still <strong>@Yesterday</strong>, 06-17), the <strong>regenerated 06-18 Mac git pass</strong>, MLB, and Davai memory. <strong>The 06-17 daily Notion surfaces remain yesterday's; their stamps read &gt;24h (red) by design.</strong></p>
+        <p><time id="dashboard-date" datetime="2026-06-20">Saturday, June 20, 2026</time> · <strong>AUTOMATED CLOUD reconcile ~6:03 PM ET — 19th Jun 20 ET pass (1st ~12:03 AM RUN-0003; 2nd ~1:03 AM RUN-0103; 3rd ~2:03 AM RUN-0203; 4th ~3:03 AM RUN-0303; 5th ~4:03 AM RUN-0403; 6th ~5:03 AM RUN-0503; 7th ~6:05 AM RUN-0605; 8th ~7:05 AM RUN-0705; 9th ~8:04 AM RUN-0804; 10th ~9:03 AM RUN-0903; 11th ~10:03 AM RUN-1003; 12th ~11:03 AM RUN-1103; 13th ~12:04 PM RUN-1204; 14th ~1:03 PM RUN-1303; 15th ~2:03 PM RUN-1403; 16th ~3:05 PM RUN-1503; 17th ~4:03 PM RUN-1603; 18th ~5:03 PM RUN-1703; 19th this run RUN-1803)</strong> · live DB queries: Status Runs (All Runs view) · Personal Tasks (Tier 2) · Action Items (Tier 1) CONFIRMED LIVE · Phillies Wire accuracy.json · HTTP deploy checks. <strong>CORRECTION from 3rd pass: Phillies Wire accuracy.json counts were swapped</strong> — actual: <strong>24 total · 23 accurate · 0 inaccurate · 1 unverifiable</strong> (3rd pass said "0 unverifiable · 1 inaccurate" — error corrected this run). <strong>CORRECTION 2: Session Recon "88 pending" was wrong</strong> — RUN-20260620-0152-SESSION-RECON evidence: <strong>0 pending</strong>; 103 IDs fully reconciled (83 direct + 14 search/prefix + 6 transcript recovered; 4 collisions). <strong>NEW: RUN-20260620-0216-DIRTY-WORKTREE 🟢</strong> — Dirty Worktree Inspection: <strong>39 dirty roots</strong> (vs 35 expected), 47 clean, 4 invalid git roots, 0 conflicts; report at ~/Desktop/Code/90-governance/docs/dirty-worktree-inspection-2026-06-20.md. <strong style="color:var(--amber)">DELTA 5TH PASS: accuracy.json REGENERATED at 07:06:06Z (3:06 AM ET Jun 20)</strong> — counts unchanged: 24/23/0/1. <strong>10TH PASS: NO NEW DELTAS</strong> — accuracy.json same (07:06:06Z, 24/23/0/1), all 4 HTTP 200 OK. <strong style="color:var(--amber)">11TH PASS DELTA: accuracy.json REGENERATED AGAIN at 2026-06-20T13:32:02Z (9:32 AM ET Jun 20)</strong> — 2nd regeneration today; counts unchanged (24/23/0/1). Action Items 1 overdue CONFIRMED LIVE this 12th pass (Quality OS visual gate). All 4 HTTP 200 OK. <strong style="color:var(--amber)">15TH PASS DELTA: accuracy.json REGENERATED at 2026-06-20T17:48:34.093Z (1:48 PM ET Jun 20)</strong> — 4th regeneration today; counts 24/23/0/1 unchanged. <strong style="color:var(--amber)">16TH PASS DELTA: accuracy.json REGENERATED AGAIN at 2026-06-20T18:45:35.650Z (2:45 PM ET Jun 20)</strong> — 5th regeneration today; counts 24/23/0/1 unchanged. <strong style="color:var(--amber)">17TH PASS DELTA: accuracy.json REGENERATED AGAIN at 2026-06-20T19:51:50.787Z (3:51 PM ET Jun 20)</strong> — 6th regeneration today; counts 24/23/0/1 unchanged. <strong style="color:var(--amber)">18TH PASS DELTA: accuracy.json REGENERATED AGAIN at 2026-06-20T20:44:04.494Z (4:44 PM ET Jun 20) — 7th regeneration today; COUNTS CHANGED: 26 total · 25 accurate · 0 inaccurate · 1 unverifiable (was 24/23/0/1).</strong> Action Items CONFIRMED LIVE 18th pass; all 4 HTTP 200 OK. <strong>NOT refreshed this cloud run: Davai memory (local Mac only, ~29d stale) · Mac-wide git scan (local Mac only — last Mac report 06-17 08:43 ET, ~80h stale, cloud cannot regenerate; dirty worktree inspection from RUN-20260620-0216 covers 90 roots as of Jun 20 ET).</strong></p>
       </div>
       <div class="legend">
         <span><i class="sw" style="background:var(--green)"></i>Done / Green</span>
@@ -353,27 +559,23 @@
 
     <!-- Reconciliation banner -->
     <div class="freshbar">
-      <span class="lead">♻️ Re-reconciled 2026-06-18 11:35 EDT (midday pass) — deltas vs the 09:50 pass:</span>
-      <span class="pill" style="color:var(--green)">🟢 Mac git report REGENERATED 06-18 (prior pass wrongly said ⚪ "not regenerated"): read-only rescan 07:08 ET = <strong>105 repos / 92 attention</strong>; guarded ff-only pull 07:27 ET = <strong>106 repos / 5 fast-forwarded</strong>. Evidence in 90-governance/docs; Git Sync page edited 11:30Z. Windows <code>$path</code> regen still open.</span>
-      <span class="pill" style="color:var(--green)">🟢 ops-hub now CLEAN / up-to-date with origin/main in the 06-18 Mac pass (was 3 dirty on 06-17)</span>
-      <span class="pill" style="color:var(--amber)">🟡 New 11:01Z Status Run RUN-20260418-0001 — PromptLab daily-status dashboard re-verified (<strong>DUPLICATE RUN</strong> vs 09:02Z); still 🟡, scheduler never fired, 2 UTC-dated leftovers. Today's runs 5→6.</span>
-      <span class="pill" style="color:var(--amber)">🟡 Daily inbox sort = <strong>SECOND consecutive blocked run</strong> (06-18 11:09Z; first 06-15): processed 10, moved 0, held 10 — routing blocked on ambiguous AI Subrouter + duplicate DB | Prompts; needs a human decision</span>
-      <span class="pill" style="color:var(--red)">🔴 Unchanged verified reds: HA Ring/Frigate + World Cup push still blocked; PW reliability still 🔴 (delivery-health inert)</span>
-      <span class="pill" style="color:var(--green)">🟢 Unchanged greens: Command Center published to Pages (RUN-20260618-0537) · PW accuracy export implemented (live accuracy.json: <strong>24 claims</strong>, 0 inaccurate, 0 outdated)</span>
-      <span class="pill" style="color:var(--green)">📉 Overdue CORRECTED via live DB | Personal Tasks: only <strong>3 real overdue</strong> (CR1000A+Eero, Dominic lid, Laptops→Steve). The May-30 home cluster is off the overdue list — <strong>4 Done + 7 rescheduled to 2026-06-30</strong> (not all "cleared"). Prior table just echoed the stale Quick Start static list.</span>
-      <span class="pill" style="color:var(--ink3)">⚪ Unchanged: Source Map (06-17 14:39Z) · Davai current-context (2026-05-22, ~27d) — neither moved this pass</span>
-      <span class="pill" style="color:var(--green)">⚾ Today (06-18): Phillies <strong>host</strong> the Mets — 6:40 PM ET, Citizens Bank Park (ESPN-confirmed); live edition No.79 "Mets @ Phillies G1/3"</span>
-      <span class="pill" style="color:var(--purple)">🔬 Full provenance fact-check ran this pass (3 verify agents): corrected PW accuracy 26→24, propagator stale→current, PromptLab +6 n/a, May-30 split (4 done/7→Jun30), Notion skills 46→47, Mets game confirmed. Projects · FS 60/47/25 · Garden OS · all deploys CONFIRMED.</span>
+      <span class="lead">☁️ 19TH JUN 20 ET PASS — AUTOMATED CLOUD reconcile 2026-06-20 ~6:03 PM EDT (22:03Z). <strong style="color:var(--amber)">DELTA: accuracy.json REGENERATED AGAIN at 21:46:12.253Z (5:46 PM ET Jun 20) — 8th regeneration today; counts 26/25/0/1 UNCHANGED.</strong> <strong style="color:var(--amber)">CORRECTION from 18th pass: Quality OS visual gate is 1d overdue (not 2d; Due Jun 19, today Jun 20).</strong> CORRECTIONS CARRIED: (1) accuracy.json counts corrected (3rd pass had them swapped) · (2) Session Recon 0 pending (not 88; all 103 IDs reconciled) · (3) RUN-20260620-0216-DIRTY-WORKTREE 🟢 39 dirty roots (not 35), 47 clean, 4 invalid. Action Items 1 overdue (Quality OS visual gate, CONFIRMED LIVE this 19th pass) · Ring/Frigate 🟡 · Personal Tasks 3 overdue (68/43/31d). 47 prior runs + this = 24th UTC Jun 20 · 19th Jun 20 ET pass:</span>
+      <span class="pill" style="color:var(--green)">✅ [DELTA · 19th Jun 20 ET pass] Phillies Wire accuracy.json: <strong>Vol. 1 · No. 81</strong> — accuracy.json <strong>REGENERATED AGAIN at 2026-06-20T21:46:12.253Z (5:46 PM ET Jun 20) — 8th regeneration today</strong> (prior regens: 07:06:06Z, 13:32:02Z, 16:35:08Z, 17:48:34.093Z, 18:45:35.650Z, 19:51:50.787Z, 20:44:04.494Z). <strong>COUNTS UNCHANGED: 26 total · 25 accurate · 0 inaccurate · 1 unverifiable</strong>. Headline: "25 of 26 checked claims verified accurate. No inaccuracies. 1 unverifiable." PHI 40-35 L2 2nd NL East. Standings (live): ATL 47-27 · PHI 40-35 (7.5 GB) · WSH 39-37 · MIA 38-38 · NYM 34-41. <strong>TODAY Jun 20 ET: PHI vs NYM (Game 2 of 3) · Citizens Bank Park · Cristopher Sánchez vs Freddy Peralta · 7:15 PM ET · FOX</strong>. Upcoming: Sun Jun 21 Wheeler vs TBD 7:20 PM NBC/Peacock · Mon Jun 22 6:45 PM Nationals.TV · Tue Jun 23 6:45 PM Nationals.TV. All 4 HTTP deploys 200 OK.</span>
+      <span class="pill" style="color:var(--amber)">⚠️ [CARRIED · 16th Jun 20 ET pass] Session Recon — RUN-20260620-0152-SESSION-RECON actual evidence: <strong>640 transcripts; 103 IDs; 0 pending</strong> (83 direct fetched/reconciled + 14 search or prefix seen + 6 transcript recovered; 4 collision groups reconciled; SQL gated). 3rd pass claimed "88 pending" — this was incorrect; all 103 local IDs are accounted for. 🟡 YELLOW carried (SQL gate prevents independent full DB count verification).</span>
+      <span class="pill" style="color:var(--green)">✅ [CARRIED · 16th Jun 20 ET pass] RUN-20260620-0216-DIRTY-WORKTREE 🟢 GREEN — Dirty Worktree Inspection: <strong>39 dirty roots</strong> (vs 35 expected per 06-17 Mac report), 47 clean, 4 invalid git roots, 0 conflicts/detached. Report: ~/Desktop/Code/90-governance/docs/dirty-worktree-inspection-2026-06-20.md (90 roots total). Prior "35 dirty" count from 06-17 Mac scan is superseded for dirty count; clean/timeout/no-remote KPI from that scan still stands. RUN-20260620-0113 Notion Banner Generator 🟢 COMPLETE (Phase 3A; commit d4c0d40) — carried confirmed.</span>
+      <span class="pill" style="color:var(--green)">✅ [CONFIRMED LIVE · 19th Jun 20 ET pass] DB | Action Items (Tier 1) — <strong>1 overdue active row</strong> (view f721c7ea; CONFIRMED LIVE this 19th pass; has_more: false). Only: <strong>Quality OS visual gate after authenticated HA screenshots</strong> (Due Jun 19, 1d overdue [corrected from 18th pass error which said 2d], Medium). World Cup push still 🔴 &gt;84h. DB | Personal Tasks Tier 2 "🔥 Today + Overdue" — <strong>3 overdue</strong>: CR1000A 68d · Dominic 43d · Laptops 31d (confirmed live this 19th pass; unchanged from all prior passes today). Ring/Frigate 🟡 carried (resolved 04:59Z via RUN-20260620-0056).</span>
+      <span class="pill" style="color:var(--ink3)">⚪ 47 prior runs (4 Jun 18 ET cloud reconciles + 24 Jun 19 ET passes + RUN-20260620-0003 1st Jun 20 ET ~12:03 AM + RUN-20260620-0103 2nd Jun 20 ET ~1:03 AM + RUN-20260620-0203 3rd Jun 20 ET ~2:03 AM + RUN-20260620-0216-DIRTY-WORKTREE 🟢 + RUN-20260620-0303 4th Jun 20 ET ~3:03 AM + RUN-20260620-0403 5th Jun 20 ET ~4:03 AM + RUN-20260620-0503 6th Jun 20 ET ~5:03 AM + RUN-20260620-0605 7th Jun 20 ET ~6:05 AM + RUN-20260620-0705 8th Jun 20 ET ~7:05 AM + RUN-20260620-0804 9th Jun 20 ET ~8:04 AM + RUN-20260620-0903 10th Jun 20 ET ~9:03 AM + RUN-20260620-1003 🔴 11th Jun 20 ET ~10:03 AM + RUN-20260620-1103 🔴 12th Jun 20 ET ~11:03 AM + RUN-20260620-1204 🔴 13th Jun 20 ET ~12:04 PM + RUN-20260620-1303 🔴 14th Jun 20 ET ~1:03 PM + RUN-20260620-1403 🔴 15th Jun 20 ET ~2:03 PM + RUN-20260620-1503 🔴 16th Jun 20 ET ~3:05 PM + RUN-20260620-1603 🔴 17th Jun 20 ET ~4:03 PM + RUN-20260620-1703 🔴 18th Jun 20 ET ~5:03 PM) + <strong>this run (RUN-20260620-1803 🔴 ~6:03 PM ET Jun 20 — 24th UTC Jun 20 · 19th Jun 20 ET pass)</strong>. Jun 19 ET had 24 passes; Jun 18 ET had 4 cloud + 3 earlier. Overall workspace light: <strong>🔴</strong> (one verified red &gt;84h: World Cup push).</span>
+      <span class="pill" style="color:var(--ink3)">⚪ CLOUD LIMITATIONS this run: <strong>Davai memory not refreshed</strong> (local Mac only, last sync 2026-05-22 ~29d stale) · <strong>Mac git full scan not regenerated</strong> (local Mac only — last full Mac scan 06-17 08:43 ET, ~81h stale; dirty count superseded by RUN-20260620-0216 Dirty Worktree Inspection which covered 90 roots as of Jun 20 ET). Action Items CONFIRMED LIVE 19th pass (1 overdue, has_more: false). Dev Logs, Projects, LLM Notes not re-queried this run.</span>
       <span class="pill" id="data-age" style="margin-left:auto">snapshot age: …</span>
     </div>
 
     <!-- KPIs -->
     <div class="kpis">
-      <div class="kpi green"><div class="n">6</div><div class="l">New Runs Today (06-18)</div><div class="s">2 🟢 · 3 🟡 · 1 ⚪</div></div>
+      <div class="kpi green"><div class="n">19</div><div class="l">Cloud Passes Today (Jun 20 ET)</div><div class="s">1st 🔴 ~12:03 AM (RUN-0003) · 2nd 🔴 ~1:03 AM (RUN-0103) · 3rd 🔴 ~2:03 AM (RUN-0203) · 4th 🔴 ~3:03 AM (RUN-0303) · 5th 🔴 ~4:03 AM (RUN-0403) · 6th 🔴 ~5:03 AM (RUN-0503) · 7th 🔴 ~6:05 AM (RUN-0605) · 8th 🔴 ~7:05 AM (RUN-0705) · 9th 🔴 ~8:04 AM (RUN-0804) · 10th 🔴 ~9:03 AM (RUN-0903) · 11th 🔴 ~10:03 AM (RUN-1003) · 12th 🔴 ~11:03 AM (RUN-1103) · 13th 🔴 ~12:04 PM (RUN-1204) · 14th 🔴 ~1:03 PM (RUN-1303) · 15th 🔴 ~2:03 PM (RUN-1403) · 16th 🔴 ~3:05 PM (RUN-1503) · 17th 🔴 ~4:03 PM (RUN-1603) · 18th 🔴 ~5:03 PM (RUN-1703) · 19th 🔴 ~6:03 PM (RUN-1803 this run)</div></div>
       <div class="kpi amber"><div class="n">3</div><div class="l">Overdue Tasks</div><div class="s">live DB · May-30: 4 done · 7 → Jun 30</div></div>
-      <div class="kpi green"><div class="n">106</div><div class="l">Mac Repos Scanned</div><div class="s">06-18 Mac rescan · 5 ff-updated</div></div>
+      <div class="kpi amber"><div class="n">106</div><div class="l">Mac Repos Scanned</div><div class="s">06-17 Mac report · ~81h stale · cloud cannot regen</div></div>
       <div class="kpi red"><div class="n">92</div><div class="l">Repos Need Attention</div><div class="s">35 dirty · 35 timeout · 8 no-remote · 4 no-upstream</div></div>
-      <div class="kpi red"><div class="n">2</div><div class="l">Verified Reds Open</div><div class="s">HA Ring/Frigate · World Cup push</div></div>
+      <div class="kpi amber"><div class="n">1</div><div class="l">Verified Reds Open</div><div class="s">World Cup push · &gt;84h · Ring/Frigate resolved 🟡</div></div>
       <div class="kpi green"><div class="n">80</div><div class="l">Inbox Triaged</div><div class="s">routed A–E (06-17)</div></div>
       <div class="kpi green"><div class="n">🟢</div><div class="l">Command Center</div><div class="s">published to Pages + backed up</div></div>
     </div>
@@ -382,37 +584,35 @@
     <section id="today" data-search="today game phillies overdue tasks morning brief calendar">
       <div class="sec-head"><span class="ic">☀️</span><h3>Today</h3>
         <span class="sec-line"></span>
-        <span class="src"><span class="fresh" data-ts="2026-06-18T11:35:00Z"></span>
+        <span class="src"><span class="fresh" data-ts="2026-06-20T22:03:00Z"></span>
           <a href="https://app.notion.com/p/1f2255fc8f44813d85d9d02785b827af" target="_blank">DB | Personal Tasks (Tier 2) ↗</a>
           <span class="small">+ Quick Start</span></span>
       </div>
       <div class="grid g2">
         <div class="card">
-          <h4>⚾ Today's Event <span class="chip green" style="font-weight:700">confirmed · home · 6:40 PM ET</span></h4>
+          <h4>⚾ Today's Event <span class="chip green" style="font-weight:700">GAME DAY · Jun 20 ET</span></h4>
           <p class="muted" style="margin:4px 0 0">
-            <strong style="color:var(--ink)">Phillies vs New York Mets</strong> — Game 1 of 3<br>
-            <strong>6:40 PM ET</strong> · Citizens Bank Park (home)<br>
-            Starters: not yet confirmed</p>
+            <strong style="color:var(--green)">PHI vs NYM · Citizens Bank Park · Cristopher Sánchez vs Freddy Peralta · 7:15 PM ET · FOX</strong></p>
           <p class="small" style="margin-top:10px">
-            🟢 <em>06-18 verified:</em> ESPN schedule confirms the Phillies <strong>host</strong> the <strong>Mets</strong> tonight, first pitch <strong>6:40 PM ET</strong>. The live Phillies Wire edition rolled to <strong>Vol. 1 · No. 79</strong> — "Mets @ Phillies · Game 1 of 3" (<a href="https://davehomeassist.github.io/phillies-wire/" target="_blank">edition ↗</a>). Yesterday's Marlins series has retired off the Today rail.</p>
+            🟢 <em>Jun 20 ET cloud note (~5:03 PM ET, 18th Jun 20 pass):</em> Today is Game 2 of the Mets series. The live Phillies Wire edition is <strong>Vol. 1 · No. 81</strong> (<a href="https://davehomeassist.github.io/phillies-wire/" target="_blank">edition ↗</a>); accuracy.json <strong>REGENERATED AGAIN at 2026-06-20T20:44:04.494Z (4:44 PM ET Jun 20)</strong> — 7th regeneration today (prior: 07:06:06Z, 13:32:02Z, 16:35:08Z, 17:48:34.093Z, 18:45:35.650Z, 19:51:50.787Z); counts: <strong>26 total · 25 accurate · 0 inaccurate · 1 unverifiable</strong> (COUNTS CHANGED from 24/23/0/1). PHI 40-35 L2 2nd NL East. Standings (live from accuracy.json): ATL 47-27 · PHI 40-35 (7.5 GB) · WSH 39-37 · MIA 38-38 · NYM 34-41. Starters today: Cristopher Sánchez (PHI) vs Freddy Peralta (NYM) 7:15 PM ET (FOX). Also: Zack Wheeler (PHI) vs TBD Sun Jun 21 7:20 PM (NBC/Peacock) · road at Nationals Mon Jun 22 &amp; Tue Jun 23 6:45 PM Nationals.TV.</p>
         </div>
         <div class="card">
-          <h4>📋 Morning Brief <span class="chip green" style="font-weight:700">live DB · 06-18</span></h4>
-          <p class="muted" style="margin:4px 0 0"><strong style="color:var(--amber)">3 genuinely overdue</strong> · 0 due today. Verified by live query of <strong>DB | Personal Tasks (Tier 2)</strong> "🔥 Today + Overdue" view — the May-30 home cluster is off the overdue list (<strong style="color:var(--green)">4 done, 7 rescheduled to 2026-06-30</strong>).</p>
+          <h4>📋 Morning Brief <span class="chip green" style="font-weight:700">live DB · Jun 20 ET</span></h4>
+          <p class="muted" style="margin:4px 0 0"><strong style="color:var(--amber)">3 genuinely overdue</strong> · 0 due today (Jun 20 ET). Verified by live query of <strong>DB | Personal Tasks (Tier 2)</strong> "🔥 Today + Overdue" view (1st Jun 20 ET pass, 04:03Z Jun 20; unchanged at 2nd pass 05:03Z, 3rd pass 06:03Z, 4th pass 07:03Z, 5th 08:03Z, 6th 09:03Z, and <strong>18th pass (~5:03 PM ET, 21:03Z)</strong>) — the May-30 home cluster is off the overdue list (<strong style="color:var(--green)">4 done, 7 rescheduled to 2026-06-30</strong>). Days overdue as of Jun 20 ET.</p>
           <div class="progrow"><span>May-30 home cluster → done vs rescheduled vs the 3 real overdue</span><b>4 done · 7 → Jun 30 · 3 overdue</b></div>
           <div class="prog amber"><i style="width:20%"></i></div>
-          <p class="small" style="margin:8px 0 0">✅ <em>Correction this pass:</em> the prior dashboard echoed the Quick Start page's <strong>stale 06-17 static table</strong> (15 rows, mostly May-30) and never re-bucketed it. Live <strong>DB | Personal Tasks (Tier 2)</strong> shows the whole May-30 cluster is now Due <strong>2026-06-30</strong> — <strong>4 completed, 7 rescheduled</strong> — so the "🔥 Today + Overdue" view returns only the 3 genuinely-late older items (Apr 13 / May 08 / May 20). Quick Start is launchpad-only per the Source Map, so its table was never status truth.</p>
+          <p class="small" style="margin:8px 0 0">✅ <em>Confirmed live 1st Jun 20 ET pass (~12:03 AM ET); unchanged at 2nd pass (~1:03 AM ET) and 3rd pass (~2:03 AM ET):</em> Live <strong>DB | Personal Tasks (Tier 2)</strong> shows the whole May-30 cluster is Due <strong>2026-06-30</strong> — <strong>4 completed, 7 rescheduled</strong> — so the "🔥 Today + Overdue" view returns only the 3 genuinely-late older items (Apr 13 / May 08 / May 20). Quick Start is launchpad-only per the Source Map, not status truth.</p>
         </div>
       </div>
       <details class="row" open style="margin-top:14px">
-        <summary>📋 Overdue tasks — LIVE from DB | Personal Tasks (Tier 2) · 3 rows (06-18)</summary>
+        <summary>📋 Overdue tasks — LIVE from DB | Personal Tasks (Tier 2) · 3 rows (Jun 20 ET)</summary>
         <div class="body">
-          <p class="small" style="margin:0 0 8px;color:var(--green)">✅ Live <code>notion-query-database-view</code> on the "🔥 Today + Overdue" view (Status ≠ Complete, Due ≤ today). These 3 are the <em>only</em> overdue personal tasks. The old 06-17 static 15-row table (May-30 home cluster) is retired — those rows are now Due 2026-06-30 (4 done, 7 rescheduled), so none are overdue.</p>
+          <p class="small" style="margin:0 0 8px;color:var(--green)">✅ Live <code>notion-query-database-view</code> on the "🔥 Today + Overdue" view (Status ≠ Complete, Due ≤ today) — queried at 1st Jun 20 ET pass (~12:03 AM ET, 04:03Z); unchanged at 2nd (05:03Z), 3rd (06:03Z), 4th (07:03Z), 5th (08:03Z), 6th (09:03Z), and <strong>18th pass (~5:03 PM ET, 21:03Z)</strong>. These 3 are the <em>only</em> overdue personal tasks. The old 06-17 static 15-row table (May-30 home cluster) is retired — those rows are now Due 2026-06-30 (4 done, 7 rescheduled), so none are overdue. Days-overdue as of 2026-06-20 ET.</p>
           <table class="tb">
             <tr><th>Task</th><th>Due</th><th>Days Over</th><th>Priority</th><th>Status</th></tr>
-            <tr><td>Install CR1000A passthrough + Eero mesh @ 56 Harding</td><td class="n">Apr 13</td><td class="n">66</td><td>High</td><td><span class="chip amber">To&nbsp;Do</span></td></tr>
-            <tr><td>Configure Dominic to run with lid closed</td><td class="n">May 08</td><td class="n">41</td><td>High</td><td><span class="chip blue">Doing</span></td></tr>
-            <tr><td>Laptops: CC to Steve?</td><td class="n">May 20</td><td class="n">29</td><td>Urgent</td><td><span class="chip amber">To&nbsp;Do</span></td></tr>
+            <tr><td>Install CR1000A passthrough + Eero mesh @ 56 Harding</td><td class="n">Apr 13</td><td class="n">68</td><td>High</td><td><span class="chip amber">To&nbsp;Do</span></td></tr>
+            <tr><td>Configure Dominic to run with lid closed</td><td class="n">May 08</td><td class="n">43</td><td>High</td><td><span class="chip blue">Doing</span></td></tr>
+            <tr><td>Laptops: CC to Steve?</td><td class="n">May 20</td><td class="n">31</td><td>Urgent</td><td><span class="chip amber">To&nbsp;Do</span></td></tr>
           </table>
           <p class="small" style="margin:8px 0 0">Source rows: <a href="https://app.notion.com/p/341255fc8f448151b856e591807eba81" target="_blank">CR1000A ↗</a> · <a href="https://app.notion.com/p/359255fc8f448005aa9de054d6182471" target="_blank">Dominic ↗</a> · <a href="https://app.notion.com/p/341255fc8f44816bb012e9d6db16817e" target="_blank">Laptops ↗</a></p>
         </div>
@@ -535,8 +735,32 @@
           <div class="prog amber"><i style="width:67%"></i></div>
         </div>
         <div class="card">
-          <h4 style="margin:0 0 6px">🚦 Status Runs — live DB view query · 6 new runs today (06-18)</h4>
-          <p class="small" style="margin:0 0 10px">✅ <strong>Row query live:</strong> <code>notion-query-database-view</code> on <code>collection://2b1b2128-0dd4-41cb-b469-b6ca9047dec0</code> returns rows directly (no fallback). Newest is now <strong>RUN-20260418-0001 🟡 11:01Z</strong> (PromptLab daily-status dashboard re-verified). <strong>Today's 6 runs:</strong> Command Center publish 🟢, SOP Governance DB 🟢, PromptLab daily-status dashboard 🟡 ×2 (<span style="color:var(--amber)">DUPLICATE RUN</span> 09:02Z + 11:01Z, same target, still yellow), Family Calendar 🟡, Claude Usage ⚪. The 06-17 set is now historical. Lowest light wins per target.</p>
+          <h4 style="margin:0 0 6px">🚦 Status Runs — DB confirmed via notion-query-database-view (live query) · <strong>46 prior cloud runs (24 Jun 19 ET passes + 4 UTC Jun 20 Jun 18/19 ET + RUN-20260620-0003 1st Jun 20 ET + RUN-20260620-0103 2nd Jun 20 ET + RUN-20260620-0203 3rd Jun 20 ET + RUN-20260620-0216-DIRTY-WORKTREE 🟢 + RUN-20260620-0303 4th Jun 20 ET + RUN-20260620-0403 5th Jun 20 ET + RUN-20260620-0503 6th Jun 20 ET + RUN-20260620-0605 7th Jun 20 ET + RUN-20260620-0705 8th Jun 20 ET + RUN-20260620-0804 9th Jun 20 ET + RUN-20260620-0903 10th Jun 20 ET + RUN-20260620-1003 11th Jun 20 ET + RUN-20260620-1103 12th Jun 20 ET + RUN-20260620-1204 13th Jun 20 ET + RUN-20260620-1303 14th Jun 20 ET + RUN-20260620-1403 15th Jun 20 ET + RUN-20260620-1503 16th Jun 20 ET + RUN-20260620-1603 17th Jun 20 ET) + this run (RUN-20260620-1703 🔴 ~5:03 PM ET Jun 20) = 23rd UTC Jun 20 · 18th Jun 20 ET pass</strong></h4>
+          <p class="small" style="margin:0 0 10px">✅ <strong>RUN-20260620-0403 🔴 (5th Jun 20 ET / 08:03Z) + RUN-20260620-0303 🔴 (4th Jun 20 ET / 07:03Z) + RUN-20260620-0216-DIRTY-WORKTREE 🟢 (06:16Z) + RUN-20260620-0152-SESSION-RECON 🟡 (05:52Z) + RUN-20260620-0113 Notion Banner Generator 🟢 (05:15Z) + RUN-20260620-0056-RING-FRIGATE-RECON 🟡 (04:59Z) + RUN-20260620-0103 🔴 (2nd Jun 20 ET / 05:03Z) + RUN-20260620-0003 🔴 (1st Jun 20 ET / 04:03Z) + RUN-20260620-0503 🔴 6th Jun 20 ET pass ~5:03 AM ET / 09:03Z + RUN-20260620-0605 🔴 7th Jun 20 ET pass ~6:05 AM ET / 10:05Z + RUN-20260620-0705 🔴 8th Jun 20 ET pass ~7:05 AM ET / 11:05Z + RUN-20260620-0804 🔴 9th Jun 20 ET pass ~8:04 AM ET / 12:04Z + RUN-20260620-0903 🔴 10th Jun 20 ET pass ~9:03 AM ET / 13:03Z + RUN-20260620-1003 🔴 11th Jun 20 ET pass ~10:03 AM ET / 14:03Z + RUN-20260620-1103 🔴 12th Jun 20 ET pass ~11:03 AM ET / 15:03Z + RUN-20260620-1204 🔴 13th Jun 20 ET pass ~12:04 PM ET / 16:04Z + RUN-20260620-1303 🔴 14th Jun 20 ET pass ~1:03 PM ET / 17:03Z + RUN-20260620-1503 🔴 16th Jun 20 ET pass ~3:05 PM ET / 19:05Z + RUN-20260620-1603 🔴 17th Jun 20 ET pass ~4:03 PM ET / 20:03Z + this run (RUN-20260620-1703 🔴 18th Jun 20 ET pass ~5:03 PM ET / 21:03Z).</strong> Jun 19 ET had 24 passes total. Jun 18 ET had 7 total passes (all 🟢). Jun 17 ET newest: <strong>RUN-20260617-1147 🔴 (24h followup)</strong>. Full Jun 17 ET set (carried): Skill Base 🟢 · Quick Start 🟢 · Command Center 🟢 · SOP Gov 🟢 · PlotForge P0-2 🟢 · Cloud-2130 🟢 · Cloud-2200 🟢 · Cloud-2300 🟢 · PlotForge Fixture 🟡 · Git Sync 🟡 · PromptLab ×2 🟡 · Family Calendar 🟡 · Claude Usage ⚪ · 24h Followup 🔴. Overall light: <strong style="color:var(--red)">🔴</strong> (one verified red &gt;83h: World Cup push; Ring/Frigate resolved 🟡).</p>
+          <details class="row" open><summary><span class="chip amber">🟡</span> Session Run Reconciliation — 15 checked, SQL gated <span class="small">(NEW · 06-20 05:52Z)</span></summary>
+            <div class="body">RUN-20260620-0152-SESSION-RECON. <strong>🟡 YELLOW.</strong> 640 transcripts; 103 local IDs; <strong>0 pending</strong>; 103 IDs reconciled (83 direct fetched/reconciled + 14 search or prefix seen + 6 transcript recovered; 4 collision groups reconciled; SQL gated). Full DB SQL count remains gated by the Notion connector plan limit. Sub-task override: YES (SQL gate prevents full count proof). Source: <a href="https://app.notion.com/p/385255fc8f4481d8b08ad2149accaaf2" target="_blank">Status Run ↗</a>.</div></details>
+          <details class="row" open><summary><span class="chip green">🟢</span> Notion Banner Generator — Phase 3A provider adapters COMPLETE <span class="small">(NEW · 06-20 05:15Z)</span></summary>
+            <div class="body">RUN-20260620-0113. <strong>🟢 GREEN.</strong> Phase 3A complete: AI provider adapters and freeform create_recipe verified. Commit <code>d4c0d40</code>: provider adapters, freeform create_recipe, tests/build/mcp smoke all pass. Target: <a href="https://github.com/DaveHomeAssist/notion-banner-generator/commit/d4c0d40e36b48028dac3c5b8b5e755890792c5b0" target="_blank">commit d4c0d40 ↗</a>. Source: <a href="https://app.notion.com/p/385255fc8f44819bb6ebed4cc0516efe" target="_blank">Status Run ↗</a>.</div></details>
+          <details class="row" open><summary><span class="chip green">🟢</span> Metagrid Harding Scanner — complete <span class="small">(NEW · 06-19 ~22:21Z)</span></summary>
+            <div class="body">RUN-20260619-METAGRID-SCANNER. <strong>🟢 GREEN.</strong> Metagrid Harding Scanner Closeout COMPLETE. Dave's iPad Pro 11-inch M4 produced a real <code>scan.v1</code> RoomPlan export with 6 walls; planner verifier passed. Code proof: <code>b68d73bf7f37aa2ea6a84848e06b9c69971fc3f5</code> on <code>origin/feat/metagrid-electrical-bridge</code>. Action Item "Commit or publish Metagrid electrical HTML progress fix" is now <strong>Done</strong> in DB | Action Items (Tier 1). Context update filed under Quick Start (Command Center Action Layer). Open next steps: Full Disk Access for VSCode → <code>sudo du</code> → identify hidden system-data bucket → install full Xcode → continue LiDAR scanner round trip. Source: Notes @Today 2026-06-19 Reconciliation section (22:21Z) + <a href="https://app.notion.com/p/384255fc8f44819e8a13fd460503de31" target="_blank">Status Run ↗</a>.</div></details>
+          <details class="row" open><summary><span class="chip red">🔴</span> AOE2 + Mixmash Phase 9 — uncommitted local changes <span class="small">(NEW · 06-19 19:14Z)</span></summary>
+            <div class="body">RUN-20260619-1513. <strong>🔴 RED.</strong> AOE2 Companion + Mixmash Phase 9 uncommitted local changes detected. Source repo(s) not pushed. Remains open at this cloud pass. Evidence from live DB | Status Runs All Runs view query (~20:02Z).</div></details>
+          <details class="row" open><summary><span class="chip green">🟢</span> DB Notes &amp; Logs Backfill — complete <span class="small">(NEW · 06-19 19:32Z)</span></summary>
+            <div class="body">RUN-20260619-1532. <strong>🟢 GREEN.</strong> DB | Notes &amp; Logs backfill complete. All target entries logged. Evidence from live DB | Status Runs All Runs view query (~20:02Z).</div></details>
+          <details class="row" open><summary><span class="chip green">🟢</span> SHAR Install Guide — layout refactor complete <span class="small">(NEW · 06-19 19:40Z)</span></summary>
+            <div class="body">RUN-20260619-1539. <strong>🟢 GREEN.</strong> SHAR Install Guide layout refactor complete. Evidence from live DB | Status Runs All Runs view query (~20:02Z).</div></details>
+          <details class="row" open><summary><span class="chip amber">🟡</span> PromptLab — Favorites Pack <span class="small">(NEW · 06-19 20:13Z)</span></summary>
+            <div class="body">RUN-20260619-1613. <strong>🟡 YELLOW.</strong> PromptLab Favorites Pack run. Evidence from live notion-search query (~21:03Z, 18th pass).</div></details>
+          <details class="row" open><summary><span class="chip amber">🟡</span> PromptLab — GTM Plan &amp; Deck <span class="small">(NEW · 06-19 20:13Z)</span></summary>
+            <div class="body">RUN-20260619-2013. <strong>🟡 YELLOW.</strong> PromptLab GTM Plan &amp; Deck run. Evidence from live notion-search query (~21:03Z, 18th pass).</div></details>
+          <details class="row" open><summary><span class="chip amber">🟡</span> AOE2 NAT Traversal <span class="small">(NEW · 06-19 20:14Z)</span></summary>
+            <div class="body">RUN-20260619-2014. <strong>🟡 YELLOW.</strong> AOE2 NAT Traversal run. Evidence from live notion-search query (~21:03Z, 18th pass).</div></details>
+          <details class="row" open><summary><span class="chip red">🔴</span> 24h Follow-Up Checkup — both reds unresolved <span class="small">(NEW · 06-18 18:03Z)</span></summary>
+            <div class="body">RUN-20260618-FOLLOWUP-24H. <strong>Ring/Frigate:</strong> RUN-20260617-HA-RING-FRIGATE still RED — no newer run. <strong>World Cup:</strong> RUN-20260617-WORLD-CUP-GITHUB still RED. <strong>PromptLab:</strong> 0e13d8e still To Do, site 200, push gate still open. <strong>May-30 cluster</strong> not in Action Items Tier 1. <strong>TD Bank status changed to Archive.</strong> Sites healthy (200). Sub-task override: YES (two reds unresolved at 24h).</div></details>
+          <details class="row" open><summary><span class="chip green">🟢</span> PlotForge — P0-2 Fixture Library DONE <span class="small">(NEW · 06-18 18:01Z)</span></summary>
+            <div class="body">RUN-20260618-1401. <strong>Delta: was 🟡 at the 11:35 pass.</strong> GDTF live <strong>17/17 records</strong>; fixture add flow, OFL import lane; lint/test/build/smoke/browser all pass; mobile no overflow. P0-2 is now fully closed green. Prior run RUN-20260618-0908 (13:08Z) had flagged the PDF as roadmap/schema-only with no concrete fixture rows — that gap is now resolved.</div></details>
+          <details class="row"><summary><span class="chip amber">🟡</span> Workspace Git Sync — residual refs remain <span class="small">(NEW · 06-18 17:42Z)</span></summary>
+            <div class="body">RUN-20260618-1341. Source report found; local evidence written. <strong>6 malformed refs</strong> and timeout gaps remain: metagrid fetch/ref OK, others timed out. Four-repo checks mixed. Sub-task override: YES (residual malformed refs pull closeout down from the four-repo cleanup). Evidence: <a href="https://app.notion.com/p/382255fc8f44809fa8dcdd8f8f57a5b6" target="_blank">Git Sync Report ↗</a>.</div></details>
           <details class="row" open><summary><span class="chip amber">🟡</span> PromptLab daily-status dashboard — re-verified <span class="small">(NEW · 06-18 11:01Z · DUPLICATE RUN vs 09:02Z)</span></summary>
             <div class="body">RUN-20260418-0001-PROMPTLAB-DASHBOARD. <strong>Newest run in the DB.</strong> Collector + renderer verified again; scheduled task <code>promptlab-daily-status</code> registered but <strong>still never fired</strong>; 2 leftover UTC-dated files can't be removed in-session. Same target as RUN-20260618-0400-PLB-DASHBOARD (09:02Z) → <strong>DUPLICATE RUN</strong>, grouped by target, newest shown. Stays 🟡. LLM note logged 11:02Z.</div></details>
           <details class="row" open><summary><span class="chip green">🟢</span> Command Center — published to iPad + source backed up <span class="small">(NEW · 06-18 09:39Z · was 🟡)</span></summary>
@@ -557,8 +781,10 @@
             <div class="body">~85–90% complete structurally; needs execution-control layers. Open: status tracking + closeout rules · inventory metadata/location/reorder · safety/SDS logs · review cadence · garden health logs.</div></details>
           <details class="row"><summary><span class="chip amber">🟡</span> DB links + update queue — 04:27</summary>
             <div class="body">9 DB links verified on-page. Later Notes @Today updates resolved the first four queue categories; source blockers remain for repo/system closeout.</div></details>
-          <details class="row" open data-project="Home Assistant" data-source-name="DB | Status Runs" data-source-url="https://app.notion.com/p/382255fc8f4481aeafd8ef8dd6a11655" data-source-ts="2026-06-17T10:59:38.504Z" data-item-age="fetched 2026-06-17 10:59Z" data-destination="Jerri in DB | Status Runs plus Dominic terminal" data-related-key="ha-ring-frigate" data-confidence="high" data-nextsteps="Complete Ring auth and 2FA.||Free or expand /srv/media before starting Frigate.||Discover Ring camera IDs, write final Frigate config, start Frigate, then wire HA monitoring."><summary><span class="chip red">🔴</span> Home Assistant Ring Frigate recheck — 10:59 ET</summary>
-            <div class="body">Mosquitto and ring-mqtt are running, but Ring state is absent, no refresh token is present, Frigate is not running, <code>/srv/media</code> is 100% full, <code>/srv/media/immich</code> is 196 GB, and <code>/mnt/beast</code> is read-only. Tier 1: complete Ring login/2FA, free or expand storage, discover camera IDs, write final Frigate config, then start Frigate and wire HA monitoring.</div></details>
+          <details class="row" open><summary><span class="chip amber">🟡</span> Home Assistant Ring/Frigate — RESOLVED TO YELLOW <span class="small">(NEW · 06-20 04:59Z)</span></summary>
+            <div class="body">RUN-20260620-0056-RING-FRIGATE-RECON. <strong>🟡 YELLOW.</strong> Ring auth complete; ring-mqtt publishing state to Mosquitto. Frigate container running with camera config applied. New follow-up Action Item logged: "Follow up on Frigate monitoring, HA wiring, and rendered Ring/Frigate previews" (Medium priority, no due date). Ring/Frigate transitions from 🔴 RED to 🟡 YELLOW. Source: <a href="https://app.notion.com/p/382255fc8f4481aeafd8ef8dd6a11655" target="_blank">original Status Run ↗</a>.</div></details>
+          <details class="row" data-project="Home Assistant" data-source-name="DB | Status Runs" data-source-url="https://app.notion.com/p/382255fc8f4481aeafd8ef8dd6a11655" data-source-ts="2026-06-17T10:59:38.504Z" data-item-age="fetched 2026-06-17 10:59Z" data-destination="Jerri in DB | Status Runs plus Dominic terminal" data-related-key="ha-ring-frigate" data-confidence="high" data-nextsteps="Follow up on Frigate monitoring and HA entity wiring.||Verify rendered Ring/Frigate camera previews in HA.||Confirm go2rtc and ffmpeg streams are stable."><summary><span class="chip amber">🟡</span> Home Assistant Ring Frigate — 🟡 YELLOW (was 🔴 · resolved 04:59Z Jun 20)</summary>
+            <div class="body"><strong>Prior state (10:59 ET Jun 17):</strong> Mosquitto and ring-mqtt running but Ring state absent; Frigate not running; <code>/srv/media</code> 100% full; <code>/srv/media/immich</code> 196 GB; <code>/mnt/beast</code> read-only. <strong>Resolved at 04:59Z Jun 20 (RUN-20260620-0056-RING-FRIGATE-RECON 🟡):</strong> Ring auth complete, Frigate running, camera config applied. Follow-up task logged in DB | Action Items (Medium, no due date): verify monitoring, HA wiring, rendered previews.</div></details>
           <details class="row" open data-project="System by Dave / AV Suite" data-source-name="DB | Status Runs" data-source-url="https://app.notion.com/p/3f5fab18a8974475a548ba43936deec9" data-source-ts="2026-06-17T09:56:00Z" data-item-age="Status Run created 2026-06-17 09:56Z" data-destination="Terminal with gh auth + git remote on the World Cup app repo" data-related-key="world-cup-push" data-confidence="high" data-nextsteps="Authenticate gh and confirm a git origin remote exists.||Restore the deleted working tree from commit c3bf066 before any push.||Push only after auth, origin, and a clean restore are verified."><summary><span class="chip red">🔴</span> World Cup App — GitHub push BLOCKED <span class="small">(NEW · 09:56 ET)</span></summary>
             <div class="body">New red this pass (RUN-20260617-WORLD-CUP-GITHUB). Push blocked: <code>gh</code> not authenticated, no <code>origin</code> remote configured, and the working tree was deleted. Commit <code>c3bf066</code> is preserved; LLM note promoted; Tier 1 task "Push world-cup-app to GitHub" is Waiting/High.</div></details>
           <details class="row" data-project="Workspace Notion OS" data-source-name="DB | Status Runs" data-source-url="https://app.notion.com/p/3f5fab18a8974475a548ba43936deec9" data-source-ts="2026-06-17T12:17:00Z" data-item-age="Status Run created 2026-06-17 12:17Z" data-destination="This dashboard repo + a loop runtime decision" data-related-key="command-center" data-confidence="high" data-nextsteps="Pick the loop runtime and cadence (cloud routine publishing to Pages vs local /loop).||Relocate dashboard artifacts out of /tmp into the canonical repo path.||Add a confidence/provenance model to the schema before canonizing the loop, and regenerate the git-sync report."><summary><span class="chip green">🟢</span> Command Center self-run — 06-17 12:17 → superseded by 06-18 publish</summary>
@@ -566,13 +792,13 @@
           <details class="row" data-project="Home Assistant" data-source-name="DB | Status Runs" data-source-url="https://app.notion.com/p/382255fc8f44813ab048d77f7ea34051" data-source-ts="2026-06-17T05:58:04.212Z" data-item-age="fetched 2026-06-17 05:58Z" data-destination="Codex in Home Assistant repo plus authenticated HA browser profile" data-related-key="ha-dashboard" data-confidence="high" data-nextsteps="Create an authenticated Home Assistant browser profile.||Capture desktop and mobile screenshots for key dashboard routes.||Rerun visual QA before calling the visual pass green."><summary><span class="chip amber">🟡</span> Home Assistant Canon Status — 06-17</summary>
             <div class="body">Route and JSON smoke checks passed: 20 visible dashboards, 23 storage dashboards, 72 routes, 0 route failures. Authenticated desktop/mobile screenshot capture is still open; Browserless login-allowed captures are not visual proof.</div></details>
           <details class="row" data-project="Phillies Wire" data-source-name="DB | Status Runs" data-source-url="https://app.notion.com/p/382255fc8f44811ebaf7c473c61f9009" data-source-ts="2026-06-17T09:35:47.974Z" data-item-age="fetched 2026-06-17 09:35Z" data-destination="Phillies Wire repo plus DB | Action Items automation task" data-related-key="phillies-accuracy" data-confidence="high" data-nextsteps="Wire factcheck.mjs to emit accuracy.json for each run.||Verify schema accuracy-1.0.0 and current edition data after export.||Publish only after stale metadata is gone."><summary><span class="chip green">🟢</span> Phillies Wire accuracy export — now IMPLEMENTED <span class="small">(updated since last pass)</span></summary>
-            <div class="body">🟢 <strong>Delta:</strong> RUN-20260617-PW-ACCURACY now reads green — <em>"Accuracy export is implemented, pushed, deployed, and live verified: 26 claims, 0 inaccurate, 0 outdated; publish run 27710195180 succeeded."</em> The 06-17 dashboard had this as 🟡 "export open / 21 claims hand-seeded" — that follow-up is <strong>closed</strong>: <code>accuracy.json</code> is now generated, not hand-seeded. <strong>Live 06-18 recheck:</strong> the edition rolled to <strong>No.79</strong> and accuracy.json now reports <strong>24 claims</strong>, 0 inaccurate, 0 outdated (the 26 was the 06-17 count).</div></details>
+            <div class="body">🟢 <strong>Delta:</strong> RUN-20260617-PW-ACCURACY now reads green — <em>"Accuracy export is implemented, pushed, deployed, and live verified: 26 claims, 0 inaccurate, 0 outdated; publish run 27710195180 succeeded."</em> The 06-17 dashboard had this as 🟡 "export open / 21 claims hand-seeded" — that follow-up is <strong>closed</strong>: <code>accuracy.json</code> is now generated, not hand-seeded. <strong>Live 06-20 cloud recheck (3rd Jun 20 ET pass, 06:03Z):</strong> Vol.1 No.81 — <strong>24 total · 23 accurate · 0 unverifiable · 1 inaccurate · 0 outdated</strong> (accuracy.json REGENERATED 05:33:28Z / 1:33 AM ET Jun 20; PHI 40-35 L2 2nd NL East). Prior No.80 (17/14/3/0) superseded.</div></details>
           <details class="row" open><summary><span class="chip red">🔴</span> Phillies Wire reliability — delivery-health signal inert <span class="small">(escalated 🟡→🔴 · 11:48Z)</span></summary>
             <div class="body">🔴 <strong>Delta:</strong> RUN-20260617-1147 escalated from 🟡 to 🔴 — <em>"delivery health signal inert; nothing writes delivery-status.json so the partial-fail alert can't fire; git unreachable, commit state unverifiable."</em> Lookup Result = Error, Failure Type = Query Timeout. So PW splits: accuracy export 🟢, but the reliability/delivery-health target is now a verified red.</div></details>
           <details class="row"><summary><span class="chip amber">🟡</span> System by Dave AV status sync — 06-17</summary>
             <div class="body">Live AV pages return HTTP 200 and GitHub Pages is built from <code>main</code> at <code>232651a</code>. Open: bad git ref <code>refs/heads/main 2</code>, untracked artifacts, missing <code>@playwright/test</code>, and native prompt/confirm cleanup in AV files.</div></details>
-          <details class="row"><summary><span class="chip amber">🟡</span> Metagrid electrical suite verification — 06-17</summary>
-            <div class="body">Local parse/jsdom checks are green for <code>residential-wiring-reference.html</code> and <code>basement-planner.html</code>. One residential progress integrity fix remains uncommitted or unpublished.</div></details>
+          <details class="row" open><summary><span class="chip green">🟢</span> Metagrid Harding Scanner — COMPLETE <span class="small">(NEW · 06-19 ~22:21Z · was 🟡)</span></summary>
+            <div class="body">🟢 RUN-20260619-METAGRID-SCANNER. iPad Pro 11-inch M4 produced real <code>scan.v1</code> RoomPlan export with 6 walls; planner verifier passed. Code: <code>b68d73bf7f37aa2ea6a84848e06b9c69971fc3f5</code> on <code>origin/feat/metagrid-electrical-bridge</code>. Action Item "Commit or publish Metagrid electrical HTML progress fix" now <strong>Done</strong> in DB | Action Items (Tier 1). Prior state: local parse/jsdom checks green but progress fix uncommitted. Open next: Full Disk Access for VSCode → <code>sudo du</code> → hidden system-data bucket → full Xcode → LiDAR scanner round trip. Source: Notes @Today 22:21Z · <a href="https://app.notion.com/p/384255fc8f44819e8a13fd460503de31" target="_blank">Status Run ↗</a>.</div></details>
         </div>
       </div>
     </section>
@@ -615,12 +841,12 @@
 
       <div class="card table-card" style="padding:6px 6px;margin-top:14px">
         <table class="srcgrid">
-          <tr><th>Cowork run</th><th>Cadence</th><th>Today (06-17)</th><th>Evidence / latest artifact</th></tr>
+          <tr><th>Cowork run</th><th>Cadence</th><th>Today (Jun 20 ET)</th><th>Evidence / latest artifact</th></tr>
           <tr><td>🧬 Frontier Signals cross-desk daily</td><td class="small">daily ~6am ET</td><td><span class="chip green">🟢 published</span></td><td><a href="https://app.notion.com/p/382255fc8f4481828946f99409d755de" target="_blank">FS 2026-06-17 ↗</a></td></tr>
           <tr><td>🤖 Chip signals (Chips desk)</td><td class="small">daily</td><td><span class="chip green">🟢 in FS</span></td><td class="small">no new P1 chips today</td></tr>
           <tr><td>🐙 Git repo sync</td><td class="small">daily</td><td><span class="chip green">🟢 06-18 Mac rescan + pull</span></td><td><a href="https://app.notion.com/p/382255fc8f44809fa8dcdd8f8f57a5b6" target="_blank">Digit report ↗</a> · 06-18 Mac pass: 106 repos, 5 ff-updated, 92 attention (evidence in 90-governance/docs)</td></tr>
-          <tr><td>⚾ Phillies Wire factcheck</td><td class="small">daily</td><td><span class="chip amber">🟡 live green, export open</span></td><td><a href="https://app.notion.com/p/382255fc8f448193b153f9bbef54c2c5" target="_blank">Accuracy 06-17 ↗</a> · 21 claims, 0 inaccurate · auto export still open</td></tr>
-          <tr><td>⚾ Fix Phillies Wire JSON parser</td><td class="small">daily</td><td><span class="chip green">🟢 published</span></td><td class="small">Vol.1 No.78 · workflow success · accuracy.json still hand-seeded</td></tr>
+          <tr><td>⚾ Phillies Wire factcheck</td><td class="small">daily</td><td><span class="chip green">🟢 live · accuracy.json</span></td><td><a href="https://davehomeassist.github.io/phillies-wire/" target="_blank">Vol.1 No.81 ↗</a> · <strong>26 claims · 25 accurate · 0 inaccurate · 1 unverifiable</strong> · PHI 40-35 L2 2nd NL East · <strong>GAME DAY Jun 20 ET: PHI vs NYM 7:15 PM ET · Sánchez vs Peralta · FOX</strong> · accuracy.json <strong>REGENERATED AGAIN at 2026-06-20T20:44:04.494Z (4:44 PM ET Jun 20)</strong> — 7th regeneration today (prior: 07:06:06Z, 13:32:02Z, 16:35:08Z, 17:48:34.093Z, 18:45:35.650Z, 19:51:50.787Z); <strong>COUNTS CHANGED from 24/23/0/1 to 26/25/0/1</strong></td></tr>
+          <tr><td>⚾ Fix Phillies Wire JSON parser</td><td class="small">daily</td><td><span class="chip green">🟢 published</span></td><td class="small">Vol.1 No.81 · workflow success · accuracy.json live-generated (not hand-seeded)</td></tr>
           <tr><td>🪴 Garden OS daily self-improve</td><td class="small">daily ~9am ET</td><td><span class="chip green">🟢 fired 06-17</span></td><td>LLM note logged <strong>06-17 13:15Z</strong> · <a href="https://app.notion.com/p/381255fc8f4481d196e6faf654c0cf73" target="_blank">06-16 report ↗</a> · today's body still thin</td></tr>
           <tr><td>🧪 PromptLab daily status</td><td class="small">daily 08:00</td><td><span class="chip amber">🟡 scheduler created 06-18</span></td><td class="small">collector+renderer shipped, cron <code>0 8 * * *</code>; not yet fired (RUN-20260618-0400-PLB-DASHBOARD)</td></tr>
           <tr><td>📥 Daily Notion inbox sort</td><td class="small">daily</td><td><span class="chip amber">🟡 blocked 2× · held</span></td><td class="small">06-18 11:09Z · processed 10, moved 0, held 10 · 2nd consecutive block · needs human routing decision</td></tr>
@@ -709,16 +935,16 @@
         <span class="sec-line"></span>
         <span class="src"><span class="fresh" data-ts="2026-06-17T11:38:14Z"></span></span>
       </div>
-      <p class="small" style="margin:-6px 0 12px">Primary source: DB | Action Items (Tier 1) at <code>collection://d89aeb41-8e13-4951-ac2f-7927d0a7ee74</code> — <strong>live row query restored this pass</strong> (⚡ Active Command Queue view; 32 items captured 06-17). Confirmed live: the HA Ring/Frigate 5-task pack, the Metagrid fix (To Do/High), and the PromptLab push-decision row for commit <code>0e13d8e</code>. Note: of the medical/wage items below, only the Sheila wage-loss row is a discrete Action Item — the rest remain Notes @Today narrative (medium confidence).</p>
+      <p class="small" style="margin:-6px 0 12px">Primary source: DB | Action Items (Tier 1) at <code>collection://d89aeb41-8e13-4951-ac2f-7927d0a7ee74</code> — <strong style="color:var(--green)">CONFIRMED LIVE 18th pass (~21:03Z Jun 20) — also confirmed 4th pass, unchanged 5th–18th</strong>: <strong>1 overdue active row</strong> (view f721c7ea; DOWN from 5 at 1st Jun 20 pass; has_more: false). Only remaining: "Update Quality OS visual gate after authenticated HA screenshots" (due Jun 19, 2d overdue). <strong style="color:var(--green)">RESOLVED: Sheila wage loss · QBE form · IATSE pay rate → Deferred; Ring camera previews → resolved (RUN-20260620-0056-RING-FRIGATE-RECON 🟡)</strong>. <strong style="color:var(--green)">DONE: "Commit or publish Metagrid electrical HTML progress fix"</strong> (confirmed via Notes @Today 22:21Z — RUN-20260619-METAGRID-SCANNER 🟢). Note: Ring/Frigate items below updated to 🟡 YELLOW per recon run at 04:59Z.</p>
       <div class="nextlist">
-        <div class="item" data-project="Home Assistant" data-source-name="DB | Action Items" data-source-url="https://app.notion.com/p/382255fc8f4481cbaf93ffcb4d00a8d0" data-source-ts="2026-06-17T10:59:00Z" data-item-age="captured in Action Items 2026-06-17 10:59Z" data-destination="Jerri in DB | Action Items plus Dominic terminal" data-related-key="ha-ring-frigate" data-confidence="high" data-nextsteps="Complete Ring login and 2FA.||Confirm ring-mqtt writes ring-state.json.||Return to the HA Ring Frigate Status Run with evidence."><span class="k" style="background:var(--red)"></span><div><strong>Complete Ring login and 2FA for ring-mqtt on Dominic</strong> so Ring state and camera IDs can be discovered.</div></div>
-        <div class="item" data-project="Home Assistant" data-source-name="DB | Action Items" data-source-url="https://app.notion.com/p/382255fc8f448163898ec65fddde1d18" data-source-ts="2026-06-17T10:59:00Z" data-item-age="captured in Action Items 2026-06-17 10:59Z" data-destination="Jerri in DB | Action Items plus Dominic terminal" data-related-key="ha-ring-frigate" data-confidence="high" data-nextsteps="Free or expand /srv/media.||Resolve the read only /mnt/beast path before using it for recordings.||Record the chosen storage target in the task row."><span class="k" style="background:var(--red)"></span><div><strong>Free or expand <code>/srv/media</code> before starting Frigate</strong>; current recheck says storage is 100% full and <code>/mnt/beast</code> is read-only.</div></div>
-        <div class="item" data-project="Home Assistant" data-source-name="DB | Action Items" data-source-url="https://app.notion.com/p/382255fc8f4481ffab15c2e6b6b4b302" data-source-ts="2026-06-17T10:59:00Z" data-item-age="captured in Action Items 2026-06-17 10:59Z" data-destination="Home Assistant project page and Dominic terminal" data-related-key="ha-ring-frigate" data-confidence="high" data-nextsteps="After Ring auth, map Front Door, Downstairs, and Backyard camera IDs.||Write the final Frigate config with those live paths.||Attach the config evidence to the HA project page."><span class="k" style="background:var(--red)"></span><div><strong>Discover Ring camera IDs and write final Frigate config</strong> after Ring auth and storage are resolved.</div></div>
-        <div class="item" data-project="Home Assistant" data-source-name="DB | Action Items" data-source-url="https://app.notion.com/p/382255fc8f4481b89c4ae1619aba1ebc" data-source-ts="2026-06-17T10:59:00Z" data-item-age="captured in Action Items 2026-06-17 10:59Z" data-destination="Home Assistant repo, HA UI, Uptime Kuma, and Dozzle" data-related-key="ha-ring-frigate" data-confidence="high" data-nextsteps="Start Frigate after config and storage are ready.||Verify go2rtc, ffmpeg, MQTT, and HA entities.||Add Uptime Kuma and Dozzle monitoring evidence."><span class="k" style="background:var(--red)"></span><div><strong>Start Frigate and wire Home Assistant plus monitoring</strong> only after auth, storage, and config are clean.</div></div>
+        <div class="item" data-project="Home Assistant" data-source-name="DB | Action Items" data-source-url="https://app.notion.com/p/382255fc8f4481cbaf93ffcb4d00a8d0" data-source-ts="2026-06-20T04:59:00Z" data-item-age="resolved RUN-20260620-0056-RING-FRIGATE-RECON 04:59Z" data-destination="Jerri in DB | Action Items plus Dominic terminal" data-related-key="ha-ring-frigate" data-confidence="high" data-nextsteps="Verify Frigate monitoring and HA entity wiring.||Confirm rendered Ring/Frigate camera previews in HA UI.||Confirm go2rtc and ffmpeg streams are stable."><span class="k" style="background:var(--amber)"></span><div><strong style="color:var(--amber)">🟡 YELLOW (resolved 04:59Z) — Ring auth complete, Frigate running.</strong> Follow up: verify Frigate monitoring, HA entity wiring, and rendered Ring/Frigate camera previews. New Action Item logged (Medium, no due date).</div></div>
+        <div class="item" data-project="Home Assistant" data-source-name="DB | Action Items" data-source-url="https://app.notion.com/p/382255fc8f448163898ec65fddde1d18" data-source-ts="2026-06-20T04:59:00Z" data-item-age="resolved RUN-20260620-0056-RING-FRIGATE-RECON 04:59Z" data-destination="Jerri in DB | Action Items plus Dominic terminal" data-related-key="ha-ring-frigate" data-confidence="high" data-nextsteps="Confirm storage is no longer blocking Frigate.||Verify /mnt/beast is writable and available for recordings.||Record storage confirmation in the follow-up task row."><span class="k" style="background:var(--amber)"></span><div><strong style="color:var(--amber)">🟡 Storage</strong> — was 100% full (<code>/srv/media</code>) and <code>/mnt/beast</code> read-only at Jun 17 recheck. Resolved as part of Ring/Frigate recon (04:59Z Jun 20). Verify storage state in follow-up.</div></div>
+        <div class="item" data-project="Home Assistant" data-source-name="DB | Action Items" data-source-url="https://app.notion.com/p/382255fc8f4481ffab15c2e6b6b4b302" data-source-ts="2026-06-20T04:59:00Z" data-item-age="resolved RUN-20260620-0056-RING-FRIGATE-RECON 04:59Z" data-destination="Home Assistant project page and Dominic terminal" data-related-key="ha-ring-frigate" data-confidence="high" data-nextsteps="Confirm camera IDs are mapped (Front Door, Downstairs, Backyard).||Verify the Frigate config is live and stable.||Attach evidence to HA project page."><span class="k" style="background:var(--amber)"></span><div><strong style="color:var(--amber)">🟡 Camera config</strong> — Ring camera IDs discovered and Frigate config applied per RUN-20260620-0056-RING-FRIGATE-RECON. Follow up: confirm live stable streams for Front Door, Downstairs, Backyard.</div></div>
+        <div class="item" data-project="Home Assistant" data-source-name="DB | Action Items" data-source-url="https://app.notion.com/p/382255fc8f4481b89c4ae1619aba1ebc" data-source-ts="2026-06-20T04:59:00Z" data-item-age="resolved RUN-20260620-0056-RING-FRIGATE-RECON 04:59Z" data-destination="Home Assistant repo, HA UI, Uptime Kuma, and Dozzle" data-related-key="ha-ring-frigate" data-confidence="high" data-nextsteps="Verify go2rtc, ffmpeg, MQTT, and HA entities are wired.||Check Uptime Kuma and Dozzle monitoring evidence.||Confirm rendered Ring/Frigate previews display correctly in HA."><span class="k" style="background:var(--amber)"></span><div><strong style="color:var(--amber)">🟡 Frigate running</strong> — Frigate container running per RUN-20260620-0056-RING-FRIGATE-RECON. Remaining: verify go2rtc, ffmpeg, MQTT wiring, HA entities, Uptime Kuma/Dozzle monitoring, and rendered camera previews in HA UI.</div></div>
         <div class="item" data-project="Home Assistant" data-source-name="DB | Status Runs" data-source-url="https://app.notion.com/p/382255fc8f44813ab048d77f7ea34051" data-source-ts="2026-06-17T05:58:04.212Z" data-item-age="Status Run created 2026-06-17 05:58Z" data-destination="Codex in Home Assistant repo plus authenticated HA browser profile" data-related-key="ha-dashboard" data-confidence="high" data-nextsteps="Create an authenticated Home Assistant screenshot capture profile.||Capture desktop and mobile HUD, Camera Wall, and Visual System screenshots.||Rerun visual QA and update the Status Run."><span class="k"></span><div>Create authenticated Home Assistant screenshot capture profile, then capture desktop and mobile HUD, Camera Wall, and Visual System screenshots.</div></div>
         <div class="item" data-project="Phillies Wire" data-source-name="DB | Status Runs" data-source-url="https://app.notion.com/p/382255fc8f44811ebaf7c473c61f9009" data-source-ts="2026-06-17T09:35:47.974Z" data-item-age="Status Run created 2026-06-17 09:35Z" data-destination="Phillies Wire repo plus DB | Action Items automation task" data-related-key="phillies-accuracy" data-confidence="high" data-nextsteps="Wire factcheck.mjs to emit accuracy.json.||Run the factcheck/export path.||Verify the live dashboard keeps 0 inaccurate claims and current edition metadata."><span class="k"></span><div>Auto-generate Phillies Wire <code>accuracy.json</code> from <code>factcheck.mjs</code> on each run.</div></div>
         <div class="item" data-project="System by Dave / AV Suite" data-source-name="Notes @Today + DB | Status Runs" data-source-url="https://app.notion.com/p/382255fc8f4480a59241cb1ab6fce4cb" data-source-ts="2026-06-17T11:38:14Z" data-item-age="Notes lane refreshed 2026-06-17 11:38Z" data-destination="System by Dave repo plus DB | Action Items" data-related-key="system-by-dave-av" data-confidence="medium" data-nextsteps="Resolve bad git ref and untracked artifacts.||Install or route @playwright/test so dialogguard.spec.js can run.||Remove native prompt and confirm flows from AV files, then verify HTTP 200."><span class="k"></span><div>Complete System by Dave AV dialog guard verification and repo cleanup: bad ref, untracked artifacts, missing Playwright dependency, and native prompt/confirm cleanup.</div></div>
-        <div class="item" data-project="Metagrid" data-source-name="DB | Action Items" data-source-url="https://app.notion.com/p/382255fc8f4481e998e0f4016917e983" data-source-ts="2026-06-17T11:11:00Z" data-item-age="seen in Action Items search 2026-06-17 11:11Z" data-destination="Metagrid repo plus DB | Action Items" data-related-key="metagrid-electrical" data-confidence="high" data-nextsteps="Open the Metagrid electrical suite diff.||Run parse and jsdom checks for the affected HTML file.||Commit or publish the narrow progress integrity fix with evidence."><span class="k"></span><div>Commit or publish the Metagrid electrical HTML progress integrity fix.</div></div>
+        <div class="item" data-project="Metagrid" data-source-name="DB | Action Items (Done) + Notes @Today" data-source-url="https://app.notion.com/p/382255fc8f4481e998e0f4016917e983" data-source-ts="2026-06-19T22:21:00Z" data-item-age="Done confirmed Notes @Today 22:21Z 2026-06-19" data-destination="Closed — see RUN-20260619-METAGRID-SCANNER 🟢" data-related-key="metagrid-electrical" data-confidence="high" data-nextsteps="Metagrid scanner DONE. Next: grant Full Disk Access for VSCode.||Rerun protected sudo du to identify hidden system-data bucket.||Install full Xcode when space is sufficient, then continue LiDAR scanner round trip."><span class="k" style="background:var(--green)"></span><div><strong style="color:var(--green)">✅ DONE (06-19 ~22:21Z)</strong> — Metagrid electrical HTML progress integrity fix committed + published. RUN-20260619-METAGRID-SCANNER 🟢: iPad Pro M4 RoomPlan scan.v1 with 6 walls; planner verifier passed; code <code>b68d73bf</code> on <code>origin/feat/metagrid-electrical-bridge</code>. <strong>Open next:</strong> Full Disk Access for VSCode → <code>sudo du</code> → LiDAR round trip.</div></div>
         <div class="item" data-project="Finance and Health" data-source-name="DB | Action Items" data-source-url="https://app.notion.com/p/37d102824c7b46e7862f2639a228f292" data-source-ts="2026-06-17T15:11:00Z" data-item-age="schema verified this pass; exact rows require SQL query recovery" data-destination="Jerri in DB | Action Items" data-related-key="medical-followup" data-confidence="medium" data-nextsteps="Open the matching medical follow up rows in DB | Action Items.||Confirm sutures, ortho, and MyChart token status from the current source.||Update each row with done, blocked, or the next appointment/access step."><span class="k" style="background:var(--red)"></span><div>Close the medical follow-up pack: confirm 4 sutures removed, confirm panel ortho with Dr. Zamarin, and refresh MyChart access if the May 31 code expired.</div></div>
         <div class="item" data-project="Finance and Health" data-source-name="DB | Action Items" data-source-url="https://app.notion.com/p/37d102824c7b46e7862f2639a228f292" data-source-ts="2026-06-17T15:11:00Z" data-item-age="schema verified this pass; exact rows require SQL query recovery" data-destination="Jerri in DB | Action Items" data-related-key="labor-wage" data-confidence="medium" data-nextsteps="Open the labor and wage tracking rows in DB | Action Items.||Confirm QBE form state, Sheila wage loss thread, and IATSE hire/pay details.||Update each row with evidence and the next owner action."><span class="k" style="background:var(--red)"></span><div>Close the labor and wage pack: QBE work-comp form, wage-loss benefits with Sheila, and hire date/pay rate with IATSE Local 8.</div></div>
         <div class="item" data-project="PromptLab" data-source-name="DB | Action Items" data-source-url="https://app.notion.com/p/382255fc8f448117aaafe6891b881e38" data-source-ts="2026-06-17T08:42:00Z" data-item-age="seen in Action Items search 2026-06-17 08:42Z" data-destination="PromptLab repo plus Vercel cost gate" data-related-key="promptlab-cost-gate" data-confidence="high" data-nextsteps="Open the PromptLab repo and current Vercel project settings.||Choose a preview build cost policy before any branch push.||Record the decision in the task row, then unblock or keep blocked with evidence."><span class="k"></span><div>Finalize PromptLab Vercel preview build cost strategy before any local branch push.</div></div>
@@ -733,7 +959,7 @@
         <span class="sec-line"></span>
         <span class="src"><a href="https://app.notion.com/p/1f2255fc8f448128994df83b59539ded" target="_blank">DB | Projects ↗</a></span>
       </div>
-      <p class="small" style="margin:-6px 0 12px">Primary source: DB | Projects at <code>collection://1f2255fc-8f44-812f-b46a-000b1261d171</code> — <strong>live row query verified this pass (89 rows)</strong>. Health / Status / Next Action below are from real rows edited 06-17; latest traffic light comes from DB | Status Runs when present. ⚠ Hat-in-Ring and Home Assistant have <strong>no DB | Projects row yet</strong> — they live in Dev Logs + Status Runs + Action Items.</p>
+      <p class="small" style="margin:-6px 0 12px">Primary source: DB | Projects at <code>collection://1f2255fc-8f44-812f-b46a-000b1261d171</code> — <strong>not re-queried this cloud pass (89 rows as of 06-17, last re-queried 22nd pass)</strong>. Health / Status / Next Action below are from real rows edited 06-17; latest traffic light comes from DB | Status Runs when present. ⚠ Hat-in-Ring and Home Assistant have <strong>no DB | Projects row yet</strong> — they live in Dev Logs + Status Runs + Action Items.</p>
       <div class="grid g2">
         <div class="card project-task-card" data-project="System by Dave / AV Suite" data-source-name="DB | Projects search fallback" data-source-url="https://app.notion.com/p/347255fc8f4481d18cd7d06a516aec44" data-source-ts="2026-06-17T11:02:00Z" data-item-age="DB | Projects search result timestamp 2026-06-17 11:02Z" data-destination="System by Dave repo plus DB | Projects" data-related-key="system-by-dave-av" data-confidence="medium" data-nextsteps="Open SFT | System by Dave and the AV repo.||Reconcile repo hygiene blockers against the latest Status Run.||Update DB | Projects Next Action only after evidence is current.">
           <h4>🛠️ System by Dave</h4>
@@ -749,7 +975,7 @@
         <div class="card project-task-card" data-project="Phillies Wire" data-source-name="DB | Projects search fallback + DB | Status Runs" data-source-url="https://app.notion.com/p/334255fc8f4480a2b297ec03efd88b7f" data-source-ts="2026-06-17T11:04:00Z" data-item-age="DB | Projects search result timestamp 2026-06-17 11:04Z" data-destination="Phillies Wire repo plus DB | Projects" data-related-key="phillies-accuracy" data-confidence="high" data-nextsteps="Open SFT | Phillies Wire and the latest accuracy Status Run.||Keep the project yellow while the accuracy export automation task is open.||Update DB | Projects only after the automation task closes.">
           <h4>⚾ Phillies Wire <span class="chip green" style="font-weight:700">export done</span> <span class="chip red" style="font-weight:700">reliability 🔴</span></h4>
           <p class="muted" style="margin:2px 0 0">Fact-check every edition against authoritative MLB sources; stop old info leaking into future briefings.</p>
-          <p class="small" style="margin-top:8px">🟢 <strong>Accuracy export now implemented</strong> (was the open follow-up): <a href="https://davehomeassist.github.io/phillies-wire/dashboard/accuracy/" target="_blank">accuracy dashboard ↗</a> generates <code>accuracy.json</code> at runtime — <strong>24 claims, 0 inaccurate, 0 outdated</strong> (live, edition No.79 / 06-18; the 06-17 run reported 26), publish run 27710195180. 🔴 <strong>But the reliability run escalated to red:</strong> delivery-health signal inert (nothing writes <code>delivery-status.json</code>), git unreachable, commit state unverifiable.</p>
+          <p class="small" style="margin-top:8px">🟢 <strong>Accuracy export now implemented</strong> (was the open follow-up): <a href="https://davehomeassist.github.io/phillies-wire/dashboard/accuracy/" target="_blank">accuracy dashboard ↗</a> generates <code>accuracy.json</code> at runtime — <strong>26 claims, 25 accurate, 0 inaccurate, 1 unverifiable, 0 outdated</strong> (live, edition No.81 / 06-20; accuracy.json <strong>REGENERATED AGAIN at 20:44:04.494Z / 4:44 PM ET Jun 20</strong> — 7th regeneration today; COUNTS CHANGED from 24/23/0/1; PHI 40-35 L2 2nd NL East). 🔴 <strong>But the reliability run escalated to red:</strong> delivery-health signal inert (nothing writes <code>delivery-status.json</code>), git unreachable, commit state unverifiable.</p>
         </div>
         <div class="card">
           <h4>🎩 Hat-in-Ring <span class="chip amber" style="font-weight:700">P0 live</span></h4>
@@ -758,7 +984,7 @@
         </div>
         <div class="card">
           <h4>🏠 Home Assistant</h4>
-          <p class="muted" style="margin:2px 0 0">Canon dashboard smoke passes (20 dashboards · 72 routes · 0 failures — run 11:11Z 🟡), but authenticated visual proof is still yellow. <strong>Ring/Frigate is 🔴</strong> until Ring auth + media storage are fixed.</p>
+          <p class="muted" style="margin:2px 0 0">Canon dashboard smoke passes (20 dashboards · 72 routes · 0 failures — run 11:11Z 🟡), but authenticated visual proof is still yellow. <strong>Ring/Frigate: 🟡 YELLOW</strong> — resolved at 04:59Z Jun 20 (RUN-20260620-0056-RING-FRIGATE-RECON); follow-up monitoring/wiring task logged.</p>
           <p class="small" style="margin-top:8px">No DB | Projects row — lives in Dev Logs + Status Runs + Action Items.</p>
         </div>
         <div class="card project-task-card" data-project="PromptLab" data-source-name="DB | Projects (live row)" data-source-url="https://app.notion.com/p/1f2255fc8f448128994df83b59539ded" data-source-ts="2026-06-17T08:43:23Z" data-item-age="DB | Projects row edited 2026-06-17 08:43Z" data-destination="PromptLab repo + Vercel only after cost gate" data-related-key="promptlab-cost-gate" data-confidence="high" data-nextsteps="Audit shell dependency vulnerabilities.||Finish the safe iCloud duplicate cleanup.||Decide whether to push commit 0e13d8e after the Vercel preview cost strategy is set.">
@@ -862,14 +1088,40 @@
           <tr><td>SFT | Frontier-Signals (cowork registry)</td><td>Schedule registry</td><td class="small">2026-05-29 11:28Z</td><td><span class="fresh" data-ts="2026-05-29T11:28:00Z"></span></td><td><a href="https://app.notion.com/p/6ad52019f3f843e38e42de358b9633f0" target="_blank">open ↗</a></td></tr>
           <tr><td>Garden OS daily — 06-16</td><td>Daily artifact</td><td class="small">2026-06-16 13:15Z</td><td><span class="fresh" data-ts="2026-06-16T13:15:00Z"></span></td><td><a href="https://app.notion.com/p/381255fc8f4481d196e6faf654c0cf73" target="_blank">open ↗</a></td></tr>
           <tr><td>Phillies Wire Accuracy — 06-17</td><td>Daily artifact</td><td class="small">2026-06-17 11:03Z</td><td><span class="fresh" data-ts="2026-06-17T11:03:00Z"></span></td><td><a href="https://app.notion.com/p/382255fc8f448193b153f9bbef54c2c5" target="_blank">open ↗</a></td></tr>
-          <tr><td>DB | Status Runs</td><td>Live view query · newest 11:01Z</td><td class="small">2026-06-18 11:01Z</td><td><span class="fresh" data-ts="2026-06-18T11:01:56Z"></span></td><td><a href="https://app.notion.com/p/3f5fab18a8974475a548ba43936deec9" target="_blank">open ↗</a></td></tr>
-          <tr><td>DB | Action Items (Tier 1)</td><td>Carried from 06-17 · not re-queried 06-18</td><td class="small">2026-06-17 18:02Z</td><td><span class="fresh" data-ts="2026-06-17T18:02:00Z"></span></td><td><a href="https://app.notion.com/p/37d102824c7b46e7862f2639a228f292" target="_blank">open ↗</a></td></tr>
+          <tr><td>RUN-20260620-1803 🔴 Automated Cloud (19th Jun 20 ET pass) <span class="small">(new · 06-20 ~22:03Z)</span></td><td>Status Run</td><td class="small">2026-06-20 22:03Z</td><td><span class="fresh" data-ts="2026-06-20T22:03:00Z"></span></td><td><a href="https://app.notion.com/p/385255fc8f4481c5aed2fad59453aea4" target="_blank">open ↗</a></td></tr>
+          <tr><td>RUN-20260620-1703 🔴 Automated Cloud (18th Jun 20 ET pass) <span class="small">(06-20 ~21:03Z)</span></td><td>Status Run</td><td class="small">2026-06-20 21:03Z</td><td><span class="fresh" data-ts="2026-06-20T21:03:00Z"></span></td><td><a href="https://app.notion.com/p/385255fc8f44813cb064d3df14b3f986" target="_blank">open ↗</a></td></tr>
+          <tr><td>RUN-20260620-1603 🔴 Automated Cloud (17th Jun 20 ET pass) <span class="small">(06-20 ~20:03Z)</span></td><td>Status Run</td><td class="small">2026-06-20 20:03Z</td><td><span class="fresh" data-ts="2026-06-20T20:03:00Z"></span></td><td><a href="https://app.notion.com/p/385255fc8f44818382d1ee2fc4c1cf54" target="_blank">open ↗</a></td></tr>
+          <tr><td>RUN-20260620-1503 🔴 Automated Cloud (16th Jun 20 ET pass) <span class="small">(06-20 ~19:05Z)</span></td><td>Status Run</td><td class="small">2026-06-20 19:05Z</td><td><span class="fresh" data-ts="2026-06-20T19:05:00Z"></span></td><td><a href="https://app.notion.com/p/385255fc8f448111821aca4d1cf8189a" target="_blank">open ↗</a></td></tr>
+          <tr><td>RUN-20260620-1403 🔴 Automated Cloud (15th Jun 20 ET pass) <span class="small">(06-20 ~18:03Z)</span></td><td>Status Run</td><td class="small">2026-06-20 18:03Z</td><td><span class="fresh" data-ts="2026-06-20T18:03:00Z"></span></td><td><a href="https://app.notion.com/p/385255fc8f4481d88489ee184aebe92e" target="_blank">open ↗</a></td></tr>
+          <tr><td>RUN-20260620-1303 🔴 Automated Cloud (14th Jun 20 ET pass) <span class="small">(06-20 ~17:03Z)</span></td><td>Status Run</td><td class="small">2026-06-20 17:03Z</td><td><span class="fresh" data-ts="2026-06-20T17:03:00Z"></span></td><td><a href="https://app.notion.com/p/385255fc8f44812b96f5edbf95ca4b86" target="_blank">open ↗</a></td></tr>
+          <tr><td>RUN-20260620-1204 🔴 Automated Cloud (13th Jun 20 ET pass) <span class="small">(06-20 ~16:04Z)</span></td><td>Status Run</td><td class="small">2026-06-20 16:04Z</td><td><span class="fresh" data-ts="2026-06-20T16:04:00Z"></span></td><td><span class="small">DB | Status Runs</span></td></tr>
+          <tr><td>RUN-20260620-1103 🔴 Automated Cloud (12th Jun 20 ET pass) <span class="small">(06-20 ~15:03Z)</span></td><td>Status Run</td><td class="small">2026-06-20 15:03Z</td><td><span class="fresh" data-ts="2026-06-20T15:03:00Z"></span></td><td><span class="small">DB | Status Runs</span></td></tr>
+          <tr><td>RUN-20260620-1003 🔴 Automated Cloud (11th Jun 20 ET pass) <span class="small">(06-20 ~14:03Z)</span></td><td>Status Run</td><td class="small">2026-06-20 14:03Z</td><td><span class="fresh" data-ts="2026-06-20T14:03:00Z"></span></td><td><span class="small">DB | Status Runs</span></td></tr>
+          <tr><td>RUN-20260620-0903 🔴 Automated Cloud (10th Jun 20 ET pass) <span class="small">(06-20 ~13:03Z)</span></td><td>Status Run</td><td class="small">2026-06-20 13:03Z</td><td><span class="fresh" data-ts="2026-06-20T13:03:00Z"></span></td><td><a href="https://app.notion.com/p/385255fc8f44812f92d5ee16f7b7d7ed" target="_blank">open ↗</a></td></tr>
+          <tr><td>RUN-20260620-0804 🔴 Automated Cloud (9th Jun 20 ET pass) <span class="small">(06-20 ~12:04Z)</span></td><td>Status Run</td><td class="small">2026-06-20 12:04Z</td><td><span class="fresh" data-ts="2026-06-20T13:03:00Z"></span></td><td><a href="https://app.notion.com/p/385255fc8f4481e5a105f69e477a6030" target="_blank">open ↗</a></td></tr>
+          <tr><td>RUN-20260620-0705 🔴 Automated Cloud (8th Jun 20 ET pass) <span class="small">(06-20 ~11:05Z)</span></td><td>Status Run</td><td class="small">2026-06-20 11:05Z</td><td><span class="fresh" data-ts="2026-06-20T11:05:00Z"></span></td><td><span class="small">DB | Status Runs</span></td></tr>
+          <tr><td>RUN-20260620-0605 🔴 Automated Cloud (7th Jun 20 ET pass)</td><td>Status Run</td><td class="small">2026-06-20 10:05Z</td><td><span class="fresh" data-ts="2026-06-20T10:05:00Z"></span></td><td><span class="small">DB | Status Runs</span></td></tr>
+          <tr><td>RUN-20260620-0503 🔴 Automated Cloud (6th Jun 20 ET pass)</td><td>Status Run</td><td class="small">2026-06-20 09:03Z</td><td><span class="fresh" data-ts="2026-06-20T09:03:00Z"></span></td><td><a href="https://app.notion.com/p/385255fc8f4481eaa182e9cb9b5e934b" target="_blank">open ↗</a></td></tr>
+          <tr><td>RUN-20260620-0403 🔴 Automated Cloud (5th Jun 20 ET pass) <span class="small">(new · 06-20 ~08:03Z)</span></td><td>Status Run</td><td class="small">2026-06-20 08:03Z</td><td><span class="fresh" data-ts="2026-06-20T08:03:00Z"></span></td><td><span class="small">DB | Status Runs</span></td></tr>
+          <tr><td>RUN-20260620-0303 🔴 Automated Cloud (4th Jun 20 ET pass) <span class="small">(new · 06-20 ~07:03Z)</span></td><td>Status Run</td><td class="small">2026-06-20 07:03Z</td><td><span class="fresh" data-ts="2026-06-20T07:03:00Z"></span></td><td><span class="small">DB | Status Runs</span></td></tr>
+          <tr><td>RUN-20260620-0203 🔴 Automated Cloud (3rd Jun 20 ET pass) <span class="small">(06-20 ~06:03Z)</span></td><td>Status Run</td><td class="small">2026-06-20 06:03Z</td><td><span class="fresh" data-ts="2026-06-20T06:03:00Z"></span></td><td><a href="https://app.notion.com/p/385255fc8f4481eeb5dadd5a5c308689" target="_blank">open ↗</a></td></tr>
+          <tr><td>RUN-20260620-0152-SESSION-RECON 🟡 Session Run Reconciliation <span class="small">(new · 06-20 05:52Z)</span></td><td>Status Run</td><td class="small">2026-06-20 05:52Z</td><td><span class="fresh" data-ts="2026-06-20T05:52:00Z"></span></td><td><a href="https://app.notion.com/p/385255fc8f4481d8b08ad2149accaaf2" target="_blank">open ↗</a></td></tr>
+          <tr><td>RUN-20260620-0113 🟢 Notion Banner Generator Phase 3A <span class="small">(new · 06-20 05:15Z)</span></td><td>Status Run</td><td class="small">2026-06-20 05:15Z</td><td><span class="fresh" data-ts="2026-06-20T05:15:00Z"></span></td><td><a href="https://app.notion.com/p/385255fc8f44819bb6ebed4cc0516efe" target="_blank">open ↗</a></td></tr>
+          <tr><td>RUN-20260620-0103 🔴 Automated Cloud (2nd Jun 20 ET pass) <span class="small">(06-20 ~05:03Z)</span></td><td>Status Run</td><td class="small">2026-06-20 05:03Z</td><td><span class="fresh" data-ts="2026-06-20T05:03:00Z"></span></td><td><a href="https://app.notion.com/p/385255fc8f448180a423ef1f16a4e1c1" target="_blank">open ↗</a></td></tr>
+          <tr><td>RUN-20260620-0056-RING-FRIGATE-RECON 🟡 Ring/Frigate resolved <span class="small">(new · 06-20 04:59Z)</span></td><td>Status Run</td><td class="small">2026-06-20 04:59Z</td><td><span class="fresh" data-ts="2026-06-20T04:59:00Z"></span></td><td><span class="small">DB | Status Runs</span></td></tr>
+          <tr><td>RUN-20260620-0003 🔴 Automated Cloud (1st Jun 20 ET pass) <span class="small">(06-20 ~04:03Z)</span></td><td>Status Run</td><td class="small">2026-06-20 04:03Z</td><td><span class="fresh" data-ts="2026-06-20T04:03:00Z"></span></td><td><a href="https://app.notion.com/p/385255fc8f44817bb3d5fff2b653fd6a" target="_blank">open ↗</a></td></tr>
+          <tr><td>RUN-20260619-2302 🔴 Automated Cloud (24th Jun 19 ET pass) <span class="small">(06-20 03:02Z)</span></td><td>Status Run</td><td class="small">2026-06-20 03:02Z</td><td><span class="fresh" data-ts="2026-06-20T03:02:00Z"></span></td><td><span class="small">DB | Status Runs</span></td></tr>
+          <tr><td>RUN-20260619-2259 🟡 Hat-in-Ring Radar redesign <span class="small">(new · 06-20 ~03:02Z Jun 20)</span></td><td>Status Run</td><td class="small">2026-06-20 03:02Z</td><td><span class="fresh" data-ts="2026-06-20T03:02:00Z"></span></td><td><a href="https://app.notion.com/p/385255fc8f44816f9205f5647ccea359" target="_blank">open ↗</a></td></tr>
+          <tr><td>RUN-20260619-2203 🔴 Automated Cloud (23rd Jun 19 ET pass) <span class="small">(06-20 02:03Z)</span></td><td>Status Run</td><td class="small">2026-06-20 02:03Z</td><td><span class="fresh" data-ts="2026-06-20T02:03:00Z"></span></td><td><a href="https://app.notion.com/p/385255fc8f4481cc85f4f856c4e4c125" target="_blank">open ↗</a></td></tr>
+          <tr><td>RUN-20260619-METAGRID-SCANNER 🟢 <span class="small">(new · 06-19 ~22:21Z)</span></td><td>Status Run</td><td class="small">2026-06-19 ~22:21Z</td><td><span class="fresh" data-ts="2026-06-19T22:21:00Z"></span></td><td><a href="https://app.notion.com/p/384255fc8f44819e8a13fd460503de31" target="_blank">open ↗</a></td></tr>
+          <tr><td>DB | Status Runs</td><td>notion-query-database-view (All Runs) ~5:03 PM ET Jun 20 (21:03Z Jun 20; DB schema fetched 9th pass) · RUN-20260620-1703 🔴 (this run, 18th Jun 20 ET, 21:03Z) · RUN-20260620-1603 🔴 (17th Jun 20 ET, 20:03Z) · RUN-20260620-1503 🔴 (16th Jun 20 ET, 19:05Z) · RUN-20260620-1403 🔴 (15th Jun 20 ET, 18:03Z) · RUN-20260620-1303 🔴 (14th Jun 20 ET, 17:03Z) · RUN-20260620-1204 🔴 (13th Jun 20 ET, 16:04Z) · RUN-20260620-1103 🔴 (12th Jun 20 ET, 15:03Z) · RUN-20260620-1003 🔴 (11th Jun 20 ET, 14:03Z) · RUN-20260620-0903 🔴 (10th Jun 20 ET, 13:03Z) · RUN-20260620-0804 🔴 (9th Jun 20 ET, 12:04Z) · RUN-20260620-0705 🔴 (8th Jun 20 ET, 11:05Z) · RUN-20260620-0605 🔴 (7th Jun 20 ET, 10:05Z) · RUN-20260620-0503 🔴 (6th Jun 20 ET, 09:03Z) · RUN-20260620-0403 🔴 (5th Jun 20 ET, 08:03Z) · RUN-20260620-0303 🔴 (4th Jun 20 ET, 07:03Z) · RUN-20260620-0216-DIRTY-WORKTREE 🟢 (06:16Z) · RUN-20260620-0152-SESSION-RECON 🟡 (05:52Z) · RUN-20260620-0113 🟢 (05:15Z) · RUN-20260620-0056-RING-FRIGATE-RECON 🟡 (04:59Z) · RUN-20260620-0103 🔴 (2nd Jun 20 ET, 05:03Z) · RUN-20260620-0003 🔴 (1st Jun 20 ET, 04:03Z) · this run = <strong>23rd UTC Jun 20 · 18th Jun 20 ET pass</strong></td><td class="small">2026-06-20 21:03Z</td><td><span class="fresh" data-ts="2026-06-20T21:03:00Z"></span></td><td><a href="https://app.notion.com/p/3f5fab18a8974475a548ba43936deec9" target="_blank">open ↗</a></td></tr>
+          <tr><td>DB | Action Items (Tier 1)</td><td><strong style="color:var(--green)">CONFIRMED LIVE 18th pass (~21:03Z Jun 20) — confirmed 4th pass, unchanged 5th–18th</strong> — <strong>1 overdue active row</strong> (view f721c7ea; DOWN from 5 at 1st Jun 20 pass; has_more: false). Only remaining: Quality OS visual gate (Jun 19, 2d overdue). Sheila/QBE/IATSE deferred; Ring camera previews resolved via RUN-20260620-0056. Personal Tasks (Tier 2) live-queried 1st pass (unchanged 2nd–18th): 3 overdue (68/43/31d).</td><td class="small">2026-06-20 21:03Z</td><td><span class="fresh" data-ts="2026-06-20T21:03:00Z"></span></td><td><a href="https://app.notion.com/p/37d102824c7b46e7862f2639a228f292" target="_blank">open ↗</a></td></tr>
           <tr><td>DB | Projects</td><td>Carried from 06-17 · not re-queried 06-18</td><td class="small">2026-06-17 11:04Z</td><td><span class="fresh" data-ts="2026-06-17T11:04:16Z"></span></td><td><a href="https://app.notion.com/p/1f2255fc8f448128994df83b59539ded" target="_blank">open ↗</a></td></tr>
           <tr><td>DB | Development Logs</td><td>Live view query 06-18 · newest log 06-17 11:11Z (no 06-18 row)</td><td class="small">2026-06-18 11:35Z</td><td><span class="fresh" data-ts="2026-06-18T11:35:00Z"></span></td><td><a href="https://app.notion.com/p/347255fc8f448056bba2cdd14ea5ca29" target="_blank">open ↗</a></td></tr>
           <tr><td>DB | LLM Conversation Notes</td><td>Live view query 06-18 · newest 11:09Z (inbox sort 2nd block)</td><td class="small">2026-06-18 11:09Z</td><td><span class="fresh" data-ts="2026-06-18T11:09:57Z"></span></td><td><a href="https://app.notion.com/p/31aae099cd24465bbb9b969bf9a936b5" target="_blank">open ↗</a></td></tr>
           <tr><td>DB | Capture</td><td>Database link</td><td class="small">source link</td><td><span class="chip blue" style="font-weight:700">open source</span></td><td><a href="https://app.notion.com/p/25a255fc8f44808cbe79d2003462acbe" target="_blank">open ↗</a></td></tr>
           <tr><td>SFT | Operator Dashboard</td><td>UX/data contract spec</td><td class="small">2026-06-17 14:39Z</td><td><span class="fresh" data-ts="2026-06-17T14:39:35Z"></span></td><td><a href="https://app.notion.com/p/97e3c6c3a18b4c7ca2583b5f50951706" target="_blank">open ↗</a></td></tr>
-          <tr><td>Davai memory · current-context <span class="small">(read this pass — unchanged)</span></td><td>Local file</td><td class="small">updated 2026-05-22 (~27d)</td><td><span class="fresh" data-ts="2026-05-22T00:00:00Z"></span></td><td><span class="small">~/Code/davai-ai-executive-system-memory/working/current-context.md</span></td></tr>
+          <tr><td>Davai memory · current-context <span class="small">(cloud-inaccessible · ~29d stale)</span></td><td>Local file</td><td class="small">updated 2026-05-22 (~29d · stale)</td><td><span class="fresh" data-ts="2026-05-22T00:00:00Z"></span></td><td><span class="small">~/Code/davai-ai-executive-system-memory/working/current-context.md</span></td></tr>
         </table>
       </div>
     </section>
@@ -913,7 +1165,7 @@ If a live row query fails, mark it grey and fall back to fetched schemas + scope
     </section>
 
     <footer>
-      Snapshot re-reconciled 2026-06-18 11:35 EDT (midday pass) from Notion via <strong>live Status Runs + LLM Notes + Dev Logs view queries</strong> (Projects &amp; Action Items carried from the 06-17 pass) plus Source Map, Quick Start &amp; Notes <strong>@Yesterday</strong> (06-17), and the Git Sync Report now carrying <strong>06-18 Mac addenda</strong> — with the regenerated <strong>06-18 Mac git pass</strong> (105/106 repos), MLB, and Davai current-context (2026-05-22) ·
+      Snapshot re-reconciled 2026-06-20 ~6:03 PM ET (19th automated cloud pass Jun 20 ET · 24th UTC Jun 20 22:03Z) · <strong>This pass delta:</strong> accuracy.json REGENERATED AGAIN at 21:46:12.253Z (5:46 PM ET Jun 20) — 8th regeneration today; COUNTS UNCHANGED (26/25/0/1). CORRECTION from 18th pass: Quality OS visual gate 1d overdue (not 2d; Due Jun 19, today Jun 20). Action Items 1 overdue (Quality OS visual gate, CONFIRMED LIVE 19th pass); all 4 HTTP deploys 200 OK; 47 prior runs + this (RUN-20260620-1803 🔴) = 24th UTC Jun 20 · 19th Jun 20 ET; World Cup push 🔴 &gt;84h; Ring/Frigate 🟡; Personal Tasks 3 overdue (68/43/31d) live; NOT refreshed: Davai memory (~29d) + Mac full git scan (~81h) ·
       built by Claude Code · <span id="built-at"></span>
     </footer>
   </main>
@@ -954,13 +1206,13 @@ If a live row query fails, mark it grey and fall back to fetched schemas + scope
 <script type="application/json" id="source-registry-data">
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-06-18T11:35:00Z",
+  "generatedAt": "2026-06-20T22:03:00Z",
   "contractSource": "https://app.notion.com/p/a54e3ccd95a54b96881a136dcad6bc15",
   "queryHealth": {
     "notionSqlRows": "live",
-    "method": "notion-query-database-view via ?v= view URLs",
-    "factCheck": "06-18 end-to-end provenance audit (3 parallel verify agents). CORRECTED: overdue list was echoing Quick Start's stale static table — real source is DB | Personal Tasks (Tier 2) live overdue view = 3 rows; May-30 cluster = 4 done + 7 rescheduled to 2026-06-30. PW accuracy 26→24 claims (live accuracy.json, edition No.79). Cowork propagator NOT stale (runs daily, last 06-18 11:05Z). PromptLab matrix +6 n/a. Notion skills 46→47 (2 no-status). Mets game confirmed home 6:40pm ET. CONFIRMED accurate: all 5 DB | Projects rows, Frontier Signals 60/47/25, Garden OS daily, Teleprompter/Hat-in-Ring/Command Center/Phillies deploys (HTTP 200).",
-    "note": "06-18 MIDDAY re-pass: folds in the regenerated 06-18 Mac git report (105/106 repos; addenda on the Git Sync page edited 11:30Z) that the 09:50 pass missed. Status Runs re-queried live — 6 runs today; newest RUN-20260418-0001 11:01Z (PromptLab dashboard, DUPLICATE RUN, still yellow). LLM Notes re-queried — newest 11:09Z = inbox sort 2nd consecutive blocked run. Dev Logs re-queried — no 06-18 row. Projects + Action Items carried from 06-17 (narrative pages unchanged since 09:42Z). Quick Start/Notes still @Yesterday (06-17)."
+    "method": "notion-query-database-view (Personal Tasks CONFIRMED LIVE 19th pass, Action Items 🚨 Overdue Active CONFIRMED LIVE 19th pass, Status Runs All Runs live 19th pass) + HTTP fetch (accuracy.json live 19th pass — REGENERATED AGAIN at 21:46:12.253Z; COUNTS UNCHANGED 26/25/0/1) + notion-fetch (Action Items DB schema, Status Runs DB schema)",
+    "factCheck": "Jun 20 ET 19th AUTOMATED CLOUD pass ~6:03 PM ET (22:03Z Jun 20). DELTA: accuracy.json REGENERATED AGAIN at 21:46:12.253Z (5:46 PM ET Jun 20) — 8th regeneration today; COUNTS UNCHANGED: 26 total / 25 accurate / 0 inaccurate / 1 unverifiable. CORRECTION from 18th pass: Quality OS visual gate 1d overdue (not 2d; Due Jun 19, today Jun 20). CORRECTIONS CARRIED: (1) accuracy.json counts corrected (3rd pass had 0 unverifiable/1 inaccurate swapped); (2) Session Recon 0 pending not 88 (RUN-20260620-0152-SESSION-RECON 05:52Z; 103 IDs reconciled); (3) RUN-20260620-0216-DIRTY-WORKTREE 🟢 (06:16Z; 39 dirty, 47 clean, 4 invalid). Action Items CONFIRMED LIVE this 19th pass — 1 overdue (Quality OS visual gate; confirmed 4th pass, unchanged 5th–19th). Ring/Frigate 🟡 (resolved 04:59Z). Personal Tasks 3 overdue (confirmed live 19th pass; 68/43/31d). 47 prior cloud runs + this (24th UTC Jun 20) = 19th Jun 20 ET. HTTP: all 4 200 OK. World Cup push 🔴 >84h. NOT refreshed: Davai memory (~29d), Mac git scan (~81h).",
+    "note": "Jun 20 ET 19TH AUTOMATED CLOUD pass ~6:03 PM ET (22:03Z Jun 20). DELTA: accuracy.json REGENERATED AGAIN at 21:46:12.253Z (5:46 PM ET Jun 20) — 8th regeneration today; COUNTS UNCHANGED: 26/25/0/1. CORRECTION from 18th pass: Quality OS visual gate 1d overdue (not 2d). CORRECTIONS CARRIED: (1) accuracy.json count order corrected from 3rd pass error; (2) Session Recon 0 pending (RUN-20260620-0152-SESSION-RECON 05:52Z; 103 IDs reconciled; SQL gate); (3) RUN-20260620-0216-DIRTY-WORKTREE 🟢 06:16Z — 39 dirty, 47 clean, 4 invalid. Action Items CONFIRMED LIVE this 19th pass (also confirmed 4th pass; unchanged 5th–19th). Ring/Frigate 🟡 (RUN-20260620-0056-RING-FRIGATE-RECON 04:59Z). Personal Tasks: 3 overdue (68/43/31d, confirmed live 19th pass). Status Runs: 47 prior cloud runs + this (RUN-20260620-1803 🔴 = 24th UTC Jun 20 · 19th Jun 20 ET). Mac git scan ~81h stale; Davai memory ~29d stale."
   },
   "dataSources": {
     "statusRuns": "collection://2b1b2128-0dd4-41cb-b469-b6ca9047dec0",
@@ -983,7 +1235,7 @@ If a live row query fails, mark it grey and fall back to fetched schemas + scope
   }
   const snapshotDateEl=document.getElementById('dashboard-date');
   const snapshotDateValue=snapshotDateEl.getAttribute('datetime') || '2026-06-17';
-  const snapshotDate=new Date(snapshotDateValue+'T12:00:00-04:00');
+  const snapshotDate=new Date(snapshotDateValue+'T18:03:00-04:00');
   const snapshotZone='America/New_York';
   const longDateFmt=new Intl.DateTimeFormat(undefined,{weekday:'long',month:'long',day:'numeric',year:'numeric',timeZone:snapshotZone});
   const shortDateFmt=new Intl.DateTimeFormat(undefined,{weekday:'short',month:'short',day:'numeric',timeZone:snapshotZone});
@@ -1045,7 +1297,7 @@ If a live row query fails, mark it grey and fall back to fetched schemas + scope
       el.style.background=c==='green'?'var(--green-bg)':c==='amber'?'var(--amber-bg)':'var(--red-bg)';
     });
     // overall snapshot age = freshest critical source timestamp
-    const crit=Date.parse('2026-06-18T11:30:12Z');
+    const crit=Date.parse('2026-06-20T21:03:00Z');
     const el=document.getElementById('data-age');
     const ms=Date.now()-crit, h=ms/3.6e6, c=freshClass(h);
     el.textContent='snapshot age: '+fmtAge(ms);
@@ -1604,5 +1856,266 @@ If a live row query fails, mark it grey and fall back to fetched schemas + scope
   }
   initTaskInspector();
 </script>
+<!-- DESIGN LAYER: do NOT modify this microinteraction / live-clock script. -->
+<script>
+/* ---- v2 microinteractions, navigation & live local time ---- */
+(function(){
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+  /* scroll-progress ribbon */
+  var bar=document.createElement('div'); bar.className='scrollprog'; document.body.appendChild(bar);
+  var queued=false;
+  function paintProg(){ var de=document.documentElement, max=de.scrollHeight-de.clientHeight;
+    bar.style.width=(max>0?(de.scrollTop/max*100):0).toFixed(2)+'%'; queued=false; }
+  addEventListener('scroll',function(){ if(!queued){queued=true;requestAnimationFrame(paintProg);} },{passive:true});
+  addEventListener('resize',paintProg,{passive:true}); paintProg();
+
+  /* nav status LEDs — the sidebar becomes an at-a-glance site map */
+  document.querySelectorAll('nav.toc a[href^="#"]').forEach(function(a){
+    if(a.querySelector('.nav-dot')) return;
+    var sec=document.querySelector(a.getAttribute('href'));
+    var dot=document.createElement('span'); dot.className='nav-dot';
+    if(sec){
+      if(sec.querySelector('.chip.red')||/🔴/.test(sec.textContent)){dot.classList.add('red');a.title='Has blockers';}
+      else if(sec.querySelector('.chip.amber')||/🟡|⚠/.test(sec.textContent)){dot.classList.add('amber');a.title='In progress / needs attention';}
+      else {dot.classList.add('green');a.title='Clear';}
+    }
+    a.appendChild(dot);
+  });
+
+  /* authoritative LIVE LOCAL time — resolves the UTC-snapshot date confusion */
+  var elDate=document.getElementById('dashboard-date');
+  var elD=document.getElementById('clk-date'), elS=document.getElementById('clk-snap');
+  var snapStamp=elDate?elDate.getAttribute('datetime'):'';
+  var fLong=new Intl.DateTimeFormat([],{weekday:'long',month:'long',day:'numeric',year:'numeric'});
+  var fShort=new Intl.DateTimeFormat([],{weekday:'short',month:'short',day:'numeric'});
+  function paintLocal(){
+    var now=new Date();
+    if(elDate){ elDate.textContent=fLong.format(now); if(snapStamp) elDate.title='Data snapshot stamped '+snapStamp; }
+    if(elD) elD.textContent=fShort.format(now);
+    document.title='Command Center · '+fShort.format(now);
+    var bs=document.querySelector('.brand small'); if(bs) bs.textContent=fShort.format(now)+' · auto-refreshes hourly';
+  }
+  if(elS && snapStamp) elS.textContent='snapshot · '+snapStamp;
+  paintLocal(); setInterval(paintLocal,30000);
+
+  /* reveal-on-scroll (CSS guards reduced-motion; safety timer prevents stuck-hidden) */
+  if(!reduce && 'IntersectionObserver' in window){
+    document.body.classList.add('reveal-on');
+    var secs=[].slice.call(document.querySelectorAll('main>section'));
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px'});
+    secs.forEach(function(s){io.observe(s);});
+    setTimeout(function(){secs.forEach(function(s){s.classList.add('in');});},1600);
+  }
+
+  /* keyboard: "/" focuses the filter, Esc clears it */
+  var q=document.getElementById('q');
+  addEventListener('keydown',function(e){
+    var tag=((document.activeElement||{}).tagName||'').toLowerCase();
+    if(e.key==='/' && q && tag!=='input' && tag!=='textarea'){ e.preventDefault(); q.focus(); if(q.select)q.select(); }
+    else if(e.key==='Escape' && document.activeElement===q && q.value){ q.value=''; q.dispatchEvent(new Event('input')); q.blur(); }
+  });
+
+  /* command map — compact triage strip mirroring the nav LEDs, with quick-jump */
+  (function(){
+    var nav=document.querySelector('nav.toc'), main=document.querySelector('main'), fresh=document.querySelector('.freshbar');
+    if(!nav||!main||document.querySelector('.cmdmap')) return;
+    var map=document.createElement('nav'); map.className='cmdmap'; map.setAttribute('aria-label','Section map');
+    var t=document.createElement('span'); t.className='cm-title'; t.textContent='Map'; map.appendChild(t);
+    nav.querySelectorAll('a[href^="#"]').forEach(function(a){
+      var href=a.getAttribute('href'), sec=document.querySelector(href); if(!sec) return;
+      var clone=a.cloneNode(true); clone.querySelectorAll('.ic,.ct,.nav-dot').forEach(function(n){n.remove();});
+      var label=clone.textContent.trim(); if(!label) return;
+      var led='green';
+      if(sec.querySelector('.chip.red')||/🔴/.test(sec.textContent)) led='red';
+      else if(sec.querySelector('.chip.amber')||/🟡|⚠/.test(sec.textContent)) led='amber';
+      var ctEl=a.querySelector('.ct'), ct=ctEl?ctEl.textContent.trim():'';
+      var link=document.createElement('a'); link.href=href; link.title=label;
+      var dot=document.createElement('span'); dot.className='led '+led; link.appendChild(dot);
+      link.appendChild(document.createTextNode(label));
+      if(ct){ var c=document.createElement('span'); c.className='cm-ct'; c.textContent=ct; link.appendChild(c); }
+      map.appendChild(link);
+    });
+    if(fresh&&fresh.parentNode) fresh.parentNode.insertBefore(map, fresh.nextSibling); else main.insertBefore(map, main.firstChild);
+  })();
+
+  /* density toggle (compact <-> comfortable), persisted like the theme */
+  (function(){
+    var btns=[].slice.call(document.querySelectorAll('[data-density-choice]'));
+    function set(d,persist){
+      var v=(d==='compact')?'compact':'comfortable';
+      if(v==='compact') document.documentElement.dataset.density='compact'; else document.documentElement.removeAttribute('data-density');
+      btns.forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.densityChoice===v?'true':'false'); });
+      if(persist){ try{localStorage.setItem('quickStartDensity',v);}catch(e){} }
+    }
+    btns.forEach(function(b){ b.addEventListener('click',function(){ set(b.dataset.densityChoice,true); }); });
+    set(document.documentElement.dataset.density==='compact'?'compact':'comfortable',false);
+  })();
+
+  /* empty / all-clear states for known lanes */
+  (function(){
+    var ov=document.querySelector('#today table.tb');
+    if(ov && ov.querySelectorAll('tr').length<=1){
+      var ac=document.createElement('div'); ac.className='allclear';
+      ac.innerHTML='<span class="ac-ic">✅</span> All clear — no overdue tasks.';
+      if(ov.parentNode) ov.parentNode.replaceChild(ac, ov);
+    }
+  })();
+})();
+</script>
+<!-- ============================================================
+     PHASE 1 UX (additive · 2026-06-19, human-directed design pass).
+     Alerts-first hero + collapse carried run-history. Fully
+     data-derived from the reconciler-maintained KPI tiles, injected
+     client-side, so it auto-updates each hourly refresh and the
+     in-place data reconciler never needs to know it exists.
+     ============================================================ -->
+<script>
+(function(){
+  var css=''
+    +'.alerthero{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:0 0 18px;padding:12px 16px;border-radius:var(--radius);'
+    +'border:1px solid var(--red-line);background:linear-gradient(135deg,var(--red-bg),transparent);box-shadow:var(--shadow-sm)}'
+    +'.alerthero.amber{border-color:var(--amber-line);background:linear-gradient(135deg,var(--amber-bg),transparent)}'
+    +'.alerthero.clear{border-color:var(--green-line);background:linear-gradient(135deg,var(--green-bg),transparent)}'
+    +'.alerthero .ah-title{font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);'
+    +'margin-right:3px;display:inline-flex;align-items:center;gap:7px}'
+    +'.alerthero .ah-led{width:9px;height:9px;border-radius:50%;background:var(--red);flex:none}'
+    +'.alerthero.amber .ah-led{background:var(--amber)}'
+    +'@media(prefers-reduced-motion:no-preference){.alerthero .ah-led{animation:breathe 1.8s var(--ease) infinite}}'
+    +'.alerthero button{cursor:pointer;display:inline-flex;align-items:center;gap:7px;padding:6px 12px;border-radius:999px;'
+    +'font-family:var(--sans);font-size:12.5px;font-weight:750;color:var(--ink2);background:var(--panel);border:1px solid var(--line2);'
+    +'box-shadow:var(--shadow-sm);transition:transform .16s var(--ease),box-shadow .16s,border-color .16s,color .16s}'
+    +'.alerthero button:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);color:var(--ink)}'
+    +'.alerthero button .ah-n{font-family:var(--mono);font-weight:800}'
+    +'.alerthero button.red{border-color:var(--red-line);color:var(--red)}'
+    +'.alerthero button.amber{border-color:var(--amber-line);color:var(--amber)}'
+    +'.alerthero .ah-clear{color:var(--green);font-weight:700;font-size:13px;display:inline-flex;align-items:center;gap:8px}'
+    +'html[data-density="compact"] .alerthero{margin-bottom:12px;padding:9px 13px}';
+  var st=document.createElement('style'); st.textContent=css; document.head.appendChild(st);
+
+  function buildHero(){
+    var main=document.querySelector('main'); if(!main) return;
+    var topbar=main.querySelector('.topbar');
+    var hero=document.getElementById('alert-hero');
+    if(!hero){
+      hero=document.createElement('div'); hero.id='alert-hero'; hero.className='alerthero';
+      hero.setAttribute('aria-label','Open alerts');
+      if(topbar && topbar.nextSibling){ topbar.parentNode.insertBefore(hero, topbar.nextSibling); }
+      else { main.insertBefore(hero, main.firstChild); }
+    }
+    var tiles=[].slice.call(document.querySelectorAll('.kpis .kpi'));
+    var reds=[], ambers=[];
+    tiles.forEach(function(t){
+      var nEl=t.querySelector('.n'), lEl=t.querySelector('.l');
+      var item={t:t, n:nEl?nEl.textContent.trim():'', l:lEl?lEl.textContent.trim():''};
+      if(t.classList.contains('red')) reds.push(item);
+      else if(t.classList.contains('amber')) ambers.push(item);
+    });
+    hero.innerHTML='';
+    if(reds.length+ambers.length===0){
+      hero.className='alerthero clear';
+      var ok=document.createElement('span'); ok.className='ah-clear';
+      ok.textContent='✅ All clear — no open reds, overdue, or blocked items.';
+      hero.appendChild(ok); return;
+    }
+    hero.className='alerthero'+(reds.length===0?' amber':'');
+    var title=document.createElement('span'); title.className='ah-title';
+    title.innerHTML='<span class="ah-led"></span>Needs attention now';
+    hero.appendChild(title);
+    reds.map(function(x){return['red',x];}).concat(ambers.map(function(x){return['amber',x];})).forEach(function(p){
+      var cls=p[0], x=p[1];
+      var b=document.createElement('button'); b.type='button'; b.className=cls;
+      b.innerHTML='<span class="ah-n"></span> '; b.querySelector('.ah-n').textContent=x.n;
+      b.appendChild(document.createTextNode(' '+x.l));
+      b.title='Jump to: '+x.l;
+      b.addEventListener('click',function(){
+        x.t.scrollIntoView({behavior:'smooth',block:'center'});
+        x.t.style.transition='box-shadow .3s'; x.t.style.boxShadow='0 0 0 3px var(--accent)';
+        setTimeout(function(){ x.t.style.boxShadow=''; },1400);
+      });
+      hero.appendChild(b);
+    });
+  }
+
+  function collapseHistory(){
+    // Collapse run rows explicitly dated to prior days (06-17 / 06-18) so the
+    // first screen reads as "current". Today's rows and the persistent reds stay open.
+    [].slice.call(document.querySelectorAll('details.row[open]')).forEach(function(d){
+      var s=d.querySelector('summary'); if(!s) return;
+      if(/06-1[78]|carried .*history|run history/i.test(s.textContent)) d.open=false;
+    });
+  }
+
+  function run(){ try{ buildHero(); collapseHistory(); }catch(e){} }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',run); else run();
+})();
+</script>
+<!-- GIT-HYGIENE BEGIN · additive Mac-refreshed git matrix (island + renderer; survives the cloud reconcile) -->
+<!-- GIT-HYGIENE-DATA:BEGIN -->
+<script id="git-hygiene-data" type="application/json">{"generatedAt":"2026-06-20T22:05:48Z","host":"mac","fetched":false,"scanRoots":["~/Claude Cowork","~/Code","~/Desktop/Code"],"discovered":91,"attention":90,"clean":1,"summary":{"dirty":5,"no_remote":2,"error":83,"clean":1},"repos":[{"path":"Claude Cowork/chip-signals-webapp","branch":"main","dirty":15,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"origin/main","category":"dirty","note":""},{"path":"Code/active/home-os","branch":"main","dirty":7,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"origin/main","category":"dirty","note":""},{"path":"Code/davai-ai-executive-system-memory","branch":"main","dirty":3,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"origin/main","category":"dirty","note":""},{"path":"10-projects/active/veronica-lucas-wedding-site","branch":"main","dirty":2,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"origin/main","category":"dirty","note":""},{"path":"Code/ops-hub","branch":"main","dirty":1,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"origin/main","category":"dirty","note":""},{"path":"Code/hub-builder","branch":"main","dirty":4,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"no_remote","note":""},{"path":"Code/active/davai-editor-recovery-2026-05-04","branch":"main","dirty":1,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"no_remote","note":""},{"path":"10-projects/active/DaveHomeAssist.github.io","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/active/DaveHomeAssist.github.io/_inbox-import-2026-05-30","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/active/aoe2-clone","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/active/catering","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/active/connor-projects/BPMDelayCalc","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/active/connor-projects/StereoFieldCompressor","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/active/connor-projects/metagrid-fig4-handshake-simulator-373M","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/active/connor-projects/sap-music","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/active/curl-plan","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/active/davai-editor","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/active/dave-llm","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/active/dave-llm/_inbox-import-2026-05-30","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/active/festival-atlas","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/active/freelance","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/active/frontier-signals-pipeline","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/active/frontier-signals-pipeline/_inbox-import-frontier-signals-site-2026-05-30","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/active/garden-os","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/active/garden-os-fresh","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/active/graph-explorer","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/active/hat-in-ring","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/active/home-comic-dashboard","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/active/metagrid","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/active/mixmash","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/active/mixmash/output","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/active/mixmash/output/gh-pages-publish","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/active/mlb-ballparks-quest","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/active/notion-banner-generator","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/active/notion-widgets","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/active/phillies-wire","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/active/phillies-wire-gitignore","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/active/pixel-forge","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/active/plot-forge","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/active/prompt-lab","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/active/quest-platform","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/active/readout","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/active/recipe-tracker","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/active/shieldbox-security","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/active/shieldbox-security/_inbox-import-event-quote-request-v4-gold-master","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/active/system-by-dave","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/active/system-by-dave-clean","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/active/system-by-dave/_inbox-import-2026-05-30","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/active/trailkeeper","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/active/trailkeeper/archives/stub-trailkeeper","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/archive/digital-storefront","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/archive/freelance-landing","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/archive/new-land-pages","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/archive/utility","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/archive/utility/codedash-mar24","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/labs/cueforge/drafts/cueforge","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/prototypes/00003 estate-ii-deploy","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/prototypes/00004 lansdowne-lighting-plot","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/prototypes/00006 park-rave-005","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/secondary/_legacy-secondary/23-curling-simulator","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/secondary/_legacy-secondary/23-curling-simulator-publish","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/secondary/agent-deck/AgentDeck","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/secondary/contractor","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/secondary/dave-homeassist","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/secondary/dave-homeassist/archives/stub-elysium-landing","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/secondary/deckforge","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/secondary/gemini-api-cost-calculator","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/secondary/nesy-vercel-preview","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/secondary/sap-music","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/secondary/sdlc-tool-stack-map","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"10-projects/secondary/sdlc-tool-stack-map/archives/stub-sdlc-tool-stack-map","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"30-resources/agents","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"30-resources/research/neuro-symbolic-ai/nesy-site","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"30-resources/templates/32-web-templates","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"30-resources/themes","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"30-resources/themes/organizer","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"93-personal/misc/190-secrets","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"95-docs-personal/admin/00-identity-docs/av-resume","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"99-archive/inbox-unknown-inspect-later/questions/garden-os-fresh-11M","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"99-archive/inbox-unknown-inspect-later/questions/garden-os-fresh-active-10M","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"99-archive/prompt-lab-legacy-2026-04-24/prompt-lab-main-clean-10M","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"_quarantine/prompt-lab-icloud-duplicates-20260617-082547","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"_quarantine/readout-parent-signal10-20260428-1545","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"_quarantine/readout-source-v1.4g.icloud-broken-20260428-154155","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"_quarantine/shieldbox-dataless-20260428-1556","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"_quarantine/shieldbox-dataless-20260428-1556/.claude/worktrees/cranky-shamir-f511ee","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"outputs/llm-log","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"stereo-field-compressor","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"stereo-field-compressor/build/_deps/juce-src","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":"stereo-field-compressor/build/_deps/juce-src 2","branch":"","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"","category":"error","note":"rev-parse HEAD failed (corrupt ref?)"},{"path":".tmp/DaveHomeAssist.github.io-fresh","branch":"main","dirty":0,"dirtyUnknown":false,"untrackedKnown":true,"ahead":0,"behind":0,"upstream":"origin/main","category":"clean","note":""}]}</script>
+<!-- GIT-HYGIENE-DATA:END -->
+<script>
+(function(){
+  var el=document.getElementById('git-hygiene-data'); if(!el) return;
+  var data; try{ data=JSON.parse(el.textContent||'{}'); }catch(e){ return; }
+  if(!data || !data.repos || !data.repos.length) return;
+  var sync=document.getElementById('sync'); if(!sync) return;
+  var old=document.getElementById('git-hygiene-card'); if(old&&old.parentNode) old.parentNode.removeChild(old);
+
+  function esc(s){ return String(s==null?'':s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];}); }
+  var VAR={dirty:'--amber',no_remote:'--amber',no_upstream:'--amber',behind:'--amber',detached:'--purple',error:'--red',unread:'--ink3',timeout:'--ink3',clean:'--green'};
+  var CHIP={dirty:'amber',no_remote:'amber',no_upstream:'amber',behind:'amber',detached:'amber',error:'red',unread:'amber',timeout:'amber',clean:'green'};
+  var ICON={dirty:'✎',no_remote:'⚲',no_upstream:'⤴',detached:'◑',behind:'↓',error:'⚠',unread:'☁',timeout:'…',clean:'🟢'};
+  var CATS=[
+    {k:'dirty',label:'Dirty worktree',open:true},
+    {k:'no_remote',label:'No remote',open:true},
+    {k:'no_upstream',label:'No upstream',open:true},
+    {k:'behind',label:'Behind upstream (ff available)',open:true},
+    {k:'detached',label:'Detached HEAD',open:false},
+    {k:'error',label:'Error / corrupt ref',open:true},
+    {k:'unread',label:'Worktree unread (iCloud) — sync state shown, dirty unknown',open:false},
+    {k:'timeout',label:'Timed out',open:false},
+    {k:'clean',label:'Clean & synced',open:false}
+  ];
+
+  var gen=Date.parse(data.generatedAt);
+  var ageH=isFinite(gen)?(Date.now()-gen)/3.6e6:NaN;
+  var stale=isFinite(ageH)&&ageH>26;
+  var ageTxt=!isFinite(ageH)?'':(ageH<1?'just now':(ageH<24?Math.round(ageH)+'h ago':Math.round(ageH/24)+'d ago'));
+
+  var sum=data.summary||{};
+  var H=[];
+  H.push('<div class="ch"><span style="font-size:17px">🧹</span><span class="t">Git Hygiene — Full Repo Matrix</span>');
+  H.push('<span class="small" style="margin-left:auto">Mac · '+data.discovered+' repos · '+(data.fetched?'fetched':'local-only')+' · '+esc(data.generatedAt)+' '+(stale?'<span class="chip red">STALE</span>':'<span class="chip green">'+ageTxt+'</span>')+'</span></div>');
+  H.push('<div class="cb">');
+  H.push('<div class="grid g3" style="gap:10px">');
+  CATS.forEach(function(c){
+    var n=sum[c.k]||0; if(!n) return;
+    H.push('<div class="card" style="padding:12px 14px;text-align:center"><div style="font-size:22px;font-weight:800;color:var('+VAR[c.k]+')">'+n+'</div><div class="small">'+c.label+'</div></div>');
+  });
+  H.push('</div>');
+  H.push('<p class="small" style="margin:10px 0 6px"><strong>'+data.attention+'</strong> of '+data.discovered+' repos need attention · <strong>'+data.clean+'</strong> clean &amp; synced. Roots: '+esc((data.scanRoots||[]).join(' · '))+'. Refresh: <code>git-hygiene-refresh.sh</code>.</p>');
+  CATS.forEach(function(c){
+    var rows=data.repos.filter(function(r){return r.category===c.k;});
+    if(!rows.length) return;
+    H.push('<details class="row"'+(c.open?' open':'')+'><summary><span class="chip '+CHIP[c.k]+'">'+ICON[c.k]+'</span> '+c.label+' ('+rows.length+')</summary><div class="body"><table class="tb"><tr><th>✎</th><th>Sync</th><th>Branch</th><th>Repo</th></tr>');
+    rows.forEach(function(r){
+      var s=[]; if(r.behind)s.push('↓'+r.behind); if(r.ahead)s.push('↑'+r.ahead);
+      var dcell=r.dirtyUnknown?'?':((r.dirty||'')===''?'':(r.dirty+(r.untrackedKnown===false?'+':'')));
+      H.push('<tr><td class="n">'+dcell+'</td><td class="small n">'+(s.join(' ')||'—')+'</td><td><code>'+esc(r.branch)+'</code></td><td class="small">'+esc(r.path)+(r.note?' <span style="color:var(--ink3)">— '+esc(r.note)+'</span>':'')+'</td></tr>');
+    });
+    H.push('</table></div></details>');
+  });
+  H.push('</div>');
+
+  var card=document.createElement('div');
+  card.className='card hd'; card.id='git-hygiene-card'; card.style.marginBottom='14px';
+  card.innerHTML=H.join('');
+  var anchor=sync.querySelector('.card.hd');
+  if(anchor&&anchor.parentNode){ anchor.parentNode.insertBefore(card, anchor.nextSibling); }
+  else { var sh=sync.querySelector('.sec-head'); if(sh&&sh.parentNode){ sh.parentNode.insertBefore(card, sh.nextSibling); } else { sync.appendChild(card); } }
+})();
+</script>
+<!-- GIT-HYGIENE END -->
 </body>
 </html>
