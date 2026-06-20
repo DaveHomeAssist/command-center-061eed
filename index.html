@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-    <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Command Center — 2026-06-19 (Automated Cloud ~11:02 PM ET)</title>
 <link rel="icon" href="data:,">
@@ -1934,6 +1933,93 @@ If a live row query fails, mark it grey and fall back to fetched schemas + scope
       if(ov.parentNode) ov.parentNode.replaceChild(ac, ov);
     }
   })();
+})();
+</script>
+<!-- ============================================================
+     PHASE 1 UX (additive · 2026-06-19, human-directed design pass).
+     Alerts-first hero + collapse carried run-history. Fully
+     data-derived from the reconciler-maintained KPI tiles, injected
+     client-side, so it auto-updates each hourly refresh and the
+     in-place data reconciler never needs to know it exists.
+     ============================================================ -->
+<script>
+(function(){
+  var css=''
+    +'.alerthero{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:0 0 18px;padding:12px 16px;border-radius:var(--radius);'
+    +'border:1px solid var(--red-line);background:linear-gradient(135deg,var(--red-bg),transparent);box-shadow:var(--shadow-sm)}'
+    +'.alerthero.amber{border-color:var(--amber-line);background:linear-gradient(135deg,var(--amber-bg),transparent)}'
+    +'.alerthero.clear{border-color:var(--green-line);background:linear-gradient(135deg,var(--green-bg),transparent)}'
+    +'.alerthero .ah-title{font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);'
+    +'margin-right:3px;display:inline-flex;align-items:center;gap:7px}'
+    +'.alerthero .ah-led{width:9px;height:9px;border-radius:50%;background:var(--red);flex:none}'
+    +'.alerthero.amber .ah-led{background:var(--amber)}'
+    +'@media(prefers-reduced-motion:no-preference){.alerthero .ah-led{animation:breathe 1.8s var(--ease) infinite}}'
+    +'.alerthero button{cursor:pointer;display:inline-flex;align-items:center;gap:7px;padding:6px 12px;border-radius:999px;'
+    +'font-family:var(--sans);font-size:12.5px;font-weight:750;color:var(--ink2);background:var(--panel);border:1px solid var(--line2);'
+    +'box-shadow:var(--shadow-sm);transition:transform .16s var(--ease),box-shadow .16s,border-color .16s,color .16s}'
+    +'.alerthero button:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);color:var(--ink)}'
+    +'.alerthero button .ah-n{font-family:var(--mono);font-weight:800}'
+    +'.alerthero button.red{border-color:var(--red-line);color:var(--red)}'
+    +'.alerthero button.amber{border-color:var(--amber-line);color:var(--amber)}'
+    +'.alerthero .ah-clear{color:var(--green);font-weight:700;font-size:13px;display:inline-flex;align-items:center;gap:8px}'
+    +'html[data-density="compact"] .alerthero{margin-bottom:12px;padding:9px 13px}';
+  var st=document.createElement('style'); st.textContent=css; document.head.appendChild(st);
+
+  function buildHero(){
+    var main=document.querySelector('main'); if(!main) return;
+    var topbar=main.querySelector('.topbar');
+    var hero=document.getElementById('alert-hero');
+    if(!hero){
+      hero=document.createElement('div'); hero.id='alert-hero'; hero.className='alerthero';
+      hero.setAttribute('aria-label','Open alerts');
+      if(topbar && topbar.nextSibling){ topbar.parentNode.insertBefore(hero, topbar.nextSibling); }
+      else { main.insertBefore(hero, main.firstChild); }
+    }
+    var tiles=[].slice.call(document.querySelectorAll('.kpis .kpi'));
+    var reds=[], ambers=[];
+    tiles.forEach(function(t){
+      var nEl=t.querySelector('.n'), lEl=t.querySelector('.l');
+      var item={t:t, n:nEl?nEl.textContent.trim():'', l:lEl?lEl.textContent.trim():''};
+      if(t.classList.contains('red')) reds.push(item);
+      else if(t.classList.contains('amber')) ambers.push(item);
+    });
+    hero.innerHTML='';
+    if(reds.length+ambers.length===0){
+      hero.className='alerthero clear';
+      var ok=document.createElement('span'); ok.className='ah-clear';
+      ok.textContent='✅ All clear — no open reds, overdue, or blocked items.';
+      hero.appendChild(ok); return;
+    }
+    hero.className='alerthero'+(reds.length===0?' amber':'');
+    var title=document.createElement('span'); title.className='ah-title';
+    title.innerHTML='<span class="ah-led"></span>Needs attention now';
+    hero.appendChild(title);
+    reds.map(function(x){return['red',x];}).concat(ambers.map(function(x){return['amber',x];})).forEach(function(p){
+      var cls=p[0], x=p[1];
+      var b=document.createElement('button'); b.type='button'; b.className=cls;
+      b.innerHTML='<span class="ah-n"></span> '; b.querySelector('.ah-n').textContent=x.n;
+      b.appendChild(document.createTextNode(' '+x.l));
+      b.title='Jump to: '+x.l;
+      b.addEventListener('click',function(){
+        x.t.scrollIntoView({behavior:'smooth',block:'center'});
+        x.t.style.transition='box-shadow .3s'; x.t.style.boxShadow='0 0 0 3px var(--accent)';
+        setTimeout(function(){ x.t.style.boxShadow=''; },1400);
+      });
+      hero.appendChild(b);
+    });
+  }
+
+  function collapseHistory(){
+    // Collapse run rows explicitly dated to prior days (06-17 / 06-18) so the
+    // first screen reads as "current". Today's rows and the persistent reds stay open.
+    [].slice.call(document.querySelectorAll('details.row[open]')).forEach(function(d){
+      var s=d.querySelector('summary'); if(!s) return;
+      if(/06-1[78]|carried .*history|run history/i.test(s.textContent)) d.open=false;
+    });
+  }
+
+  function run(){ try{ buildHero(); collapseHistory(); }catch(e){} }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',run); else run();
 })();
 </script>
 </body>
