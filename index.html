@@ -154,52 +154,52 @@
   <section id="overview" style="max-width:1280px;margin:0 auto;padding:26px 24px 0">
     <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:13px;flex-wrap:wrap">
       <h2 style="margin:0;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-mute)">This pass · changed since last run</h2>
-      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-dim)">RUN-20260621-0124 · 3rd Jun 21 ET pass · ~1:24 AM ET</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-dim)">RUN-20260621-0203 · 4th Jun 21 ET pass · ~2:03 AM ET</span>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:var(--gap)">
+      <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--ok);border-radius:var(--radius);padding:var(--pad)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ok);background:var(--ok-bg);padding:2px 7px;border-radius:5px;white-space:nowrap;flex:none">Delta 1</span>
+          <span style="font-weight:600;font-size:14.5px">Hat-in-Ring pipeline FIXED — 🟢 GREEN · RUN-20260621-0130</span>
+        </div>
+        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">Pipeline committed, pushed, rerun, deployed. GH Actions Run 27895351572 passed; Pages 27895385989 passed; live Jun 21 candidate pages + feed.xml verified current. Prior 🟡 YELLOW (RUN-20260621-0502) cleared — daily regen restored.</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--ok);border-radius:var(--radius);padding:var(--pad)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ok);background:var(--ok-bg);padding:2px 7px;border-radius:5px;white-space:nowrap;flex:none">Delta 2</span>
+          <span style="font-weight:600;font-size:14.5px">Phillies Wire Reliability Gate PASSED — 🟢 GREEN · RUN-20260621-0132</span>
+        </div>
+        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">FS deadlock cleared; full gate re-run clean: npm test 18/18 (incl. 7 reliability), exit 0; deliver.mjs writes both delivery-status.json files (state sent, failed 0); delivery-status.test passed; health-check.mjs 'Delivery sent' exit 0; docs tracked. Prior ⚪ GREY (RUN-20260621-0503) cleared.</div>
+      </div>
       <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--warn);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--warn);background:var(--warn-bg);padding:2px 7px;border-radius:5px;white-space:nowrap;flex:none">Delta 1</span>
-          <span style="font-weight:600;font-size:14.5px">Hat-in-Ring regression — NEW 🟡 YELLOW · RUN-20260621-0502</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--warn);background:var(--warn-bg);padding:2px 7px;border-radius:5px;white-space:nowrap;flex:none">Delta 3</span>
+          <span style="font-weight:600;font-size:14.5px">PlotForge — P0 live, CTA resolved → 🟡 YELLOW (RUN-20260621-0042 updated)</span>
         </div>
-        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">T+4 re-verify (1:04 AM ET): per-candidate pages + RSS feed stopped regenerating Jun 16. Homepage auto-built Jun 20 ✓ but /c/newsom + feed.xml frozen at Jun 16 — daily regen broke. Search Console + repo FEC key still open.</div>
+        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">P0 live at plotforge-beta.vercel.app (200; run page hit; origin/main c9df5fd). Sub-task override applied: P1–P3 still open; local checkout dirty; ANSI D signoff waits on plotter access. Prior 🔴 RED cleared from reds — moved to 🟡.</div>
       </div>
       <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--info);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--info);background:var(--info-bg);padding:2px 7px;border-radius:5px;white-space:nowrap;flex:none">Delta 2</span>
-          <span style="font-weight:600;font-size:14.5px">Phillies Wire delivery — ⚪ GREY (producer fixed on disk) · RUN-20260621-0503</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--info);background:var(--info-bg);padding:2px 7px;border-radius:5px;white-space:nowrap;flex:none">Delta 4</span>
+          <span style="font-weight:600;font-size:14.5px">Phillies Wire accuracy.json — 16th regen 1:57 AM ET · 24/23/0/1</span>
         </div>
-        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">1:04 AM ET: deliver.mjs:106 now writes delivery-status.json + site, numeric failed-count wired; pinned by delivery-status.test.mjs. Prior 🔴 delivery-producer red cleared on disk. Remaining block: git packfile deadlock + node file lock prevent commit-verify + npm test from sandbox. Phillies Wire moves red → grey.</div>
-      </div>
-      <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--ok);border-radius:var(--radius);padding:var(--pad)">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ok);background:var(--ok-bg);padding:2px 7px;border-radius:5px;white-space:nowrap;flex:none">Delta 3</span>
-          <span style="font-weight:600;font-size:14.5px">AI Memory Viewer GUI — 🟢 GREEN · RUN-20260621-0122 (1:23 AM ET)</span>
-        </div>
-        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">Local server verified: HTML/CSV HTTP 200, JS ok, CSV 640 rows; no duplicate run found. Canonical session opened.</div>
-      </div>
-      <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--ok);border-radius:var(--radius);padding:var(--pad)">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ok);background:var(--ok-bg);padding:2px 7px;border-radius:5px;white-space:nowrap;flex:none">Delta 4</span>
-          <span style="font-weight:600;font-size:14.5px">HTTP 4/4 200 · accuracy.json unchanged · tasks/actions unchanged</span>
-        </div>
-        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">systembydave.com/teleprompter.html · hatinring.com · phillies-wire · command-center all 200. accuracy.json: Vol. 1 No. 82 · 24/23/0/1 · all 24 current · no new regen since 12:54 AM ET. Personal Tasks: 3 overdue (69/44/32d). Action Items: 1 overdue (Quality OS visual gate, Jun 19, 2d).</div>
+        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">Vol. 1 No. 82 · generated_at 2026-06-21T05:57:54Z · 24 claims · 23 accurate · 0 inaccurate · 1 unverifiable · all 24 current. Game 3 TONIGHT: Zack Wheeler vs David Peterson · 7:20 PM ET NBC/Peacock. HTTP 4/4 200.</div>
       </div>
       <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--info);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--info);background:var(--info-bg);padding:2px 7px;border-radius:5px;white-space:nowrap;flex:none">Delta 5</span>
-          <span style="font-weight:600;font-size:14.5px">3rd automated cloud pass — local sources NOT refreshed</span>
+          <span style="font-weight:600;font-size:14.5px">4th automated cloud pass — local sources NOT refreshed</span>
         </div>
-        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">Davai memory (~29d stale) and Mac-wide git scan (~90h stale, last 06-17 08:43 ET) are local Mac only and cannot be refreshed from the cloud. All Notion sources re-queried live this pass.</div>
+        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">Davai memory (~29d stale) and Mac-wide git scan (~90h+ stale, last 06-17 08:43 ET) are local Mac only and cannot be refreshed from the cloud. All Notion sources re-queried live this pass.</div>
       </div>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:var(--gap);margin-top:var(--gap)">
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:baseline;gap:8px">
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:600;color:var(--info);line-height:1">3</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:600;color:var(--info);line-height:1">4</span>
         </div>
         <div style="font-size:12.5px;font-weight:600;margin-top:7px">Cloud passes today</div>
-        <div style="font-size:11.5px;color:var(--text-mute);font-family:'IBM Plex Mono',monospace;margin-top:2px">12:03 AM + 1:03 AM + 1:24 AM ET</div>
+        <div style="font-size:11.5px;color:var(--text-mute);font-family:'IBM Plex Mono',monospace;margin-top:2px">12:03 AM + 1:03 AM + 1:24 AM + 2:03 AM ET</div>
       </div>
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:baseline;gap:8px">
@@ -213,7 +213,7 @@
           <span style="font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:600;color:var(--bad);line-height:1">2</span>
         </div>
         <div style="font-size:12.5px;font-weight:600;margin-top:7px">Verified reds open</div>
-        <div style="font-size:11.5px;color:var(--text-mute);font-family:'IBM Plex Mono',monospace;margin-top:2px">World Cup &gt;~91h + PlotForge CTA</div>
+        <div style="font-size:11.5px;color:var(--text-mute);font-family:'IBM Plex Mono',monospace;margin-top:2px">World Cup &gt;~92h + Davai</div>
       </div>
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:baseline;gap:8px">
@@ -227,7 +227,7 @@
           <span style="font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:600;color:var(--text-mute);line-height:1">106</span>
         </div>
         <div style="font-size:12.5px;font-weight:600;margin-top:7px">Mac repos scanned</div>
-        <div style="font-size:11.5px;color:var(--text-mute);font-family:'IBM Plex Mono',monospace;margin-top:2px">06-17 · ~90h stale</div>
+        <div style="font-size:11.5px;color:var(--text-mute);font-family:'IBM Plex Mono',monospace;margin-top:2px">06-17 · ~90h+ stale</div>
       </div>
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:baseline;gap:8px">
@@ -253,17 +253,9 @@
           <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--bad);border-radius:var(--radius);padding:var(--pad)">
             <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
               <span style="width:9px;height:9px;border-radius:50%;background:var(--bad);flex:none"></span>
-              <span style="font-weight:600;font-size:14px">PlotForge — landing CTA disconnected</span>
-            </div>
-            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute);margin-bottom:6px">OPEN · RUN-20260621-0042 · 12:42 AM ET Jun 21</div>
-            <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5">Desktop plotforge/index.html#generate: CTA button has href='#' + preventDefault. Working app mounts at /src/main.jsx separately — the landing page goes nowhere. Wire CTA to the app entry point.</div>
-          </div>
-          <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--bad);border-radius:var(--radius);padding:var(--pad)">
-            <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
-              <span style="width:9px;height:9px;border-radius:50%;background:var(--bad);flex:none"></span>
               <span style="font-weight:600;font-size:14px">World Cup App — GitHub push blocked</span>
             </div>
-            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute);margin-bottom:6px">&gt;~91h · RUN-20260617-WORLD-CUP-GITHUB</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute);margin-bottom:6px">&gt;~92h · RUN-20260617-WORLD-CUP-GITHUB</div>
             <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5">gh not authenticated, no origin remote, working tree was deleted. Commit c3bf066 preserved. Tier-1 task "Push world-cup-app to GitHub" is Waiting / High.</div>
           </div>
           <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--bad);border-radius:var(--radius);padding:var(--pad)">
@@ -307,6 +299,13 @@
               <div style="font-size:12px;color:var(--text-dim);line-height:1.45">Sole remaining Tier-1 overdue Action Item (due Jun 19, 2d overdue). Blocked on authenticated HA screenshots.</div>
             </div>
           </div>
+          <div style="display:flex;gap:11px;padding:11px 0;border-bottom:1px solid var(--border)">
+            <span style="width:7px;height:7px;border-radius:50%;background:var(--warn);margin-top:6px;flex:none"></span>
+            <div>
+              <div style="font-weight:600;font-size:13px;margin-bottom:2px">PlotForge — P1–P3 remaining (P0 live 🟡)</div>
+              <div style="font-size:12px;color:var(--text-dim);line-height:1.45">P0 live at plotforge-beta.vercel.app. P1–P3 still open; local checkout dirty; ANSI D signoff waits on plotter access. Vercel cost decision still pending before any branch push.</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -337,12 +336,12 @@
             </div>
             <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
               <div style="display:flex;align-items:center;gap:9px;margin-bottom:8px">
-                <span style="width:9px;height:9px;border-radius:50%;background:var(--warn);flex:none"></span>
+                <span style="width:9px;height:9px;border-radius:50%;background:var(--ok);flex:none"></span>
                 <span style="font-weight:600;font-size:14px;flex:1">Phillies Wire — Accuracy Sprint</span>
-                <span style="font-size:10.5px;font-weight:600;color:var(--warn);background:var(--warn-bg);padding:2px 8px;border-radius:5px;text-transform:uppercase;letter-spacing:.04em">Active</span>
+                <span style="font-size:10.5px;font-weight:600;color:var(--ok);background:var(--ok-bg);padding:2px 8px;border-radius:5px;text-transform:uppercase;letter-spacing:.04em">On track</span>
               </div>
-              <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5;margin-bottom:8px">Every piece of info canonically accurate; old info must not leak into future briefings. Non-negotiable.</div>
-              <div style="font-size:12.5px;line-height:1.5;padding-top:8px;border-top:1px solid var(--border)"><span style="color:var(--text-mute);font-weight:600">Next · </span><span style="color:var(--text-dim)">Resolve git packfile deadlock to confirm deliver.mjs commit + npm test; verify delivery-status.json writes end-to-end.</span></div>
+              <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5;margin-bottom:8px">Reliability gate 🟢 GREEN (RUN-20260621-0132): npm test 18/18 (incl. 7 reliability), deliver.mjs writes both delivery-status.json files (sent, failed 0), health-check exit 0. Vol. 1 No. 82 accuracy: 23/24 verified (0 inaccurate). Packfile deadlock cleared.</div>
+              <div style="font-size:12.5px;line-height:1.5;padding-top:8px;border-top:1px solid var(--border)"><span style="color:var(--text-mute);font-weight:600">Next · </span><span style="color:var(--text-dim)">Monitor next daily regen cycle. Accuracy sprint milestone met.</span></div>
             </div>
             <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
               <div style="display:flex;align-items:center;gap:9px;margin-bottom:8px">
@@ -405,12 +404,12 @@
             </div>
             <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
               <div style="display:flex;align-items:center;gap:9px;margin-bottom:8px">
-                <span style="width:9px;height:9px;border-radius:50%;background:var(--warn);flex:none"></span>
+                <span style="width:9px;height:9px;border-radius:50%;background:var(--ok);flex:none"></span>
                 <span style="font-weight:600;font-size:14px;flex:1">Hat-in-Ring · Radar</span>
-                <span style="font-size:10.5px;font-weight:600;color:var(--warn);background:var(--warn-bg);padding:2px 8px;border-radius:5px;text-transform:uppercase;letter-spacing:.04em">Active</span>
+                <span style="font-size:10.5px;font-weight:600;color:var(--ok);background:var(--ok-bg);padding:2px 8px;border-radius:5px;text-transform:uppercase;letter-spacing:.04em">On track</span>
               </div>
-              <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5;margin-bottom:8px">REGRESSION (RUN-20260621-0502 🟡): homepage auto-builds but per-candidate pages + RSS feed frozen at Jun 16 — daily regen broke.</div>
-              <div style="font-size:12.5px;line-height:1.5;padding-top:8px;border-top:1px solid var(--border)"><span style="color:var(--text-mute);font-weight:600">Next · </span><span style="color:var(--text-dim)">Fix daily regen for /c/newsom + feed.xml; then Search Console + verify repo FEC key.</span></div>
+              <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5;margin-bottom:8px">PIPELINE FIXED (RUN-20260621-0130 🟢): committed, pushed, deployed. GH Actions Run 27895351572 + Pages 27895385989 passed; live Jun 21 candidate pages + feed.xml verified current. Daily regen restored.</div>
+              <div style="font-size:12.5px;line-height:1.5;padding-top:8px;border-top:1px solid var(--border)"><span style="color:var(--text-mute);font-weight:600">Next · </span><span style="color:var(--text-dim)">Monitor next daily regen. Then: Search Console setup + FEC key verification.</span></div>
             </div>
         </div>
       </div>
@@ -442,22 +441,22 @@
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:9px">
           <span style="font-size:18px">⚾</span>
           <span style="font-weight:600;font-size:15px;flex:1">Phillies Wire</span>
-          <span style="width:11px;height:11px;border-radius:50%;background:var(--warn);box-shadow:0 0 0 3px var(--warn-bg)"></span>
+          <span style="width:11px;height:11px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 3px var(--ok-bg)"></span>
         </div>
-        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5;margin-bottom:9px">Vol. 1 No. 82 published 12:54 AM ET (24/23/0/1 · 15th regen). PHI 41-35 W1 — Game 3 tonight 7:20 PM ET. Delivery producer fixed on disk (⚪ GREY); commit unverifiable — git packfile deadlock.</div>
-        <div style="font-size:12.5px;line-height:1.5;margin-bottom:11px"><span style="color:var(--text-mute);font-weight:600">Next · </span><span style="color:var(--text-dim)">Resolve git packfile deadlock; verify delivery-status.json writes end-to-end in prod.</span></div>
+        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5;margin-bottom:9px">Vol. 1 No. 82 published 1:57 AM ET (24/23/0/1 · 16th regen). PHI 41-35 W1 — Game 3 TONIGHT 7:20 PM ET. Reliability gate 🟢 GREEN (RUN-20260621-0132): 18/18 tests, deliver verified, packfile deadlock cleared.</div>
+        <div style="font-size:12.5px;line-height:1.5;margin-bottom:11px"><span style="color:var(--text-mute);font-weight:600">Next · </span><span style="color:var(--text-dim)">Monitor next regen. Accuracy sprint milestone met (23/24 verified, 0 inaccurate).</span></div>
         <div style="margin-top:auto;display:flex;align-items:center;gap:8px;flex-wrap:wrap">
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)">live 06-20</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)">live 06-21</span>
         </div>
       </div>
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad);display:flex;flex-direction:column">
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:9px">
           <span style="font-size:18px">🎩</span>
           <span style="font-weight:600;font-size:15px;flex:1">Hat-in-Ring</span>
-          <span style="width:11px;height:11px;border-radius:50%;background:var(--warn);box-shadow:0 0 0 3px var(--warn-bg)"></span>
+          <span style="width:11px;height:11px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 3px var(--ok-bg)"></span>
         </div>
-        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5;margin-bottom:9px">P0 live on hatinring.com (200). REGRESSION (RUN-20260621-0502 🟡): per-candidate pages + RSS frozen at Jun 16; homepage builds but daily regen broke.</div>
-        <div style="font-size:12.5px;line-height:1.5;margin-bottom:11px"><span style="color:var(--text-mute);font-weight:600">Next · </span><span style="color:var(--text-dim)">Fix daily regen for /c/newsom + feed.xml; then Search Console + verify FEC key.</span></div>
+        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5;margin-bottom:9px">P0 live on hatinring.com (200). PIPELINE FIXED (RUN-20260621-0130 🟢): daily regen restored, live Jun 21 candidate pages + feed.xml verified current.</div>
+        <div style="font-size:12.5px;line-height:1.5;margin-bottom:11px"><span style="color:var(--text-mute);font-weight:600">Next · </span><span style="color:var(--text-dim)">Monitor next daily regen. Then: Search Console + FEC key.</span></div>
         <div style="margin-top:auto;display:flex;align-items:center;gap:8px;flex-wrap:wrap">
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)">Dev Logs + Status Runs</span>
           <span style="font-size:10px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--warn);background:var(--warn-bg);padding:2px 7px;border-radius:5px">⚑ no DB row · at risk</span>
@@ -482,7 +481,7 @@
           <span style="font-weight:600;font-size:15px;flex:1">PromptLab</span>
           <span style="width:11px;height:11px;border-radius:50%;background:var(--warn);box-shadow:0 0 0 3px var(--warn-bg)"></span>
         </div>
-        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5;margin-bottom:9px">Build gate closed (0e13d8e). Health 🟡.</div>
+        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5;margin-bottom:9px">Build gate closed (0e13d8e). Health 🟡. P0 live at plotforge-beta.vercel.app (P1–P3 open).</div>
         <div style="font-size:12.5px;line-height:1.5;margin-bottom:11px"><span style="color:var(--text-mute);font-weight:600">Next · </span><span style="color:var(--text-dim)">Audit dep vulnerabilities · iCloud cleanup · push/release decision.</span></div>
         <div style="margin-top:auto;display:flex;align-items:center;gap:8px;flex-wrap:wrap">
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)">row edited 06-17</span>
@@ -513,7 +512,7 @@
           <span style="width:7px;height:7px;border-radius:50%;background:var(--warn);margin-top:6px;flex:none"></span>
           <div>
             <div style="font-weight:600;font-size:12.5px;margin-bottom:2px">Mac-wide git scan</div>
-            <div style="font-size:11.5px;color:var(--text-mute);line-height:1.45">Local Mac only · last 06-17 08:43 ET (~90h stale) · cloud can't regenerate.</div>
+            <div style="font-size:11.5px;color:var(--text-mute);line-height:1.45">Local Mac only · last 06-17 08:43 ET (~90h+ stale) · cloud can't regenerate.</div>
           </div>
         </div>
         <div style="display:flex;gap:9px">
@@ -545,7 +544,7 @@
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px"><span style="font-size:16px">⚾</span><span style="font-weight:600;font-size:14px">Game day</span></div>
         <div style="font-weight:600;font-size:15px;margin-bottom:5px">PHI vs NYM · Game 3 · Tonight 7:20 PM ET</div>
-        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.55">Game 2 result (Jun 20): <b style="color:var(--ok)">PHI WIN 15-3</b> — Citizens Bank Park · Sánchez 6IP 5H 1ER 5K · Schwarber 4-for-5 3HR 6RBI. Series tied 1-1. PHI 41-35 W1.<br><b style="color:var(--ok)">Game 3 TONIGHT:</b> Wheeler vs Peterson · 7:20 PM ET NBC/Peacock. Phillies Wire <span style="font-family:'IBM Plex Mono',monospace;color:var(--accent)">Vol. 1 No. 82</span> — accuracy.json 15th regen 12:54 AM ET Jun 21: 24 claims · 23 accurate · 0 inaccurate · 1 unverifiable · all 24 current. NL East 2nd (7.5 GB vs ATL 48-27).</div>
+        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.55">Game 2 result (Jun 20): <b style="color:var(--ok)">PHI WIN 15-3</b> — Citizens Bank Park · Sánchez 6IP 5H 1ER 5K · Schwarber 4-for-5 3HR 6RBI. Series tied 1-1. PHI 41-35 W1.<br><b style="color:var(--ok)">Game 3 TONIGHT:</b> Wheeler vs Peterson · 7:20 PM ET NBC/Peacock. Phillies Wire <span style="font-family:'IBM Plex Mono',monospace;color:var(--accent)">Vol. 1 No. 82</span> — accuracy.json 16th regen 1:57 AM ET Jun 21: 24 claims · 23 accurate · 0 inaccurate · 1 unverifiable · all 24 current. NL East 2nd (7.5 GB vs ATL 48-27).</div>
         <div style="margin-top:10px;display:flex;gap:14px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute)">
           <span>Tonight · Wheeler vs Peterson 7:20 PM ET NBC/Peacock</span><span>Mon · @WSH 6:45</span><span>Tue · @WSH 6:45</span>
         </div>
@@ -760,7 +759,7 @@
             <span style="width:9px;height:9px;border-radius:50%;background:var(--ok);flex:none"></span>
             <span style="font-size:13px;font-weight:500;flex:1;min-width:0">⚾ Phillies Wire factcheck</span>
             <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute);width:72px">daily</span>
-            <span style="font-size:11.5px;color:var(--text-dim);flex:1;min-width:0;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">No. 82 published · 24/23/0/1 · 15th regen 12:54 AM ET Jun 21</span>
+            <span style="font-size:11.5px;color:var(--text-dim);flex:1;min-width:0;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">No. 82 published · 24/23/0/1 · 16th regen 1:57 AM ET Jun 21</span>
           </div>
           <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)">
             <span style="width:9px;height:9px;border-radius:50%;background:var(--ok);flex:none"></span>
@@ -855,7 +854,7 @@
       <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-mute)">13</span>
       <a href="https://app.notion.com/p/37d102824c7b46e7862f2639a228f292" target="_blank" style="margin-left:auto;font-size:12px;color:var(--text-mute);text-decoration:none;font-family:'IBM Plex Mono',monospace">Action Items ↗</a>
     </div>
-    <div style="font-size:12px;color:var(--text-mute);margin-bottom:16px">DB | Action Items (Tier 1) confirmed live ~1:24 AM ET Jun 21 · <b style="color:var(--text-dim)">1 overdue active row</b> (Quality OS visual gate, due Jun 19, 2d overdue).</div>
+    <div style="font-size:12px;color:var(--text-mute);margin-bottom:16px">DB | Action Items (Tier 1) confirmed live ~2:03 AM ET Jun 21 · <b style="color:var(--text-dim)">1 overdue active row</b> (Quality OS visual gate, due Jun 19, 2d overdue).</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:var(--gap)">
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
@@ -866,17 +865,10 @@
       </div>
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
-          <span style="width:8px;height:8px;border-radius:50%;background:var(--bad);flex:none"></span>
-          <span style="font-weight:600;font-size:13.5px">PlotForge — wire landing CTA to app</span>
-        </div>
-        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5">RUN-20260621-0042 🔴 RED: Desktop plotforge/index.html#generate — CTA has href='#' + preventDefault; working app mounts at /src/main.jsx separately. Connect landing to app entry point.</div>
-      </div>
-      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
           <span style="width:8px;height:8px;border-radius:50%;background:var(--warn);flex:none"></span>
-          <span style="font-weight:600;font-size:13.5px">Hat-in-Ring — fix per-candidate page + RSS daily regen</span>
+          <span style="font-weight:600;font-size:13.5px">PlotForge — P1–P3 remaining (P0 live)</span>
         </div>
-        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5">RUN-20260621-0502 🟡: per-candidate pages + RSS frozen at Jun 16; homepage auto-builds but daily regen broke. Fix pipeline so /c/newsom + feed.xml auto-regenerate.</div>
+        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5">RUN-20260621-0042 🟡: P0 live at plotforge-beta.vercel.app. P1–P3 still open; local checkout dirty; ANSI D signoff waits on plotter access. Vercel cost decision pending before any branch push.</div>
       </div>
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
@@ -948,10 +940,72 @@
         </div>
         <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5">npm test/typecheck/harness hung; .git lock + iCloud duplicate artifacts. Memory-sync itself green.</div>
       </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--idle);flex:none"></span>
+          <span style="font-weight:600;font-size:13.5px">World Cup App — push to GitHub</span>
+        </div>
+        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5">gh not authenticated, no origin remote. Commit c3bf066 preserved. Tier-1 task Waiting / High. &gt;~92h open.</div>
+      </div>
     </div>
     <div style="margin-top:26px">
       <div style="font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-mute);margin-bottom:13px">🚦 Status runs · DB confirmed · newest first</div>
       <div style="display:flex;flex-direction:column;gap:1px">
+          <div style="display:flex;gap:13px;padding:11px var(--pad);background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:7px;align-items:flex-start">
+            <span style="width:9px;height:9px;border-radius:50%;background:var(--bad);margin-top:5px;flex:none"></span>
+            <div style="flex:1;min-width:0">
+              <div style="display:flex;align-items:baseline;gap:9px;flex-wrap:wrap">
+                <span style="font-weight:600;font-size:13px">Automated cloud — 4th Jun 21 ET pass</span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)">RUN-20260621-0203</span>
+              </div>
+              <div style="font-size:12px;color:var(--text-dim);line-height:1.45;margin-top:2px">🔴 RED carried. NEW: Hat-in-Ring pipeline FIXED 🟢 (RUN-20260621-0130). Phillies Wire Reliability Gate 🟢 (RUN-20260621-0132: 18/18 tests). PlotForge P0 live → moved to 🟡 (RUN-20260621-0042 updated). accuracy.json 16th regen 1:57 AM ET (24/23/0/1). Tasks 69/44/32d. 1 overdue Action Item (QualOS gate, 2d). World Cup &gt;~92h. HTTP 4/4 200.</div>
+            </div>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);flex:none;white-space:nowrap">06-21 ~2:03 AM ET</span>
+          </div>
+          <div style="display:flex;gap:13px;padding:11px var(--pad);background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:7px;align-items:flex-start">
+            <span style="width:9px;height:9px;border-radius:50%;background:var(--ok);margin-top:5px;flex:none"></span>
+            <div style="flex:1;min-width:0">
+              <div style="display:flex;align-items:baseline;gap:9px;flex-wrap:wrap">
+                <span style="font-weight:600;font-size:13px">Catering phone-number mismatch check — 🟢 GREEN</span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)">RUN-20260621-0154</span>
+              </div>
+              <div style="font-size:12px;color:var(--text-dim);line-height:1.45;margin-top:2px">🟢 GREEN: app.js L9-10 &amp; index.html L116 both = 856-296-5306 / tel:+18562965306 — identical, no mismatch found, no diff needed.</div>
+            </div>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);flex:none;white-space:nowrap">06-21 ~1:54 AM ET</span>
+          </div>
+          <div style="display:flex;gap:13px;padding:11px var(--pad);background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:7px;align-items:flex-start">
+            <span style="width:9px;height:9px;border-radius:50%;background:var(--ok);margin-top:5px;flex:none"></span>
+            <div style="flex:1;min-width:0">
+              <div style="display:flex;align-items:baseline;gap:9px;flex-wrap:wrap">
+                <span style="font-weight:600;font-size:13px">Command Center redesign + mirror regression fix — 🟢 GREEN</span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)">RUN-20260621-0141</span>
+              </div>
+              <div style="font-size:12px;color:var(--text-dim);line-height:1.45;margin-top:2px">🟢 GREEN: redesign live + durable via data/render seam. Mirror regression root-caused and fixed via deterministic publish-061eed.sh. 3rd pass republished current design (cc061 b8264c9). cc-collapse-all + data-cc-theme present; footer confirmed.</div>
+            </div>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);flex:none;white-space:nowrap">06-21 ~1:41 AM ET</span>
+          </div>
+          <div style="display:flex;gap:13px;padding:11px var(--pad);background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:7px;align-items:flex-start">
+            <span style="width:9px;height:9px;border-radius:50%;background:var(--ok);margin-top:5px;flex:none"></span>
+            <div style="flex:1;min-width:0">
+              <div style="display:flex;align-items:baseline;gap:9px;flex-wrap:wrap">
+                <span style="font-weight:600;font-size:13px">Phillies Wire — Reliability Gate 🟢 GREEN</span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)">RUN-20260621-0132</span>
+              </div>
+              <div style="font-size:12px;color:var(--text-dim);line-height:1.45;margin-top:2px">🟢 GREEN: FS deadlock cleared; gate re-run clean. npm test 18/18 (incl. 7 reliability), exit 0; deliver.mjs writes both delivery-status.json files (sent, failed 0); delivery-status.test passed; health-check exit 0; docs tracked. Clears prior ⚪ GREY (RUN-20260621-0503).</div>
+            </div>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);flex:none;white-space:nowrap">06-21 ~1:32 AM ET</span>
+          </div>
+          <div style="display:flex;gap:13px;padding:11px var(--pad);background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:7px;align-items:flex-start">
+            <span style="width:9px;height:9px;border-radius:50%;background:var(--ok);margin-top:5px;flex:none"></span>
+            <div style="flex:1;min-width:0">
+              <div style="display:flex;align-items:baseline;gap:9px;flex-wrap:wrap">
+                <span style="font-weight:600;font-size:13px">Hat-in-Ring — pipeline fixed 🟢 GREEN</span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)">RUN-20260621-0130</span>
+              </div>
+              <div style="font-size:12px;color:var(--text-dim);line-height:1.45;margin-top:2px">🟢 GREEN: pipeline committed, pushed, rerun, deployed. GH Actions Run 27895351572 passed; Pages 27895385989 passed; live Jun 21 candidate pages + feed.xml verified current. Clears prior 🟡 YELLOW (RUN-20260621-0502).</div>
+            </div>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);flex:none;white-space:nowrap">06-21 ~1:30 AM ET</span>
+          </div>
           <div style="display:flex;gap:13px;padding:11px var(--pad);background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:7px;align-items:flex-start">
             <span style="width:9px;height:9px;border-radius:50%;background:var(--bad);margin-top:5px;flex:none"></span>
             <div style="flex:1;min-width:0">
@@ -978,10 +1032,10 @@
             <span style="width:9px;height:9px;border-radius:50%;background:var(--idle);margin-top:5px;flex:none"></span>
             <div style="flex:1;min-width:0">
               <div style="display:flex;align-items:baseline;gap:9px;flex-wrap:wrap">
-                <span style="font-weight:600;font-size:13px">Phillies Wire — producer fixed on disk (⚪ GREY)</span>
+                <span style="font-weight:600;font-size:13px">Phillies Wire — ⚪ GREY → CLEARED by RUN-0132</span>
                 <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)">RUN-20260621-0503</span>
               </div>
-              <div style="font-size:12px;color:var(--text-dim);line-height:1.45;margin-top:2px">⚪ GREY: deliver.mjs:106 writes delivery-status.json+site, numeric failed-count wired; pinned by delivery-status.test.mjs. Prior red cleared on disk. Commit + npm test blocked by git packfile deadlock + node file lock — unverifiable from sandbox.</div>
+              <div style="font-size:12px;color:var(--text-dim);line-height:1.45;margin-top:2px">⚪ GREY at logging: deliver.mjs:106 writes delivery-status.json+site, numeric failed-count wired; git packfile deadlock blocked commit verify. CLEARED: RUN-20260621-0132 🟢 confirmed packfile deadlock resolved, full gate 18/18 passes.</div>
             </div>
             <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);flex:none;white-space:nowrap">06-21 ~1:04 AM ET</span>
           </div>
@@ -989,10 +1043,10 @@
             <span style="width:9px;height:9px;border-radius:50%;background:var(--warn);margin-top:5px;flex:none"></span>
             <div style="flex:1;min-width:0">
               <div style="display:flex;align-items:baseline;gap:9px;flex-wrap:wrap">
-                <span style="font-weight:600;font-size:13px">Hat-in-Ring Radar — candidate pages + RSS stale (regression)</span>
+                <span style="font-weight:600;font-size:13px">Hat-in-Ring — 🟡 YELLOW → FIXED by RUN-0130</span>
                 <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)">RUN-20260621-0502</span>
               </div>
-              <div style="font-size:12px;color:var(--text-dim);line-height:1.45;margin-top:2px">🟡 YELLOW: T+4 re-verify: homepage auto-built Jun 20 ✓; /c/newsom + feed.xml frozen at Jun 16 — daily regen broke. Search Console not started; FEC key unverified.</div>
+              <div style="font-size:12px;color:var(--text-dim);line-height:1.45;margin-top:2px">🟡 YELLOW at logging: /c/newsom + feed.xml frozen at Jun 16, daily regen broke. FIXED: RUN-20260621-0130 🟢 pipeline committed, deployed, live Jun 21 candidate pages + feed.xml verified.</div>
             </div>
             <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);flex:none;white-space:nowrap">06-21 ~1:04 AM ET</span>
           </div>
@@ -1003,18 +1057,18 @@
                 <span style="font-weight:600;font-size:13px">Automated cloud — 2nd Jun 21 ET pass</span>
                 <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)">RUN-20260621-0103</span>
               </div>
-              <div style="font-size:12px;color:var(--text-dim);line-height:1.45;margin-top:2px">🔴 RED carried + NEW red. PlotForge CTA disconnected (RUN-20260621-0042). Vol. 1 No. 82 published 12:54 AM ET (15th regen, 24/23/0/1). Game 3 tonight 7:20 PM ET. Tasks 69/44/32d. 1 overdue Action Item (QualOS gate, 2d). World Cup red &gt;~91h. HTTP 4/4 200.</div>
+              <div style="font-size:12px;color:var(--text-dim);line-height:1.45;margin-top:2px">🔴 RED carried + NEW red. PlotForge CTA disconnected (RUN-20260621-0042). Vol. 1 No. 82 published 12:54 AM ET (15th regen, 24/23/0/1, all 24 current). Game 3 tonight 7:20 PM ET. Tasks 69/44/32d. 1 overdue Action Item (QualOS gate, 2d). World Cup red &gt;~91h. HTTP 4/4 200.</div>
             </div>
             <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);flex:none;white-space:nowrap">06-21 ~1:03 AM ET</span>
           </div>
           <div style="display:flex;gap:13px;padding:11px var(--pad);background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:7px;align-items:flex-start">
-            <span style="width:9px;height:9px;border-radius:50%;background:var(--bad);margin-top:5px;flex:none"></span>
+            <span style="width:9px;height:9px;border-radius:50%;background:var(--warn);margin-top:5px;flex:none"></span>
             <div style="flex:1;min-width:0">
               <div style="display:flex;align-items:baseline;gap:9px;flex-wrap:wrap">
-                <span style="font-weight:600;font-size:13px">PlotForge — landing CTA disconnected</span>
+                <span style="font-weight:600;font-size:13px">PlotForge — P0 now live (🟡 YELLOW, updated via sub-task override)</span>
                 <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)">RUN-20260621-0042</span>
               </div>
-              <div style="font-size:12px;color:var(--text-dim);line-height:1.45;margin-top:2px">🔴 RED: Desktop plotforge/index.html#generate — CTA button href='#' + preventDefault; working app mounts at /src/main.jsx separately. Wire CTA to connect landing to app.</div>
+              <div style="font-size:12px;color:var(--text-dim);line-height:1.45;margin-top:2px">🟡 YELLOW (updated): P0 live at plotforge-beta.vercel.app (200; origin/main c9df5fd; local checkout dirty). P1–P3 still open; ANSI D signoff waits on plotter access. Originally logged as 🔴 (landing CTA href='#'+preventDefault); P0 now confirmed live.</div>
             </div>
             <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);flex:none;white-space:nowrap">06-21 12:42 AM ET</span>
           </div>
@@ -1050,61 +1104,6 @@
               <div style="font-size:12px;color:var(--text-dim);line-height:1.45;margin-top:2px">🔴 RED carried. PHI WIN 15-3 (Sánchez 6IP 5H 1ER 5K; Schwarber 4-for-5, 3 HR, 6 RBI) confirmed. accuracy.json 13th regen 10:41 PM ET; 26/25/0/1 unchanged. Tasks 69/44/32d. 1 overdue Action Item (QualOS gate, 2d). World Cup red &gt;~90h.</div>
             </div>
             <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);flex:none;white-space:nowrap">06-20 11:10 PM ET</span>
-          </div>
-          <div style="display:flex;gap:13px;padding:11px var(--pad);background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:7px;align-items:flex-start">
-            <span style="width:9px;height:9px;border-radius:50%;background:var(--bad);margin-top:5px;flex:none"></span>
-            <div style="flex:1;min-width:0">
-              <div style="display:flex;align-items:baseline;gap:9px;flex-wrap:wrap">
-                <span style="font-weight:600;font-size:13px">Automated cloud — 25th Jun 20 ET pass</span>
-                <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)">RUN-20260620-2302</span>
-              </div>
-              <div style="font-size:12px;color:var(--text-dim);line-height:1.45;margin-top:2px">🔴 RED carried. PHI WIN 15-3 confirmed (Schwarber 4-for-5, 3 HR, 6 RBI; series tied 1-1). accuracy.json 13th regen; 26/25/0/1 unchanged. Tasks 69/44/32d. 1 overdue Action Item. World Cup &gt;~90h. Mac git ~87h stale.</div>
-            </div>
-            <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);flex:none;white-space:nowrap">06-20 11:02 PM ET</span>
-          </div>
-          <div style="display:flex;gap:13px;padding:11px var(--pad);background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:7px;align-items:flex-start">
-            <span style="width:9px;height:9px;border-radius:50%;background:var(--bad);margin-top:5px;flex:none"></span>
-            <div style="flex:1;min-width:0">
-              <div style="display:flex;align-items:baseline;gap:9px;flex-wrap:wrap">
-                <span style="font-weight:600;font-size:13px">Automated cloud — 24th Jun 20 ET pass</span>
-                <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)">RUN-20260620-2249</span>
-              </div>
-              <div style="font-size:12px;color:var(--text-dim);line-height:1.45;margin-top:2px">🔴 RED carried. accuracy.json 13th regen 10:41 PM ET; 26/25/0/1 unchanged. Game 2 complete. Tasks 69/44/32d (UTC rolled). 1 overdue Action Item (QualOS gate, 2d).</div>
-            </div>
-            <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);flex:none;white-space:nowrap">06-20 10:49 PM ET</span>
-          </div>
-          <div style="display:flex;gap:13px;padding:11px var(--pad);background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:7px;align-items:flex-start">
-            <span style="width:9px;height:9px;border-radius:50%;background:var(--bad);margin-top:5px;flex:none"></span>
-            <div style="flex:1;min-width:0">
-              <div style="display:flex;align-items:baseline;gap:9px;flex-wrap:wrap">
-                <span style="font-weight:600;font-size:13px">Automated cloud — 23rd Jun 20 ET pass</span>
-                <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)">RUN-20260620-2203</span>
-              </div>
-              <div style="font-size:12px;color:var(--text-dim);line-height:1.45;margin-top:2px">accuracy.json 12th regen 9:51 PM ET; 26/25/0/1. Game 2 complete per summary. Tasks 69/44/32d (UTC rolled). 1 overdue Action Item.</div>
-            </div>
-            <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);flex:none;white-space:nowrap">06-20 ~10:03 PM ET</span>
-          </div>
-          <div style="display:flex;gap:13px;padding:11px var(--pad);background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:7px;align-items:flex-start">
-            <span style="width:9px;height:9px;border-radius:50%;background:var(--warn);margin-top:5px;flex:none"></span>
-            <div style="flex:1;min-width:0">
-              <div style="display:flex;align-items:baseline;gap:9px;flex-wrap:wrap">
-                <span style="font-weight:600;font-size:13px">Session run reconciliation</span>
-                <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)">RUN…0152-SESSION-RECON</span>
-              </div>
-              <div style="font-size:12px;color:var(--text-dim);line-height:1.45;margin-top:2px">640 transcripts; 88 pending; SQL gate. 3 Run-ID collision groups reconciled.</div>
-            </div>
-            <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);flex:none;white-space:nowrap">06-20 05:52Z</span>
-          </div>
-          <div style="display:flex;gap:13px;padding:11px var(--pad);background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:7px;align-items:flex-start">
-            <span style="width:9px;height:9px;border-radius:50%;background:var(--ok);margin-top:5px;flex:none"></span>
-            <div style="flex:1;min-width:0">
-              <div style="display:flex;align-items:baseline;gap:9px;flex-wrap:wrap">
-                <span style="font-weight:600;font-size:13px">Notion Banner Generator — Phase 3A</span>
-                <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)">RUN-20260620-0113</span>
-              </div>
-              <div style="font-size:12px;color:var(--text-dim);line-height:1.45;margin-top:2px">commit d4c0d40; provider adapters + freeform create_recipe; tests/build/mcp smoke pass.</div>
-            </div>
-            <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);flex:none;white-space:nowrap">06-20 05:15Z</span>
           </div>
       </div>
     </div>
@@ -1159,19 +1158,19 @@
           <span style="width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none"></span>
           <span style="flex:1;min-width:0;font-size:12.5px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">DB | Status Runs (All Runs)</span>
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);width:130px;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">notion-query</span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">06-21 ~1:24 AM ET</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">06-21 ~2:03 AM ET</span>
         </div>
         <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border)">
           <span style="width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none"></span>
           <span style="flex:1;min-width:0;font-size:12.5px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">DB | Action Items (Tier 1)</span>
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);width:130px;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">notion-query</span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">06-21 ~1:24 AM ET</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">06-21 ~2:03 AM ET</span>
         </div>
         <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border)">
           <span style="width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none"></span>
           <span style="flex:1;min-width:0;font-size:12.5px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">DB | Personal Tasks (Tier 2)</span>
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);width:130px;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">view query</span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">06-21 ~1:24 AM ET</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">06-21 ~2:03 AM ET</span>
         </div>
         <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border)">
           <span style="width:8px;height:8px;border-radius:50%;background:var(--warn);flex:none"></span>
@@ -1195,7 +1194,7 @@
           <span style="width:8px;height:8px;border-radius:50%;background:var(--idle);flex:none"></span>
           <span style="flex:1;min-width:0;font-size:12.5px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Mac git attention rescan</span>
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);width:130px;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">local report</span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">06-18 11:08Z · ~90h stale</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">06-18 11:08Z · ~90h+ stale</span>
         </div>
         <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border)">
           <span style="width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none"></span>
@@ -1207,7 +1206,7 @@
           <span style="width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none"></span>
           <span style="flex:1;min-width:0;font-size:12.5px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Phillies Wire accuracy.json</span>
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);width:130px;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">http check</span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">06-21 ~1:24 AM ET (15th regen 12:54 AM ET Jun 21 · 24/23/0/1 · all 24 current · Vol. 1 No. 82 · no new regen since last pass)</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">06-21 ~2:03 AM ET (16th regen 1:57 AM ET Jun 21 · 24/23/0/1 · all 24 current · Vol. 1 No. 82 · game 3 TONIGHT 7:20 PM ET)</span>
         </div>
         <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border)">
           <span style="width:8px;height:8px;border-radius:50%;background:var(--idle);flex:none"></span>
@@ -1255,7 +1254,7 @@ Git: read latest Mac evidence in 90-governance/docs/. Deploys: HTTP-check live s
 pull real counts from accuracy.json — never quote stale numbers. Record every change in
 meta.thisPass + the deltas[] array (the "This pass" banner), then open the file.</span><button id="cc-copy" style="position:absolute;top:10px;right:10px;padding:5px 12px;border-radius:7px;border:1px solid var(--border2);background:var(--surface);color:var(--text);font-size:11px;font-weight:600;cursor:pointer;font-family:'IBM Plex Sans',sans-serif">Copy</button></div>
     </div>
-    <div style="text-align:center;margin-top:26px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute)">Snapshot re-reconciled 2026-06-21 ~1:24 AM ET · 3rd automated cloud pass · built by Claude Code</div>
+    <div style="text-align:center;margin-top:26px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute)">Snapshot re-reconciled 2026-06-21 ~2:03 AM ET · 4th automated cloud pass · built by Claude Code</div>
   </section>
 
 </div>
