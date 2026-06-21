@@ -154,20 +154,20 @@
   <section id="overview" style="max-width:1280px;margin:0 auto;padding:26px 24px 0">
     <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:13px;flex-wrap:wrap">
       <h2 style="margin:0;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-mute)">This pass · changed since last run</h2>
-      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-dim)">RUN-20260621-0803 · 10th Jun 21 ET pass · ~8:03 AM ET</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-dim)">RUN-20260621-0903 · 11th Jun 21 ET pass · ~9:03 AM ET</span>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:var(--gap)">
-      <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--ok);border-radius:var(--radius);padding:var(--pad)">
+      <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--warn);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ok);background:var(--ok-bg);padding:2px 7px;border-radius:5px;white-space:nowrap;flex:none">Delta 1</span>
-          <span style="font-weight:600;font-size:14.5px">RESOLVED: World Cup App GitHub push 🟢 GREEN — red count 2 → 1</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--warn);background:var(--warn-bg);padding:2px 7px;border-radius:5px;white-space:nowrap;flex:none">Delta 1</span>
+          <span style="font-weight:600;font-size:14.5px">NEW: RUN-20260621-1219 🟡 YELLOW — PromptLab hosted Anthropic 404 (PR #14 draft, not merged)</span>
         </div>
-        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">RUN-20260621-WORLD-CUP-GITHUB-PUSH (~7:50 AM ET): world-cup-app source repo is now a private GitHub repo; local HEAD and origin/main are c3bf066. Tier-1 task 'Push world-cup-app to GitHub' (Waiting/High) is fulfilled. World Cup red clears — only Davai remains.</div>
+        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">Logged ~8:20 AM ET (after 10th pass): retired model claude-sonnet-4-20250514 (EOL Jun 15) causes hosted Anthropic 404 on PromptLab. Fix authored in draft PR #14 (53616a1): proxy 4/4 ✓, Vitest 442/442 ✓ — not yet merged/deployed. Dave: review/merge PR #14 + confirm HOSTED_ALLOWED_ANTHROPIC_MODELS env var is not pinned to retired ID. Sub-task override: YES.</div>
       </div>
       <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--ok);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ok);background:var(--ok-bg);padding:2px 7px;border-radius:5px;white-space:nowrap;flex:none">Delta 2</span>
-          <span style="font-weight:600;font-size:14.5px">All other sources unchanged vs 9th pass · HTTP 4/4 200</span>
+          <span style="font-weight:600;font-size:14.5px">All other sources unchanged vs 10th pass · HTTP 4/4 200</span>
         </div>
         <div style="font-size:13px;color:var(--text-dim);line-height:1.5">Personal Tasks: 3 overdue (69/44/32d unchanged). Action Items: 1 overdue (QualOS gate, due Jun 19, 2d unchanged). accuracy.json: still 18th regen 4:16 AM ET (08:16:29Z) · 24/23/0/1, all 24 current. HTTP 4/4 200 (teleprompter · hatinring · phillies-wire · command-center). Game 3 TONIGHT 7:20 PM ET still confirmed.</div>
       </div>
@@ -181,18 +181,18 @@
       <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--info);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--info);background:var(--info-bg);padding:2px 7px;border-radius:5px;white-space:nowrap;flex:none">Delta 4</span>
-          <span style="font-weight:600;font-size:14.5px">10th automated cloud pass — local sources NOT refreshed</span>
+          <span style="font-weight:600;font-size:14.5px">11th automated cloud pass — local sources NOT refreshed</span>
         </div>
-        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">Davai memory (~29d stale) and Mac-wide git scan (~96h+ stale, last 06-17 08:43 ET) are local Mac only and cannot be refreshed from the cloud. All Notion sources re-queried live this pass.</div>
+        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">Davai memory (~29d stale) and Mac-wide git scan (~98h+ stale, last 06-17 08:43 ET) are local Mac only and cannot be refreshed from the cloud. All Notion sources re-queried live this pass.</div>
       </div>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:var(--gap);margin-top:var(--gap)">
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:baseline;gap:8px">
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:600;color:var(--info);line-height:1">10</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:600;color:var(--info);line-height:1">11</span>
         </div>
         <div style="font-size:12.5px;font-weight:600;margin-top:7px">Cloud passes today</div>
-        <div style="font-size:11.5px;color:var(--text-mute);font-family:'IBM Plex Mono',monospace;margin-top:2px">12:03 AM + 1:03 AM + 1:24 AM + 2:03 AM + 3:04 AM + 4:04 AM + 5:03 AM + 6:02 AM + 7:03 AM + 8:03 AM ET</div>
+        <div style="font-size:11.5px;color:var(--text-mute);font-family:'IBM Plex Mono',monospace;margin-top:2px">12:03 AM + 1:03 AM + 1:24 AM + 2:03 AM + 3:04 AM + 4:04 AM + 5:03 AM + 6:02 AM + 7:03 AM + 8:03 AM + 9:03 AM ET</div>
       </div>
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:baseline;gap:8px">
@@ -256,6 +256,13 @@
       <div>
         <div style="font-size:11.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--warn);margin-bottom:9px">Decisions waiting on you</div>
         <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:6px var(--pad)">
+          <div style="display:flex;gap:11px;padding:11px 0;border-bottom:1px solid var(--border)">
+            <span style="width:7px;height:7px;border-radius:50%;background:var(--warn);margin-top:6px;flex:none"></span>
+            <div>
+              <div style="font-weight:600;font-size:13px;margin-bottom:2px">PromptLab — hosted Anthropic 404 · PR #14 awaiting Dave merge</div>
+              <div style="font-size:12px;color:var(--text-dim);line-height:1.45">RUN-20260621-1219 🟡 YELLOW (~8:20 AM ET): retired model claude-sonnet-4-20250514 (EOL Jun 15) causes hosted Anthropic 404. Fix in draft PR #14 (53616a1): proxy 4/4 ✓, Vitest 442/442 ✓ — not merged/deployed. Dave: review/merge + confirm HOSTED_ALLOWED_ANTHROPIC_MODELS env var not pinned to retired ID.</div>
+            </div>
+          </div>
           <div style="display:flex;gap:11px;padding:11px 0;border-bottom:1px solid var(--border)">
             <span style="width:7px;height:7px;border-radius:50%;background:var(--bad);margin-top:6px;flex:none"></span>
             <div>
@@ -334,8 +341,8 @@
                 <span style="font-weight:600;font-size:14px;flex:1">PromptLab — widget shipped, build gate closed</span>
                 <span style="font-size:10.5px;font-weight:600;color:var(--warn);background:var(--warn-bg);padding:2px 8px;border-radius:5px;text-transform:uppercase;letter-spacing:.04em">Active</span>
               </div>
-              <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5;margin-bottom:8px">Widget build recovered &amp; committed (0e13d8e); 3 shells build-smoke ✓. PlotForge P1 FULLY DEPLOYED: f5ebf27 + 44296f7 live at plotforge-beta (HTTP 200). P2 fixture status committed locally as 9bc8e55 (all tests/lint/build ✓) but push blocked — dataless origin/HEAD Git ref mmap timeout.</div>
-              <div style="font-size:12.5px;line-height:1.5;padding-top:8px;border-top:1px solid var(--border)"><span style="color:var(--text-mute);font-weight:600">Next · </span><span style="color:var(--text-dim)">Fix Git ref issue → push P2 9bc8e55 · PlotForge P3 · Dependency-audit vulnerabilities · iCloud cleanup · push/release decision. No-push until Vercel cost set.</span></div>
+              <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5;margin-bottom:8px">Widget build recovered &amp; committed (0e13d8e); 3 shells build-smoke ✓. PlotForge P1 FULLY DEPLOYED: f5ebf27 + 44296f7 live at plotforge-beta (HTTP 200). P2 fixture status committed locally as 9bc8e55 (all tests/lint/build ✓) but push blocked — dataless origin/HEAD Git ref mmap timeout. NEW (RUN-20260621-1219 🟡 ~8:20 AM ET): hosted Anthropic 404 — retired model claude-sonnet-4-20250514 (EOL Jun 15); draft PR #14 (53616a1) fixes it, proxy 4/4 ✓, Vitest 442/442 ✓, not yet merged.</div>
+              <div style="font-size:12.5px;line-height:1.5;padding-top:8px;border-top:1px solid var(--border)"><span style="color:var(--text-mute);font-weight:600">Next · </span><span style="color:var(--text-dim)">Dave: review/merge PR #14 + confirm HOSTED_ALLOWED_ANTHROPIC_MODELS env var not pinned to retired ID · Fix Git ref → push P2 9bc8e55 · PlotForge P3 · Vercel cost decision still pending.</span></div>
             </div>
             <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
               <div style="display:flex;align-items:center;gap:9px;margin-bottom:8px">
@@ -466,8 +473,8 @@
           <span style="font-weight:600;font-size:15px;flex:1">PromptLab</span>
           <span style="width:11px;height:11px;border-radius:50%;background:var(--warn);box-shadow:0 0 0 3px var(--warn-bg)"></span>
         </div>
-        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5;margin-bottom:9px">Build gate closed (0e13d8e). PlotForge: P0+P1 fully done — f5ebf27 + 44296f7 live at plotforge-beta (HTTP 200). P2 fixture status committed locally (9bc8e55), all tests/lint/build ✓, push blocked by dataless Git origin/HEAD ref. P3 open. Health 🟡.</div>
-        <div style="font-size:12.5px;line-height:1.5;margin-bottom:11px"><span style="color:var(--text-mute);font-weight:600">Next · </span><span style="color:var(--text-dim)">Fix Git ref (dataless origin/HEAD) → push P2 9bc8e55 → PlotForge P3 · Audit dep vulnerabilities · iCloud cleanup · push/release decision.</span></div>
+        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5;margin-bottom:9px">Build gate closed (0e13d8e). PlotForge: P0+P1 fully done — f5ebf27 + 44296f7 live at plotforge-beta (HTTP 200). P2 committed locally (9bc8e55, push blocked dataless Git origin/HEAD). NEW (RUN-20260621-1219 🟡 ~8:20 AM ET): hosted Anthropic 404 — retired claude-sonnet-4-20250514 (EOL Jun 15); draft PR #14 fix (53616a1): proxy/vitest ✓, awaiting Dave merge. Health 🟡.</div>
+        <div style="font-size:12.5px;line-height:1.5;margin-bottom:11px"><span style="color:var(--text-mute);font-weight:600">Next · </span><span style="color:var(--text-dim)">Dave: review/merge PR #14 + confirm Vercel HOSTED_ALLOWED_ANTHROPIC_MODELS env var · Fix Git ref → push P2 9bc8e55 · PlotForge P3 · Vercel cost decision.</span></div>
         <div style="margin-top:auto;display:flex;align-items:center;gap:8px;flex-wrap:wrap">
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)">row edited 06-17</span>
         </div>
@@ -839,7 +846,7 @@
       <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-mute)">13</span>
       <a href="https://app.notion.com/p/37d102824c7b46e7862f2639a228f292" target="_blank" style="margin-left:auto;font-size:12px;color:var(--text-mute);text-decoration:none;font-family:'IBM Plex Mono',monospace">Action Items ↗</a>
     </div>
-    <div style="font-size:12px;color:var(--text-mute);margin-bottom:16px">DB | Action Items (Tier 1) confirmed live ~8:03 AM ET Jun 21 · <b style="color:var(--text-dim)">1 overdue active row</b> (Quality OS visual gate, due Jun 19, 2d overdue).</div>
+    <div style="font-size:12px;color:var(--text-mute);margin-bottom:16px">DB | Action Items (Tier 1) confirmed live ~9:03 AM ET Jun 21 · <b style="color:var(--text-dim)">1 overdue active row</b> (Quality OS visual gate, due Jun 19, 2d overdue).</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:var(--gap)">
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
@@ -847,6 +854,13 @@
           <span style="font-weight:600;font-size:13.5px">Quality OS visual gate</span>
         </div>
         <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5">Sole Tier-1 overdue Action Item (due Jun 19, 2d overdue). Blocked on authenticated HA screenshots.</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--warn);flex:none"></span>
+          <span style="font-weight:600;font-size:13.5px">PromptLab — hosted Anthropic 404 · PR #14 open draft (awaiting Dave merge)</span>
+        </div>
+        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5">RUN-20260621-1219 🟡 YELLOW (~8:20 AM ET): retired model claude-sonnet-4-20250514 (EOL Jun 15) causes hosted Anthropic 404. Fix in draft PR #14 (53616a1): proxy 4/4 ✓, Vitest 442/442 ✓ — not yet merged/deployed. Dave: review/merge PR #14 + confirm Vercel HOSTED_ALLOWED_ANTHROPIC_MODELS env var is not pinned to retired ID.</div>
       </div>
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
@@ -936,6 +950,28 @@
     <div style="margin-top:26px">
       <div style="font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-mute);margin-bottom:13px">🚦 Status runs · DB confirmed · newest first</div>
       <div style="display:flex;flex-direction:column;gap:1px">
+          <div style="display:flex;gap:13px;padding:11px var(--pad);background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:7px;align-items:flex-start">
+            <span style="width:9px;height:9px;border-radius:50%;background:var(--bad);margin-top:5px;flex:none"></span>
+            <div style="flex:1;min-width:0">
+              <div style="display:flex;align-items:baseline;gap:9px;flex-wrap:wrap">
+                <span style="font-weight:600;font-size:13px">Automated cloud — 11th Jun 21 ET pass</span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)">RUN-20260621-0903</span>
+              </div>
+              <div style="font-size:12px;color:var(--text-dim);line-height:1.45;margin-top:2px">🔴 RED (Davai only). NEW: RUN-20260621-1219 🟡 YELLOW (~8:20 AM ET) — PromptLab hosted Anthropic 404 (retired claude-sonnet-4-20250514, EOL Jun 15); draft PR #14 fix (53616a1) not yet merged. accuracy.json still 18th regen 4:16 AM ET (24/23/0/1, no change). Tasks 69/44/32d. 1 overdue Action Item (QualOS gate, Jun 19, 2d). Davai carried. HTTP 4/4 200. Game 3 TONIGHT 7:20 PM ET (Wheeler vs Peterson).</div>
+            </div>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);flex:none;white-space:nowrap">06-21 ~9:03 AM ET</span>
+          </div>
+          <div style="display:flex;gap:13px;padding:11px var(--pad);background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:7px;align-items:flex-start">
+            <span style="width:9px;height:9px;border-radius:50%;background:var(--warn);margin-top:5px;flex:none"></span>
+            <div style="flex:1;min-width:0">
+              <div style="display:flex;align-items:baseline;gap:9px;flex-wrap:wrap">
+                <span style="font-weight:600;font-size:13px">PromptLab — hosted Anthropic 404 · 🟡 YELLOW</span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)">RUN-20260621-1219</span>
+              </div>
+              <div style="font-size:12px;color:var(--text-dim);line-height:1.45;margin-top:2px">🟡 YELLOW: Retired model claude-sonnet-4-20250514 (EOL 2026-06-15) caused hosted Anthropic 404 on PromptLab. Fix authored + locally verified in draft PR #14 (53616a1): proxy 4/4 ✓, Vitest 442/442 ✓ — not merged/deployed. Production hosted 404 not yet confirmed resolved. Awaiting Dave: review/merge PR #14 + confirm Vercel HOSTED_ALLOWED_ANTHROPIC_MODELS env var is not pinned to the retired ID. Sub-task override: YES.</div>
+            </div>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);flex:none;white-space:nowrap">06-21 ~8:20 AM ET</span>
+          </div>
           <div style="display:flex;gap:13px;padding:11px var(--pad);background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:7px;align-items:flex-start">
             <span style="width:9px;height:9px;border-radius:50%;background:var(--bad);margin-top:5px;flex:none"></span>
             <div style="flex:1;min-width:0">
@@ -1231,19 +1267,19 @@
           <span style="width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none"></span>
           <span style="flex:1;min-width:0;font-size:12.5px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">DB | Status Runs (All Runs)</span>
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);width:130px;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">notion-query</span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">06-21 ~8:03 AM ET</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">06-21 ~9:03 AM ET</span>
         </div>
         <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border)">
           <span style="width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none"></span>
           <span style="flex:1;min-width:0;font-size:12.5px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">DB | Action Items (Tier 1)</span>
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);width:130px;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">notion-query</span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">06-21 ~8:03 AM ET</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">06-21 ~9:03 AM ET</span>
         </div>
         <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border)">
           <span style="width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none"></span>
           <span style="flex:1;min-width:0;font-size:12.5px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">DB | Personal Tasks (Tier 2)</span>
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);width:130px;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">view query</span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">06-21 ~8:03 AM ET</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">06-21 ~9:03 AM ET</span>
         </div>
         <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border)">
           <span style="width:8px;height:8px;border-radius:50%;background:var(--warn);flex:none"></span>
@@ -1279,7 +1315,7 @@
           <span style="width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none"></span>
           <span style="flex:1;min-width:0;font-size:12.5px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Phillies Wire accuracy.json</span>
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);width:130px;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">http check</span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">06-21 ~8:03 AM ET (18th regen 4:16 AM ET Jun 21 · 24/23/0/1 · all 24 current · Vol. 1 No. 82 · game 3 TONIGHT 7:20 PM ET)</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">06-21 ~9:03 AM ET (18th regen 4:16 AM ET Jun 21 · 24/23/0/1 · all 24 current · Vol. 1 No. 82 · game 3 TONIGHT 7:20 PM ET)</span>
         </div>
         <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border)">
           <span style="width:8px;height:8px;border-radius:50%;background:var(--idle);flex:none"></span>
@@ -1327,7 +1363,7 @@ Git: read latest Mac evidence in 90-governance/docs/. Deploys: HTTP-check live s
 pull real counts from accuracy.json — never quote stale numbers. Record every change in
 meta.thisPass + the deltas[] array (the "This pass" banner), then open the file.</span><button id="cc-copy" style="position:absolute;top:10px;right:10px;padding:5px 12px;border-radius:7px;border:1px solid var(--border2);background:var(--surface);color:var(--text);font-size:11px;font-weight:600;cursor:pointer;font-family:'IBM Plex Sans',sans-serif">Copy</button></div>
     </div>
-    <div style="text-align:center;margin-top:26px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute)">Snapshot re-reconciled 2026-06-21 ~8:03 AM ET · 10th automated cloud pass · built by Claude Code</div>
+    <div style="text-align:center;margin-top:26px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute)">Snapshot re-reconciled 2026-06-21 ~9:03 AM ET · 11th automated cloud pass · built by Claude Code</div>
   </section>
 
 </div>
