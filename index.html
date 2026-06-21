@@ -147,48 +147,48 @@
   </header>
 
   <!-- THIS PASS / DELTAS -->
-  <section style="max-width:1280px;margin:0 auto;padding:26px 24px 0">
+  <section id="overview" style="max-width:1280px;margin:0 auto;padding:26px 24px 0">
     <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:13px;flex-wrap:wrap">
       <h2 style="margin:0;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-mute)">This pass · changed since last run</h2>
-      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-dim)">RUN-20260620-2249 · 24th Jun 20 ET pass · ~10:49 PM ET</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-dim)">RUN-20260620-2302 · 25th Jun 20 ET pass · ~11:02 PM ET</span>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:var(--gap)">
       <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--ok);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ok);background:var(--ok-bg);padding:2px 7px;border-radius:5px;white-space:nowrap;flex:none">Delta 1</span>
-          <span style="font-weight:600;font-size:14.5px">Phillies Wire accuracy.json — 13th regen at 10:41 PM ET</span>
+          <span style="font-weight:600;font-size:14.5px">PHI WIN confirmed — 15-3 over NYM (Game 2, Jun 20)</span>
         </div>
-        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">accuracy.json regenerated at 02:41:35Z (10:41 PM ET) — 13th regeneration today. Counts UNCHANGED: 26 claims · 25 accurate · 0 inaccurate · 1 unverifiable.</div>
+        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">Phillies won 15-3. Kyle Schwarber 4-for-5, 3 HR, 6 RBI. PHI-NYM series now tied 1-1. Game 3 Sunday Jun 21 7:20 PM ET: Wheeler vs Peterson · NBC/Peacock · Citizens Bank Park.</div>
       </div>
-      <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--ok);border-radius:var(--radius);padding:var(--pad)">
+      <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--info);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ok);background:var(--ok-bg);padding:2px 7px;border-radius:5px;white-space:nowrap;flex:none">Delta 2</span>
-          <span style="font-weight:600;font-size:14.5px">PHI vs NYM Game 2 — complete ~10:49 PM ET</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--info);background:var(--info-bg);padding:2px 7px;border-radius:5px;white-space:nowrap;flex:none">Delta 2</span>
+          <span style="font-weight:600;font-size:14.5px">Phillies Wire accuracy.json — no new regen since last pass</span>
         </div>
-        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">7:15 PM ET game at Citizens Bank Park now complete. Upcoming: Wheeler vs Peterson Sun Jun 21 7:20 PM NBC/Peacock; Mon/Tue @WSH 6:45.</div>
+        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">Still at 13th regen (10:41 PM ET Jun 20, 02:41:35Z). Counts unchanged: 26 claims · 25 accurate · 0 inaccurate · 1 unverifiable.</div>
       </div>
-      <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--warn);border-radius:var(--radius);padding:var(--pad)">
+      <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--info);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--warn);background:var(--warn-bg);padding:2px 7px;border-radius:5px;white-space:nowrap;flex:none">Delta 3</span>
-          <span style="font-weight:600;font-size:14.5px">Overdue task days +1 — UTC date rolled to Jun 21</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--info);background:var(--info-bg);padding:2px 7px;border-radius:5px;white-space:nowrap;flex:none">Delta 3</span>
+          <span style="font-weight:600;font-size:14.5px">No new overdue data — all sources confirmed live</span>
         </div>
-        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">UTC clock crossed midnight; task DB calculates from Jun 21. Overdue days: CR1000A 69d · Dominic 44d · Laptops 32d. Action Items: 1 overdue (Quality OS gate, 2d). Personal Tasks: 3 still open.</div>
+        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">Overdue tasks: CR1000A 69d · Dominic 44d · Laptops 32d (unchanged). Action Items: 1 overdue (Quality OS gate, 2d overdue). All 4 HTTP deploys 200 OK.</div>
       </div>
       <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--info);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--info);background:var(--info-bg);padding:2px 7px;border-radius:5px;white-space:nowrap;flex:none">Delta 4</span>
           <span style="font-weight:600;font-size:14.5px">Automated cloud pass — local sources NOT refreshed</span>
         </div>
-        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">Davai memory (~29d stale) and Mac-wide git scan (~86h stale, last 06-17 08:43 ET) are local Mac only and cannot be refreshed from the cloud. All Notion and HTTP sources re-queried live this pass.</div>
+        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">Davai memory (~29d stale) and Mac-wide git scan (~87h stale, last 06-17 08:43 ET) are local Mac only and cannot be refreshed from the cloud. All Notion and HTTP sources re-queried live this pass.</div>
       </div>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:var(--gap);margin-top:var(--gap)">
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:baseline;gap:8px">
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:600;color:var(--info);line-height:1">24</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:600;color:var(--info);line-height:1">25</span>
         </div>
         <div style="font-size:12.5px;font-weight:600;margin-top:7px">Cloud passes today</div>
-        <div style="font-size:11.5px;color:var(--text-mute);font-family:'IBM Plex Mono',monospace;margin-top:2px">2:03 AM → 10:49 PM ET</div>
+        <div style="font-size:11.5px;color:var(--text-mute);font-family:'IBM Plex Mono',monospace;margin-top:2px">2:03 AM → 11:02 PM ET</div>
       </div>
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:baseline;gap:8px">
@@ -244,7 +244,7 @@
               <span style="width:9px;height:9px;border-radius:50%;background:var(--bad);flex:none"></span>
               <span style="font-weight:600;font-size:14px">World Cup App — GitHub push blocked</span>
             </div>
-            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute);margin-bottom:6px">&gt;89h · RUN-20260617-WORLD-CUP-GITHUB</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute);margin-bottom:6px">&gt;~90h · RUN-20260617-WORLD-CUP-GITHUB</div>
             <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5">gh not authenticated, no origin remote, working tree was deleted. Commit c3bf066 preserved. Tier-1 task "Push world-cup-app to GitHub" is Waiting / High.</div>
           </div>
           <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--bad);border-radius:var(--radius);padding:var(--pad)">
@@ -533,8 +533,8 @@
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:var(--gap)">
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px"><span style="font-size:16px">⚾</span><span style="font-weight:600;font-size:14px">Game day</span></div>
-        <div style="font-weight:600;font-size:15px;margin-bottom:5px">PHI vs NYM · Game 2 · Complete ✓</div>
-        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.55">Citizens Bank Park · Cristopher Sánchez vs Freddy Peralta · FOX. Game 2 complete ~10:49 PM ET. Phillies Wire <span style="font-family:'IBM Plex Mono',monospace;color:var(--accent)">Vol.1 No.81</span> — accuracy.json 13th regen 10:41 PM ET: 26 claims · 25 accurate · 0 inaccurate · 1 unverifiable. PHI 40-35 pre-game; NL East 2nd.</div>
+        <div style="font-weight:600;font-size:15px;margin-bottom:5px">PHI 15 · NYM 3 · Game 2 · ✓ Phillies Win</div>
+        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.55">Citizens Bank Park · Sánchez vs Peralta · FOX. <b style="color:var(--ok)">PHI WIN 15-3</b> · Schwarber 4-for-5, 3 HR, 6 RBI · Series tied 1-1. Phillies Wire <span style="font-family:'IBM Plex Mono',monospace;color:var(--accent)">Vol.1 No.81</span> — accuracy.json 13th regen 10:41 PM ET: 26 claims · 25 accurate · 0 inaccurate · 1 unverifiable.</div>
         <div style="margin-top:10px;display:flex;gap:14px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute)">
           <span>Sun · Wheeler vs Peterson 7:20 NBC/Peacock</span><span>Mon · @WSH 6:45</span><span>Tue · @WSH 6:45</span>
         </div>
@@ -931,6 +931,17 @@
             <span style="width:9px;height:9px;border-radius:50%;background:var(--bad);margin-top:5px;flex:none"></span>
             <div style="flex:1;min-width:0">
               <div style="display:flex;align-items:baseline;gap:9px;flex-wrap:wrap">
+                <span style="font-weight:600;font-size:13px">Automated cloud — 25th Jun 20 ET pass</span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)">RUN-20260620-2302</span>
+              </div>
+              <div style="font-size:12px;color:var(--text-dim);line-height:1.45;margin-top:2px">🔴 RED carried. PHI WIN 15-3 confirmed (Schwarber 3 HR, 6 RBI). accuracy.json 13th regen 10:41 PM ET; 26/25/0/1 no change. Tasks 69/44/32d. 1 overdue Action Item (QualOS gate, 2d).</div>
+            </div>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);flex:none;white-space:nowrap">06-20 11:02 PM ET</span>
+          </div>
+          <div style="display:flex;gap:13px;padding:11px var(--pad);background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:7px;align-items:flex-start">
+            <span style="width:9px;height:9px;border-radius:50%;background:var(--bad);margin-top:5px;flex:none"></span>
+            <div style="flex:1;min-width:0">
+              <div style="display:flex;align-items:baseline;gap:9px;flex-wrap:wrap">
                 <span style="font-weight:600;font-size:13px">Automated cloud — 24th Jun 20 ET pass</span>
                 <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)">RUN-20260620-2249</span>
               </div>
@@ -1112,19 +1123,19 @@
           <span style="width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none"></span>
           <span style="flex:1;min-width:0;font-size:12.5px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">DB | Status Runs (All Runs)</span>
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);width:130px;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">notion-query</span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">06-20 ~10:49 PM ET</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">06-20 ~11:02 PM ET</span>
         </div>
         <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border)">
           <span style="width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none"></span>
           <span style="flex:1;min-width:0;font-size:12.5px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">DB | Action Items (Tier 1)</span>
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);width:130px;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">notion-query</span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">06-20 ~10:49 PM ET</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">06-20 ~11:02 PM ET</span>
         </div>
         <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border)">
           <span style="width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none"></span>
           <span style="flex:1;min-width:0;font-size:12.5px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">DB | Personal Tasks (Tier 2)</span>
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);width:130px;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">view query</span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">06-20 ~10:49 PM ET</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">06-20 ~11:02 PM ET</span>
         </div>
         <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border)">
           <span style="width:8px;height:8px;border-radius:50%;background:var(--warn);flex:none"></span>
@@ -1160,7 +1171,7 @@
           <span style="width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none"></span>
           <span style="flex:1;min-width:0;font-size:12.5px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Phillies Wire accuracy.json</span>
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);width:130px;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">http check</span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">06-20 10:49 PM ET (13th regen 10:41 PM)</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">06-20 ~11:02 PM ET (13th regen 10:41 PM, no change)</span>
         </div>
         <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border)">
           <span style="width:8px;height:8px;border-radius:50%;background:var(--idle);flex:none"></span>
@@ -1208,7 +1219,7 @@ Git: read latest Mac evidence in 90-governance/docs/. Deploys: HTTP-check live s
 pull real counts from accuracy.json — never quote stale numbers. Record every change in
 meta.thisPass + the deltas[] array (the "This pass" banner), then open the file.</span><button id="cc-copy" style="position:absolute;top:10px;right:10px;padding:5px 12px;border-radius:7px;border:1px solid var(--border2);background:var(--surface);color:var(--text);font-size:11px;font-weight:600;cursor:pointer;font-family:'IBM Plex Sans',sans-serif">Copy</button></div>
     </div>
-    <div style="text-align:center;margin-top:26px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute)">Snapshot re-reconciled 2026-06-20 ~10:49 PM ET · 24th automated cloud pass · built by Claude Code</div>
+    <div style="text-align:center;margin-top:26px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute)">Snapshot re-reconciled 2026-06-20 ~11:02 PM ET · 25th automated cloud pass · built by Claude Code</div>
   </section>
 
 </div>
@@ -1230,6 +1241,33 @@ meta.thisPass + the deltas[] array (the "This pass" banner), then open the file.
       function fallback(){var ta=document.createElement('textarea');ta.value=regenText;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(ta);done();}
       try{navigator.clipboard.writeText(regenText).then(done,fallback);}catch(e){fallback();}
     });
+  })();
+
+  // collapsible sections (persisted per section id)
+  (function(){
+    var KEY='cc.collapsed', state={};
+    try{state=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){}
+    function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}}
+    var appliers={};
+    document.querySelectorAll('section').forEach(function(sec){
+      var key=sec.id; if(!key) return;
+      var header=sec.firstElementChild; if(!header) return;
+      var body=document.createElement('div'); body.setAttribute('data-cc-body','');
+      for(var n=header.nextSibling;n;){var nx=n.nextSibling;body.appendChild(n);n=nx;}
+      sec.appendChild(body);
+      var chev=document.createElement('span'); chev.textContent='›'; chev.setAttribute('aria-hidden','true');
+      chev.style.cssText='display:inline-block;flex:none;width:15px;text-align:center;font-size:17px;line-height:1;color:var(--text-mute);transition:transform .18s ease';
+      header.insertBefore(chev,header.firstChild);
+      header.style.cursor='pointer'; header.style.userSelect='none'; header.setAttribute('role','button'); header.setAttribute('tabindex','0');
+      function apply(){var c=!!state[key];body.style.display=c?'none':'';chev.style.transform=c?'rotate(0deg)':'rotate(90deg)';header.style.marginBottom=c?'0':'';header.setAttribute('aria-expanded',c?'false':'true');}
+      function toggle(e){if(e&&e.target&&e.target.closest('a,button,[data-cc-theme],[data-cc-density]'))return;state[key]=!state[key];save();apply();}
+      header.addEventListener('click',toggle);
+      header.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle();}});
+      appliers[key]=apply; apply();
+    });
+    function reveal(id){if(id&&state[id]){state[id]=false;save();if(appliers[id])appliers[id]();}}
+    window.addEventListener('hashchange',function(){reveal((location.hash||'').slice(1));});
+    if(location.hash)reveal(location.hash.slice(1));
   })();
 </script>
 </body>
