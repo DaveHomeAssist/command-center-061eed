@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Command Center · Workspace ops · static snapshot</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230e141b'/%3E%3Ccircle cx='32' cy='32' r='17' fill='none' stroke='%235ec8c0' stroke-width='3' opacity='.35'/%3E%3Ccircle cx='32' cy='32' r='9' fill='none' stroke='%235ec8c0' stroke-width='3' opacity='.6'/%3E%3Ccircle cx='32' cy='32' r='3.5' fill='%235ec8c0'/%3E%3Cpath d='M32 32 L49 21' stroke='%235ec8c0' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
-<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230e141b'/%3E%3Ccircle cx='32' cy='32' r='17' fill='none' stroke='%235ec8c0' stroke-width='3' opacity='.6'/%3E%3Ccircle cx='32' cy='32' r='9' fill='none' stroke='%235ec8c0' stroke-width='3' opacity='.6'/%3E%3Ccircle cx='32' cy='32' r='3.5' fill='%235ec8c0'/%3E%3Cpath d='M32 32 L49 21' stroke='%235ec8c0' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230e141b'/%3E%3Ccircle cx='32' cy='32' r='17' fill='none' stroke='%235ec8c0' stroke-width='3' opacity='.35'/%3E%3Ccircle cx='32' cy='32' r='9' fill='none' stroke='%235ec8c0' stroke-width='3' opacity='.6'/%3E%3Ccircle cx='32' cy='32' r='3.5' fill='%235ec8c0'/%3E%3Cpath d='M32 32 L49 21' stroke='%235ec8c0' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
 <meta name="theme-color" content="#0e141b">
 <meta name="apple-mobile-web-app-title" content="Command Center">
 <script>
@@ -22,6 +22,1290 @@
     }
   })();
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:var(--bg)}
+  a{color:inherit}
+  :root,[data-theme="slate"]{
+    --bg:#0e141b;--bg2:#0a0f15;--surface:#161f2a;--surface2:#1d2935;
+    --border:rgba(255,255,255,.07);--border2:rgba(255,255,255,.14);
+    --text:#e8eef4;--text-dim:#a9b7c6;--text-mute:#6b7c8f;
+    --accent:#5ec8c0;--accent-bg:rgba(94,200,192,.12);
+    --ok:#4ec98a;--ok-bg:rgba(78,201,138,.13);--warn:#e0b341;--warn-bg:rgba(224,179,65,.13);
+    --bad:#e8736b;--bad-bg:rgba(232,115,107,.13);--info:#62a6e8;--info-bg:rgba(98,166,232,.13);
+    --idle:#7b8a9c;--idle-bg:rgba(123,138,156,.10);--topbar:rgba(14,20,27,.82);
+  }
+  [data-theme="midnight"]{
+    --bg:#0c0e1a;--bg2:#080a14;--surface:#14162b;--surface2:#1c1f3a;
+    --border:rgba(255,255,255,.07);--border2:rgba(255,255,255,.15);
+    --text:#e9e8f5;--text-dim:#aab0d6;--text-mute:#6b6f97;
+    --accent:#8a7cf0;--accent-bg:rgba(138,124,240,.15);
+    --ok:#5fd2a0;--ok-bg:rgba(95,210,160,.13);--warn:#e6b94f;--warn-bg:rgba(230,185,79,.13);
+    --bad:#ef7785;--bad-bg:rgba(239,119,133,.13);--info:#6f9bf2;--info-bg:rgba(111,155,242,.13);
+    --idle:#797fae;--idle-bg:rgba(121,127,174,.12);--topbar:rgba(12,14,26,.82);
+  }
+  [data-theme="paper"]{
+    --bg:#f4f1ea;--bg2:#ece8df;--surface:#fffdf8;--surface2:#f6f2ea;
+    --border:rgba(42,36,26,.11);--border2:rgba(42,36,26,.20);
+    --text:#2a2620;--text-dim:#5d564b;--text-mute:#948a7b;
+    --accent:#b06a43;--accent-bg:rgba(176,106,67,.12);
+    --ok:#3f9d5f;--ok-bg:rgba(63,157,95,.12);--warn:#bd8a1c;--warn-bg:rgba(189,138,28,.13);
+    --bad:#c5524a;--bad-bg:rgba(197,82,74,.11);--info:#3d72b0;--info-bg:rgba(61,114,176,.11);
+    --idle:#8a8275;--idle-bg:rgba(138,130,117,.12);--topbar:rgba(244,241,234,.82);
+  }
+  [data-theme="mist"]{
+    --bg:#eef1f4;--bg2:#e5e9ee;--surface:#ffffff;--surface2:#f2f5f8;
+    --border:rgba(20,30,40,.09);--border2:rgba(20,30,40,.17);
+    --text:#1d2733;--text-dim:#4f5d6c;--text-mute:#8694a3;
+    --accent:#2f8f86;--accent-bg:rgba(47,143,134,.12);
+    --ok:#2e9e6b;--ok-bg:rgba(46,158,107,.11);--warn:#b0821a;--warn-bg:rgba(176,130,26,.12);
+    --bad:#cf5550;--bad-bg:rgba(207,85,80,.10);--info:#2f76c4;--info-bg:rgba(47,118,196,.10);
+    --idle:#7d8a98;--idle-bg:rgba(125,138,152,.12);--topbar:rgba(238,241,244,.84);
+  }
+  :root,[data-density="comfortable"]{--pad:18px;--gap:16px;--radius:14px;--fs:14.5px}
+  [data-density="compact"]{--pad:13px;--gap:11px;--radius:11px;--fs:13.5px}
+  @keyframes ccpulse{0%,100%{opacity:1}50%{opacity:.35}}
+  ::-webkit-scrollbar{height:9px;width:9px}
+  ::-webkit-scrollbar-thumb{background:var(--border2);border-radius:9px}
+  ::-webkit-scrollbar-track{background:transparent}
+  html{scroll-behavior:smooth}
+</style>
 </head>
-<body>placeholder</body>
+<body>
+<div style="min-height:100vh;background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',system-ui,-apple-system,sans-serif;font-size:var(--fs);line-height:1.55;-webkit-font-smoothing:antialiased">
+
+  <!-- TOPBAR -->
+  <header style="position:sticky;top:0;z-index:30;background:var(--topbar);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--border)">
+    <div style="max-width:1280px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+      <div style="display:flex;align-items:center;gap:11px;min-width:0">
+        <div style="width:34px;height:34px;border-radius:9px;background:var(--accent-bg);display:grid;place-items:center;font-size:17px;border:1px solid var(--border)">🛰️</div>
+        <div style="min-width:0">
+          <div style="font-weight:600;font-size:16px;letter-spacing:-.01em;line-height:1.1">Command Center</div>
+          <div style="font-size:11.5px;color:var(--text-mute);font-family:'IBM Plex Mono',monospace">Workspace ops · static snapshot</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:14px;margin-left:auto;flex-wrap:wrap">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-dim);text-align:right;line-height:1.35">
+          <div>Tue · Jun 23 2026</div>
+          <div style="color:var(--text-mute)">local <span id="cc-clock" style="color:var(--accent)">--:--:--</span></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:7px;padding:6px 11px;border-radius:999px;background:var(--bad-bg);border:1px solid var(--border)">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--bad);animation:ccpulse 2s infinite"></span>
+          <span style="font-size:12px;font-weight:600;color:var(--bad)">2 reds open</span>
+        </div>
+        <button id="cc-collapse-all" title="Collapse / expand all sections (Cmd/Ctrl + Alt + T)" aria-label="Collapse or expand all sections" style="display:grid;place-items:center;width:30px;height:30px;border-radius:9px;cursor:pointer;background:var(--surface);border:1px solid var(--border);color:var(--text-mute);font-family:'IBM Plex Mono',monospace;font-size:15px;line-height:1;padding:0">⊟</button>        <div id="cc-themes" style="display:flex;align-items:center;gap:5px;padding:4px;border-radius:11px;background:var(--surface);border:1px solid var(--border)"><button data-cc-theme="slate" title="Slate" style="width:26px;height:26px;border-radius:7px;cursor:pointer;background:linear-gradient(135deg,#11202c 0 55%,#5ec8c0 55% 100%);border:2px solid transparent;padding:0;outline:none"></button><button data-cc-theme="midnight" title="Midnight" style="width:26px;height:26px;border-radius:7px;cursor:pointer;background:linear-gradient(135deg,#10122a 0 55%,#8a7cf0 55% 100%);border:2px solid transparent;padding:0;outline:none"></button><button data-cc-theme="paper" title="Paper" style="width:26px;height:26px;border-radius:7px;cursor:pointer;background:linear-gradient(135deg,#efe9dd 0 55%,#b06a43 55% 100%);border:2px solid transparent;padding:0;outline:none"></button><button data-cc-theme="mist" title="Mist" style="width:26px;height:26px;border-radius:7px;cursor:pointer;background:linear-gradient(135deg,#e3e8ee 0 55%,#2f8f86 55% 100%);border:2px solid transparent;padding:0;outline:none"></button></div>
+        <div id="cc-dens" style="display:flex;border-radius:9px;overflow:hidden;border:1px solid var(--border)"><button data-cc-density="comfortable" title="Comfortable" style="padding:6px 9px;cursor:pointer;border:none;font-family:'IBM Plex Mono',monospace;font-size:13px;background:transparent;color:var(--text-mute)">⊟</button><button data-cc-density="compact" title="Compact" style="padding:6px 9px;cursor:pointer;border:none;font-family:'IBM Plex Mono',monospace;font-size:13px;background:transparent;color:var(--text-mute)">≡</button></div>
+      </div>
+    </div>
+    <nav style="max-width:1280px;margin:0 auto;padding:0 20px 10px;display:flex;gap:7px;overflow-x:auto;white-space:nowrap">
+        <a href="#attention" style="display:inline-flex;align-items:center;gap:7px;padding:5px 12px;border-radius:999px;background:var(--surface);border:1px solid var(--border);font-size:12.5px;font-weight:500;text-decoration:none;color:var(--text-dim)">
+          <span>Attention</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute)">11</span>
+        </a>
+        <a href="#agents" style="display:inline-flex;align-items:center;gap:7px;padding:5px 12px;border-radius:999px;background:var(--surface);border:1px solid var(--border);font-size:12.5px;font-weight:500;text-decoration:none;color:var(--text-dim)">
+          <span>Agents</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute)">12</span>
+        </a>
+        <a href="#projects" style="display:inline-flex;align-items:center;gap:7px;padding:5px 12px;border-radius:999px;background:var(--surface);border:1px solid var(--border);font-size:12.5px;font-weight:500;text-decoration:none;color:var(--text-dim)">
+          <span>Projects</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute)">5</span>
+        </a>
+        <a href="#today" style="display:inline-flex;align-items:center;gap:7px;padding:5px 12px;border-radius:999px;background:var(--surface);border:1px solid var(--border);font-size:12.5px;font-weight:500;text-decoration:none;color:var(--text-dim)">
+          <span>Today</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute)">16</span>
+        </a>
+        <a href="#sync" style="display:inline-flex;align-items:center;gap:7px;padding:5px 12px;border-radius:999px;background:var(--surface);border:1px solid var(--border);font-size:12.5px;font-weight:500;text-decoration:none;color:var(--text-dim)">
+          <span>Sync</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute)">92</span>
+        </a>
+        <a href="#daily" style="display:inline-flex;align-items:center;gap:7px;padding:5px 12px;border-radius:999px;background:var(--surface);border:1px solid var(--border);font-size:12.5px;font-weight:500;text-decoration:none;color:var(--text-dim)">
+          <span>Daily</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute)">10</span>
+        </a>
+        <a href="#triage" style="display:inline-flex;align-items:center;gap:7px;padding:5px 12px;border-radius:999px;background:var(--surface);border:1px solid var(--border);font-size:12.5px;font-weight:500;text-decoration:none;color:var(--text-dim)">
+          <span>Triage</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute)">80</span>
+        </a>
+        <a href="#next" style="display:inline-flex;align-items:center;gap:7px;padding:5px 12px;border-radius:999px;background:var(--surface);border:1px solid var(--border);font-size:12.5px;font-weight:500;text-decoration:none;color:var(--text-dim)">
+          <span>Next</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute)">19</span>
+        </a>
+        <a href="#skills" style="display:inline-flex;align-items:center;gap:7px;padding:5px 12px;border-radius:999px;background:var(--surface);border:1px solid var(--border);font-size:12.5px;font-weight:500;text-decoration:none;color:var(--text-dim)">
+          <span>Skills</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute)">86</span>
+        </a>
+        <a href="#sources" style="display:inline-flex;align-items:center;gap:7px;padding:5px 12px;border-radius:999px;background:var(--surface);border:1px solid var(--border);font-size:12.5px;font-weight:500;text-decoration:none;color:var(--text-dim)">
+          <span>Sources</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute)">27</span>
+        </a>
+        <a href="#refresh" style="display:inline-flex;align-items:center;gap:7px;padding:5px 12px;border-radius:999px;background:var(--surface);border:1px solid var(--border);font-size:12.5px;font-weight:500;text-decoration:none;color:var(--text-dim)">
+          <span>Refresh</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute)">♻</span>
+        </a>
+    </nav>  </header>
+
+  <!-- THIS PASS / DELTAS -->
+  <section id="overview" style="max-width:1280px;margin:0 auto;padding:26px 24px 0">
+    <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:13px;flex-wrap:wrap">
+      <h2 style="margin:0;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-mute)">This pass · changed since last run</h2>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-dim)">RUN-20260623-1304 · 14th Jun 23 ET pass · ~1:04 PM ET</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:var(--gap)">
+      <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--ok);border-radius:var(--radius);padding:var(--pad)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ok);background:var(--ok-bg);padding:2px 7px;border-radius:5px;white-space:nowrap;flex:none">Delta 1</span>
+          <span style="font-weight:600;font-size:14.5px">14th cloud pass (~1:04 PM ET) — accuracy.json NEW regen ~12:52 PM ET · same data (23/22/0/1 · all 23 current) · Action Queue 116 stable · no new project Status Runs</span>
+        </div>
+        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">accuracy.json regen at 2026-06-23T16:52:31.747Z (~12:52 PM ET) — NEW since 13th pass regen (13:49:57Z). Data unchanged: Vol. 1 No. 84 · 23/22/0/1 · all 23 current. No new project Status Runs since 13th pass. Action Queue still 116 active (100+16 via pagination, stable). DB | Personal Tasks: 3 overdue unchanged (71/46/34d — CR1000A Apr 13, Dominic May 8, Laptops May 20). DB | Action Items: 1 OD active (QualOS visual gate, Jun 19, 4d OD, Priority Medium). 2 reds remain: AI bucket P0 + ReadOut roadmap P3 blocked. PHI @WSH Game 2 of 4 TONIGHT 6:45 PM ET (~5.7h away). HTTP 4/4 200.</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--ok);border-radius:var(--radius);padding:var(--pad)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ok);background:var(--ok-bg);padding:2px 7px;border-radius:5px;white-space:nowrap;flex:none">Delta 2</span>
+          <span style="font-weight:600;font-size:14.5px">accuracy.json NEW regen at ~12:52 PM ET (2026-06-23T16:52:31.747Z) — data unchanged · Vol. 1 No. 84 · 23/22/0/1 · all 23 current</span>
+        </div>
+        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">Phillies Wire accuracy.json regenerated at 16:52:31Z (~12:52 PM ET Jun 23) — a new pipeline regen cycle since the 13th pass (13:49:57Z). Data unchanged: 23 total claims · 22 accurate · 0 inaccurate · 1 unverifiable · all 23 current. Game 2 of 4 TONIGHT PHI @WSH 6:45 PM ET (Luzardo LHP vs Zack Littell RHP).</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--idle);border-radius:var(--radius);padding:var(--pad)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-mute);background:var(--idle-bg);padding:2px 7px;border-radius:5px;white-space:nowrap;flex:none">Delta 3</span>
+          <span style="font-weight:600;font-size:14.5px">14th cloud pass — local sources NOT refreshed · AUTOMATED CLOUD ONLY</span>
+        </div>
+        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">Davai memory (~30d stale, last sync 2026-05-22) and Mac-wide git scan (06-17 12:43Z, ~143h+ stale) are local Mac only and cannot be refreshed from the cloud. DB | Projects carried from 06-17. This pass is AUTOMATED CLOUD ONLY — no local Mac data was refreshed.</div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:var(--gap);margin-top:var(--gap)">
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+        <div style="display:flex;align-items:baseline;gap:8px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:600;color:var(--info);line-height:1">14</span>
+        </div>
+        <div style="font-size:12.5px;font-weight:600;margin-top:7px">Cloud passes today</div>
+        <div style="font-size:11.5px;color:var(--text-mute);font-family:'IBM Plex Mono',monospace;margin-top:2px">~1:04 PM · 13th ~12:04 PM · 12th ~11:04 AM ET</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+        <div style="display:flex;align-items:baseline;gap:8px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:600;color:var(--warn);line-height:1">3</span>
+        </div>
+        <div style="font-size:12.5px;font-weight:600;margin-top:7px">Overdue tasks</div>
+        <div style="font-size:11.5px;color:var(--text-mute);font-family:'IBM Plex Mono',monospace;margin-top:2px">71 / 46 / 34 days</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+        <div style="display:flex;align-items:baseline;gap:8px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:600;color:var(--bad);line-height:1">2</span>
+        </div>
+        <div style="font-size:12.5px;font-weight:600;margin-top:7px">Verified reds open</div>
+        <div style="font-size:11.5px;color:var(--text-mute);font-family:'IBM Plex Mono',monospace;margin-top:2px">AI bucket P0 (Notion token exposed) + ReadOut roadmap P3 blocked</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+        <div style="display:flex;align-items:baseline;gap:8px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:600;color:var(--warn);line-height:1">92</span>
+        </div>
+        <div style="font-size:12.5px;font-weight:600;margin-top:7px">Repos need attention</div>
+        <div style="font-size:11.5px;color:var(--text-mute);font-family:'IBM Plex Mono',monospace;margin-top:2px">35 dirty · 35 timeout · 8 no-rmt</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+        <div style="display:flex;align-items:baseline;gap:8px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:600;color:var(--text-mute);line-height:1">106</span>
+        </div>
+        <div style="font-size:12.5px;font-weight:600;margin-top:7px">Mac repos scanned</div>
+        <div style="font-size:11.5px;color:var(--text-mute);font-family:'IBM Plex Mono',monospace;margin-top:2px">06-17 · ~143h+ stale</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+        <div style="display:flex;align-items:baseline;gap:8px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:600;color:var(--ok);line-height:1">80</span>
+        </div>
+        <div style="font-size:12.5px;font-weight:600;margin-top:7px">Inbox triaged</div>
+        <div style="font-size:11.5px;color:var(--text-mute);font-family:'IBM Plex Mono',monospace;margin-top:2px">routed A–E · clear</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEEDS ATTENTION -->
+  <section id="attention" style="max-width:1280px;margin:0 auto;padding:34px 24px 0">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+      <div style="width:32px;height:32px;border-radius:9px;background:var(--bad-bg);display:grid;place-items:center;font-size:16px;border:1px solid var(--border)">⚠️</div>
+      <h2 style="margin:0;font-size:19px;font-weight:600;letter-spacing:-.01em">Needs your attention</h2>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-mute);margin-left:auto">reds · overdue · decisions</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:var(--gap)">
+      <div>
+        <div style="font-size:11.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--bad);margin-bottom:9px">Verified reds</div>
+        <div style="display:flex;flex-direction:column;gap:var(--gap)">
+          <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--bad);border-radius:var(--radius);padding:var(--pad)">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+              <span style="width:9px;height:9px;border-radius:50%;background:var(--bad);flex:none"></span>
+              <span style="font-weight:600;font-size:14px">AI &amp; Agent Systems Bucket — P0 Notion token exposed in system-by-dave-clean</span>
+            </div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute);margin-bottom:6px">RUN-20260621-1535 🔴 ~11:50 AM ET · carried · 1 red remaining</div>
+            <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5">Live Notion integration token found at system-by-dave-clean/Notion-Integration-Token — untracked file NOT gitignored in a public GitHub Pages repo. 8 repos audited read-only; canonical AUD page not yet posted. 🙋 Dave: revoke + rotate the token immediately at notion.so/my-integrations.</div>
+          </div>
+          <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--bad);border-radius:var(--radius);padding:var(--pad)">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+              <span style="width:9px;height:9px;border-radius:50%;background:var(--bad);flex:none"></span>
+              <span style="font-weight:600;font-size:14px">ReadOut roadmap — P3 packaging/sign-off gates blocked (RUN-20260623-READOUT-ROADMAP-P3-BLOCKED 🔴)</span>
+            </div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute);margin-bottom:6px">RUN-20260623-READOUT-ROADMAP-P3-BLOCKED 🔴 RED ~9th-10th pass window · NEW red this pass</div>
+            <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5">ReadOut roadmap integration is present but Phase 3 packaging/sign-off gates remain blocked. Prior Phase 3 run was 🟢 GREEN (RUN-20260622-0226 ~2:27 AM ET Jun 22); this is a new blocking gate. Known candidate: stray git ref refs/remotes/origin/main 2 makes git fetch error — Dave to delete. Thread: ReadOut roadmap packaging/sign-off blocker update.</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:11.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--warn);margin-bottom:9px">Decisions waiting on you</div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:6px var(--pad)">
+          <div style="display:flex;gap:11px;padding:11px 0;border-bottom:1px solid var(--border)">
+            <span style="width:7px;height:7px;border-radius:50%;background:var(--bad);margin-top:6px;flex:none"></span>
+            <div>
+              <div style="font-weight:600;font-size:13px;margin-bottom:2px">ReadOut roadmap — P3 packaging/sign-off gates blocked 🔴 RED (RUN-20260623-READOUT-ROADMAP-P3-BLOCKED)</div>
+              <div style="font-size:12px;color:var(--text-dim);line-height:1.45">NEW RED this pass: Phase 3 packaging/sign-off gates remain blocked per RUN-20260623-READOUT-ROADMAP-P3-BLOCKED. Prior Phase 3 and Phase 1 cleanup were 🟢 GREEN. Likely blocker: stray git ref refs/remotes/origin/main 2 making git fetch fail — Dave to delete.</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:11px;padding:11px 0;border-bottom:1px solid var(--border)">
+            <span style="width:7px;height:7px;border-radius:50%;background:var(--ok);margin-top:6px;flex:none"></span>
+            <div>
+              <div style="font-weight:600;font-size:13px;margin-bottom:2px">Hat-in-Ring native iOS app — SHIPPED 🟢 GREEN (RUN-20260623-0140 ~between 1:03–2:04 AM ET)</div>
+              <div style="font-size:12px;color:var(--text-dim);line-height:1.45">RUN-20260623-0140 🟢 GREEN: Hat-in-Ring native SwiftUI iOS app complete and verified. New project milestone — native app ships alongside the web/radar builds already live on hatinring.com.</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:11px;padding:11px 0;border-bottom:1px solid var(--border)">
+            <span style="width:7px;height:7px;border-radius:50%;background:var(--ok);margin-top:6px;flex:none"></span>
+            <div>
+              <div style="font-weight:600;font-size:13px;margin-bottom:2px">Davai Editor Desktop → 🟢 GREEN FULLY RESOLVED (RUN-20260623-0145 updated ~3:04 AM ET)</div>
+              <div style="font-size:12px;color:var(--text-dim);line-height:1.45">RUN-20260623-0145 🟢 GREEN (updated ~3:04 AM ET): Desktop path symlinked to hydrated recovery checkout; .git locks absent; npm test/typecheck/harness all pass under Node 22. Dataless iCloud-backed Desktop folders preserved as rollbacks. Davai Editor Desktop is fully resolved.</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:11px;padding:11px 0;border-bottom:1px solid var(--border)">
+            <span style="width:7px;height:7px;border-radius:50%;background:var(--bad);margin-top:6px;flex:none"></span>
+            <div>
+              <div style="font-weight:600;font-size:13px;margin-bottom:2px">AI &amp; Agent Systems — P0 security: revoke + rotate Notion token in system-by-dave-clean (🙋 Dave: immediate action)</div>
+              <div style="font-size:12px;color:var(--text-dim);line-height:1.45">RUN-20260621-1535 🔴 RED (~11:50 AM ET): live Notion integration token at system-by-dave-clean/Notion-Integration-Token — untracked file, NOT gitignored, in a public GitHub Pages repo. Revoke at notion.so/my-integrations, rotate, and store in .env.local (gitignored) or a secret manager. Do NOT commit the file to any repo.</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:11px;padding:11px 0;border-bottom:1px solid var(--border)">
+            <span style="width:7px;height:7px;border-radius:50%;background:var(--ok);margin-top:6px;flex:none"></span>
+            <div>
+              <div style="font-weight:600;font-size:13px;margin-bottom:2px">ReadOut — Phase 1 cleanup SHIPPED 🟢 GREEN (RUN-20260622-1946 ~7:51 PM ET) + Phase 3 green</div>
+              <div style="font-size:12px;color:var(--text-dim);line-height:1.45">RUN-20260622-1946 🟢 GREEN (~7:51 PM ET Jun 22): Phase 1 cleanup — c158728 pushed, CI 27986807122 green, pytest 58/0. Browser engine UI removed, PATCH /config validates against engine registry (HTTP 400 on unknown). RUN-20260622-0226 🟢 (~2:27 AM ET Jun 22): Phase 3 — engines/ package, OpenAI/EL shims, /voices catalogue, registry-driven UI. Open: stray git ref refs/remotes/origin/main 2 (Dave to delete).</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:11px;padding:11px 0;border-bottom:1px solid var(--border)">
+            <span style="width:7px;height:7px;border-radius:50%;background:var(--ok);margin-top:6px;flex:none"></span>
+            <div>
+              <div style="font-weight:600;font-size:13px;margin-bottom:2px">Festival Atlas Mobile App — PR #1 merged to main 🟢 GREEN (RUN-20260621-1527 ~11:28 AM ET)</div>
+              <div style="font-size:12px;color:var(--text-dim);line-height:1.45">Mobile spec + RN/Expo build shipped — seed pipeline, FA local-first store, ported season engine, 5 tabs, detail modal. 34 files, 8d5a736 on main. tsc exit 0. Residual: not device-verified (no simulator in env), M2/M4 features deferred by design.</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:11px;padding:11px 0;border-bottom:1px solid var(--border)">
+            <span style="width:7px;height:7px;border-radius:50%;background:var(--warn);margin-top:6px;flex:none"></span>
+            <div>
+              <div style="font-weight:600;font-size:13px;margin-bottom:2px">PromptLab — PRs #14/#15/#16 merged to main · 🙋 Dave: Vercel env + Clerk CVE</div>
+              <div style="font-size:12px;color:var(--text-dim);line-height:1.45">RUN-20260621-1459 🟡 YELLOW (~11:00 AM ET): proxy clamp → sonnet-4-6 (#14), missing favicons (#15), CTA WCAG-AA 5.19:1 (#16) — all merged to main, git-verified. Hosted Anthropic 404 code fix is now on main. Remaining open: HIGH Clerk authz-bypass CVE (unremediated), live Vercel HOSTED_ALLOWED_ANTHROPIC_MODELS value (unconfirmed), app-route bundle weight (unmeasured). Dave: confirm env var + Clerk CVE tracking call.</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:11px;padding:11px 0;border-bottom:1px solid var(--border)">
+            <span style="width:7px;height:7px;border-radius:50%;background:var(--bad);margin-top:6px;flex:none"></span>
+            <div>
+              <div style="font-weight:600;font-size:13px;margin-bottom:2px">May-30 overdue cluster</div>
+              <div style="font-size:12px;color:var(--text-dim);line-height:1.45">Bulk-assign owners or reschedule — needs your confirmation before any write.</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:11px;padding:11px 0;border-bottom:1px solid var(--border)">
+            <span style="width:7px;height:7px;border-radius:50%;background:var(--bad);margin-top:6px;flex:none"></span>
+            <div>
+              <div style="font-weight:600;font-size:13px;margin-bottom:2px">PromptLab Vercel preview cost</div>
+              <div style="font-size:12px;color:var(--text-dim);line-height:1.45">Finalize the build-cost strategy before any local branch push.</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:11px;padding:11px 0;border-bottom:1px solid var(--border)">
+            <span style="width:7px;height:7px;border-radius:50%;background:var(--warn);margin-top:6px;flex:none"></span>
+            <div>
+              <div style="font-weight:600;font-size:13px;margin-bottom:2px">Daily Notion inbox sort</div>
+              <div style="font-size:12px;color:var(--text-dim);line-height:1.45">2nd consecutive blocked run — needs a human routing decision (ambiguous AI Subrouter targets + duplicate DBs).</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:11px;padding:11px 0;border-bottom:1px solid var(--border)">
+            <span style="width:7px;height:7px;border-radius:50%;background:var(--warn);margin-top:6px;flex:none"></span>
+            <div>
+              <div style="font-weight:600;font-size:13px;margin-bottom:2px">Quality OS visual gate</div>
+              <div style="font-size:12px;color:var(--text-dim);line-height:1.45">Sole remaining Tier-1 overdue Action Item (due Jun 19, 4d overdue). Blocked on authenticated HA screenshots.</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:11px;padding:11px 0;border-bottom:1px solid var(--border)">
+            <span style="width:7px;height:7px;border-radius:50%;background:var(--warn);margin-top:6px;flex:none"></span>
+            <div>
+              <div style="font-weight:600;font-size:13px;margin-bottom:2px">PlotForge — Inspector UX 🟢 SHIPPED (RUN-20260623-0159) · P3 open (P0+P1+P2+Inspector UX done)</div>
+              <div style="font-size:12px;color:var(--text-dim);line-height:1.45">NEW: Inspector UX 🟢 SHIPPED (RUN-20260623-0159 updated ~3:04 AM ET) — origin/main baaeb98; lint/build/tests passed in clean temp clone. P0+P1+P2 all deployed: 98a3fce pushed to origin/main, full lint ✓, Vitest 16f/84t ✓, build ✓, domain smoke 15/15 ✓, plotforge-beta HTTP 200. P3 open: MVR/GDTF interop, OSC bridge, multi-show registry, PWA, AI plot starter. ANSI D signoff waits on plotter. Vercel cost decision still pending.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AGENT SESSIONS -->
+  <section id="agents" style="max-width:1280px;margin:0 auto;padding:34px 24px 0">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:6px">
+      <div style="width:32px;height:32px;border-radius:9px;background:var(--accent-bg);display:grid;place-items:center;font-size:16px;border:1px solid var(--border)">🤖</div>
+      <h2 style="margin:0;font-size:19px;font-weight:600;letter-spacing:-.01em">Active agent sessions</h2>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-mute)">13</span>
+      <a href="https://app.notion.com/p/382255fc8f4480a59241cb1ab6fce4cb" target="_blank" style="margin-left:auto;font-size:12px;color:var(--text-mute);text-decoration:none;font-family:'IBM Plex Mono',monospace">Notes @Today ↗</a>
+    </div>
+    <div style="font-size:12px;color:var(--text-mute);margin-bottom:16px">Notes @Today owns visible lanes · Status Runs verifies the traffic light · LLM Notes owns durable handoff.</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px">
+      <div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:11px"><span style="font-size:15px">🧠</span><span style="font-weight:600;font-size:14px">Codex</span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute);background:var(--surface2);padding:1px 7px;border-radius:5px">lane</span></div>
+        <div style="display:flex;flex-direction:column;gap:var(--gap)">
+            <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+              <div style="display:flex;align-items:center;gap:9px;margin-bottom:8px">
+                <span style="width:9px;height:9px;border-radius:50%;background:var(--ok);flex:none"></span>
+                <span style="font-weight:600;font-size:14px;flex:1">Garden OS — Phase 6-8 deployed</span>
+                <span style="font-size:10.5px;font-weight:600;color:var(--ok);background:var(--ok-bg);padding:2px 8px;border-radius:5px;text-transform:uppercase;letter-spacing:.04em">On track</span>
+              </div>
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--accent);margin-bottom:6px">PRJ | Garden OS</div>
+              <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5;margin-bottom:8px">RUN-20260622-2119-GARDENOS-PHASES 🟢 GREEN (~9:19 PM ET Jun 22): Phase 6 to Phase 8 implemented, smoke verified, pushed to main, deployed by GitHub Pages. Commit 6b5431c; Pages run 27996434066 success; live planner APP_VERSION 4.6, reasoned-export-1.0.0, payload.reasonedExport; live schema has reasonedExport/ReasonedExport. Target: davehomeassist.github.io/garden-os/.</div>
+              <div style="font-size:12.5px;line-height:1.5;padding-top:8px;border-top:1px solid var(--border)"><span style="color:var(--text-mute);font-weight:600">Next · </span><span style="color:var(--text-dim)">Monitor next daily regen. Phase 9+ TBD. Two Action Items still open in Active Queue: 'Commit current worktree for planner phase 6' + 'Commit or restore 35 deleted sprite files' — may be stale post-deploy.</span></div>
+            </div>
+            <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+              <div style="display:flex;align-items:center;gap:9px;margin-bottom:8px">
+                <span style="width:9px;height:9px;border-radius:50%;background:var(--warn);flex:none"></span>
+                <span style="font-weight:600;font-size:14px;flex:1">Home Assistant — Dashboard Upgrade</span>
+                <span style="font-size:10.5px;font-weight:600;color:var(--warn);background:var(--warn-bg);padding:2px 8px;border-radius:5px;text-transform:uppercase;letter-spacing:.04em">Active</span>
+              </div>
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--accent);margin-bottom:6px">PRJ | Home Assistant</div>
+              <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5;margin-bottom:8px">Improve HA views/dashboards, smoketest, design HUD/GUIs, per-family-member decks.</div>
+              <div style="font-size:12.5px;line-height:1.5;padding-top:8px;border-top:1px solid var(--border)"><span style="color:var(--text-mute);font-weight:600">Next · </span><span style="color:var(--text-dim)">Solve authenticated HA screenshot capture → review Home HUD, Camera Wall, Visual System, role decks, Weather Station, Mom Garden.</span></div>
+            </div>
+            <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+              <div style="display:flex;align-items:center;gap:9px;margin-bottom:8px">
+                <span style="width:9px;height:9px;border-radius:50%;background:var(--ok);flex:none"></span>
+                <span style="font-weight:600;font-size:14px;flex:1">Phillies Wire — Accuracy Sprint</span>
+                <span style="font-size:10.5px;font-weight:600;color:var(--ok);background:var(--ok-bg);padding:2px 8px;border-radius:5px;text-transform:uppercase;letter-spacing:.04em">On track</span>
+              </div>
+              <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5;margin-bottom:8px">RUN-20260623-0836 🟢 GREEN (~9th-10th pass window): docs refresh — HANDOFF.md + README → v1.6-preview, stale-branch prune, pushed to origin/main. Reliability gate 🟢 GREEN (RUN-20260621-0132): npm test 18/18. Vol. 1 No. 84 regen ~9:49 AM ET Jun 23 (2026-06-23T13:49:57.797Z): 23 claims · 22 accurate · 0 inaccurate · 1 unverifiable · all 23 current. GAME 1 FINAL: PHI LOST @WSH — record 42-36 L1 (NL East 2nd, 6.5 GB vs ATL 48-29 L2).</div>
+              <div style="font-size:12.5px;line-height:1.5;padding-top:8px;border-top:1px solid var(--border)"><span style="color:var(--text-mute);font-weight:600">Next · </span><span style="color:var(--text-dim)">TONIGHT: PHI @WSH Game 2 of 4, 6:45 PM ET, Luzardo (PHI LHP) vs Zack Littell (WSH RHP). Monitor Vol. 1 No. 84 regen cycle. ATL 48-29 L2, PHI 42-36 L1, 6.5 GB. Fri Jun 26 vs NYM (WPIX 7:10 PM ET) confirmed in schedule.</span></div>
+            </div>
+            <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+              <div style="display:flex;align-items:center;gap:9px;margin-bottom:8px">
+                <span style="width:9px;height:9px;border-radius:50%;background:var(--warn);flex:none"></span>
+                <span style="font-weight:600;font-size:14px;flex:1">PromptLab — PRs #14/#15/#16 merged · Clerk CVE + env open</span>
+                <span style="font-size:10.5px;font-weight:600;color:var(--warn);background:var(--warn-bg);padding:2px 8px;border-radius:5px;text-transform:uppercase;letter-spacing:.04em">Active</span>
+              </div>
+              <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5;margin-bottom:8px">Build gate closed (0e13d8e). PlotForge: P0+P1+P2 fully deployed + Inspector UX 🟢 SHIPPED (RUN-20260623-0159 ~3:04 AM ET, origin/main baaeb98, lint/build/tests ✓). PRs #14/#15/#16 merged to main — proxy=sonnet-4-6, favicons, CTA WCAG-AA 5.19:1. Hosted 404 fix on main. Remaining: HIGH Clerk authz-bypass CVE + Vercel HOSTED_ALLOWED_ANTHROPIC_MODELS env (unconfirmed) + bundle weight. 🙋 Awaiting Dave.</div>
+              <div style="font-size:12.5px;line-height:1.5;padding-top:8px;border-top:1px solid var(--border)"><span style="color:var(--text-mute);font-weight:600">Next · </span><span style="color:var(--text-dim)">Dave: confirm Vercel HOSTED_ALLOWED_ANTHROPIC_MODELS env var + Clerk CVE tracking decision · PlotForge P3 · Vercel cost decision still pending.</span></div>
+            </div>
+            <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+              <div style="display:flex;align-items:center;gap:9px;margin-bottom:8px">
+                <span style="width:9px;height:9px;border-radius:50%;background:var(--ok);flex:none"></span>
+                <span style="font-weight:600;font-size:14px;flex:1">Walter — Local GitHub repo update</span>
+                <span style="font-size:10.5px;font-weight:600;color:var(--ok);background:var(--ok-bg);padding:2px 8px;border-radius:5px;text-transform:uppercase;letter-spacing:.04em">On track</span>
+              </div>
+              <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5;margin-bottom:8px">Digit sync executed (02:51 ET) + Mac report regenerated (08:43 ET).</div>
+              <div style="font-size:12.5px;line-height:1.5;padding-top:8px;border-top:1px solid var(--border)"><span style="color:var(--text-mute);font-weight:600">Next · </span><span style="color:var(--text-dim)">See Sync — remaining dirty / behind / no-remote buckets.</span></div>
+            </div>
+        </div>
+      </div>
+      <div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:11px"><span style="font-size:15px">✨</span><span style="font-weight:600;font-size:14px">Claude</span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute);background:var(--surface2);padding:1px 7px;border-radius:5px">lane</span></div>
+        <div style="display:flex;flex-direction:column;gap:var(--gap)">
+            <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+              <div style="display:flex;align-items:center;gap:9px;margin-bottom:8px">
+                <span style="width:9px;height:9px;border-radius:50%;background:var(--ok);flex:none"></span>
+                <span style="font-weight:600;font-size:14px;flex:1">AV Suite | Teleprompter</span>
+                <span style="font-size:10.5px;font-weight:600;color:var(--ok);background:var(--ok-bg);padding:2px 8px;border-radius:5px;text-transform:uppercase;letter-spacing:.04em">On track</span>
+              </div>
+              <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5;margin-bottom:8px">Inline rich-text formatting shipped &amp; published at systembydave.com/teleprompter.html (commit 232651a).</div>
+              <div style="font-size:12.5px;line-height:1.5;padding-top:8px;border-top:1px solid var(--border)"><span style="color:var(--text-mute);font-weight:600">Next · </span><span style="color:var(--text-dim)">Done — logged to LLM Conversation Notes; repo canonicalized.</span></div>
+            </div>
+            <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+              <div style="display:flex;align-items:center;gap:9px;margin-bottom:8px">
+                <span style="width:9px;height:9px;border-radius:50%;background:var(--ok);flex:none"></span>
+                <span style="font-weight:600;font-size:14px;flex:1">Hat-in-Ring · Design</span>
+                <span style="font-size:10.5px;font-weight:600;color:var(--ok);background:var(--ok-bg);padding:2px 8px;border-radius:5px;text-transform:uppercase;letter-spacing:.04em">On track</span>
+              </div>
+              <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5;margin-bottom:8px">Deployed at hatinring.com (200, "2028 Hat-in-Ring Radar").</div>
+              <div style="font-size:12.5px;line-height:1.5;padding-top:8px;border-top:1px solid var(--border)"><span style="color:var(--text-mute);font-weight:600">Next · </span><span style="color:var(--text-dim)">GH Pages /hat-in-ring/ now redirects to systembydave.com.</span></div>
+            </div>
+            <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+              <div style="display:flex;align-items:center;gap:9px;margin-bottom:8px">
+                <span style="width:9px;height:9px;border-radius:50%;background:var(--warn);flex:none"></span>
+                <span style="font-weight:600;font-size:14px;flex:1">Slicemo</span>
+                <span style="font-size:10.5px;font-weight:600;color:var(--warn);background:var(--warn-bg);padding:2px 8px;border-radius:5px;text-transform:uppercase;letter-spacing:.04em">Active</span>
+              </div>
+              <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5;margin-bottom:8px">Active 06-17 but mockup-stage.</div>
+              <div style="font-size:12.5px;line-height:1.5;padding-top:8px;border-top:1px solid var(--border)"><span style="color:var(--text-mute);font-weight:600">Next · </span><span style="color:var(--text-dim)">Prod GUI waiting on approval.</span></div>
+            </div>
+            <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+              <div style="display:flex;align-items:center;gap:9px;margin-bottom:8px">
+                <span style="width:9px;height:9px;border-radius:50%;background:var(--warn);flex:none"></span>
+                <span style="font-weight:600;font-size:14px;flex:1">Image Gallery</span>
+                <span style="font-size:10.5px;font-weight:600;color:var(--warn);background:var(--warn-bg);padding:2px 8px;border-radius:5px;text-transform:uppercase;letter-spacing:.04em">Active</span>
+              </div>
+              <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5;margin-bottom:8px">No recent artifact located.</div>
+              <div style="font-size:12.5px;line-height:1.5;padding-top:8px;border-top:1px solid var(--border)"><span style="color:var(--text-mute);font-weight:600">Next · </span><span style="color:var(--text-dim)">Locate latest artifact / confirm scope.</span></div>
+            </div>
+            <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+              <div style="display:flex;align-items:center;gap:9px;margin-bottom:8px">
+                <span style="width:9px;height:9px;border-radius:50%;background:var(--ok);flex:none"></span>
+                <span style="font-weight:600;font-size:14px;flex:1">Hat-in-Ring · Radar</span>
+                <span style="font-size:10.5px;font-weight:600;color:var(--ok);background:var(--ok-bg);padding:2px 8px;border-radius:5px;text-transform:uppercase;letter-spacing:.04em">On track</span>
+              </div>
+              <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5;margin-bottom:8px">PIPELINE FIXED (RUN-20260621-0130 🟢): committed, pushed, deployed. GH Actions Run 27895351572 + Pages 27895385989 passed; live Jun 21 candidate pages + feed.xml verified current. Daily regen restored.</div>
+              <div style="font-size:12.5px;line-height:1.5;padding-top:8px;border-top:1px solid var(--border)"><span style="color:var(--text-mute);font-weight:600">Next · </span><span style="color:var(--text-dim)">Monitor next daily regen. Then: Search Console setup + FEC key verification.</span></div>
+            </div>
+            <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+              <div style="display:flex;align-items:center;gap:9px;margin-bottom:8px">
+                <span style="width:9px;height:9px;border-radius:50%;background:var(--ok);flex:none"></span>
+                <span style="font-weight:600;font-size:14px;flex:1">Festival Atlas Mobile App</span>
+                <span style="font-size:10.5px;font-weight:600;color:var(--ok);background:var(--ok-bg);padding:2px 8px;border-radius:5px;text-transform:uppercase;letter-spacing:.04em">On track</span>
+              </div>
+              <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5;margin-bottom:8px">PR #1 merged to main by Dave at 15:27Z (RUN-20260621-1527 🟢 ~11:28 AM ET) — mobile spec + RN/Expo build: seed pipeline, FA local-first store, ported season engine, 5 tabs, detail modal w/ logistics links. 34 files, 4 commits, 8d5a736. tsc --noEmit exit 0 pre-merge.</div>
+              <div style="font-size:12.5px;line-height:1.5;padding-top:8px;border-top:1px solid var(--border)"><span style="color:var(--text-mute);font-weight:600">Next · </span><span style="color:var(--text-dim)">Device verification (iOS/Android simulator). M2/M4 features (offline map, camera, push, share/calendar) deferred to later milestones.</span></div>
+            </div>
+            <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+              <div style="display:flex;align-items:center;gap:9px;margin-bottom:8px">
+                <span style="width:9px;height:9px;border-radius:50%;background:var(--ok);flex:none"></span>
+                <span style="font-weight:600;font-size:14px;flex:1">CurlPlan — iOS port</span>
+                <span style="font-size:10.5px;font-weight:600;color:var(--ok);background:var(--ok-bg);padding:2px 8px;border-radius:5px;text-transform:uppercase;letter-spacing:.04em">On track</span>
+              </div>
+              <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5;margin-bottom:8px">RUN-20260621-1118 🟢 GREEN (updated 7:11 PM ET): iOS SwiftUI port confirmed running on iPhone 17 / iOS 26.5 — Spiels tab renders 3 events + custom tab bar, screenshot verified. SHIPPED.</div>
+              <div style="font-size:12.5px;line-height:1.5;padding-top:8px;border-top:1px solid var(--border)"><span style="color:var(--text-mute);font-weight:600">Next · </span><span style="color:var(--text-dim)">Monitor next session. Local HEAD 2bb952a still 2 behind origin/main@0bfb6f4 — sync when convenient. No destructive reconcile without Dave approval.</span></div>
+            </div>
+            <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+              <div style="display:flex;align-items:center;gap:9px;margin-bottom:8px">
+                <span style="width:9px;height:9px;border-radius:50%;background:var(--ok);flex:none"></span>
+                <span style="font-weight:600;font-size:14px;flex:1">ReadOut — Phase 3 + Phase 1 cleanup</span>
+                <span style="font-size:10.5px;font-weight:600;color:var(--ok);background:var(--ok-bg);padding:2px 8px;border-radius:5px;text-transform:uppercase;letter-spacing:.04em">On track</span>
+              </div>
+              <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5;margin-bottom:8px">RUN-20260622-1946 🟢 GREEN (~7:51 PM ET Jun 22): Phase 1 cleanup shipped — browser engine UI removed (browser tab, auto-read, queue/download, Save MP3→WAV), PATCH /config validates engine against registry (HTTP 400 on unknown). c158728; CI 27986807122 green; pytest 58/0. RUN-20260622-0226 🟢 (~2:27 AM ET): Phase 3 shipped — engines/ package + registry; OpenAI/EL shims; /voices catalogue; control panel + popup consume registry. All CI green.</div>
+              <div style="font-size:12.5px;line-height:1.5;padding-top:8px;border-top:1px solid var(--border)"><span style="color:var(--text-mute);font-weight:600">Next · </span><span style="color:var(--text-dim)">NEW RED this pass: RUN-20260623-READOUT-ROADMAP-P3-BLOCKED 🔴 — Phase 3 packaging/sign-off gates blocked. Likely blocker: stray git ref refs/remotes/origin/main 2 (Dave to delete). github.com/DaveHomeAssist/readout</span></div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" style="max-width:1280px;margin:0 auto;padding:34px 24px 0">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+      <div style="width:32px;height:32px;border-radius:9px;background:var(--accent-bg);display:grid;place-items:center;font-size:16px;border:1px solid var(--border)">📦</div>
+      <h2 style="margin:0;font-size:19px;font-weight:600;letter-spacing:-.01em">Projects</h2>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-mute)">5 featured · 89 in DB</span>
+      <a href="https://app.notion.com/p/1f2255fc8f448128994df83b59539ded" target="_blank" style="margin-left:auto;font-size:12px;color:var(--text-mute);text-decoration:none;font-family:'IBM Plex Mono',monospace">DB | Projects ↗</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:var(--gap)">
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad);display:flex;flex-direction:column">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:9px">
+          <span style="font-size:18px">🛠️</span>
+          <span style="font-weight:600;font-size:15px;flex:1">System by Dave</span>
+          <span style="width:11px;height:11px;border-radius:50%;background:var(--warn);box-shadow:0 0 0 3px var(--warn-bg)"></span>
+        </div>
+        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5;margin-bottom:9px">AV pages 200; Pages built from main @232651a. Yellow until repo hygiene + dialog-guard clean.</div>
+        <div style="font-size:12.5px;line-height:1.5;margin-bottom:11px"><span style="color:var(--text-mute);font-weight:600">Next · </span><span style="color:var(--text-dim)">Resolve bad git ref refs/heads/main 2 + untracked artifacts · route @playwright/test · remove native prompt/confirm.</span></div>
+        <div style="margin-top:auto;display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)">row edited 06-17</span>
+        </div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad);display:flex;flex-direction:column">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:9px">
+          <span style="font-size:18px">⚾</span>
+          <span style="font-weight:600;font-size:15px;flex:1">Phillies Wire</span>
+          <span style="width:11px;height:11px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 3px var(--ok-bg)"></span>
+        </div>
+        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5;margin-bottom:9px">Vol. 1 No. 84 published ~1:24 AM ET Jun 23 (2026-06-23T05:24:59.594Z); 23/22/0/1 · all 23 current. GAME 1 FINAL: PHI LOST @WSH — record 42-36 L1 (NL East 2nd, 6.5 GB vs ATL 48-29 L2). Reliability gate 🟢 GREEN (RUN-20260621-0132): 18/18 tests, deliver verified.</div>
+        <div style="font-size:12.5px;line-height:1.5;margin-bottom:11px"><span style="color:var(--text-mute);font-weight:600">Next · </span><span style="color:var(--text-dim)">TONIGHT: PHI @WSH Game 2 of 4, 6:45 PM ET, Luzardo (PHI LHP) vs Zack Littell (WSH RHP). Monitor Vol. 1 No. 84 regen cycle. ATL 48-29 L2, PHI 42-36 L1, 6.5 GB.</span></div>
+        <div style="margin-top:auto;display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)">live 06-23</span>
+        </div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad);display:flex;flex-direction:column">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:9px">
+          <span style="font-size:18px">🎩</span>
+          <span style="font-weight:600;font-size:15px;flex:1">Hat-in-Ring</span>
+          <span style="width:11px;height:11px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 3px var(--ok-bg)"></span>
+        </div>
+        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5;margin-bottom:9px">P0 live on hatinring.com (200). PIPELINE FIXED (RUN-20260621-0130 🟢): daily regen restored, live Jun 21 candidate pages + feed.xml verified current.</div>
+        <div style="font-size:12.5px;line-height:1.5;margin-bottom:11px"><span style="color:var(--text-mute);font-weight:600">Next · </span><span style="color:var(--text-dim)">Monitor next daily regen. Then: Search Console + FEC key.</span></div>
+        <div style="margin-top:auto;display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)">Dev Logs + Status Runs</span>
+          <span style="font-size:10px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--warn);background:var(--warn-bg);padding:2px 7px;border-radius:5px">⚑ no DB row · at risk</span>
+        </div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad);display:flex;flex-direction:column">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:9px">
+          <span style="font-size:18px">🏠</span>
+          <span style="font-weight:600;font-size:15px;flex:1">Home Assistant</span>
+          <span style="width:11px;height:11px;border-radius:50%;background:var(--warn);box-shadow:0 0 0 3px var(--warn-bg)"></span>
+        </div>
+        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5;margin-bottom:9px">Canon smoke passes (20 dashboards · 72 routes · 0 fail). Ring/Frigate resolved 🟡.</div>
+        <div style="font-size:12.5px;line-height:1.5;margin-bottom:11px"><span style="color:var(--text-mute);font-weight:600">Next · </span><span style="color:var(--text-dim)">Authenticated screenshot capture; verify Frigate monitoring + HA entity wiring.</span></div>
+        <div style="margin-top:auto;display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)">Dev Logs + Status Runs</span>
+          <span style="font-size:10px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--warn);background:var(--warn-bg);padding:2px 7px;border-radius:5px">⚑ no DB row · at risk</span>
+        </div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad);display:flex;flex-direction:column">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:9px">
+          <span style="font-size:18px">🧪</span>
+          <span style="font-weight:600;font-size:15px;flex:1">PromptLab</span>
+          <span style="width:11px;height:11px;border-radius:50%;background:var(--warn);box-shadow:0 0 0 3px var(--warn-bg)"></span>
+        </div>
+        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5;margin-bottom:9px">Build gate closed (0e13d8e). PlotForge: P0+P1+P2 deployed + Inspector UX 🟢 SHIPPED (RUN-20260623-0159 ~3:04 AM ET, origin/main baaeb98, tests ✓). PRs #14/#15/#16 merged to main — proxy/favicons/CTA on main, hosted 404 resolved. Remaining: Clerk CVE + Vercel HOSTED_ALLOWED_ANTHROPIC_MODELS (unconfirmed) + bundle weight. Health 🟡. 🙋 Dave.</div>
+        <div style="font-size:12.5px;line-height:1.5;margin-bottom:11px"><span style="color:var(--text-mute);font-weight:600">Next · </span><span style="color:var(--text-dim)">Dave: confirm Vercel env var + Clerk CVE call · PlotForge P3 · Vercel cost decision.</span></div>
+        <div style="margin-top:auto;display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)">row edited 06-17</span>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:var(--gap);background:var(--surface);border:1px dashed var(--border2);border-radius:var(--radius);padding:var(--pad)">
+      <div style="display:flex;align-items:center;gap:9px;margin-bottom:11px">
+        <span style="font-size:14px">🕳️</span>
+        <span style="font-weight:600;font-size:14px">Forgotten &amp; stale — easy to lose track of</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px">
+        <div style="display:flex;gap:9px">
+          <span style="width:7px;height:7px;border-radius:50%;background:var(--warn);margin-top:6px;flex:none"></span>
+          <div>
+            <div style="font-weight:600;font-size:12.5px;margin-bottom:2px">Hat-in-Ring &amp; Home Assistant</div>
+            <div style="font-size:11.5px;color:var(--text-mute);line-height:1.45">No DB | Projects row — live only in Dev Logs + Status Runs. Easy to lose track of.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:9px">
+          <span style="width:7px;height:7px;border-radius:50%;background:var(--warn);margin-top:6px;flex:none"></span>
+          <div>
+            <div style="font-weight:600;font-size:12.5px;margin-bottom:2px">Festival Atlas &amp; CurlPlan &amp; ReadOut</div>
+            <div style="font-size:11.5px;color:var(--text-mute);line-height:1.45">No DB | Projects row confirmed this pass — live only in Status Runs (06-21). Festival Atlas: PR #1 merged 🟢. CurlPlan: iOS port 🟡 (2 commits behind origin). ReadOut: desktop GUI 🟢 (merge 8f327b4 pushed, CI green — RUN-1222 updated 6:55 PM ET).</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:9px">
+          <span style="width:7px;height:7px;border-radius:50%;background:var(--warn);margin-top:6px;flex:none"></span>
+          <div>
+            <div style="font-weight:600;font-size:12.5px;margin-bottom:2px">Davai memory</div>
+            <div style="font-size:11.5px;color:var(--text-mute);line-height:1.45">Local Mac only · last sync 2026-05-22 (~30d stale) · cloud can't refresh.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:9px">
+          <span style="width:7px;height:7px;border-radius:50%;background:var(--warn);margin-top:6px;flex:none"></span>
+          <div>
+            <div style="font-weight:600;font-size:12.5px;margin-bottom:2px">Mac-wide git scan</div>
+            <div style="font-size:11.5px;color:var(--text-mute);line-height:1.45">Local Mac only · last 06-17 08:43 ET (~143h+ stale) · cloud can't regenerate.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:9px">
+          <span style="width:7px;height:7px;border-radius:50%;background:var(--warn);margin-top:6px;flex:none"></span>
+          <div>
+            <div style="font-weight:600;font-size:12.5px;margin-bottom:2px">Windows $path table defect</div>
+            <div style="font-size:11.5px;color:var(--text-mute);line-height:1.45">06-17 digit report still wrote literal $path; real-path regen task still open.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:9px">
+          <span style="width:7px;height:7px;border-radius:50%;background:var(--warn);margin-top:6px;flex:none"></span>
+          <div>
+            <div style="font-weight:600;font-size:12.5px;margin-bottom:2px">PromptLab daily-status scheduler</div>
+            <div style="font-size:11.5px;color:var(--text-mute);line-height:1.45">Cron created 06-18 but has never fired.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TODAY -->
+  <section id="today" style="max-width:1280px;margin:0 auto;padding:34px 24px 0">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+      <div style="width:32px;height:32px;border-radius:9px;background:var(--accent-bg);display:grid;place-items:center;font-size:16px;border:1px solid var(--border)">☀️</div>
+      <h2 style="margin:0;font-size:19px;font-weight:600;letter-spacing:-.01em">Today</h2>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-mute)">Sat Jun 20 ET</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:var(--gap)">
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px"><span style="font-size:16px">⚾</span><span style="font-weight:600;font-size:14px">Game day</span></div>
+        <div style="font-weight:600;font-size:15px;margin-bottom:5px">PHI @WSH · Game 2 of 4 · Tue Jun 23 · TONIGHT 6:45 PM ET</div>
+        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.55"><b style="color:var(--warn)">PHI @WSH · Game 2 of 4 · Tue Jun 23 · TONIGHT 6:45 PM ET</b> — Luzardo (PHI LHP) vs Zack Littell (WSH RHP). GAME 1 FINAL: <b style="color:var(--bad)">PHI LOST</b> — record <b style="color:var(--text)">42-36 L1</b> · NL East 2nd (6.5 GB vs ATL 48-29 L2). Phillies Wire <span style="font-family:'IBM Plex Mono',monospace;color:var(--accent)">Vol. 1 No. 84</span> — accuracy.json regen ~12:52 PM ET Jun 23 (2026-06-23T16:52:31.747Z): 23 claims · 22 accurate · 0 inaccurate · 1 unverifiable · all 23 current.</div>
+        <div style="margin-top:10px;display:flex;gap:14px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute)">
+          <span>Tue Jun 23 · TONIGHT @WSH Game 2 of 4 · Luzardo (PHI LHP) vs Zack Littell (WSH RHP) 6:45 PM ET</span><span>Wed Jun 24 · @WSH Game 3 of 4 · Nola vs Miles Mikolas 6:45 PM ET (Nationals.TV)</span><span>Thu Jun 25 · @WSH Game 4 of 4 · Sánchez vs Cade Cavalli 6:45 PM ET (Nationals.TV)</span><span>Fri Jun 26 · vs NYM TBD 7:10 PM ET (WPIX)</span>
+        </div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px"><span style="font-size:16px">📋</span><span style="font-weight:600;font-size:14px">Morning brief</span><span style="font-size:10.5px;color:var(--text-mute);font-family:'IBM Plex Mono',monospace">live DB</span></div>
+        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.55"><b style="color:var(--text)">3 genuinely overdue · 0 due today.</b> May-30 home cluster is off the overdue list — <b style="color:var(--ok)">4 done</b>, <b style="color:var(--text)">7 rescheduled → Jun 30</b>. Quick Start is launchpad-only, not status truth.</div>
+        <div style="display:flex;gap:9px;margin-top:12px;flex-wrap:wrap">
+          <div style="flex:1;min-width:80px;text-align:center;background:var(--ok-bg);border-radius:9px;padding:9px"><div style="font-family:'IBM Plex Mono',monospace;font-size:19px;font-weight:600;color:var(--ok)">4</div><div style="font-size:10.5px;color:var(--text-mute)">done</div></div><div style="flex:1;min-width:80px;text-align:center;background:var(--surface2);border-radius:9px;padding:9px"><div style="font-family:'IBM Plex Mono',monospace;font-size:19px;font-weight:600;">7</div><div style="font-size:10.5px;color:var(--text-mute)">→ Jun 30</div></div><div style="flex:1;min-width:80px;text-align:center;background:var(--warn-bg);border-radius:9px;padding:9px"><div style="font-family:'IBM Plex Mono',monospace;font-size:19px;font-weight:600;color:var(--warn)">3</div><div style="font-size:10.5px;color:var(--text-mute)">overdue</div></div>
+        </div>
+      </div>
+    </div>
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad);margin-top:var(--gap)">
+      <div style="font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-mute);margin-bottom:11px">Overdue · DB | Personal Tasks (Tier 2)</div>
+      <div style="display:flex;flex-direction:column;gap:1px">
+        <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)">
+          <span style="flex:1;min-width:0;font-weight:500;font-size:13px">Install CR1000A passthrough + Eero mesh @ 56 Harding</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-mute);width:54px">Apr 13</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:var(--bad);width:46px;text-align:right">71d</span>
+          <span style="font-size:10.5px;font-weight:600;color:var(--warn);background:var(--warn-bg);padding:2px 8px;border-radius:5px;width:64px;text-align:center">High</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute);width:46px;text-align:right">To Do</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)">
+          <span style="flex:1;min-width:0;font-weight:500;font-size:13px">Configure Dominic to run with lid closed</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-mute);width:54px">May 08</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:var(--bad);width:46px;text-align:right">46d</span>
+          <span style="font-size:10.5px;font-weight:600;color:var(--warn);background:var(--warn-bg);padding:2px 8px;border-radius:5px;width:64px;text-align:center">High</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute);width:46px;text-align:right">Doing</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)">
+          <span style="flex:1;min-width:0;font-weight:500;font-size:13px">Laptops: CC to Steve?</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-mute);width:54px">May 20</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:var(--bad);width:46px;text-align:right">34d</span>
+          <span style="font-size:10.5px;font-weight:600;color:var(--bad);background:var(--bad-bg);padding:2px 8px;border-radius:5px;width:64px;text-align:center">Urgent</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute);width:46px;text-align:right">To Do</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SYNC -->
+  <section id="sync" style="max-width:1280px;margin:0 auto;padding:34px 24px 0">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+      <div style="width:32px;height:32px;border-radius:9px;background:var(--accent-bg);display:grid;place-items:center;font-size:16px;border:1px solid var(--border)">🔄</div>
+      <h2 style="margin:0;font-size:19px;font-weight:600;letter-spacing:-.01em">Sync &amp; reconciliation</h2>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-mute)">git · 02:51 ET</span>
+      <a href="https://app.notion.com/p/382255fc8f44809fa8dcdd8f8f57a5b6" target="_blank" style="margin-left:auto;font-size:12px;color:var(--text-mute);text-decoration:none;font-family:'IBM Plex Mono',monospace">Git Sync Report ↗</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px;margin-bottom:var(--gap)">
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:11px;padding:13px;text-align:center">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:600;color:var(--ok)">9</div>
+          <div style="font-size:11px;color:var(--text-mute);margin-top:3px">Updated (ff)</div>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:11px;padding:13px;text-align:center">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:600;color:var(--text-mute)">46</div>
+          <div style="font-size:11px;color:var(--text-mute);margin-top:3px">Already current</div>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:11px;padding:13px;text-align:center">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:600;color:var(--bad)">8</div>
+          <div style="font-size:11px;color:var(--text-mute);margin-top:3px">Blocked (diverged)</div>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:11px;padding:13px;text-align:center">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:600;color:var(--warn)">15</div>
+          <div style="font-size:11px;color:var(--text-mute);margin-top:3px">Dirty worktree</div>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:11px;padding:13px;text-align:center">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:600;color:var(--warn)">2</div>
+          <div style="font-size:11px;color:var(--text-mute);margin-top:3px">Detached HEAD</div>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:11px;padding:13px;text-align:center">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:600;color:var(--warn)">1</div>
+          <div style="font-size:11px;color:var(--text-mute);margin-top:3px">No remote</div>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:11px;padding:13px;text-align:center">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:600;color:var(--text-mute)">25</div>
+          <div style="font-size:11px;color:var(--text-mute);margin-top:3px">Invalid paths</div>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:11px;padding:13px;text-align:center">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:600;color:var(--text-mute)">68</div>
+          <div style="font-size:11px;color:var(--text-mute);margin-top:3px">Timed out</div>
+        </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:var(--gap)">
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+        <div style="font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ok);margin-bottom:10px">9 repos updated (fast-forward)</div>
+        <div style="display:flex;flex-direction:column;gap:1px">
+            <div style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid var(--border);font-size:12px">
+              <span style="font-family:'IBM Plex Mono',monospace;color:var(--text-mute);width:30px">#22</span>
+              <span style="font-family:'IBM Plex Mono',monospace;color:var(--accent);width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">main</span>
+              <span style="flex:1;color:var(--text-dim);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">index.html — 6 lines</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid var(--border);font-size:12px">
+              <span style="font-family:'IBM Plex Mono',monospace;color:var(--text-mute);width:30px">#31</span>
+              <span style="font-family:'IBM Plex Mono',monospace;color:var(--accent);width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">main</span>
+              <span style="flex:1;color:var(--text-dim);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">BaseLayout.astro — +2</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid var(--border);font-size:12px">
+              <span style="font-family:'IBM Plex Mono',monospace;color:var(--text-mute);width:30px">#32</span>
+              <span style="font-family:'IBM Plex Mono',monospace;color:var(--accent);width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">main</span>
+              <span style="flex:1;color:var(--text-dim);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">chip-report.json — 179 lines</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid var(--border);font-size:12px">
+              <span style="font-family:'IBM Plex Mono',monospace;color:var(--text-mute);width:30px">#36</span>
+              <span style="font-family:'IBM Plex Mono',monospace;color:var(--accent);width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">verify/garden-os</span>
+              <span style="flex:1;color:var(--text-dim);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">.gitignore — +6</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid var(--border);font-size:12px">
+              <span style="font-family:'IBM Plex Mono',monospace;color:var(--text-mute);width:30px">#45</span>
+              <span style="font-family:'IBM Plex Mono',monospace;color:var(--accent);width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">main</span>
+              <span style="flex:1;color:var(--text-dim);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">basement-planner.html — +2,020</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid var(--border);font-size:12px">
+              <span style="font-family:'IBM Plex Mono',monospace;color:var(--text-mute);width:30px">#59</span>
+              <span style="font-family:'IBM Plex Mono',monospace;color:var(--accent);width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">fix/library-pack</span>
+              <span style="flex:1;color:var(--text-dim);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">AGENTS.md — +4</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid var(--border);font-size:12px">
+              <span style="font-family:'IBM Plex Mono',monospace;color:var(--text-mute);width:30px">#61</span>
+              <span style="font-family:'IBM Plex Mono',monospace;color:var(--accent);width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">main</span>
+              <span style="flex:1;color:var(--text-dim);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">tests.yml — +34</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid var(--border);font-size:12px">
+              <span style="font-family:'IBM Plex Mono',monospace;color:var(--text-mute);width:30px">#80</span>
+              <span style="font-family:'IBM Plex Mono',monospace;color:var(--accent);width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">master</span>
+              <span style="flex:1;color:var(--text-dim);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">cann.Dockerfile — 26</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid var(--border);font-size:12px">
+              <span style="font-family:'IBM Plex Mono',monospace;color:var(--text-mute);width:30px">#174</span>
+              <span style="font-family:'IBM Plex Mono',monospace;color:var(--accent);width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">master</span>
+              <span style="flex:1;color:var(--text-dim);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">cann.Dockerfile — 26</span>
+            </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:var(--gap)">
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+          <div style="font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--warn);margin-bottom:9px">26 repos need attention (digit scan)</div>
+          <div style="font-size:12.5px;color:var(--text-dim);line-height:1.6"><b style="color:var(--bad)">Blocked / diverging (8):</b> #11, #24, #28, #34, #51, #68, #74 · #35 file conflict. #24 unrelated histories.<br><b style="color:var(--warn)">Dirty worktrees (15):</b> commit or stash before next run.<br><b style="color:var(--warn)">Detached HEAD (2):</b> #9, #10 · <b style="color:var(--warn)">No remote (1):</b> #79.</div>
+          <div style="margin-top:9px;font-size:11.5px;color:var(--text-mute);border-top:1px solid var(--border);padding-top:9px">⚠ Known bug: digit per-repo table still wrote literal <span style="font-family:'IBM Plex Mono',monospace">$path</span>. Use the Mac report for real paths.</div>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+          <div style="font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ok);margin-bottom:9px">🟢 Mac git report regenerated · 06-18</div>
+          <div style="font-size:12.5px;color:var(--text-dim);line-height:1.6"><b style="color:var(--text)">105 repos / 92 attention</b> — 13 clean · 35 dirty · 35 timeout · 8 no-remote · 4 no-upstream · 4 error. Guarded ff-only pull: <b style="color:var(--text)">106 processed, 5 fast-forwarded</b>. Biggest dirty: dave-llm (1122), garden-os-fresh-active (196), garden-os (131).</div>
+        </div>
+      </div>
+    </div>
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad);margin-top:var(--gap)">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:11px">
+        <span style="font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-mute)">📥 Notion update queue</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ok);font-weight:600;margin-left:auto">4 / 6</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px 18px">
+          <div style="display:flex;align-items:center;gap:9px;font-size:12.5px">
+            <span style="width:16px;height:16px;border-radius:5px;display:grid;place-items:center;font-size:10px;color:var(--ok);background:var(--ok-bg);flex:none">✓</span>
+            <span style="color:var(--text-dim)">Update Notes @Today</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:9px;font-size:12.5px">
+            <span style="width:16px;height:16px;border-radius:5px;display:grid;place-items:center;font-size:10px;color:var(--ok);background:var(--ok-bg);flex:none">✓</span>
+            <span style="color:var(--text-dim)">Update DB | Status Runs entries</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:9px;font-size:12.5px">
+            <span style="width:16px;height:16px;border-radius:5px;display:grid;place-items:center;font-size:10px;color:var(--ok);background:var(--ok-bg);flex:none">✓</span>
+            <span style="color:var(--text-dim)">Update prior logs / new entries</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:9px;font-size:12.5px">
+            <span style="width:16px;height:16px;border-radius:5px;display:grid;place-items:center;font-size:10px;color:var(--ok);background:var(--ok-bg);flex:none">✓</span>
+            <span style="color:var(--text-dim)">Update associated task records</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:9px;font-size:12.5px">
+            <span style="width:16px;height:16px;border-radius:5px;display:grid;place-items:center;font-size:10px;color:var(--text-mute);background:var(--surface2);flex:none">·</span>
+            <span style="color:var(--text)">Close remaining blockers in source repos</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:9px;font-size:12.5px">
+            <span style="width:16px;height:16px;border-radius:5px;display:grid;place-items:center;font-size:10px;color:var(--text-mute);background:var(--surface2);flex:none">·</span>
+            <span style="color:var(--text)">Reconcile canonical project pages</span>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAILY RUNS -->
+  <section id="daily" style="max-width:1280px;margin:0 auto;padding:34px 24px 0">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+      <div style="width:32px;height:32px;border-radius:9px;background:var(--accent-bg);display:grid;place-items:center;font-size:16px;border:1px solid var(--border)">🗓️</div>
+      <h2 style="margin:0;font-size:19px;font-weight:600;letter-spacing:-.01em">Daily runs &amp; scheduled cowork</h2>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-mute)">10</span>
+    </div>
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden">
+      <div style="display:flex;align-items:center;gap:12px;padding:13px var(--pad);background:var(--surface2);border-bottom:1px solid var(--border)">
+        <span style="font-size:14px">🧬</span><span style="font-weight:600;font-size:13.5px">Frontier Signals — 2026-06-17</span><span style="font-size:10px;font-weight:600;color:var(--ok);background:var(--ok-bg);padding:2px 7px;border-radius:5px">published</span>
+        <div style="margin-left:auto;display:flex;gap:13px;font-family:'IBM Plex Mono',monospace;font-size:12px"><span style="color:var(--text-dim)">Quantum <b style="color:var(--accent)">60</b></span><span style="color:var(--text-dim)">Chips <b style="color:var(--accent)">47</b></span><span style="color:var(--text-dim)">Power <b style="color:var(--accent)">25</b></span></div>
+      </div>
+      <div style="padding:4px var(--pad)">
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)">
+            <span style="width:9px;height:9px;border-radius:50%;background:var(--ok);flex:none"></span>
+            <span style="font-size:13px;font-weight:500;flex:1;min-width:0">🧬 Frontier Signals cross-desk</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute);width:72px">daily 6am</span>
+            <span style="font-size:11.5px;color:var(--text-dim);flex:1;min-width:0;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">published</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)">
+            <span style="width:9px;height:9px;border-radius:50%;background:var(--ok);flex:none"></span>
+            <span style="font-size:13px;font-weight:500;flex:1;min-width:0">🤖 Chip signals (Chips desk)</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute);width:72px">daily</span>
+            <span style="font-size:11.5px;color:var(--text-dim);flex:1;min-width:0;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">in FS · no new P1 today</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)">
+            <span style="width:9px;height:9px;border-radius:50%;background:var(--ok);flex:none"></span>
+            <span style="font-size:13px;font-weight:500;flex:1;min-width:0">🐙 Git repo sync</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute);width:72px">daily</span>
+            <span style="font-size:11.5px;color:var(--text-dim);flex:1;min-width:0;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">06-18 Mac rescan + pull</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)">
+            <span style="width:9px;height:9px;border-radius:50%;background:var(--ok);flex:none"></span>
+            <span style="font-size:13px;font-weight:500;flex:1;min-width:0">⚾ Phillies Wire factcheck</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute);width:72px">daily</span>
+            <span style="font-size:11.5px;color:var(--text-dim);flex:1;min-width:0;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">No. 84 NEW EDITION — ~1:24 AM ET Jun 23 · 23/22/0/1 · all 23 current · GAME 1 FINAL: PHI LOST (42-36 L1, 6.5 GB vs ATL 48-29 L2) · TONIGHT Game 2 of 4 6:45 PM ET (Luzardo vs Zack Littell)</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)">
+            <span style="width:9px;height:9px;border-radius:50%;background:var(--ok);flex:none"></span>
+            <span style="font-size:13px;font-weight:500;flex:1;min-width:0">⚾ Fix Phillies Wire JSON parser</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute);width:72px">daily</span>
+            <span style="font-size:11.5px;color:var(--text-dim);flex:1;min-width:0;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">published · live-generated</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)">
+            <span style="width:9px;height:9px;border-radius:50%;background:var(--ok);flex:none"></span>
+            <span style="font-size:13px;font-weight:500;flex:1;min-width:0">🪴 Garden OS daily self-improve</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute);width:72px">daily 9am</span>
+            <span style="font-size:11.5px;color:var(--text-dim);flex:1;min-width:0;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Phase 6-8 🟢 SHIPPED (RUN-20260622-2119 ~9:19 PM ET) — commit 6b5431c; APP_VERSION 4.6; reasoned-export-1.0.0 live</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)">
+            <span style="width:9px;height:9px;border-radius:50%;background:var(--warn);flex:none"></span>
+            <span style="font-size:13px;font-weight:500;flex:1;min-width:0">🧪 PromptLab daily status</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute);width:72px">daily 08:00</span>
+            <span style="font-size:11.5px;color:var(--text-dim);flex:1;min-width:0;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">scheduler created · not fired</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)">
+            <span style="width:9px;height:9px;border-radius:50%;background:var(--warn);flex:none"></span>
+            <span style="font-size:13px;font-weight:500;flex:1;min-width:0">📥 Daily Notion inbox sort</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute);width:72px">daily</span>
+            <span style="font-size:11.5px;color:var(--text-dim);flex:1;min-width:0;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">blocked 2× · 10 held</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)">
+            <span style="width:9px;height:9px;border-radius:50%;background:var(--ok);flex:none"></span>
+            <span style="font-size:13px;font-weight:500;flex:1;min-width:0">🔄 Cowork update propagator</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute);width:72px">daily</span>
+            <span style="font-size:11.5px;color:var(--text-dim);flex:1;min-width:0;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">current · all rows Fresh</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)">
+            <span style="width:9px;height:9px;border-radius:50%;background:var(--idle);flex:none"></span>
+            <span style="font-size:13px;font-weight:500;flex:1;min-width:0">🧹 C-drive cleanup suggestions</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute);width:72px">daily</span>
+            <span style="font-size:11.5px;color:var(--text-dim);flex:1;min-width:0;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">host-blind · no artifact</span>
+          </div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin-top:var(--gap)">
+        <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--warn);border-radius:11px;padding:13px">
+          <div style="font-weight:600;font-size:12.5px;margin-bottom:3px">Daily Notion inbox sort — blocked 2×</div>
+          <div style="font-size:11.5px;color:var(--text-mute);line-height:1.45">06-18: processed 10, moved 0, held 10. Root cause: ambiguous AI Subrouter targets + duplicate DBs. Needs a human routing decision.</div>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--warn);border-radius:11px;padding:13px">
+          <div style="font-weight:600;font-size:12.5px;margin-bottom:3px">PromptLab daily status — scheduler not fired</div>
+          <div style="font-size:11.5px;color:var(--text-mute);line-height:1.45">Cron 0 8 * * * created 06-18; collector + renderer shipped; UTC-date leftover files persist.</div>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--ok);border-radius:11px;padding:13px">
+          <div style="font-weight:600;font-size:12.5px;margin-bottom:3px">Cowork update propagator — current</div>
+          <div style="font-size:11.5px;color:var(--text-mute);line-height:1.45">Ran daily; last Daily Propagation 06-18 11:05Z (all rows Fresh).</div>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--idle);border-radius:11px;padding:13px">
+          <div style="font-weight:600;font-size:12.5px;margin-bottom:3px">C-drive cleanup — host-blind</div>
+          <div style="font-size:11.5px;color:var(--text-mute);line-height:1.45">Runs on Windows host "digit"; no Notion artifact to confirm.</div>
+        </div>
+    </div>
+  </section>
+
+  <!-- TRIAGE -->
+  <section id="triage" style="max-width:1280px;margin:0 auto;padding:34px 24px 0">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+      <div style="width:32px;height:32px;border-radius:9px;background:var(--accent-bg);display:grid;place-items:center;font-size:16px;border:1px solid var(--border)">🗂️</div>
+      <h2 style="margin:0;font-size:19px;font-weight:600;letter-spacing:-.01em">Triage tracks</h2>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-mute)">80 routed · inbox clear</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--gap)">
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:11px"><span style="font-size:14px">🏡</span><span style="font-weight:600;font-size:13.5px">A · Personal &amp; Home</span><span style="margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ok)">21 routed</span></div>
+        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.85">✓ Verify circuit map · Add 2nd attic light · ✓ Audit breaker box · Wire basement zoned switches · ✓ USPS Informed Delivery · Book dentist · ✓ Offload 24GB · ✓ Insurance card · ✓ AAA · Plan Mac SSD upgrade</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:11px"><span style="font-size:14px">💰</span><span style="font-weight:600;font-size:13.5px">B&amp;C · Finance &amp; Health</span><span style="margin-left:auto;font-size:10px;font-weight:600;color:var(--bad);background:var(--bad-bg);padding:2px 7px;border-radius:5px">0 / 9 · escalated</span></div>
+        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.85">TD Bank access · Inventory W2s · Consolidate install finances · Confirm sutures removed · Panel ortho w/ Dr. Zamarin · Activate MyChart · QBE work-comp form · Wage-loss w/ Sheila · Pay rate IATSE Local 8</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:11px"><span style="font-size:14px">🤖</span><span style="font-weight:600;font-size:13.5px">D · Workspace Maintenance</span><span style="margin-left:auto;font-size:10px;font-weight:600;color:var(--warn);background:var(--warn-bg);padding:2px 7px;border-radius:5px">Codex · 0 / 11</span></div>
+        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.85">Consolidate task DBs · Resolve DB | Prompts dup · Restore Vivaldi row · Schema-audit Unknown DBs · Save Videos prompt pack · Resolve 4 canonical dups · Confirm warning-icon intent · Wire Creative Tasks · Vivaldi shot list · Relocate hub items</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:11px"><span style="font-size:14px">💻</span><span style="font-weight:600;font-size:13.5px">E · Technical &amp; Professional</span><span style="margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--info)">48 routed</span></div>
+        <div style="font-size:12px;color:var(--text-dim);line-height:1.6"><b style="color:var(--text)">Quantum desk (10)</b> · stable IDs, UI states, schema validation, scheduler, Sentry, Cloudflare, auth, Supabase.<br><b style="color:var(--text)">PromptLab (8)</b> · git cleanup, iCloud hydration, billing/persistence tests, checkout, tools merge.<br><b style="color:var(--text)">Dev &amp; automation (9)</b> · PR merges, reconcile &amp; push, Recipe Tracker, HA script audit, aoe2 CI.<br><b style="color:var(--text)">AV / IATSE (5)</b> · XLR cable, rigging gear, 8-day corp video, Connor re: Roke, LinkedIn patent.<br><b style="color:var(--text)">Freelance &amp; audio (12)</b> · AI POC, DTI, Stream Deck SOP, SAP strategy, VST test, Connor releases.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEXT STEPS -->
+  <section id="next" style="max-width:1280px;margin:0 auto;padding:34px 24px 0">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:6px">
+      <div style="width:32px;height:32px;border-radius:9px;background:var(--accent-bg);display:grid;place-items:center;font-size:16px;border:1px solid var(--border)">✅</div>
+      <h2 style="margin:0;font-size:19px;font-weight:600;letter-spacing:-.01em">Next steps &amp; open decisions</h2>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-mute)">19</span>
+      <a href="https://app.notion.com/p/37d102824c7b46e7862f2639a228f292" target="_blank" style="margin-left:auto;font-size:12px;color:var(--text-mute);text-decoration:none;font-family:'IBM Plex Mono',monospace">Action Items ↗</a>
+    </div>
+    <div style="font-size:12px;color:var(--text-mute);margin-bottom:16px">DB | Action Items (Tier 1) live-queried ~1:04 PM ET Jun 23 · <b style="color:var(--text-dim)">1 overdue active row</b> (Quality OS visual gate, due Jun 19, 4d overdue, Priority Medium) · Active Command Queue: 116 items via full view pagination (stable vs 13th pass) · ReadOut espeak-ng install item (High, Waiting, ~8:32 AM ET) in queue.</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:var(--gap)">
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--bad);flex:none"></span>
+          <span style="font-weight:600;font-size:13.5px">AI &amp; Agent Systems — P0 Notion token in system-by-dave-clean (🙋 Dave: revoke + rotate now)</span>
+        </div>
+        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5">RUN-20260621-1535 🔴 RED (~11:50 AM ET): live Notion integration token at system-by-dave-clean/Notion-Integration-Token — untracked, NOT gitignored, public Pages repo. Revoke at notion.so/my-integrations and rotate immediately. Do not commit the file.</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--bad);flex:none"></span>
+          <span style="font-weight:600;font-size:13.5px">ReadOut roadmap — P3 packaging/sign-off blocked 🔴 RED (RUN-20260623-READOUT-ROADMAP-P3-BLOCKED)</span>
+        </div>
+        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5">RUN-20260623-READOUT-ROADMAP-P3-BLOCKED 🔴 RED: Phase 3 packaging/sign-off gates blocked — preflight fails Py3.10-3.12/espeak/signoff/package/smoke. New Action Item: 'ReadOut: install espeak-ng and add it to PATH' (High, Waiting, ~8:32 AM ET) captured in Active Queue. Prior Phase 3 (RUN-20260622-0226 🟢) and Phase 1 cleanup (RUN-20260622-1946 🟢) were green. Thread: ReadOut roadmap packaging/sign-off blocker update.</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--bad);flex:none"></span>
+          <span style="font-weight:600;font-size:13.5px">Quality OS visual gate</span>
+        </div>
+        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5">Sole Tier-1 overdue Action Item (due Jun 19, 4d overdue). Blocked on authenticated HA screenshots.</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none"></span>
+          <span style="font-weight:600;font-size:13.5px">ReadOut — Phase 1 cleanup SHIPPED 🟢 GREEN (RUN-20260622-1946 ~7:51 PM ET) · Phase 3 also green</span>
+        </div>
+        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5">RUN-20260622-1946 🟢 GREEN (~7:51 PM ET): Phase 1 cleanup — browser engine UI removed, PATCH /config validates against registry (HTTP 400 on unknown). c158728 pushed; CI 27986807122 green; pytest 58/0. RUN-20260622-0226 🟢 (~2:27 AM ET): Phase 3 — engines/ package + registry, OpenAI/EL shims, /voices catalogue, registry-driven UI. Open: stray git ref refs/remotes/origin/main 2 (Dave to delete). github.com/DaveHomeAssist/readout</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none"></span>
+          <span style="font-weight:600;font-size:13.5px">Garden OS — Phase 6-8 DEPLOYED 🟢 GREEN (RUN-20260622-2119 ~9:19 PM ET Jun 22)</span>
+        </div>
+        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5">RUN-20260622-2119-GARDENOS-PHASES 🟢 GREEN (~9:19 PM ET Jun 22): Phase 6 to Phase 8 implemented, smoke verified, pushed to main by GitHub Pages. Evidence: commit 6b5431c; Pages run 27996434066 success; live planner APP_VERSION 4.6, reasoned-export-1.0.0, payload.reasonedExport. Target: davehomeassist.github.io/garden-os/. Note: 2 open Action Items in Active Queue may be stale post-deploy (worktree commit + sprite files).</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none"></span>
+          <span style="font-weight:600;font-size:13.5px">Festival Atlas Mobile App — PR #1 merged to main 🟢 (RUN-20260621-1527 ~11:28 AM ET)</span>
+        </div>
+        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5">Mobile spec + RN/Expo build shipped — seed pipeline, FA local-first store, ported season engine, 5 tabs, detail modal. 34 files, 8d5a736 on main. tsc exit 0. Next: device verification; M2/M4 features deferred.</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none"></span>
+          <span style="font-weight:600;font-size:13.5px">CurlPlan — iOS port 🟢 GREEN (RUN-20260621-1118 updated ~7:11 PM ET) — SHIPPED</span>
+        </div>
+        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5">RUN-20260621-1118 🟢 GREEN (updated ~7:11 PM ET): iOS SwiftUI port confirmed running on iPhone 17 / iOS 26.5 — Spiels tab renders 3 events + custom tab bar (screenshot verified). Local HEAD 2bb952a still 2 behind origin/main@0bfb6f4 — sync when convenient, no destructive reconcile without Dave approval.</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--warn);flex:none"></span>
+          <span style="font-weight:600;font-size:13.5px">PromptLab — PRs #14/#15/#16 merged to main (🟡 ~11:00 AM ET) · Dave: Vercel env + Clerk CVE</span>
+        </div>
+        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5">RUN-20260621-1459 🟡 YELLOW (~11:00 AM ET): all 3 review blockers merged to main — proxy=sonnet-4-6 (#14), missing favicons (#15), CTA WCAG-AA 5.19:1 (#16), git-verified. Hosted Anthropic 404 code fix is now on main. Remaining open: HIGH Clerk authz-bypass CVE (unremediated), live Vercel HOSTED_ALLOWED_ANTHROPIC_MODELS value (unconfirmed), bundle weight (unmeasured). Dave: confirm env var not pinned to retired ID + Clerk CVE tracking call.</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--warn);flex:none"></span>
+          <span style="font-weight:600;font-size:13.5px">PlotForge — Inspector UX 🟢 SHIPPED (RUN-20260623-0159) · P3 open (P0+P1+P2+Inspector UX done)</span>
+        </div>
+        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5">Inspector UX 🟢 SHIPPED (RUN-20260623-0159 updated ~3:04 AM ET): origin/main baaeb98; lint/build/tests ✓. P2: 98a3fce; lint/Vitest/build ✓; plotforge-beta.vercel.app HTTP 200. P3 open: MVR/GDTF interop, OSC bridge, multi-show registry, PWA, AI plot starter. Vercel cost decision pending.</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--warn);flex:none"></span>
+          <span style="font-weight:600;font-size:13.5px">Ring / Frigate follow-up</span>
+        </div>
+        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5">Ring auth complete, Frigate running. Verify monitoring, HA entity wiring, go2rtc/ffmpeg/MQTT, rendered camera previews.</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--warn);flex:none"></span>
+          <span style="font-weight:600;font-size:13.5px">Storage</span>
+        </div>
+        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5">/srv/media was 100% full, /mnt/beast read-only. Resolved in Ring/Frigate recon — verify state.</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--info);flex:none"></span>
+          <span style="font-weight:600;font-size:13.5px">HA authenticated screenshots</span>
+        </div>
+        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5">Create capture profile, then capture desktop + mobile HUD, Camera Wall, Visual System.</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--info);flex:none"></span>
+          <span style="font-weight:600;font-size:13.5px">Phillies Wire accuracy.json</span>
+        </div>
+        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5">RUN-20260623-0836 🟢 GREEN: HANDOFF.md + README → v1.6-preview, stale-branch prune, pushed to origin/main. accuracy.json auto-generates from factcheck.mjs on each pipeline run.</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--info);flex:none"></span>
+          <span style="font-weight:600;font-size:13.5px">System by Dave AV cleanup</span>
+        </div>
+        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5">Dialog-guard verification: bad ref, untracked artifacts, missing Playwright dep, native prompt/confirm.</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--warn);flex:none"></span>
+          <span style="font-weight:600;font-size:13.5px">Medical follow-up pack</span>
+        </div>
+        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5">Confirm 4 sutures removed, panel ortho w/ Dr. Zamarin, refresh MyChart (May 31 code may have expired).</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--warn);flex:none"></span>
+          <span style="font-weight:600;font-size:13.5px">Labor &amp; wage pack</span>
+        </div>
+        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5">QBE work-comp form, wage-loss w/ Sheila, hire date/pay rate IATSE Local 8 (deferred).</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--bad);flex:none"></span>
+          <span style="font-weight:600;font-size:13.5px">Decision · PromptLab Vercel cost</span>
+        </div>
+        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5">Finalize preview build-cost strategy before any local branch push.</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--bad);flex:none"></span>
+          <span style="font-weight:600;font-size:13.5px">Decision · May-30 cluster</span>
+        </div>
+        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5">Bulk-assign owners or reschedule — needs your confirmation before any write.</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none"></span>
+          <span style="font-weight:600;font-size:13.5px">Davai Editor Desktop → 🟢 GREEN FULLY RESOLVED (RUN-20260623-0145 updated ~3:04 AM ET)</span>
+        </div>
+        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5">RUN-20260623-0145 🟢 GREEN (updated): Desktop path symlinked to hydrated recovery checkout; .git locks absent; npm test/typecheck/harness all pass under Node 22.</div>
+      </div>
+    </div>
+    <div style="margin-top:26px">
+      <div style="font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-mute);margin-bottom:13px">🚦 Status runs · DB confirmed · newest first</div>
+      <div style="display:flex;flex-direction:column;gap:1px">
+          <div style="display:flex;gap:13px;padding:11px var(--pad);background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:7px;align-items:flex-start">
+            <span style="width:9px;height:9px;border-radius:50%;background:var(--bad);margin-top:5px;flex:none"></span>
+            <div style="flex:1;min-width:0">
+              <div style="display:flex;align-items:baseline;gap:9px;flex-wrap:wrap">
+                <span style="font-weight:600;font-size:13px">Automated cloud — 14th Jun 23 ET pass</span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)">RUN-20260623-1304</span>
+              </div>
+              <div style="font-size:12px;color:var(--text-dim);line-height:1.45;margin-top:2px">🔴 RED (2 reds: AI bucket P0 + ReadOut roadmap P3 blocked). Notable delta — accuracy.json NEW regen at ~12:52 PM ET (2026-06-23T16:52:31.747Z): Vol. 1 No. 84 · 23/22/0/1 · all 23 current (same data, fresh pipeline run). No new project Status Runs since 13th pass. Action Queue still 116 active via full view pagination (100+16, stable). DB | Personal Tasks: 3 overdue (71/46/34d — CR1000A Apr 13, Dominic May 8, Laptops May 20, confirmed). DB | Action Items: 1 OD active (QualOS visual gate, Jun 19, 4d OD, Priority Medium). PHI @WSH Game 2 of 4 TONIGHT 6:45 PM ET (Luzardo vs Zack Littell, ~5.7h away). AI bucket P0 remains: 🙋 Dave revoke + rotate Notion token at notion.so/my-integrations. HTTP 4/4 200. Status Run logged: RUN-20260623-1304 🔴 to Notion. Both repos published. Final: 🔴 RED.</div>
+            </div>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);flex:none;white-space:nowrap">06-23 ~1:04 PM ET</span>
+          </div>
+          <div style="display:flex;gap:13px;padding:11px var(--pad);background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:7px;align-items:flex-start">
+            <span style="width:9px;height:9px;border-radius:50%;background:var(--bad);margin-top:5px;flex:none"></span>
+            <div style="flex:1;min-width:0">
+              <div style="display:flex;align-items:baseline;gap:9px;flex-wrap:wrap">
+                <span style="font-weight:600;font-size:13px">Automated cloud — 13th Jun 23 ET pass</span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)">RUN-20260623-1204</span>
+              </div>
+              <div style="font-size:12px;color:var(--text-dim);line-height:1.45;margin-top:2px">🔴 RED (2 reds: AI bucket P0 + ReadOut roadmap P3 blocked). Quiet pass — no new project Status Runs since 12th pass (~11:04 AM ET). Action Queue 116 active via full view pagination (100+16, stable vs 12th pass SQL 115 — SQL timed out this pass). accuracy.json still ~9:49 AM ET regen (2026-06-23T13:49:57.797Z): Vol. 1 No. 84 · 23/22/0/1 · all 23 current (unchanged). DB | Personal Tasks: 3 overdue (71/46/34d — CR1000A Apr 13, Dominic May 8, Laptops May 20, confirmed). DB | Action Items: 1 OD active (QualOS visual gate, Jun 19, 4d OD, Priority Medium). PHI @WSH Game 2 of 4 TONIGHT 6:45 PM ET (Luzardo vs Zack Littell, ~6.5h away). HTTP 4/4 200. Both repos published. Final: 🔴 RED.</div>
+            </div>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);flex:none;white-space:nowrap">06-23 ~12:04 PM ET</span>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" style="max-width:1280px;margin:0 auto;padding:34px 24px 0">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+      <div style="width:32px;height:32px;border-radius:9px;background:var(--accent-bg);display:grid;place-items:center;font-size:16px;border:1px solid var(--border)">🧰</div>
+      <h2 style="margin:0;font-size:19px;font-weight:600;letter-spacing:-.01em">Skill library</h2>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-mute)">86</span>
+      <a href="https://davehomeassist.github.io/command-center-061eed/skill-library/index.html" target="_blank" style="margin-left:auto;font-size:12px;color:var(--text-mute);text-decoration:none;font-family:'IBM Plex Mono',monospace">Open library ↗</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:var(--gap)">
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px"><span style="font-size:14px">🧠</span><span style="font-weight:600;font-size:13.5px">Code Skills</span><span style="margin-left:auto;font-size:10px;font-weight:600;color:var(--ok);background:var(--ok-bg);padding:2px 7px;border-radius:5px">40 · in sync</span></div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:9px">
+          <div style="text-align:center;background:var(--surface2);border-radius:9px;padding:9px"><div style="font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:17px">8</div><div style="font-size:10px;color:var(--text-mute)">Languages</div></div>
+          <div style="text-align:center;background:var(--surface2);border-radius:9px;padding:9px"><div style="font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:17px">7</div><div style="font-size:10px;color:var(--text-mute)">Design / FE</div></div>
+          <div style="text-align:center;background:var(--surface2);border-radius:9px;padding:9px"><div style="font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:17px">6</div><div style="font-size:10px;color:var(--text-mute)">Workflow</div></div>
+          <div style="text-align:center;background:var(--surface2);border-radius:9px;padding:9px"><div style="font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:17px">6</div><div style="font-size:10px;color:var(--text-mute)">Notion/Media</div></div>
+          <div style="text-align:center;background:var(--surface2);border-radius:9px;padding:9px"><div style="font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:17px">4</div><div style="font-size:10px;color:var(--text-mute)">AI / Infra</div></div>
+          <div style="text-align:center;background:var(--surface2);border-radius:9px;padding:9px"><div style="font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:17px">4</div><div style="font-size:10px;color:var(--text-mute)">Quality</div></div>
+        </div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px"><span style="font-size:14px">🫡</span><span style="font-weight:600;font-size:13.5px">Notion Skills</span><span style="margin-left:auto;font-size:10px;font-weight:600;color:var(--warn);background:var(--warn-bg);padding:2px 7px;border-radius:5px">47 tracked</span></div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:9px">
+          <div style="text-align:center;background:var(--ok-bg);border-radius:9px;padding:9px"><div style="font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:17px;color:var(--ok)">31</div><div style="font-size:10px;color:var(--text-mute)">Live</div></div>
+          <div style="text-align:center;background:var(--warn-bg);border-radius:9px;padding:9px"><div style="font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:17px;color:var(--warn)">11</div><div style="font-size:10px;color:var(--text-mute)">Draft</div></div>
+          <div style="text-align:center;background:var(--surface2);border-radius:9px;padding:9px"><div style="font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:17px;color:var(--text-mute)">3</div><div style="font-size:10px;color:var(--text-mute)">Archived</div></div>
+        </div>
+        <div style="font-size:11px;color:var(--text-mute);margin-top:10px">47 rows · 31 Live · 11 Draft · 3 Archived · 2 with no status set.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOURCES -->
+  <section id="sources" style="max-width:1280px;margin:0 auto;padding:34px 24px 0">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+      <div style="width:32px;height:32px;border-radius:9px;background:var(--accent-bg);display:grid;place-items:center;font-size:16px;border:1px solid var(--border)">🛢️</div>
+      <h2 style="margin:0;font-size:19px;font-weight:600;letter-spacing:-.01em">Sources &amp; snapshot age</h2>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-mute)">27</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin-bottom:var(--gap)">
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:11px;padding:14px"><div style="font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--ok);margin-bottom:5px">✅ Hard truth</div><div style="font-size:12px;color:var(--text-dim);line-height:1.45">Status Runs owns the light. Projects owns identity/health. Action Items owns open loops &amp; due dates.</div></div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:11px;padding:14px"><div style="font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--info);margin-bottom:5px">📝 Narrative</div><div style="font-size:12px;color:var(--text-dim);line-height:1.45">Notes @Today owns the operator surface. LLM Notes owns handoff. Dev Logs own technical evidence.</div></div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:11px;padding:14px"><div style="font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--warn);margin-bottom:5px">⚠ Conflict rule</div><div style="font-size:12px;color:var(--text-dim);line-height:1.45">Newest verified Status Run wins. Narrative-only values show as context but can't go green.</div></div>
+    </div>
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:6px var(--pad)">
+        <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border)">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none"></span>
+          <span style="flex:1;min-width:0;font-size:12.5px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">DB | Status Runs (All Runs)</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);width:130px;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">notion-query</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">live-queried ~1:04 PM ET Jun 23 · no new project runs since 13th pass (RUN-20260623-1204 🔴 cloud pass, latest project: RUN-20260623-READOUT-ROADMAP-P3-BLOCKED 🔴) · 2 reds open</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border)">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none"></span>
+          <span style="flex:1;min-width:0;font-size:12.5px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">DB | Action Items (Tier 1)</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);width:130px;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">notion-query</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">live-queried ~1:04 PM ET Jun 23 · 1 overdue active (QualOS visual gate, Jun 19, 4d OD) · 116 active via full view pagination (stable) · ReadOut espeak-ng item (High, Waiting) in queue</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border)">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none"></span>
+          <span style="flex:1;min-width:0;font-size:12.5px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">DB | Personal Tasks (Tier 2)</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);width:130px;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">view query</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">live-queried ~1:04 PM ET Jun 23 · 3 overdue (71/46/34d — CR1000A Apr 13, Dominic May 8, Laptops May 20)</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border)">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--warn);flex:none"></span>
+          <span style="flex:1;min-width:0;font-size:12.5px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">DB | Projects</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);width:130px;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">carried 06-17</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">06-17 11:04Z</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border)">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none"></span>
+          <span style="flex:1;min-width:0;font-size:12.5px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Notes @Today</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);width:130px;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">narrative</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">06-18 09:37Z</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border)">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none"></span>
+          <span style="flex:1;min-width:0;font-size:12.5px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Git Sync Report (digit + Mac)</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);width:130px;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">resource</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">06-18 11:30Z</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border)">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--idle);flex:none"></span>
+          <span style="flex:1;min-width:0;font-size:12.5px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Mac git attention rescan</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);width:130px;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">local report</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">06-17 12:43Z · ~143h+ stale</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border)">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none"></span>
+          <span style="flex:1;min-width:0;font-size:12.5px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Frontier Signals — daily</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);width:130px;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">daily artifact</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">06-17 10:13Z</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border)">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none"></span>
+          <span style="flex:1;min-width:0;font-size:12.5px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Phillies Wire accuracy.json</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);width:130px;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">http check</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">06-23 ~12:52 PM ET NEW regen (2026-06-23T16:52:31.747Z · Vol. 1 No. 84 · 23/22/0/1 · all 23 current · ATL 48-29 L2 · PHI 42-36 L1 GB 6.5) · pipeline confirmed healthy</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border)">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--idle);flex:none"></span>
+          <span style="flex:1;min-width:0;font-size:12.5px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Davai memory · current-context</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);width:130px;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">local file</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">05-22 · ~30d</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border)">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none"></span>
+          <span style="flex:1;min-width:0;font-size:12.5px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Quick Start Source Registry</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);width:130px;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">read-only json</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">06-17 15:36Z</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border)">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none"></span>
+          <span style="flex:1;min-width:0;font-size:12.5px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">DB | Development Logs</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);width:130px;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">view query</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">06-18 11:35Z</span>
+        </div>
+    </div>
+  </section>
+
+  <!-- KEEP UPDATED / FOOTER -->
+  <section id="refresh" style="max-width:1280px;margin:0 auto;padding:34px 24px 44px">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+      <div style="width:32px;height:32px;border-radius:9px;background:var(--accent-bg);display:grid;place-items:center;font-size:16px;border:1px solid var(--border)">♻️</div>
+      <h2 style="margin:0;font-size:19px;font-weight:600;letter-spacing:-.01em">Keep this dashboard updated</h2>
+    </div>
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+      <div style="font-size:12.5px;color:var(--text-dim);line-height:1.6;margin-bottom:14px">A <b style="color:var(--text)">static command snapshot</b> with source launch links — it doesn't fetch Notion, Davai, or MLB on its own. Re-run the regeneration prompt in Claude Code to re-pull logs and rewrite this file with current data + freshness timestamps.</div>
+      <div style="position:relative;background:var(--bg2);border:1px solid var(--border);border-radius:11px;padding:14px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--text-dim);line-height:1.55;white-space:pre-wrap;overflow-x:auto"><span id="cc-regen">Re-reconcile the Quick Start command center. Fetch the owning sources, diff them
+against quick-start/dashboard-state.json, update ONLY that JSON with current data +
+freshness timestamps, then run `node quick-start/render.mjs` to regenerate
+quick-start-dashboard.html. NEVER hand-edit the HTML or render.mjs — that is the locked
+design layer; all data lives in the JSON. VALIDATE every displayed claim against its live
+OWNING source before publishing — never echo a narrative/static surface as current status.
+
+Hard-truth DBs — re-query LIVE every pass, do NOT carry forward:
+  Overdue/today  -&gt; DB | Personal Tasks (Tier 2)  view "Today + Overdue"
+  Task execution -&gt; DB | Action Items (Tier 1)    views "Overdue Active" + "Active Command Queue"
+  Verified light -&gt; DB | Status Runs (All Runs, newest first)
+  Health/identity-&gt; DB | Projects   Build -&gt; Dev Logs   Handoff -&gt; LLM Conversation Notes
+
+Git: read latest Mac evidence in 90-governance/docs/. Deploys: HTTP-check live surfaces and
+pull real counts from accuracy.json — never quote stale numbers. Record every change in
+meta.thisPass + the deltas[] array (the "This pass" banner), then open the file.</span><button id="cc-copy" style="position:absolute;top:10px;right:10px;padding:5px 12px;border-radius:7px;border:1px solid var(--border2);background:var(--surface);color:var(--text);font-size:11px;font-weight:600;cursor:pointer;font-family:'IBM Plex Sans',sans-serif">Copy</button></div>
+    </div>
+    <div style="text-align:center;margin-top:26px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute)">Snapshot re-reconciled 2026-06-23 ~1:04 PM ET · 14th automated cloud pass of Jun 23 · built by Claude Code</div>
+  </section>
+
+</div>
+
+<script>
+  (function(){
+    var root=document.documentElement;
+    function paintTheme(){var cur=root.getAttribute('data-theme');document.querySelectorAll('[data-cc-theme]').forEach(function(b){b.style.border=(b.getAttribute('data-cc-theme')===cur)?'2px solid var(--accent)':'2px solid transparent';});}
+    function paintDensity(){var cur=root.getAttribute('data-density');document.querySelectorAll('[data-cc-density]').forEach(function(b){var on=b.getAttribute('data-cc-density')===cur;b.style.background=on?'var(--accent-bg)':'transparent';b.style.color=on?'var(--accent)':'var(--text-mute)';});}
+    document.querySelectorAll('[data-cc-theme]').forEach(function(b){b.addEventListener('click',function(){var th=b.getAttribute('data-cc-theme');root.setAttribute('data-theme',th);try{localStorage.setItem('cc.theme',th);}catch(e){}paintTheme();});});
+    document.querySelectorAll('[data-cc-density]').forEach(function(b){b.addEventListener('click',function(){var d=b.getAttribute('data-cc-density');root.setAttribute('data-density',d);try{localStorage.setItem('cc.density',d);}catch(e){}paintDensity();});});
+    paintTheme();paintDensity();
+    var clk=document.getElementById('cc-clock');function pad(x){return String(x).padStart(2,'0');}
+    function tick(){var n=new Date();clk.textContent=pad(n.getHours())+':'+pad(n.getMinutes())+':'+pad(n.getSeconds());}
+    tick();setInterval(tick,1000);
+    var copyBtn=document.getElementById('cc-copy');var regenText=document.getElementById('cc-regen').textContent;
+    copyBtn.addEventListener('click',function(){
+      function done(){copyBtn.textContent='Copied ✓';setTimeout(function(){copyBtn.textContent='Copy';},1500);}
+      function fallback(){var ta=document.createElement('textarea');ta.value=regenText;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(ta);done();}
+      try{navigator.clipboard.writeText(regenText).then(done,fallback);}catch(e){fallback();}
+    });
+  })();
+
+  // collapsible sections: per-section toggle, collapse/expand-all, keyboard shortcut, first-load defaults
+  (function(){
+    var KEY='cc.collapsed';
+    var DEFAULT_COLLAPSED=['sync','daily','triage','skills','sources','refresh']; // reference/long sections folded on first visit
+    var state={}, seeded=true;
+    try{var raw=localStorage.getItem(KEY); if(raw===null)seeded=false; state=JSON.parse(raw||'{}')||{};}catch(e){state={};}
+    if(!seeded){DEFAULT_COLLAPSED.forEach(function(k){state[k]=true;});}
+    function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}}
+    if(!seeded)save();
+    var appliers={}, keys=[];
+    document.querySelectorAll('section').forEach(function(sec){
+      var key=sec.id; if(!key) return;
+      var header=sec.firstElementChild; if(!header) return;
+      keys.push(key);
+      var body=document.createElement('div'); body.setAttribute('data-cc-body','');
+      for(var n=header.nextSibling;n;){var nx=n.nextSibling;body.appendChild(n);n=nx;}
+      sec.appendChild(body);
+      var chev=document.createElement('span'); chev.textContent='›'; chev.setAttribute('aria-hidden','true');
+      chev.style.cssText='display:inline-block;flex:none;width:15px;text-align:center;font-size:17px;line-height:1;color:var(--text-mute);transition:transform .18s ease';
+      header.insertBefore(chev,header.firstChild);
+      header.style.cursor='pointer'; header.style.userSelect='none'; header.setAttribute('role','button'); header.setAttribute('tabindex','0');
+      function apply(){var c=!!state[key];body.style.display=c?'none':'';chev.style.transform=c?'rotate(0deg)':'rotate(90deg)';header.style.marginBottom=c?'0':'';header.setAttribute('aria-expanded',c?'false':'true');}
+      function toggle(e){if(e&&e.target&&e.target.closest('a,button,[data-cc-theme],[data-cc-density]'))return;state[key]=!state[key];save();apply();syncBtn();}
+      header.addEventListener('click',toggle);
+      header.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle();}});
+      appliers[key]=apply; apply();
+    });
+    function anyOpen(){return keys.some(function(k){return !state[k];});}
+    function setAll(collapsed){keys.forEach(function(k){state[k]=collapsed;});save();keys.forEach(function(k){appliers[k]();});syncBtn();}
+    var btn=document.getElementById('cc-collapse-all');
+    function syncBtn(){if(!btn)return;var open=anyOpen();btn.textContent=open?'⊟':'⊞';btn.title=(open?'Collapse all sections':'Expand all sections')+' (Cmd/Ctrl + Alt + T)';}
+    if(btn)btn.addEventListener('click',function(){setAll(anyOpen());});
+    syncBtn();
+    // Notion-style: Cmd/Ctrl + Alt + T toggles all sections open/closed
+    window.addEventListener('keydown',function(e){
+      if((e.metaKey||e.ctrlKey)&&e.altKey&&(e.code==='KeyT'||e.key==='t'||e.key==='T'||e.key==='†')){e.preventDefault();setAll(anyOpen());}
+    });
+    function reveal(id){if(id&&state[id]){state[id]=false;save();if(appliers[id])appliers[id]();syncBtn();}}
+    window.addEventListener('hashchange',function(){reveal((location.hash||'').slice(1));});
+    if(location.hash)reveal(location.hash.slice(1));
+  })();
+</script>
+</body>
 </html>
