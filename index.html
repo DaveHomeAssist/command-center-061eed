@@ -95,7 +95,7 @@
         </div>
         <div style="display:flex;align-items:center;gap:7px;padding:6px 11px;border-radius:999px;background:var(--bad-bg);border:1px solid var(--border)">
           <span style="width:8px;height:8px;border-radius:50%;background:var(--bad);animation:ccpulse 2s infinite"></span>
-          <span style="font-size:12px;font-weight:600;color:var(--bad)">1 red open</span>
+          <span style="font-size:12px;font-weight:600;color:var(--bad)">2 reds open</span>
         </div>
         <button id="cc-collapse-all" title="Collapse / expand all sections (Cmd/Ctrl + Alt + T)" aria-label="Collapse or expand all sections" style="display:grid;place-items:center;width:30px;height:30px;border-radius:9px;cursor:pointer;background:var(--surface);border:1px solid var(--border);color:var(--text-mute);font-family:'IBM Plex Mono',monospace;font-size:15px;line-height:1;padding:0">⊟</button>
         <div id="cc-themes" style="display:flex;align-items:center;gap:5px;padding:4px;border-radius:11px;background:var(--surface);border:1px solid var(--border)"><button data-cc-theme="slate" title="Slate" style="width:26px;height:26px;border-radius:7px;cursor:pointer;background:linear-gradient(135deg,#11202c 0 55%,#5ec8c0 55% 100%);border:2px solid transparent;padding:0;outline:none"></button><button data-cc-theme="midnight" title="Midnight" style="width:26px;height:26px;border-radius:7px;cursor:pointer;background:linear-gradient(135deg,#10122a 0 55%,#8a7cf0 55% 100%);border:2px solid transparent;padding:0;outline:none"></button><button data-cc-theme="paper" title="Paper" style="width:26px;height:26px;border-radius:7px;cursor:pointer;background:linear-gradient(135deg,#efe9dd 0 55%,#b06a43 55% 100%);border:2px solid transparent;padding:0;outline:none"></button><button data-cc-theme="mist" title="Mist" style="width:26px;height:26px;border-radius:7px;cursor:pointer;background:linear-gradient(135deg,#e3e8ee 0 55%,#2f8f86 55% 100%);border:2px solid transparent;padding:0;outline:none"></button></div>
@@ -105,7 +105,7 @@
     <nav style="max-width:1280px;margin:0 auto;padding:0 20px 10px;display:flex;gap:7px;overflow-x:auto;white-space:nowrap">
         <a href="#attention" style="display:inline-flex;align-items:center;gap:7px;padding:5px 12px;border-radius:999px;background:var(--surface);border:1px solid var(--border);font-size:12.5px;font-weight:500;text-decoration:none;color:var(--text-dim)">
           <span>Attention</span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute)">10</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute)">11</span>
         </a>
         <a href="#agents" style="display:inline-flex;align-items:center;gap:7px;padding:5px 12px;border-radius:999px;background:var(--surface);border:1px solid var(--border);font-size:12.5px;font-weight:500;text-decoration:none;color:var(--text-dim)">
           <span>Agents</span>
@@ -133,7 +133,7 @@
         </a>
         <a href="#next" style="display:inline-flex;align-items:center;gap:7px;padding:5px 12px;border-radius:999px;background:var(--surface);border:1px solid var(--border);font-size:12.5px;font-weight:500;text-decoration:none;color:var(--text-dim)">
           <span>Next</span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute)">18</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute)">19</span>
         </a>
         <a href="#skills" style="display:inline-flex;align-items:center;gap:7px;padding:5px 12px;border-radius:999px;background:var(--surface);border:1px solid var(--border);font-size:12.5px;font-weight:500;text-decoration:none;color:var(--text-dim)">
           <span>Skills</span>
@@ -154,38 +154,45 @@
   <section id="overview" style="max-width:1280px;margin:0 auto;padding:26px 24px 0">
     <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:13px;flex-wrap:wrap">
       <h2 style="margin:0;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-mute)">This pass · changed since last run</h2>
-      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-dim)">RUN-20260623-0804 · 9th Jun 23 ET pass · ~8:04 AM ET</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-dim)">RUN-20260623-0903 · 10th Jun 23 ET pass · ~9:03 AM ET</span>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:var(--gap)">
-      <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--warn);border-radius:var(--radius);padding:var(--pad)">
+      <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--bad);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--warn);background:var(--warn-bg);padding:2px 7px;border-radius:5px;white-space:nowrap;flex:none">Delta 1</span>
-          <span style="font-weight:600;font-size:14.5px">9th cloud pass (~8:04 AM ET) — quiet confirmation · no new project Status Runs since 8th pass · Active queue stable at 108</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--bad);background:var(--bad-bg);padding:2px 7px;border-radius:5px;white-space:nowrap;flex:none">Delta 1</span>
+          <span style="font-weight:600;font-size:14.5px">10th cloud pass (~9:03 AM ET) — NEW RED: ReadOut roadmap P3 packaging/sign-off blocked · red count 1→2 · Phillies Wire docs 🟢</span>
         </div>
-        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">Quiet confirmation — no new project Status Runs since 8th pass (~7:03 AM ET). DB | Personal Tasks: 3 overdue (71/46/34d — CR1000A Apr 13, Dominic May 8, Laptops May 20), unchanged. DB | Action Items: 1 overdue active (QualOS visual gate, Jun 19, 4d OD) · 108 active (stable, no change). accuracy.json still ~2:47 AM ET regen (06:47:56.695Z): Vol. 1 No. 84 · 23/22/0/1 · all 23 current — no new regen this pass. HTTP 4/4 200. AI bucket P0 red still open (🙋 Dave: revoke + rotate Notion token). PHI @WSH Game 2 of 4 TONIGHT 6:45 PM ET (Luzardo vs Zack Littell) — ~10.6h away. Both repos published.</div>
+        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">NEW: RUN-20260623-READOUT-ROADMAP-P3-BLOCKED 🔴 RED — ReadOut roadmap Phase 3 packaging/sign-off gates remain blocked (thread: ReadOut roadmap packaging/sign-off blocker update). Red count 1→2. NEW: RUN-20260623-0836 🟢 GREEN — Phillies Wire docs refresh (HANDOFF + README → v1.6-preview, stale-branch prune, pushed to origin/main). DB | Personal Tasks: 3 overdue (71/46/34d — CR1000A Apr 13, Dominic May 8, Laptops May 20), unchanged. DB | Action Items: 1 overdue active (QualOS visual gate, Jun 19, 4d OD, Priority Medium) · active queue 116 (corrected from ~108 prior SQL estimate; full view-based count). accuracy.json unchanged (Vol. 1 No. 84, ~2:47 AM ET regen, 23/22/0/1, all 23 current). HTTP 4/4 200. AI bucket P0 still open.</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--bad);border-radius:var(--radius);padding:var(--pad)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--bad);background:var(--bad-bg);padding:2px 7px;border-radius:5px;white-space:nowrap;flex:none">Delta 2</span>
+          <span style="font-weight:600;font-size:14.5px">NEW RED — ReadOut roadmap P3 packaging/sign-off blocked (RUN-20260623-READOUT-ROADMAP-P3-BLOCKED 🔴)</span>
+        </div>
+        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">RUN-20260623-READOUT-ROADMAP-P3-BLOCKED 🔴 RED: ReadOut roadmap integration is present, but Phase 3 packaging/sign-off gates remain blocked. Thread: 'ReadOut roadmap packaging/sign-off blocker update'. Previous Phase 3 run was 🟢 GREEN (RUN-20260622-0226 ~2:27 AM ET Jun 22); this NEW red indicates a separate blocking gate. Known blocker candidate: stray git ref refs/remotes/origin/main 2 (Dave to delete). Red count 1→2.</div>
       </div>
       <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--ok);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ok);background:var(--ok-bg);padding:2px 7px;border-radius:5px;white-space:nowrap;flex:none">Delta 2</span>
-          <span style="font-weight:600;font-size:14.5px">Reds, tasks, and deploys re-verified — 1 red, 3 overdue personal, 1 overdue Tier-1, 4/4 200</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ok);background:var(--ok-bg);padding:2px 7px;border-radius:5px;white-space:nowrap;flex:none">Delta 3</span>
+          <span style="font-weight:600;font-size:14.5px">Phillies Wire docs refresh 🟢 SHIPPED (RUN-20260623-0836) · HANDOFF + README → v1.6-preview · stale-branch prune</span>
         </div>
-        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">1 verified red: AI bucket P0 (Notion token exposed in system-by-dave-clean — carried from RUN-20260621-1535 🔴). DB | Personal Tasks 🔥 view: 3 rows confirmed (CR1000A Apr 13 71d, Dominic May 8 46d, Laptops May 20 34d). DB | Action Items Overdue Active: 1 row (QualOS visual gate, due Jun 19, 4d OD, Priority Medium) · Active queue: 108 (stable, no change from 8th pass). HTTP: systembydave.com/teleprompter.html 200 ✓ · hatinring.com 200 ✓ · phillies-wire 200 ✓ · command-center-061eed 200 ✓.</div>
+        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">RUN-20260623-0836 🟢 GREEN: Phillies Wire docs refresh complete — HANDOFF.md + README updated to v1.6-preview, stale branches pruned, pushed to origin/main. Thread: 'Phillies Wire — docs refresh + branch prune (Claude Code, 2026-06-23)'. accuracy.json still Vol. 1 No. 84, regen ~2:47 AM ET (06:47:56.695Z): 23/22/0/1 · all 23 current (no new regen this pass). PHI @WSH Game 2 of 4 TONIGHT 6:45 PM ET (Luzardo vs Zack Littell).</div>
       </div>
       <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--idle);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-mute);background:var(--idle-bg);padding:2px 7px;border-radius:5px;white-space:nowrap;flex:none">Delta 3</span>
-          <span style="font-weight:600;font-size:14.5px">9th cloud pass — local sources NOT refreshed · Davai memory ~30d stale · Mac git scan ~6d stale</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-mute);background:var(--idle-bg);padding:2px 7px;border-radius:5px;white-space:nowrap;flex:none">Delta 4</span>
+          <span style="font-weight:600;font-size:14.5px">10th cloud pass — local sources NOT refreshed · active queue corrected to 116 (view count)</span>
         </div>
-        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">Davai memory (~30d stale, last sync 2026-05-22) and Mac-wide git scan (06-17 12:43Z, ~6 days stale) are local Mac only and cannot be refreshed from the cloud. DB | Projects carried from 06-17. This pass is AUTOMATED CLOUD ONLY — no local Mac data was refreshed.</div>
+        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">Davai memory (~30d stale, last sync 2026-05-22) and Mac-wide git scan (06-17 12:43Z, ~6 days stale) are local Mac only and cannot be refreshed from the cloud. DB | Projects carried from 06-17. Active Command Queue: 116 items confirmed by full view pagination (corrected from ~108 prior SQL estimate; SQL queries timed out in prior passes). This pass is AUTOMATED CLOUD ONLY — no local Mac data was refreshed.</div>
       </div>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:var(--gap);margin-top:var(--gap)">
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:baseline;gap:8px">
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:600;color:var(--info);line-height:1">9</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:600;color:var(--info);line-height:1">10</span>
         </div>
         <div style="font-size:12.5px;font-weight:600;margin-top:7px">Cloud passes today</div>
-        <div style="font-size:11.5px;color:var(--text-mute);font-family:'IBM Plex Mono',monospace;margin-top:2px">~8:04 AM · 8th ~7:03 AM · 7th ~6:03 AM ET</div>
+        <div style="font-size:11.5px;color:var(--text-mute);font-family:'IBM Plex Mono',monospace;margin-top:2px">~9:03 AM · 9th ~8:04 AM · 8th ~7:03 AM ET</div>
       </div>
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:baseline;gap:8px">
@@ -196,10 +203,10 @@
       </div>
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:baseline;gap:8px">
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:600;color:var(--bad);line-height:1">1</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:600;color:var(--bad);line-height:1">2</span>
         </div>
         <div style="font-size:12.5px;font-weight:600;margin-top:7px">Verified reds open</div>
-        <div style="font-size:11.5px;color:var(--text-mute);font-family:'IBM Plex Mono',monospace;margin-top:2px">AI bucket P0 (Notion token exposed) · Davai now 🟡</div>
+        <div style="font-size:11.5px;color:var(--text-mute);font-family:'IBM Plex Mono',monospace;margin-top:2px">AI bucket P0 (Notion token exposed) + ReadOut roadmap P3 blocked</div>
       </div>
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:baseline;gap:8px">
@@ -244,11 +251,26 @@
             <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute);margin-bottom:6px">RUN-20260621-1535 🔴 ~11:50 AM ET · carried · 1 red remaining</div>
             <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5">Live Notion integration token found at system-by-dave-clean/Notion-Integration-Token — untracked file NOT gitignored in a public GitHub Pages repo. 8 repos audited read-only; canonical AUD page not yet posted. 🙋 Dave: revoke + rotate the token immediately at notion.so/my-integrations.</div>
           </div>
+          <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--bad);border-radius:var(--radius);padding:var(--pad)">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+              <span style="width:9px;height:9px;border-radius:50%;background:var(--bad);flex:none"></span>
+              <span style="font-weight:600;font-size:14px">ReadOut roadmap — P3 packaging/sign-off gates blocked (RUN-20260623-READOUT-ROADMAP-P3-BLOCKED 🔴)</span>
+            </div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute);margin-bottom:6px">RUN-20260623-READOUT-ROADMAP-P3-BLOCKED 🔴 RED ~9th-10th pass window · NEW red this pass</div>
+            <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5">ReadOut roadmap integration is present but Phase 3 packaging/sign-off gates remain blocked. Prior Phase 3 run was 🟢 GREEN (RUN-20260622-0226 ~2:27 AM ET Jun 22); this is a new blocking gate. Known candidate: stray git ref refs/remotes/origin/main 2 makes git fetch error — Dave to delete. Thread: ReadOut roadmap packaging/sign-off blocker update.</div>
+          </div>
         </div>
       </div>
       <div>
         <div style="font-size:11.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--warn);margin-bottom:9px">Decisions waiting on you</div>
         <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:6px var(--pad)">
+          <div style="display:flex;gap:11px;padding:11px 0;border-bottom:1px solid var(--border)">
+            <span style="width:7px;height:7px;border-radius:50%;background:var(--bad);margin-top:6px;flex:none"></span>
+            <div>
+              <div style="font-weight:600;font-size:13px;margin-bottom:2px">ReadOut roadmap — P3 packaging/sign-off gates blocked 🔴 RED (RUN-20260623-READOUT-ROADMAP-P3-BLOCKED)</div>
+              <div style="font-size:12px;color:var(--text-dim);line-height:1.45">NEW RED this pass: Phase 3 packaging/sign-off gates remain blocked per RUN-20260623-READOUT-ROADMAP-P3-BLOCKED. Prior Phase 3 and Phase 1 cleanup were 🟢 GREEN. Likely blocker: stray git ref refs/remotes/origin/main 2 making git fetch fail — Dave to delete.</div>
+            </div>
+          </div>
           <div style="display:flex;gap:11px;padding:11px 0;border-bottom:1px solid var(--border)">
             <span style="width:7px;height:7px;border-radius:50%;background:var(--ok);margin-top:6px;flex:none"></span>
             <div>
@@ -370,7 +392,7 @@
                 <span style="font-weight:600;font-size:14px;flex:1">Phillies Wire — Accuracy Sprint</span>
                 <span style="font-size:10.5px;font-weight:600;color:var(--ok);background:var(--ok-bg);padding:2px 8px;border-radius:5px;text-transform:uppercase;letter-spacing:.04em">On track</span>
               </div>
-              <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5;margin-bottom:8px">Reliability gate 🟢 GREEN (RUN-20260621-0132): npm test 18/18 (incl. 7 reliability), deliver.mjs verified. Vol. 1 No. 84 PUBLISHED ~1:24 AM ET Jun 23 (2026-06-23T05:24:59.594Z): 23 claims · 22 accurate · 0 inaccurate · 1 unverifiable · all 23 current. GAME 1 FINAL: PHI LOST @WSH — record 42-36 L1 (NL East 2nd, 6.5 GB vs ATL 48-29 L2). Accuracy sprint milestone met.</div>
+              <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5;margin-bottom:8px">RUN-20260623-0836 🟢 GREEN (~9th-10th pass window): docs refresh — HANDOFF.md + README → v1.6-preview, stale-branch prune, pushed to origin/main. Reliability gate 🟢 GREEN (RUN-20260621-0132): npm test 18/18. Vol. 1 No. 84 PUBLISHED ~1:24 AM ET Jun 23 (2026-06-23T05:24:59.594Z): 23 claims · 22 accurate · 0 inaccurate · 1 unverifiable · all 23 current. GAME 1 FINAL: PHI LOST @WSH — record 42-36 L1 (NL East 2nd, 6.5 GB vs ATL 48-29 L2).</div>
               <div style="font-size:12.5px;line-height:1.5;padding-top:8px;border-top:1px solid var(--border)"><span style="color:var(--text-mute);font-weight:600">Next · </span><span style="color:var(--text-dim)">TONIGHT: PHI @WSH Game 2 of 4, 6:45 PM ET, Luzardo (PHI LHP) vs Zack Littell (WSH RHP). Monitor Vol. 1 No. 84 regen cycle. ATL 48-29 L2, PHI 42-36 L1, 6.5 GB. Fri Jun 26 vs NYM (WPIX 7:10 PM ET) confirmed in schedule.</span></div>
             </div>
             <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
@@ -466,7 +488,7 @@
                 <span style="font-size:10.5px;font-weight:600;color:var(--ok);background:var(--ok-bg);padding:2px 8px;border-radius:5px;text-transform:uppercase;letter-spacing:.04em">On track</span>
               </div>
               <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5;margin-bottom:8px">RUN-20260622-1946 🟢 GREEN (~7:51 PM ET Jun 22): Phase 1 cleanup shipped — browser engine UI removed (browser tab, auto-read, queue/download, Save MP3→WAV), PATCH /config validates engine against registry (HTTP 400 on unknown). c158728; CI 27986807122 green; pytest 58/0. RUN-20260622-0226 🟢 (~2:27 AM ET): Phase 3 shipped — engines/ package + registry; OpenAI/EL shims; /voices catalogue; control panel + popup consume registry. All CI green.</div>
-              <div style="font-size:12.5px;line-height:1.5;padding-top:8px;border-top:1px solid var(--border)"><span style="color:var(--text-mute);font-weight:600">Next · </span><span style="color:var(--text-dim)">Open hygiene: stray git ref refs/remotes/origin/main 2 makes git fetch error — Dave to delete. github.com/DaveHomeAssist/readout</span></div>
+              <div style="font-size:12.5px;line-height:1.5;padding-top:8px;border-top:1px solid var(--border)"><span style="color:var(--text-mute);font-weight:600">Next · </span><span style="color:var(--text-dim)">NEW RED this pass: RUN-20260623-READOUT-ROADMAP-P3-BLOCKED 🔴 — Phase 3 packaging/sign-off gates blocked. Likely blocker: stray git ref refs/remotes/origin/main 2 (Dave to delete). github.com/DaveHomeAssist/readout</span></div>
             </div>
         </div>
       </div>
@@ -915,10 +937,10 @@
     <div style="display:flex;align-items:center;gap:12px;margin-bottom:6px">
       <div style="width:32px;height:32px;border-radius:9px;background:var(--accent-bg);display:grid;place-items:center;font-size:16px;border:1px solid var(--border)">✅</div>
       <h2 style="margin:0;font-size:19px;font-weight:600;letter-spacing:-.01em">Next steps &amp; open decisions</h2>
-      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-mute)">18</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-mute)">19</span>
       <a href="https://app.notion.com/p/37d102824c7b46e7862f2639a228f292" target="_blank" style="margin-left:auto;font-size:12px;color:var(--text-mute);text-decoration:none;font-family:'IBM Plex Mono',monospace">Action Items ↗</a>
     </div>
-    <div style="font-size:12px;color:var(--text-mute);margin-bottom:16px">DB | Action Items (Tier 1) live-queried ~8:04 AM ET Jun 23 · <b style="color:var(--text-dim)">1 overdue active row</b> (Quality OS visual gate, due Jun 19, 4d overdue, Priority Medium) · Active Command Queue: 108 items (live count confirmed this pass, stable — no change from 8th pass).</div>
+    <div style="font-size:12px;color:var(--text-mute);margin-bottom:16px">DB | Action Items (Tier 1) live-queried ~9:03 AM ET Jun 23 · <b style="color:var(--text-dim)">1 overdue active row</b> (Quality OS visual gate, due Jun 19, 4d overdue, Priority Medium) · Active Command Queue: 116 items (full view-based count, corrected from ~108 prior SQL estimate).</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:var(--gap)">
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
@@ -926,6 +948,13 @@
           <span style="font-weight:600;font-size:13.5px">AI &amp; Agent Systems — P0 Notion token in system-by-dave-clean (🙋 Dave: revoke + rotate now)</span>
         </div>
         <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5">RUN-20260621-1535 🔴 RED (~11:50 AM ET): live Notion integration token at system-by-dave-clean/Notion-Integration-Token — untracked, NOT gitignored, public Pages repo. Revoke at notion.so/my-integrations and rotate immediately. Do not commit the file.</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--bad);flex:none"></span>
+          <span style="font-weight:600;font-size:13.5px">ReadOut roadmap — P3 packaging/sign-off blocked 🔴 RED (RUN-20260623-READOUT-ROADMAP-P3-BLOCKED)</span>
+        </div>
+        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5">NEW RED this pass (~9:03 AM ET): Phase 3 packaging/sign-off gates remain blocked. Prior Phase 3 (RUN-20260622-0226 🟢) and Phase 1 cleanup (RUN-20260622-1946 🟢) were green. Likely blocker: stray git ref refs/remotes/origin/main 2 makes git fetch fail — Dave to delete. Thread: ReadOut roadmap packaging/sign-off blocker update.</div>
       </div>
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
@@ -1002,7 +1031,7 @@
           <span style="width:8px;height:8px;border-radius:50%;background:var(--info);flex:none"></span>
           <span style="font-weight:600;font-size:13.5px">Phillies Wire accuracy.json</span>
         </div>
-        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5">Auto-generate from factcheck.mjs on each run.</div>
+        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5">RUN-20260623-0836 🟢 GREEN: HANDOFF.md + README → v1.6-preview, stale-branch prune, pushed to origin/main. accuracy.json auto-generates from factcheck.mjs on each pipeline run.</div>
       </div>
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
@@ -1050,6 +1079,39 @@
     <div style="margin-top:26px">
       <div style="font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-mute);margin-bottom:13px">🚦 Status runs · DB confirmed · newest first</div>
       <div style="display:flex;flex-direction:column;gap:1px">
+          <div style="display:flex;gap:13px;padding:11px var(--pad);background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:7px;align-items:flex-start">
+            <span style="width:9px;height:9px;border-radius:50%;background:var(--bad);margin-top:5px;flex:none"></span>
+            <div style="flex:1;min-width:0">
+              <div style="display:flex;align-items:baseline;gap:9px;flex-wrap:wrap">
+                <span style="font-weight:600;font-size:13px">Automated cloud — 10th Jun 23 ET pass</span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)">RUN-20260623-0903</span>
+              </div>
+              <div style="font-size:12px;color:var(--text-dim);line-height:1.45;margin-top:2px">🔴 RED (2 reds: AI bucket P0 + ReadOut roadmap P3 blocked). NEW: RUN-20260623-READOUT-ROADMAP-P3-BLOCKED 🔴 RED (Phase 3 packaging/sign-off gates blocked — new red this pass). NEW: RUN-20260623-0836 🟢 GREEN (Phillies Wire docs refresh — HANDOFF + README → v1.6-preview, stale-branch prune). accuracy.json still ~2:47 AM ET regen (06:47:56.695Z): Vol. 1 No. 84 · 23/22/0/1 · all 23 current (unchanged). DB | Personal Tasks: 3 overdue (71/46/34d — CR1000A Apr 13, Dominic May 8, Laptops May 20, confirmed). DB | Action Items: 1 overdue active (QualOS visual gate, Jun 19, 4d OD, Priority Medium) · 116 active (full view count, corrected from ~108). PHI @WSH Game 2 of 4 TONIGHT 6:45 PM ET (Luzardo vs Zack Littell). AI bucket P0 remains: 🙋 Dave revoke + rotate Notion token at notion.so/my-integrations. HTTP 4/4 200. Both repos published. Final: 🔴 RED.</div>
+            </div>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);flex:none;white-space:nowrap">06-23 ~9:03 AM ET</span>
+          </div>
+          <div style="display:flex;gap:13px;padding:11px var(--pad);background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:7px;align-items:flex-start">
+            <span style="width:9px;height:9px;border-radius:50%;background:var(--bad);margin-top:5px;flex:none"></span>
+            <div style="flex:1;min-width:0">
+              <div style="display:flex;align-items:baseline;gap:9px;flex-wrap:wrap">
+                <span style="font-weight:600;font-size:13px">ReadOut roadmap P3 packaging/sign-off blocked — 🔴 RED</span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)">RUN-20260623-READOUT-ROADMAP-P3-BLOCKED</span>
+              </div>
+              <div style="font-size:12px;color:var(--text-dim);line-height:1.45;margin-top:2px">🔴 RED: ReadOut roadmap integration is present, but Phase 3 packaging/sign-off gates remain blocked. Thread: ReadOut roadmap packaging/sign-off blocker update.</div>
+            </div>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);flex:none;white-space:nowrap">06-23 between 8:04–9:03 AM ET</span>
+          </div>
+          <div style="display:flex;gap:13px;padding:11px var(--pad);background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:7px;align-items:flex-start">
+            <span style="width:9px;height:9px;border-radius:50%;background:var(--ok);margin-top:5px;flex:none"></span>
+            <div style="flex:1;min-width:0">
+              <div style="display:flex;align-items:baseline;gap:9px;flex-wrap:wrap">
+                <span style="font-weight:600;font-size:13px">Phillies Wire docs refresh + branch prune — 🟢 GREEN</span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)">RUN-20260623-0836</span>
+              </div>
+              <div style="font-size:12px;color:var(--text-dim);line-height:1.45;margin-top:2px">🟢 GREEN: Phillies Wire docs refresh complete — HANDOFF.md + README updated to v1.6-preview, stale branches pruned, pushed to origin/main. Thread: Phillies Wire — docs refresh + branch prune (Claude Code, 2026-06-23).</div>
+            </div>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);flex:none;white-space:nowrap">06-23 between 8:04–9:03 AM ET</span>
+          </div>
           <div style="display:flex;gap:13px;padding:11px var(--pad);background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:7px;align-items:flex-start">
             <span style="width:9px;height:9px;border-radius:50%;background:var(--bad);margin-top:5px;flex:none"></span>
             <div style="flex:1;min-width:0">
@@ -2049,19 +2111,19 @@
           <span style="width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none"></span>
           <span style="flex:1;min-width:0;font-size:12.5px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">DB | Status Runs (All Runs)</span>
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);width:130px;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">notion-query</span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">live-queried ~8:04 AM ET Jun 23 · no new project runs since 8th pass · latest project run: RUN-20260623-0642 🟡 YELLOW (~6:40 AM ET, Chief of Staff backfill)</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">live-queried ~9:03 AM ET Jun 23 · 2 new project runs since 9th pass: RUN-20260623-0836 🟢 GREEN (Phillies Wire docs refresh) + RUN-20260623-READOUT-ROADMAP-P3-BLOCKED 🔴 RED (ReadOut P3 blocked) · red count 1→2</span>
         </div>
         <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border)">
           <span style="width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none"></span>
           <span style="flex:1;min-width:0;font-size:12.5px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">DB | Action Items (Tier 1)</span>
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);width:130px;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">notion-query</span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">live-queried ~8:04 AM ET Jun 23 · 1 overdue active (QualOS visual gate, Jun 19, 4d OD) · 108 active (stable, no change from 8th pass)</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">live-queried ~9:03 AM ET Jun 23 · 1 overdue active (QualOS visual gate, Jun 19, 4d OD) · 116 active (full view-based count, corrected from ~108 prior SQL)</span>
         </div>
         <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border)">
           <span style="width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none"></span>
           <span style="flex:1;min-width:0;font-size:12.5px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">DB | Personal Tasks (Tier 2)</span>
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);width:130px;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">view query</span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">live-queried ~8:04 AM ET Jun 23 · 3 overdue (71/46/34d — CR1000A Apr 13, Dominic May 8, Laptops May 20)</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">live-queried ~9:03 AM ET Jun 23 · 3 overdue (71/46/34d — CR1000A Apr 13, Dominic May 8, Laptops May 20)</span>
         </div>
         <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border)">
           <span style="width:8px;height:8px;border-radius:50%;background:var(--warn);flex:none"></span>
@@ -2145,7 +2207,7 @@ Git: read latest Mac evidence in 90-governance/docs/. Deploys: HTTP-check live s
 pull real counts from accuracy.json — never quote stale numbers. Record every change in
 meta.thisPass + the deltas[] array (the "This pass" banner), then open the file.</span><button id="cc-copy" style="position:absolute;top:10px;right:10px;padding:5px 12px;border-radius:7px;border:1px solid var(--border2);background:var(--surface);color:var(--text);font-size:11px;font-weight:600;cursor:pointer;font-family:'IBM Plex Sans',sans-serif">Copy</button></div>
     </div>
-    <div style="text-align:center;margin-top:26px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute)">Snapshot re-reconciled 2026-06-23 ~8:04 AM ET · 9th automated cloud pass of Jun 23 · built by Claude Code</div>
+    <div style="text-align:center;margin-top:26px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute)">Snapshot re-reconciled 2026-06-23 ~9:03 AM ET · 10th automated cloud pass of Jun 23 · built by Claude Code</div>
   </section>
 
 </div>
