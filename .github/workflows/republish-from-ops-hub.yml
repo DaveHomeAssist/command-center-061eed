@@ -1,10 +1,8 @@
 name: Republish from ops-hub
 on:
   workflow_dispatch:
-
 permissions:
   contents: write
-
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -12,39 +10,53 @@ jobs:
       - uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Download dashboard HTML from ops-hub
+      - name: Assemble index.html from staged chunks
         run: |
-          curl -fsSL "https://raw.githubusercontent.com/davehomeassist/ops-hub/main/quick-start/quick-start-dashboard.html" -o src.html
-          echo "Downloaded $(wc -c < src.html | tr -d ' ') bytes"
-
-      - name: Verify source is current design
+          cat _cc_chunks/c01.html \
+              _cc_chunks/c02.html \
+              _cc_chunks/c03.html \
+              _cc_chunks/c04.html \
+              _cc_chunks/c05.html \
+              _cc_chunks/c06.html \
+              _cc_chunks/c07.html \
+              _cc_chunks/c08.html \
+              _cc_chunks/c09.html \
+              _cc_chunks/c10.html \
+              _cc_chunks/c11.html \
+              _cc_chunks/c12.html \
+              _cc_chunks/c13.html \
+              _cc_chunks/c14.html \
+              _cc_chunks/c15.html \
+              _cc_chunks/c16.html \
+              _cc_chunks/c17.html \
+              _cc_chunks/c18.html \
+              _cc_chunks/c19.html \
+              _cc_chunks/c20.html \
+              _cc_chunks/c21.html \
+              _cc_chunks/c22.html \
+              _cc_chunks/c23.html \
+              _cc_chunks/c24.html \
+              _cc_chunks/c25.html \
+              _cc_chunks/c26.html \
+              _cc_chunks/c27.html > index.html
+          echo "Assembled: $(wc -c < index.html | tr -d ' ') bytes, $(wc -l < index.html | tr -d ' ') lines"
+      - name: Verify output is current design
         run: |
-          grep -q 'cc-collapse-all' src.html || { echo "FATAL: source missing cc-collapse-all"; exit 1; }
-          grep -q 'data-cc-theme' src.html || { echo "FATAL: source missing data-cc-theme"; exit 1; }
-          echo "Source design markers verified"
-
-      - name: Inject noindex and write index.html
-        run: |
-          perl -pe 's|(<meta charset="[^"]*">)|$1\n<meta name="robots" content="noindex, nofollow">|i' src.html > index.html
-          echo "Output: $(wc -c < index.html | tr -d ' ') bytes"
-
-      - name: Verify output
-        run: |
-          grep -q 'cc-collapse-all' index.html || { echo "FATAL: output missing cc-collapse-all"; exit 2; }
-          grep -q 'data-cc-theme' index.html || { echo "FATAL: output missing data-cc-theme"; exit 2; }
-          grep -q 'noindex, nofollow' index.html || { echo "FATAL: noindex not injected"; exit 2; }
-          echo "Output design markers verified"
-
-      - name: Commit and push
+          grep -q 'cc-collapse-all' index.html || { echo "FATAL: missing cc-collapse-all"; exit 2; }
+          grep -q 'data-cc-theme' index.html || { echo "FATAL: missing data-cc-theme"; exit 2; }
+          grep -q 'noindex, nofollow' index.html || { echo "FATAL: noindex not found"; exit 2; }
+          grep -q 'RUN-20260623-1304' index.html || { echo "FATAL: 14th pass marker not found"; exit 2; }
+          echo "All markers verified"
+      - name: Commit index.html and remove chunks
         run: |
           git config user.name "Claude"
           git config user.email "noreply@anthropic.com"
           git add index.html
+          git rm -rf _cc_chunks/ 2>/dev/null || true
           if git diff --cached --quiet; then
-            echo "Nothing to commit — index.html already current"
+            echo "Nothing to commit"
           else
             git commit -m "Daily republish: 14th Jun 23 ET pass — 2 reds remain, PHI @WSH Game 2 TONIGHT 6:45 PM ET"
             git push
-            echo "Pushed 14th pass to command-center-061eed"
+            echo "Done — pushed 14th pass to command-center-061eed"
           fi
