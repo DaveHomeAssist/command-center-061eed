@@ -1,0 +1,50 @@
+name: Republish from ops-hub
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Download dashboard HTML from ops-hub
+        run: |
+          curl -fsSL "https://raw.githubusercontent.com/davehomeassist/ops-hub/main/quick-start/quick-start-dashboard.html" -o src.html
+          echo "Downloaded $(wc -c < src.html | tr -d ' ') bytes"
+
+      - name: Verify source is current design
+        run: |
+          grep -q 'cc-collapse-all' src.html || { echo "FATAL: source missing cc-collapse-all"; exit 1; }
+          grep -q 'data-cc-theme' src.html || { echo "FATAL: source missing data-cc-theme"; exit 1; }
+          echo "Source design markers verified"
+
+      - name: Inject noindex and write index.html
+        run: |
+          perl -pe 's|(<meta charset="[^"]*">)|$1\n<meta name="robots" content="noindex, nofollow">|i' src.html > index.html
+          echo "Output: $(wc -c < index.html | tr -d ' ') bytes"
+
+      - name: Verify output
+        run: |
+          grep -q 'cc-collapse-all' index.html || { echo "FATAL: output missing cc-collapse-all"; exit 2; }
+          grep -q 'data-cc-theme' index.html || { echo "FATAL: output missing data-cc-theme"; exit 2; }
+          grep -q 'noindex, nofollow' index.html || { echo "FATAL: noindex not injected"; exit 2; }
+          echo "Output design markers verified"
+
+      - name: Commit and push
+        run: |
+          git config user.name "Claude"
+          git config user.email "noreply@anthropic.com"
+          git add index.html
+          if git diff --cached --quiet; then
+            echo "Nothing to commit — index.html already current"
+          else
+            git commit -m "Daily republish: 14th Jun 23 ET pass — 2 reds remain, PHI @WSH Game 2 TONIGHT 6:45 PM ET"
+            git push
+            echo "Pushed 14th pass to command-center-061eed"
+          fi
