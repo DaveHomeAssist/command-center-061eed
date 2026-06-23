@@ -1,0 +1,28 @@
+      <div style="position:relative;background:var(--bg2);border:1px solid var(--border);border-radius:11px;padding:14px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--text-dim);line-height:1.55;white-space:pre-wrap;overflow-x:auto"><span id="cc-regen">Re-reconcile the Quick Start command center. Fetch the owning sources, diff them
+against quick-start/dashboard-state.json, update ONLY that JSON with current data +
+freshness timestamps, then run `node quick-start/render.mjs` to regenerate
+quick-start-dashboard.html. NEVER hand-edit the HTML or render.mjs — that is the locked
+design layer; all data lives in the JSON. VALIDATE every displayed claim against its live
+OWNING source before publishing — never echo a narrative/static surface as current status.
+
+Hard-truth DBs — re-query LIVE every pass, do NOT carry forward:
+  Overdue/today  -&gt; DB | Personal Tasks (Tier 2)  view "Today + Overdue"
+  Task execution -&gt; DB | Action Items (Tier 1)    views "Overdue Active" + "Active Command Queue"
+  Verified light -&gt; DB | Status Runs (All Runs, newest first)
+  Health/identity-&gt; DB | Projects   Build -&gt; Dev Logs   Handoff -&gt; LLM Conversation Notes
+
+Git: read latest Mac evidence in 90-governance/docs/. Deploys: HTTP-check live surfaces and
+pull real counts from accuracy.json — never quote stale numbers. Record every change in
+meta.thisPass + the deltas[] array (the "This pass" banner), then open the file.</span><button id="cc-copy" style="position:absolute;top:10px;right:10px;padding:5px 12px;border-radius:7px;border:1px solid var(--border2);background:var(--surface);color:var(--text);font-size:11px;font-weight:600;cursor:pointer;font-family:'IBM Plex Sans',sans-serif">Copy</button></div>
+    </div>
+    <div style="text-align:center;margin-top:26px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute)">Snapshot re-reconciled 2026-06-23 ~1:04 PM ET · 14th automated cloud pass of Jun 23 · built by Claude Code</div>
+  </section>
+
+</div>
+
+<script>
+  (function(){
+    var root=document.documentElement;
+    function paintTheme(){var cur=root.getAttribute('data-theme');document.querySelectorAll('[data-cc-theme]').forEach(function(b){b.style.border=(b.getAttribute('data-cc-theme')===cur)?'2px solid var(--accent)':'2px solid transparent';});}
+    function paintDensity(){var cur=root.getAttribute('data-density');document.querySelectorAll('[data-cc-density]').forEach(function(b){var on=b.getAttribute('data-cc-density')===cur;b.style.background=on?'var(--accent-bg)':'transparent';b.style.color=on?'var(--accent)':'var(--text-mute)';});}
+    document.querySelectorAll('[data-cc-theme]').forEach(function(b){b.addEventListener('click',function(){var th=b.getAttribute('data-cc-theme');root.setAttribute('data-theme',th);try{localStorage.setItem('cc.theme',th);}catch(e){}paintTheme();});});
