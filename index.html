@@ -95,7 +95,7 @@
         </div>
         <div style="display:flex;align-items:center;gap:7px;padding:6px 11px;border-radius:999px;background:var(--bad-bg);border:1px solid var(--border)">
           <span style="width:8px;height:8px;border-radius:50%;background:var(--bad);animation:ccpulse 2s infinite"></span>
-          <span style="font-size:12px;font-weight:600;color:var(--bad)">2 reds open</span>
+          <span style="font-size:12px;font-weight:600;color:var(--bad)">1 red open</span>
         </div>
         <button id="cc-collapse-all" title="Collapse / expand all sections (Cmd/Ctrl + Alt + T)" aria-label="Collapse or expand all sections" style="display:grid;place-items:center;width:30px;height:30px;border-radius:9px;cursor:pointer;background:var(--surface);border:1px solid var(--border);color:var(--text-mute);font-family:'IBM Plex Mono',monospace;font-size:15px;line-height:1;padding:0">⊟</button>
         <div id="cc-themes" style="display:flex;align-items:center;gap:5px;padding:4px;border-radius:11px;background:var(--surface);border:1px solid var(--border)"><button data-cc-theme="slate" title="Slate" style="width:26px;height:26px;border-radius:7px;cursor:pointer;background:linear-gradient(135deg,#11202c 0 55%,#5ec8c0 55% 100%);border:2px solid transparent;padding:0;outline:none"></button><button data-cc-theme="midnight" title="Midnight" style="width:26px;height:26px;border-radius:7px;cursor:pointer;background:linear-gradient(135deg,#10122a 0 55%,#8a7cf0 55% 100%);border:2px solid transparent;padding:0;outline:none"></button><button data-cc-theme="paper" title="Paper" style="width:26px;height:26px;border-radius:7px;cursor:pointer;background:linear-gradient(135deg,#efe9dd 0 55%,#b06a43 55% 100%);border:2px solid transparent;padding:0;outline:none"></button><button data-cc-theme="mist" title="Mist" style="width:26px;height:26px;border-radius:7px;cursor:pointer;background:linear-gradient(135deg,#e3e8ee 0 55%,#2f8f86 55% 100%);border:2px solid transparent;padding:0;outline:none"></button></div>
@@ -154,34 +154,34 @@
   <section id="overview" style="max-width:1280px;margin:0 auto;padding:26px 24px 0">
     <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:13px;flex-wrap:wrap">
       <h2 style="margin:0;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-mute)">This pass · changed since last run</h2>
-      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-dim)">RUN-20260623-1803 · 19th Jun 23 ET pass · ~6:03 PM ET</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-dim)">RUN-20260623-1906 · 20th Jun 23 ET pass · ~7:06 PM ET</span>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:var(--gap)">
-      <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--info);border-radius:var(--radius);padding:var(--pad)">
+      <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--ok);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--info);background:var(--info-bg);padding:2px 7px;border-radius:5px;white-space:nowrap;flex:none">Delta 1</span>
-          <span style="font-weight:600;font-size:14.5px">accuracy.json 6th regen ~5:40 PM ET (21:40:12Z) — DATA SAME 25/24/0/1 · all 25 current · PHI @WSH Game 2 starts in ~42 min</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ok);background:var(--ok-bg);padding:2px 7px;border-radius:5px;white-space:nowrap;flex:none">Delta 1</span>
+          <span style="font-weight:600;font-size:14.5px">ReadOut RED → YELLOW (RUN-20260623-1904 ~7:04 PM ET) · Python/eSpeak/build cleared · manual gates remain · 1 red now (AI P0 only)</span>
         </div>
-        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">19th cloud pass (~6:03 PM ET). accuracy.json NEW regen at 2026-06-23T21:40:12.807Z (~5:40 PM ET) — 6th regen cycle today (prior: ~4:56 PM ET, ~4:01 PM ET, ~2:23 PM ET, ~1:36 PM ET, ~9:49 AM ET). DATA SAME: Vol. 1 No. 84 · 25 claims · 24 accurate · 0 inaccurate · 1 unverifiable · all 25 current. PHI @WSH Game 2 of 4 starts at 6:45 PM ET (~42 min away). Luzardo (PHI LHP) vs PJ Poulin (WSH LHP) — starter confirmed. DB | Personal Tasks: 3 overdue unchanged (71/46/34d). DB | Action Items: 1 OD active (QualOS visual gate, Jun 19, 4d OD). 6 ReadOut Waiting items unchanged. 2 reds: AI bucket P0 + ReadOut P3 blocked. HTTP 4/4 200.</div>
+        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">20th cloud pass (~7:06 PM ET). MAJOR: ReadOut roadmap is now 🟡 YELLOW — RUN-20260623-1904-READOUT-PUSHED-CLEAN-QUIT 🟡 YELLOW logged at ~7:04 PM ET (06caa6e pushed; tests 28062980001 pass; package-smoke 28062313500 pass; Python/eSpeak/clean-quit all cleared). Manual gates remain: Architect sign-off + package visual/audio rows + interactive smoke worksheet. Prior RED (RUN-20260623-READOUT-ROADMAP-P3-BLOCKED) superseded. 3 new ReadOut Waiting items added since last pass (at ~6:17 PM ET): Architect sign-off gate + package manual rows + smoke worksheet (total ReadOut Waiting: 9, was 6). Red count: 1 (AI bucket P0 only). HTTP 4/4 200.</div>
       </div>
       <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--ok);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ok);background:var(--ok-bg);padding:2px 7px;border-radius:5px;white-space:nowrap;flex:none">Delta 2</span>
-          <span style="font-weight:600;font-size:14.5px">PHI @WSH Game 2 of 4 — TONIGHT ~42 min away (6:45 PM ET) · Luzardo (PHI) vs PJ Poulin (WSH LHP) · lineups confirmed</span>
+          <span style="font-weight:600;font-size:14.5px">PHI @WSH Game 2 IN PROGRESS — Bottom 2nd, 0-0 (started 6:45 PM ET) · accuracy.json 7th regen ~6:42 PM ET (22:42:10Z) · data same 25/24/0/1</span>
         </div>
-        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">Game 2 of 4 starts at 6:45 PM ET (~42 min from this pass). Lineups confirmed: PHI starter Jesús Luzardo (LHP), WSH starter PJ Poulin (LHP) — starter changed from Zack Littell (confirmed 18th pass). PHI batting order: Turner-Schwarber-Harper-Marsh-Bohm-Stott-Realmuto-Rincones-Crawford. GAME 1 FINAL: PHI LOST @WSH — record 42-36 L1 (NL East 2nd, 6.5 GB vs ATL 48-29 L2). WSH: 41-38, W1.</div>
+        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">Game 2 of 4 started on time at 6:45 PM ET. LIVE: Bottom 2nd inning, PHI 0 WSH 0 (Inning 1 complete: PHI=0, WSH=0). accuracy.json 7th regen at 2026-06-23T22:42:10.346Z (~6:42 PM ET, 3 min before first pitch): Vol. 1 No. 84 · 25 claims · 24 accurate · 0 inaccurate · 1 unverifiable · all 25 current (data same vs 6th regen). Starters confirmed: Luzardo (PHI LHP) vs PJ Poulin (WSH LHP).</div>
       </div>
-      <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--ok);border-radius:var(--radius);padding:var(--pad)">
+      <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--warn);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ok);background:var(--ok-bg);padding:2px 7px;border-radius:5px;white-space:nowrap;flex:none">Delta 3</span>
-          <span style="font-weight:600;font-size:14.5px">No new project Status Runs since 18th pass — 2 reds held (AI P0 + ReadOut P3 blocked)</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--warn);background:var(--warn-bg);padding:2px 7px;border-radius:5px;white-space:nowrap;flex:none">Delta 3</span>
+          <span style="font-weight:600;font-size:14.5px">Garden OS: new YELLOW run (RUN-20260623-1816, Phases 5-8 open-world in progress) · 9 ReadOut Waiting items (was 6)</span>
         </div>
-        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">DB | Status Runs queried live: latest project run is still RUN-20260623-READOUT-ROADMAP-P3-BLOCKED 🔴. RUN-20260623-0836 🟢 (Phillies Wire docs refresh) remains the last green project run. 2 reds: AI bucket P0 (Notion token exposed in system-by-dave-clean — 🙋 Dave: revoke + rotate now) + ReadOut P3 packaging/sign-off gates blocked. 6 ReadOut Waiting items all High and unchanged in Active Queue (espeak-ng + macOS smoke + Windows package + Windows Python + Architect sign-off + evidence worksheets).</div>
+        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">Garden OS: new 🟡 YELLOW run RUN-20260623-1816-GARDENOS-OPENWORLD (~6:16 PM ET) — Phase 5 targeted tests 186 pass; Phases 6-8 open-world in progress; live Pages not yet verified. Supersedes prior 🟢 GREEN (RUN-20260622-2119). ReadOut: 3 new Waiting items at ~6:17 PM ET — Architect sign-off gate + package manual visual/audio rows + interactive smoke worksheet (now 9 total). DB | Personal Tasks: 3 overdue unchanged (71/46/34d). DB | Action Items: 1 OD active unchanged (QualOS visual gate, Jun 19, 4d OD).</div>
       </div>
       <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--idle);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-mute);background:var(--idle-bg);padding:2px 7px;border-radius:5px;white-space:nowrap;flex:none">Delta 4</span>
-          <span style="font-weight:600;font-size:14.5px">19th cloud pass — local sources NOT refreshed · AUTOMATED CLOUD ONLY</span>
+          <span style="font-weight:600;font-size:14.5px">20th cloud pass — local sources NOT refreshed · AUTOMATED CLOUD ONLY</span>
         </div>
         <div style="font-size:13px;color:var(--text-dim);line-height:1.5">Davai memory (~30d stale, last sync 2026-05-22) and Mac-wide git scan (06-17 12:43Z, ~143h+ stale) are local Mac only and cannot be refreshed from the cloud. DB | Projects carried from 06-17. This pass is AUTOMATED CLOUD ONLY — no local Mac data was refreshed.</div>
       </div>
@@ -189,10 +189,10 @@
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:var(--gap);margin-top:var(--gap)">
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:baseline;gap:8px">
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:600;color:var(--info);line-height:1">19</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:600;color:var(--info);line-height:1">20</span>
         </div>
         <div style="font-size:12.5px;font-weight:600;margin-top:7px">Cloud passes today</div>
-        <div style="font-size:11.5px;color:var(--text-mute);font-family:'IBM Plex Mono',monospace;margin-top:2px">~6:03 PM · 18th ~5:03 PM · 17th ~4:03 PM ET</div>
+        <div style="font-size:11.5px;color:var(--text-mute);font-family:'IBM Plex Mono',monospace;margin-top:2px">~7:06 PM · 19th ~6:03 PM · 18th ~5:03 PM ET</div>
       </div>
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:baseline;gap:8px">
@@ -203,10 +203,10 @@
       </div>
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:baseline;gap:8px">
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:600;color:var(--bad);line-height:1">2</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:600;color:var(--warn);line-height:1">1</span>
         </div>
         <div style="font-size:12.5px;font-weight:600;margin-top:7px">Verified reds open</div>
-        <div style="font-size:11.5px;color:var(--text-mute);font-family:'IBM Plex Mono',monospace;margin-top:2px">AI bucket P0 (Notion token exposed) + ReadOut roadmap P3 blocked</div>
+        <div style="font-size:11.5px;color:var(--text-mute);font-family:'IBM Plex Mono',monospace;margin-top:2px">AI bucket P0 (Notion token exposed) — ReadOut now YELLOW</div>
       </div>
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:baseline;gap:8px">
@@ -251,24 +251,23 @@
             <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute);margin-bottom:6px">RUN-20260621-1535 🔴 ~11:50 AM ET · carried · 1 red remaining</div>
             <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5">Live Notion integration token found at system-by-dave-clean/Notion-Integration-Token — untracked file NOT gitignored in a public GitHub Pages repo. 8 repos audited read-only; canonical AUD page not yet posted. 🙋 Dave: revoke + rotate the token immediately at notion.so/my-integrations.</div>
           </div>
-          <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--bad);border-radius:var(--radius);padding:var(--pad)">
-            <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
-              <span style="width:9px;height:9px;border-radius:50%;background:var(--bad);flex:none"></span>
-              <span style="font-weight:600;font-size:14px">ReadOut roadmap — P3 packaging/sign-off gates blocked (RUN-20260623-READOUT-ROADMAP-P3-BLOCKED 🔴)</span>
-            </div>
-            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute);margin-bottom:6px">RUN-20260623-READOUT-ROADMAP-P3-BLOCKED 🔴 RED ~9th-10th pass window · NEW red this pass</div>
-            <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5">ReadOut roadmap integration is present but Phase 3 packaging/sign-off gates remain blocked. Prior Phase 3 run was 🟢 GREEN (RUN-20260622-0226 ~2:27 AM ET Jun 22); this is a new blocking gate. Known candidate: stray git ref refs/remotes/origin/main 2 makes git fetch error — Dave to delete. Thread: ReadOut roadmap packaging/sign-off blocker update.</div>
-          </div>
         </div>
       </div>
       <div>
         <div style="font-size:11.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--warn);margin-bottom:9px">Decisions waiting on you</div>
         <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:6px var(--pad)">
           <div style="display:flex;gap:11px;padding:11px 0;border-bottom:1px solid var(--border)">
-            <span style="width:7px;height:7px;border-radius:50%;background:var(--bad);margin-top:6px;flex:none"></span>
+            <span style="width:7px;height:7px;border-radius:50%;background:var(--ok);margin-top:6px;flex:none"></span>
             <div>
-              <div style="font-weight:600;font-size:13px;margin-bottom:2px">ReadOut roadmap — P3 packaging/sign-off gates blocked 🔴 RED (RUN-20260623-READOUT-ROADMAP-P3-BLOCKED)</div>
-              <div style="font-size:12px;color:var(--text-dim);line-height:1.45">NEW RED this pass: Phase 3 packaging/sign-off gates remain blocked per RUN-20260623-READOUT-ROADMAP-P3-BLOCKED. Prior Phase 3 and Phase 1 cleanup were 🟢 GREEN. Likely blocker: stray git ref refs/remotes/origin/main 2 making git fetch fail — Dave to delete.</div>
+              <div style="font-weight:600;font-size:13px;margin-bottom:2px">ReadOut roadmap — P3 gates → 🟡 YELLOW (RUN-20260623-1904 ~7:04 PM ET) — was RED</div>
+              <div style="font-size:12px;color:var(--text-dim);line-height:1.45">RUN-20260623-1904-READOUT-PUSHED-CLEAN-QUIT 🟡 YELLOW (~7:04 PM ET): 06caa6e pushed; tests 28062980001 pass; package-smoke 28062313500 pass; Python/eSpeak/clean-quit cleared. Manual gates remain open: Architect sign-off (ARCHITECT_SIGNOFF.md exit=1), package manual visual/audio rows (PACKAGING_VALIDATION.md exit=1), interactive smoke worksheet (MANUAL_SMOKE_VALIDATION.md exit=1). 9 Waiting items total (3 new at ~6:17 PM ET). Prior RED (RUN-20260623-READOUT-ROADMAP-P3-BLOCKED) superseded.</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:11px;padding:11px 0;border-bottom:1px solid var(--border)">
+            <span style="width:7px;height:7px;border-radius:50%;background:var(--warn);margin-top:6px;flex:none"></span>
+            <div>
+              <div style="font-weight:600;font-size:13px;margin-bottom:2px">Garden OS — open-world Phases 5-8 IN PROGRESS 🟡 YELLOW (RUN-20260623-1816 ~6:16 PM ET)</div>
+              <div style="font-size:12px;color:var(--text-dim);line-height:1.45">RUN-20260623-1816-GARDENOS-OPENWORLD 🟡 YELLOW (~6:16 PM ET): Phase 5 targeted tests 186 pass; Phases 6-8 open-world in progress; live Pages not yet verified for this session. Prior session: RUN-20260622-2119-GARDENOS-PHASES 🟢 GREEN (commit 6b5431c, Pages run 27996434066, APP_VERSION 4.6, reasoned-export-1.0.0). Monitor open-world run completion.</div>
             </div>
           </div>
           <div style="display:flex;gap:11px;padding:11px 0;border-bottom:1px solid var(--border)">
@@ -342,10 +341,10 @@
             </div>
           </div>
           <div style="display:flex;gap:11px;padding:11px 0;border-bottom:1px solid var(--border)">
-            <span style="width:7px;height:7px;border-radius:50%;background:var(--warn);margin-top:6px;flex:none"></span>
+            <span style="width:7px;height:7px;border-radius:50%;background:var(--ok);margin-top:6px;flex:none"></span>
             <div>
               <div style="font-weight:600;font-size:13px;margin-bottom:2px">PlotForge — Inspector UX 🟢 SHIPPED (RUN-20260623-0159) · P3 open (P0+P1+P2+Inspector UX done)</div>
-              <div style="font-size:12px;color:var(--text-dim);line-height:1.45">NEW: Inspector UX 🟢 SHIPPED (RUN-20260623-0159 updated ~3:04 AM ET) — origin/main baaeb98; lint/build/tests passed in clean temp clone. P0+P1+P2 all deployed: 98a3fce pushed to origin/main, full lint ✓, Vitest 16f/84t ✓, build ✓, domain smoke 15/15 ✓, plotforge-beta HTTP 200. P3 open: MVR/GDTF interop, OSC bridge, multi-show registry, PWA, AI plot starter. ANSI D signoff waits on plotter. Vercel cost decision still pending.</div>
+              <div style="font-size:12px;color:var(--text-dim);line-height:1.45">Inspector UX 🟢 SHIPPED (RUN-20260623-0159 updated ~3:04 AM ET) — origin/main baaeb98; lint/build/tests passed in clean temp clone. P0+P1+P2 all deployed: 98a3fce pushed to origin/main, full lint ✓, Vitest 16f/84t ✓, build ✓, domain smoke 15/15 ✓, plotforge-beta HTTP 200. P3 open: MVR/GDTF interop, OSC bridge, multi-show registry, PWA, AI plot starter. ANSI D signoff waits on plotter. Vercel cost decision still pending.</div>
             </div>
           </div>
         </div>
@@ -368,13 +367,13 @@
         <div style="display:flex;flex-direction:column;gap:var(--gap)">
             <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
               <div style="display:flex;align-items:center;gap:9px;margin-bottom:8px">
-                <span style="width:9px;height:9px;border-radius:50%;background:var(--ok);flex:none"></span>
-                <span style="font-weight:600;font-size:14px;flex:1">Garden OS — Phase 6-8 deployed</span>
-                <span style="font-size:10.5px;font-weight:600;color:var(--ok);background:var(--ok-bg);padding:2px 8px;border-radius:5px;text-transform:uppercase;letter-spacing:.04em">On track</span>
+                <span style="width:9px;height:9px;border-radius:50%;background:var(--warn);flex:none"></span>
+                <span style="font-weight:600;font-size:14px;flex:1">Garden OS — Phases 5-8 open-world IN PROGRESS</span>
+                <span style="font-size:10.5px;font-weight:600;color:var(--warn);background:var(--warn-bg);padding:2px 8px;border-radius:5px;text-transform:uppercase;letter-spacing:.04em">Active</span>
               </div>
               <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--accent);margin-bottom:6px">PRJ | Garden OS</div>
-              <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5;margin-bottom:8px">RUN-20260622-2119-GARDENOS-PHASES 🟢 GREEN (~9:19 PM ET Jun 22): Phase 6 to Phase 8 implemented, smoke verified, pushed to main, deployed by GitHub Pages. Commit 6b5431c; Pages run 27996434066 success; live planner APP_VERSION 4.6, reasoned-export-1.0.0, payload.reasonedExport; live schema has reasonedExport/ReasonedExport. Target: davehomeassist.github.io/garden-os/.</div>
-              <div style="font-size:12.5px;line-height:1.5;padding-top:8px;border-top:1px solid var(--border)"><span style="color:var(--text-mute);font-weight:600">Next · </span><span style="color:var(--text-dim)">Monitor next daily regen. Phase 9+ TBD. Two Action Items still open in Active Queue: 'Commit current worktree for planner phase 6' + 'Commit or restore 35 deleted sprite files' — may be stale post-deploy.</span></div>
+              <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5;margin-bottom:8px">RUN-20260623-1816-GARDENOS-OPENWORLD 🟡 YELLOW (~6:16 PM ET Jun 23): Phase 5 targeted tests 186 pass; Phases 6-8 open-world work in progress; live Pages not yet verified. Prior session: RUN-20260622-2119-GARDENOS-PHASES 🟢 GREEN (~9:19 PM ET Jun 22) — commit 6b5431c; Pages run 27996434066 success; live planner APP_VERSION 4.6, reasoned-export-1.0.0 live. Target: davehomeassist.github.io/garden-os/.</div>
+              <div style="font-size:12.5px;line-height:1.5;padding-top:8px;border-top:1px solid var(--border)"><span style="color:var(--text-mute);font-weight:600">Next · </span><span style="color:var(--text-dim)">Monitor open-world Phases 5-8 session completion. Prior open Action Items in queue ('Commit current worktree for planner phase 6' + 'Commit or restore 35 deleted sprite files') may be stale post-deploy.</span></div>
             </div>
             <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
               <div style="display:flex;align-items:center;gap:9px;margin-bottom:8px">
@@ -392,8 +391,8 @@
                 <span style="font-weight:600;font-size:14px;flex:1">Phillies Wire — Accuracy Sprint</span>
                 <span style="font-size:10.5px;font-weight:600;color:var(--ok);background:var(--ok-bg);padding:2px 8px;border-radius:5px;text-transform:uppercase;letter-spacing:.04em">On track</span>
               </div>
-              <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5;margin-bottom:8px">RUN-20260623-0836 🟢 GREEN (~9th-10th pass window): docs refresh — HANDOFF.md + README → v1.6-preview, stale-branch prune, pushed to origin/main. Reliability gate 🟢 GREEN (RUN-20260621-0132): npm test 18/18. Vol. 1 No. 84 regen ~5:40 PM ET Jun 23 (2026-06-23T21:40:12.807Z): 25 claims · 24 accurate · 0 inaccurate · 1 unverifiable · all 25 current (6th regen today). GAME 1 FINAL: PHI LOST @WSH — record 42-36 L1 (NL East 2nd, 6.5 GB vs ATL 48-29 L2).</div>
-              <div style="font-size:12.5px;line-height:1.5;padding-top:8px;border-top:1px solid var(--border)"><span style="color:var(--text-mute);font-weight:600">Next · </span><span style="color:var(--text-dim)">TONIGHT: PHI @WSH Game 2 of 4, 6:45 PM ET (~42 min), Luzardo (PHI LHP) vs PJ Poulin (WSH LHP) [starter confirmed]. Monitor Vol. 1 No. 84 regen cycle. ATL 48-29 L2, PHI 42-36 L1, 6.5 GB. Fri Jun 26 vs NYM (WPIX 7:10 PM ET) confirmed.</span></div>
+              <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5;margin-bottom:8px">RUN-20260623-0836 🟢 GREEN (~9th-10th pass window): docs refresh — HANDOFF.md + README → v1.6-preview, stale-branch prune, pushed to origin/main. Reliability gate 🟢 GREEN (RUN-20260621-0132): npm test 18/18. Vol. 1 No. 84 — 7th regen ~6:42 PM ET Jun 23 (2026-06-23T22:42:10.346Z): 25 claims · 24 accurate · 0 inaccurate · 1 unverifiable · all 25 current. GAME 1 FINAL: PHI LOST @WSH — record 42-36 L1 (NL East 2nd, 6.5 GB vs ATL 48-29 L2).</div>
+              <div style="font-size:12.5px;line-height:1.5;padding-top:8px;border-top:1px solid var(--border)"><span style="color:var(--text-mute);font-weight:600">Next · </span><span style="color:var(--text-dim)">GAME 2 LIVE: PHI @WSH, Bottom 2nd, PHI 0 WSH 0. Luzardo (PHI LHP) vs PJ Poulin (WSH LHP). Monitor Vol. 1 No. 84 regen cycle. ATL 48-29 L2, PHI 42-36 L1, 6.5 GB.</span></div>
             </div>
             <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
               <div style="display:flex;align-items:center;gap:9px;margin-bottom:8px">
@@ -483,12 +482,12 @@
             </div>
             <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
               <div style="display:flex;align-items:center;gap:9px;margin-bottom:8px">
-                <span style="width:9px;height:9px;border-radius:50%;background:var(--ok);flex:none"></span>
-                <span style="font-weight:600;font-size:14px;flex:1">ReadOut — Phase 3 + Phase 1 cleanup</span>
-                <span style="font-size:10.5px;font-weight:600;color:var(--ok);background:var(--ok-bg);padding:2px 8px;border-radius:5px;text-transform:uppercase;letter-spacing:.04em">On track</span>
+                <span style="width:9px;height:9px;border-radius:50%;background:var(--warn);flex:none"></span>
+                <span style="font-weight:600;font-size:14px;flex:1">ReadOut — Phase 3 → 🟡 YELLOW (manual gates remain)</span>
+                <span style="font-size:10.5px;font-weight:600;color:var(--warn);background:var(--warn-bg);padding:2px 8px;border-radius:5px;text-transform:uppercase;letter-spacing:.04em">Active</span>
               </div>
-              <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5;margin-bottom:8px">RUN-20260622-1946 🟢 GREEN (~7:51 PM ET Jun 22): Phase 1 cleanup shipped — browser engine UI removed (browser tab, auto-read, queue/download, Save MP3→WAV), PATCH /config validates engine against registry (HTTP 400 on unknown). c158728; CI 27986807122 green; pytest 58/0. RUN-20260622-0226 🟢 (~2:27 AM ET): Phase 3 shipped — engines/ package + registry; OpenAI/EL shims; /voices catalogue; control panel + popup consume registry. All CI green.</div>
-              <div style="font-size:12.5px;line-height:1.5;padding-top:8px;border-top:1px solid var(--border)"><span style="color:var(--text-mute);font-weight:600">Next · </span><span style="color:var(--text-dim)">RUN-20260623-READOUT-ROADMAP-P3-BLOCKED 🔴 — Phase 3 packaging/sign-off gates blocked. 6 ReadOut Waiting items in Active Queue: espeak-ng + macOS smoke + Windows package + Windows Python + Architect sign-off + evidence worksheets (all High, Jun 23 batch). Stray git ref refs/remotes/origin/main 2 (Dave to delete). github.com/DaveHomeAssist/readout</span></div>
+              <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5;margin-bottom:8px">RUN-20260623-1904-READOUT-PUSHED-CLEAN-QUIT 🟡 YELLOW (~7:04 PM ET Jun 23): 06caa6e pushed; tests 28062980001 pass; package-smoke 28062313500 pass; Python/eSpeak/clean-quit cleared. RUN-20260622-1946 🟢 GREEN (~7:51 PM ET Jun 22): Phase 1 cleanup shipped — browser engine UI removed, PATCH /config validates against registry (HTTP 400 on unknown). c158728; CI 27986807122 green; pytest 58/0. RUN-20260622-0226 🟢 (~2:27 AM ET): Phase 3 shipped — engines/ package + registry; OpenAI/EL shims; /voices catalogue; control panel + popup consume registry.</div>
+              <div style="font-size:12.5px;line-height:1.5;padding-top:8px;border-top:1px solid var(--border)"><span style="color:var(--text-mute);font-weight:600">Next · </span><span style="color:var(--text-dim)">Manual gates remain: Architect sign-off (ARCHITECT_SIGNOFF.md exit=1) + package manual visual/audio rows (PACKAGING_VALIDATION.md exit=1) + interactive smoke worksheet (MANUAL_SMOKE_VALIDATION.md exit=1). 9 Waiting items in Active Queue. Stray git ref refs/remotes/origin/main 2 (Dave to delete). github.com/DaveHomeAssist/readout</span></div>
             </div>
         </div>
       </div>
@@ -522,8 +521,8 @@
           <span style="font-weight:600;font-size:15px;flex:1">Phillies Wire</span>
           <span style="width:11px;height:11px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 3px var(--ok-bg)"></span>
         </div>
-        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5;margin-bottom:9px">Vol. 1 No. 84 published ~1:24 AM ET Jun 23; accuracy regen ~5:40 PM ET → 25/24/0/1 · all 25 current (6th regen cycle today). GAME 1 FINAL: PHI LOST @WSH — record 42-36 L1 (NL East 2nd, 6.5 GB vs ATL 48-29 L2). Reliability gate 🟢 GREEN (RUN-20260621-0132): 18/18 tests. WSH starter: PJ Poulin (LHP) [confirmed].</div>
-        <div style="font-size:12.5px;line-height:1.5;margin-bottom:11px"><span style="color:var(--text-mute);font-weight:600">Next · </span><span style="color:var(--text-dim)">TONIGHT: PHI @WSH Game 2 of 4, 6:45 PM ET (~42 min), Luzardo (PHI LHP) vs PJ Poulin (WSH LHP). Monitor Vol. 1 No. 84 regen cycle. ATL 48-29 L2, PHI 42-36 L1, 6.5 GB.</span></div>
+        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5;margin-bottom:9px">Vol. 1 No. 84 published ~1:24 AM ET Jun 23; accuracy.json 7th regen ~6:42 PM ET → 25/24/0/1 · all 25 current. GAME 2 LIVE: PHI @WSH, Bottom 2nd, 0-0, Luzardo (PHI LHP) vs PJ Poulin (WSH LHP). GAME 1 FINAL: PHI LOST @WSH — record 42-36 L1 (NL East 2nd, 6.5 GB vs ATL 48-29 L2). Reliability gate 🟢 GREEN (RUN-20260621-0132): 18/18 tests.</div>
+        <div style="font-size:12.5px;line-height:1.5;margin-bottom:11px"><span style="color:var(--text-mute);font-weight:600">Next · </span><span style="color:var(--text-dim)">GAME 2 LIVE: Bottom 2nd, 0-0. Monitor score + Vol. 1 No. 84 regen cycle. ATL 48-29 L2, PHI 42-36 L1, 6.5 GB.</span></div>
         <div style="margin-top:auto;display:flex;align-items:center;gap:8px;flex-wrap:wrap">
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)">live 06-23</span>
         </div>
@@ -584,7 +583,7 @@
           <span style="width:7px;height:7px;border-radius:50%;background:var(--warn);margin-top:6px;flex:none"></span>
           <div>
             <div style="font-weight:600;font-size:12.5px;margin-bottom:2px">Festival Atlas &amp; CurlPlan &amp; ReadOut</div>
-            <div style="font-size:11.5px;color:var(--text-mute);line-height:1.45">No DB | Projects row confirmed this pass — live only in Status Runs (06-21). Festival Atlas: PR #1 merged 🟢. CurlPlan: iOS port 🟡 (2 commits behind origin). ReadOut: desktop GUI 🟢 (merge 8f327b4 pushed, CI green — RUN-1222 updated 6:55 PM ET).</div>
+            <div style="font-size:11.5px;color:var(--text-mute);line-height:1.45">No DB | Projects row confirmed this pass — live only in Status Runs (06-21). Festival Atlas: PR #1 merged 🟢. CurlPlan: iOS port 🟡 (2 commits behind origin). ReadOut: 🟡 YELLOW (RUN-20260623-1904 manual gates remain).</div>
           </div>
         </div>
         <div style="display:flex;gap:9px">
@@ -628,11 +627,11 @@
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:var(--gap)">
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px"><span style="font-size:16px">⚾</span><span style="font-weight:600;font-size:14px">Game day</span></div>
-        <div style="font-weight:600;font-size:15px;margin-bottom:5px">PHI @WSH · Game 2 of 4 · Tue Jun 23 · TONIGHT ~42 min (6:45 PM ET)</div>
-        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.55"><b style="color:var(--warn)">PHI @WSH · Game 2 of 4 · Tue Jun 23 · TONIGHT ~42 min (6:45 PM ET)</b> — Luzardo (PHI LHP) vs <b style="color:var(--warn)">PJ Poulin (WSH LHP)</b> <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--warn)">[starter changed from Zack Littell]</span>. GAME 1 FINAL: <b style="color:var(--bad)">PHI LOST</b> — record <b style="color:var(--text)">42-36 L1</b> · NL East 2nd (6.5 GB vs ATL 48-29 L2). Phillies Wire <span style="font-family:'IBM Plex Mono',monospace;color:var(--accent)">Vol. 1 No. 84</span> — accuracy.json regen ~5:40 PM ET Jun 23 (2026-06-23T21:40:12.807Z): 25 claims · 24 accurate · 0 inaccurate · 1 unverifiable · all 25 current.</div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px"><span style="font-size:16px">⚾</span><span style="font-weight:600;font-size:14px">Game day</span><span style="font-size:10px;font-weight:600;color:var(--ok);background:var(--ok-bg);padding:2px 7px;border-radius:5px;text-transform:uppercase;letter-spacing:.04em">live</span></div>
+        <div style="font-weight:600;font-size:15px;margin-bottom:5px">PHI @WSH · Game 2 of 4 · LIVE — Bottom 2nd · PHI 0, WSH 0</div>
+        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.55"><b style="color:var(--ok)">PHI @WSH · Game 2 of 4 · LIVE — Bottom 2nd inning · PHI 0, WSH 0</b> — Luzardo (PHI LHP) vs PJ Poulin (WSH LHP). Inning 1 complete: both teams scoreless. accuracy.json 7th regen ~6:42 PM ET (2026-06-23T22:42:10.346Z): <span style="font-family:'IBM Plex Mono',monospace;color:var(--accent)">Vol. 1 No. 84</span> · 25 claims · 24 accurate · 0 inaccurate · 1 unverifiable · all 25 current. GAME 1 FINAL: <b style="color:var(--bad)">PHI LOST</b> — record <b style="color:var(--text)">42-36 L1</b> · NL East 2nd (6.5 GB vs ATL 48-29 L2).</div>
         <div style="margin-top:10px;display:flex;gap:14px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute)">
-          <span>Tue Jun 23 · TONIGHT @WSH Game 2 of 4 · Luzardo (PHI LHP) vs PJ Poulin (WSH LHP) 6:45 PM ET [~42 min away]</span><span>Wed Jun 24 · @WSH Game 3 of 4 · Nola vs Miles Mikolas 6:45 PM ET (Nationals.TV)</span><span>Thu Jun 25 · @WSH Game 4 of 4 · Sánchez vs Cade Cavalli 6:45 PM ET (Nationals.TV)</span><span>Fri Jun 26 · vs NYM TBD 7:10 PM ET (WPIX)</span>
+          <span>Tue Jun 23 · TONIGHT @WSH Game 2 of 4 · LIVE — Bottom 2nd, 0-0 · Luzardo (PHI LHP) vs PJ Poulin (WSH LHP)</span><span>Wed Jun 24 · @WSH Game 3 of 4 · Nola vs Miles Mikolas 6:45 PM ET (Nationals.TV)</span><span>Thu Jun 25 · @WSH Game 4 of 4 · Sánchez vs Cade Cavalli 6:45 PM ET (Nationals.TV)</span><span>Fri Jun 26 · vs NYM TBD 7:10 PM ET (WPIX)</span>
         </div>
       </div>
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
@@ -845,7 +844,7 @@
             <span style="width:9px;height:9px;border-radius:50%;background:var(--ok);flex:none"></span>
             <span style="font-size:13px;font-weight:500;flex:1;min-width:0">⚾ Phillies Wire factcheck</span>
             <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute);width:72px">daily</span>
-            <span style="font-size:11.5px;color:var(--text-dim);flex:1;min-width:0;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">No. 84 — 6th regen ~5:40 PM ET Jun 23 (21:40:12Z) · 25/24/0/1 · all 25 current · WSH starter PJ Poulin (confirmed) · GAME 1 FINAL: PHI LOST (42-36 L1, 6.5 GB vs ATL 48-29 L2) · TONIGHT Game 2 of 4 6:45 PM ET (~42 min)</span>
+            <span style="font-size:11.5px;color:var(--text-dim);flex:1;min-width:0;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">No. 84 — 7th regen ~6:42 PM ET Jun 23 (22:42:10Z) · 25/24/0/1 · all 25 current · GAME 2 LIVE: Bottom 2nd, 0-0 · GAME 1 FINAL: PHI LOST (42-36 L1, 6.5 GB vs ATL 48-29 L2)</span>
           </div>
           <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)">
             <span style="width:9px;height:9px;border-radius:50%;background:var(--ok);flex:none"></span>
@@ -854,10 +853,10 @@
             <span style="font-size:11.5px;color:var(--text-dim);flex:1;min-width:0;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">published · live-generated</span>
           </div>
           <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)">
-            <span style="width:9px;height:9px;border-radius:50%;background:var(--ok);flex:none"></span>
+            <span style="width:9px;height:9px;border-radius:50%;background:var(--warn);flex:none"></span>
             <span style="font-size:13px;font-weight:500;flex:1;min-width:0">🫄 Garden OS daily self-improve</span>
             <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute);width:72px">daily 9am</span>
-            <span style="font-size:11.5px;color:var(--text-dim);flex:1;min-width:0;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Phase 6-8 🟢 SHIPPED (RUN-20260622-2119 ~9:19 PM ET) — commit 6b5431c; APP_VERSION 4.6; reasoned-export-1.0.0 live</span>
+            <span style="font-size:11.5px;color:var(--text-dim);flex:1;min-width:0;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Phases 5-8 open-world 🟡 IN PROGRESS (RUN-20260623-1816 ~6:16 PM ET) — Phase 5 targeted tests 186 pass; prior session Phase 6-8 🟢 SHIPPED (RUN-20260622-2119 ~9:19 PM ET) — commit 6b5431c; APP_VERSION 4.6</span>
           </div>
           <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)">
             <span style="width:9px;height:9px;border-radius:50%;background:var(--warn);flex:none"></span>
@@ -940,7 +939,7 @@
       <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-mute)">19</span>
       <a href="https://app.notion.com/p/37d102824c7b46e7862f2639a228f292" target="_blank" style="margin-left:auto;font-size:12px;color:var(--text-mute);text-decoration:none;font-family:'IBM Plex Mono',monospace">Action Items ↗</a>
     </div>
-    <div style="font-size:12px;color:var(--text-mute);margin-bottom:16px">DB | Action Items (Tier 1) live-queried ~6:03 PM ET Jun 23 · <b style="color:var(--text-dim)">1 overdue active row</b> (Quality OS visual gate, due Jun 19, 4d overdue, Priority Medium) · Active Command Queue: 100+ items (first page, has_more=true; full count ~116+ — consistent with prior passes) · <b style="color:var(--warn)">6 ReadOut Waiting items confirmed</b>: espeak-ng + macOS smoke + Windows package + Windows Python + Architect sign-off + evidence worksheets (all High, unchanged).</div>
+    <div style="font-size:12px;color:var(--text-mute);margin-bottom:16px">DB | Action Items (Tier 1) live-queried ~7:06 PM ET Jun 23 · <b style="color:var(--text-dim)">1 overdue active row</b> (Quality OS visual gate, due Jun 19, 4d overdue, Priority Medium) · Active Command Queue: 100+ items (has_more=true) · <b style="color:var(--warn)">9 ReadOut Waiting items confirmed</b> (3 new since last pass at ~6:17 PM ET): Architect sign-off gate + package manual visual/audio rows + interactive smoke worksheet (all High) + prior 6 unchanged.</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:var(--gap)">
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
@@ -951,10 +950,10 @@
       </div>
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
-          <span style="width:8px;height:8px;border-radius:50%;background:var(--bad);flex:none"></span>
-          <span style="font-weight:600;font-size:13.5px">ReadOut roadmap — P3 packaging/sign-off blocked 🔴 RED (RUN-20260623-READOUT-ROADMAP-P3-BLOCKED)</span>
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--warn);flex:none"></span>
+          <span style="font-weight:600;font-size:13.5px">ReadOut roadmap — P3 manual gates 🟡 YELLOW (RUN-20260623-1904 ~7:04 PM ET) — was RED</span>
         </div>
-        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5">RUN-20260623-READOUT-ROADMAP-P3-BLOCKED 🔴 RED: Phase 3 packaging/sign-off gates blocked — preflight fails Py3.10-3.12/espeak/signoff/package/smoke. New Action Item: 'ReadOut: install espeak-ng and add it to PATH' (High, Waiting, ~8:32 AM ET) captured in Active Queue. Prior Phase 3 (RUN-20260622-0226 🟢) and Phase 1 cleanup (RUN-20260622-1946 🟢) were green. Thread: ReadOut roadmap packaging/sign-off blocker update.</div>
+        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5">RUN-20260623-1904-READOUT-PUSHED-CLEAN-QUIT 🟡 YELLOW: 06caa6e pushed; tests 28062980001 pass; package-smoke 28062313500 pass; Python/eSpeak/clean-quit cleared. Remaining manual gates: Architect sign-off (ARCHITECT_SIGNOFF.md exit=1), package manual visual/audio rows (PACKAGING_VALIDATION.md exit=1), interactive smoke worksheet (MANUAL_SMOKE_VALIDATION.md exit=1). 9 Waiting items total in Active Queue (3 new at ~6:17 PM ET). Prior RED superseded.</div>
       </div>
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
@@ -972,10 +971,10 @@
       </div>
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
-          <span style="width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none"></span>
-          <span style="font-weight:600;font-size:13.5px">Garden OS — Phase 6-8 DEPLOYED 🟢 GREEN (RUN-20260622-2119 ~9:19 PM ET Jun 22)</span>
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--warn);flex:none"></span>
+          <span style="font-weight:600;font-size:13.5px">Garden OS — Phases 5-8 open-world IN PROGRESS 🟡 (RUN-20260623-1816 ~6:16 PM ET)</span>
         </div>
-        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5">RUN-20260622-2119-GARDENOS-PHASES 🟢 GREEN (~9:19 PM ET Jun 22): Phase 6 to Phase 8 implemented, smoke verified, pushed to main by GitHub Pages. Evidence: commit 6b5431c; Pages run 27996434066 success; live planner APP_VERSION 4.6, reasoned-export-1.0.0, payload.reasonedExport. Target: davehomeassist.github.io/garden-os/. Note: 2 open Action Items in Active Queue may be stale post-deploy (worktree commit + sprite files).</div>
+        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5">RUN-20260623-1816-GARDENOS-OPENWORLD 🟡 YELLOW (~6:16 PM ET): Phase 5 targeted tests 186 pass; Phases 6-8 open-world work in progress; live Pages not yet verified. Prior session: RUN-20260622-2119-GARDENOS-PHASES 🟢 GREEN (~9:19 PM ET Jun 22): commit 6b5431c; Pages run 27996434066 success; live planner APP_VERSION 4.6, reasoned-export-1.0.0, payload.reasonedExport. Target: davehomeassist.github.io/garden-os/.</div>
       </div>
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
@@ -1031,7 +1030,7 @@
           <span style="width:8px;height:8px;border-radius:50%;background:var(--info);flex:none"></span>
           <span style="font-weight:600;font-size:13.5px">Phillies Wire accuracy.json</span>
         </div>
-        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5">RUN-20260623-0836 🟢 GREEN: HANDOFF.md + README → v1.6-preview, stale-branch prune, pushed to origin/main. accuracy.json auto-generates from factcheck.mjs on each pipeline run.</div>
+        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5">RUN-20260623-0836 🟢 GREEN: HANDOFF.md + README → v1.6-preview, stale-branch prune, pushed to origin/main. accuracy.json 7th regen ~6:42 PM ET (22:42:10Z): 25/24/0/1 · all 25 current. Game 2 LIVE: Bottom 2nd, 0-0.</div>
       </div>
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
@@ -1083,10 +1082,32 @@
             <span style="width:9px;height:9px;border-radius:50%;background:var(--bad);margin-top:5px;flex:none"></span>
             <div style="flex:1;min-width:0">
               <div style="display:flex;align-items:baseline;gap:9px;flex-wrap:wrap">
+                <span style="font-weight:600;font-size:13px">Automated cloud — 20th Jun 23 ET pass</span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)">RUN-20260623-1906</span>
+              </div>
+              <div style="font-size:12px;color:var(--text-dim);line-height:1.45;margin-top:2px">🔴 RED (1 red: AI bucket P0 only — ReadOut now YELLOW). MAJOR: RUN-20260623-1904-READOUT-PUSHED-CLEAN-QUIT 🟡 YELLOW (06caa6e; tests/package-smoke pass; Python/eSpeak/clean-quit cleared; manual gates remain). PHI @WSH Game 2 LIVE — Bottom 2nd, 0-0 (started on time 6:45 PM ET). accuracy.json 7th regen ~6:42 PM ET: 25/24/0/1, all 25 current. 3 new ReadOut Waiting items since last pass (9 total). Garden OS: YELLOW RUN-20260623-1816 (Phases 5-8 open-world in progress). DB | Personal Tasks: 3 overdue (71/46/34d). DB | Action Items: 1 OD active (QualOS visual gate, Jun 19, 4d OD). HTTP 4/4 200. Status Run logged: RUN-20260623-1906 🔴 to Notion. Both repos published. Final: 🔴 RED.</div>
+            </div>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);flex:none;white-space:nowrap">06-23 ~7:06 PM ET</span>
+          </div>
+          <div style="display:flex;gap:13px;padding:11px var(--pad);background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:7px;align-items:flex-start">
+            <span style="width:9px;height:9px;border-radius:50%;background:var(--warn);margin-top:5px;flex:none"></span>
+            <div style="flex:1;min-width:0">
+              <div style="display:flex;align-items:baseline;gap:9px;flex-wrap:wrap">
+                <span style="font-weight:600;font-size:13px">ReadOut roadmap: pushed + clean quit · 🟡 YELLOW</span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)">RUN-20260623-1904-READOUT-PUSHED-CLEAN-QUIT</span>
+              </div>
+              <div style="font-size:12px;color:var(--text-dim);line-height:1.45;margin-top:2px">🟡 YELLOW (Sub-task Override): 06caa6e pushed; tests 28062980001 pass; package-smoke 28062313500 pass; Python/eSpeak/clean-quit all cleared. Manual gates remain: Architect sign-off (ARCHITECT_SIGNOFF.md exit=1) + package manual visual/audio rows + interactive smoke worksheet. 3 new Waiting items added at ~6:17 PM ET. Prior RED superseded.</div>
+            </div>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);flex:none;white-space:nowrap">06-23 ~7:04 PM ET</span>
+          </div>
+          <div style="display:flex;gap:13px;padding:11px var(--pad);background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:7px;align-items:flex-start">
+            <span style="width:9px;height:9px;border-radius:50%;background:var(--bad);margin-top:5px;flex:none"></span>
+            <div style="flex:1;min-width:0">
+              <div style="display:flex;align-items:baseline;gap:9px;flex-wrap:wrap">
                 <span style="font-weight:600;font-size:13px">Automated cloud — 19th Jun 23 ET pass</span>
                 <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)">RUN-20260623-1803</span>
               </div>
-              <div style="font-size:12px;color:var(--text-dim);line-height:1.45;margin-top:2px">🔴 RED (2 reds: AI bucket P0 + ReadOut roadmap P3 blocked). accuracy.json 6th regen at ~5:40 PM ET (2026-06-23T21:40:12.807Z): Vol. 1 No. 84 · 25/24/0/1 · all 25 current (data unchanged vs 18th pass). PHI @WSH Game 2 of 4 TONIGHT 6:45 PM ET (~42 min). Luzardo (PHI LHP) vs PJ Poulin (WSH LHP) — starter confirmed. No new project Status Runs since 18th pass. DB | Personal Tasks: 3 overdue (71/46/34d — CR1000A Apr 13, Dominic May 8, Laptops May 20). DB | Action Items: 1 OD active (QualOS visual gate, Jun 19, 4d OD). Active Queue 100+ (6 ReadOut Waiting — unchanged). AI bucket P0: 🙋 Dave revoke + rotate Notion token. HTTP 4/4 200. Status Run logged: RUN-20260623-1803 🔴 to Notion. Both repos published. Final: 🔴 RED.</div>
+              <div style="font-size:12px;color:var(--text-dim);line-height:1.45;margin-top:2px">🔴 RED (2 reds: AI bucket P0 + ReadOut roadmap P3 blocked). accuracy.json 6th regen ~5:40 PM ET (21:40:12Z): 25/24/0/1, all 25 current. PHI @WSH Game 2 TONIGHT 6:45 PM ET (~42 min away). HTTP 4/4 200.</div>
             </div>
             <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);flex:none;white-space:nowrap">06-23 ~6:03 PM ET</span>
           </div>
@@ -1097,20 +1118,9 @@
                 <span style="font-weight:600;font-size:13px">Automated cloud — 18th Jun 23 ET pass</span>
                 <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)">RUN-20260623-1703</span>
               </div>
-              <div style="font-size:12px;color:var(--text-dim);line-height:1.45;margin-top:2px">🔴 RED (2 reds: AI bucket P0 + ReadOut roadmap P3 blocked). accuracy.json 5th regen at ~4:56 PM ET (2026-06-23T20:56:57.969Z): Vol. 1 No. 84 · 25/24/0/1 · all 25 current. KEY: WSH starter changed Zack Littell → PJ Poulin (LHP); PHI starter Luzardo (LHP) unchanged; lineups official. No new project Status Runs since 17th pass. DB | Personal Tasks: 3 overdue (71/46/34d). DB | Action Items: 1 OD active (QualOS visual gate, Jun 19, 4d OD). HTTP 4/4 200. Final: 🔴 RED.</div>
+              <div style="font-size:12px;color:var(--text-dim);line-height:1.45;margin-top:2px">🔴 RED (2 reds: AI bucket P0 + ReadOut P3 blocked). accuracy.json 5th regen ~4:56 PM ET: WSH starter changed Zack Littell → PJ Poulin (LHP); lineups official. HTTP 4/4 200.</div>
             </div>
             <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);flex:none;white-space:nowrap">06-23 ~5:03 PM ET</span>
-          </div>
-          <div style="display:flex;gap:13px;padding:11px var(--pad);background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:7px;align-items:flex-start">
-            <span style="width:9px;height:9px;border-radius:50%;background:var(--bad);margin-top:5px;flex:none"></span>
-            <div style="flex:1;min-width:0">
-              <div style="display:flex;align-items:baseline;gap:9px;flex-wrap:wrap">
-                <span style="font-weight:600;font-size:13px">Automated cloud — 17th Jun 23 ET pass</span>
-                <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)">RUN-20260623-1603</span>
-              </div>
-              <div style="font-size:12px;color:var(--text-dim);line-height:1.45;margin-top:2px">🔴 RED (2 reds: AI bucket P0 + ReadOut roadmap P3 blocked). accuracy.json 4th regen at ~4:01 PM ET (2026-06-23T20:01:31.747Z): Vol. 1 No. 84 · 25/24/0/1 · all 25 current. No new project Status Runs since 16th pass. DB | Personal Tasks: 3 overdue (71/46/34d). DB | Action Items: 1 OD active (QualOS visual gate, Jun 19, 4d OD). HTTP 4/4 200. Final: 🔴 RED.</div>
-            </div>
-            <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);flex:none;white-space:nowrap">06-23 ~4:03 PM ET</span>
           </div>
       </div>
     </div>
@@ -1165,19 +1175,19 @@
           <span style="width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none"></span>
           <span style="flex:1;min-width:0;font-size:12.5px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">DB | Status Runs (All Runs)</span>
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);width:130px;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">notion-query</span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">live-queried ~6:03 PM ET Jun 23 · no new project runs since 19th pass (latest project: RUN-20260623-READOUT-ROADMAP-P3-BLOCKED 🔴) · 2 reds open</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">live-queried ~7:06 PM ET Jun 23 · newest project run: RUN-20260623-1904-READOUT-PUSHED-CLEAN-QUIT 🟡 YELLOW (~7:04 PM ET) · prior: RUN-20260623-1816-GARDENOS-OPENWORLD 🟡 (~6:16 PM ET) · 1 red open (AI P0 only)</span>
         </div>
         <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border)">
           <span style="width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none"></span>
           <span style="flex:1;min-width:0;font-size:12.5px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">DB | Action Items (Tier 1)</span>
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);width:130px;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">notion-query</span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">live-queried ~6:03 PM ET Jun 23 · 1 overdue active (QualOS visual gate, Jun 19, 4d OD) · 100+ active (has_more=true; 6 ReadOut Waiting items confirmed — espeak-ng + 5 packaging tasks)</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">live-queried ~7:06 PM ET Jun 23 · 1 overdue active (QualOS visual gate, Jun 19, 4d OD, Medium) · 100+ active (has_more=true; 9 ReadOut Waiting items — 3 new at ~6:17 PM ET: sign-off gate + pkg rows + smoke worksheet)</span>
         </div>
         <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border)">
           <span style="width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none"></span>
           <span style="flex:1;min-width:0;font-size:12.5px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">DB | Personal Tasks (Tier 2)</span>
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);width:130px;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">view query</span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">live-queried ~6:03 PM ET Jun 23 · 3 overdue (71/46/34d — CR1000A Apr 13, Dominic May 8, Laptops May 20)</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">live-queried ~7:06 PM ET Jun 23 · 3 overdue (71/46/34d — CR1000A Apr 13, Dominic May 8, Laptops May 20)</span>
         </div>
         <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border)">
           <span style="width:8px;height:8px;border-radius:50%;background:var(--warn);flex:none"></span>
@@ -1213,7 +1223,7 @@
           <span style="width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none"></span>
           <span style="flex:1;min-width:0;font-size:12.5px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Phillies Wire accuracy.json</span>
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);width:130px;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">http check</span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">06-23 ~5:40 PM ET NEW regen (2026-06-23T21:40:12.807Z · Vol. 1 No. 84 · 25/24/0/1 · all 25 current · 6th pipeline regen today · WSH starter PJ Poulin LHP [confirmed] · ATL 48-29 L2 · PHI 42-36 L1 GB 6.5) · confirmed healthy</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">06-23 ~6:42 PM ET NEW regen (2026-06-23T22:42:10.346Z · Vol. 1 No. 84 · 25/24/0/1 · all 25 current · 7th pipeline regen today · Game 2 LIVE: Bottom 2nd 0-0 · ATL 48-29 L2 · PHI 42-36 L1 GB 6.5) · confirmed healthy</span>
         </div>
         <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border)">
           <span style="width:8px;height:8px;border-radius:50%;background:var(--idle);flex:none"></span>
@@ -1261,7 +1271,7 @@ Git: read latest Mac evidence in 90-governance/docs/. Deploys: HTTP-check live s
 pull real counts from accuracy.json — never quote stale numbers. Record every change in
 meta.thisPass + the deltas[] array (the "This pass" banner), then open the file.</span><button id="cc-copy" style="position:absolute;top:10px;right:10px;padding:5px 12px;border-radius:7px;border:1px solid var(--border2);background:var(--surface);color:var(--text);font-size:11px;font-weight:600;cursor:pointer;font-family:'IBM Plex Sans',sans-serif">Copy</button></div>
     </div>
-    <div style="text-align:center;margin-top:26px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute)">Snapshot re-reconciled 2026-06-23 ~6:03 PM ET · 19th automated cloud pass of Jun 23 · built by Claude Code</div>
+    <div style="text-align:center;margin-top:26px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute)">Snapshot re-reconciled 2026-06-23 ~7:06 PM ET · 20th automated cloud pass of Jun 23 · built by Claude Code</div>
   </section>
 
 </div>
