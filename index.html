@@ -133,7 +133,7 @@
         </a>
         <a href="#next" style="display:inline-flex;align-items:center;gap:7px;padding:5px 12px;border-radius:999px;background:var(--surface);border:1px solid var(--border);font-size:12.5px;font-weight:500;text-decoration:none;color:var(--text-dim)">
           <span>Next</span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute)">17</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute)">18</span>
         </a>
         <a href="#skills" style="display:inline-flex;align-items:center;gap:7px;padding:5px 12px;border-radius:999px;background:var(--surface);border:1px solid var(--border);font-size:12.5px;font-weight:500;text-decoration:none;color:var(--text-dim)">
           <span>Skills</span>
@@ -154,45 +154,52 @@
   <section id="overview" style="max-width:1280px;margin:0 auto;padding:26px 24px 0">
     <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:13px;flex-wrap:wrap">
       <h2 style="margin:0;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-mute)">This pass · changed since last run</h2>
-      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-dim)">RUN-20260622-2203 · 23rd Jun 22 ET pass · ~10:03 PM ET</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-dim)">RUN-20260622-2303 · 24th Jun 22 ET pass · ~11:03 PM ET</span>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:var(--gap)">
+      <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--ok);border-radius:var(--radius);padding:var(--pad)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ok);background:var(--ok-bg);padding:2px 7px;border-radius:5px;white-space:nowrap;flex:none">Delta 1</span>
+          <span style="font-weight:600;font-size:14.5px">NEW: Garden OS Phase 6-8 🟢 GREEN (RUN-20260622-2119 ~9:19 PM ET) — missed by 23rd pass (Notion unreachable)</span>
+        </div>
+        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">Notion LIVE this pass — discovered NEW: RUN-20260622-2119-GARDENOS-PHASES 🟢 GREEN (~9:19 PM ET Jun 22): Garden OS Phase 6 to Phase 8 implemented, smoke verified, pushed to main, deployed by GitHub Pages. Evidence: commit 6b5431c on main; Pages run 27996434066 success; live planner APP_VERSION 4.6, reasoned-export-1.0.0, payload.reasonedExport; live schema has reasonedExport/ReasonedExport. Target: davehomeassist.github.io/garden-os/. Run last edited ~10:35 PM ET Jun 22. This run was created at 01:19:48Z Jun 23 and was missed by the 23rd pass when Notion was unreachable.</div>
+      </div>
       <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--info);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--info);background:var(--info-bg);padding:2px 7px;border-radius:5px;white-space:nowrap;flex:none">Delta 1</span>
-          <span style="font-weight:600;font-size:14.5px">accuracy.json NEW 14th regen ~9:17 PM ET (01:17:07Z Jun 23) — stable 25/24/0/1 · Vol. 1 No. 83</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--info);background:var(--info-bg);padding:2px 7px;border-radius:5px;white-space:nowrap;flex:none">Delta 2</span>
+          <span style="font-weight:600;font-size:14.5px">accuracy.json NEW 15th regen ~10:21 PM ET Jun 22 (02:21:13Z Jun 23) — 25/24/0/1 stable · masthead updated</span>
         </div>
-        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">accuracy.json re-fetched ~10:03 PM ET: NEW 14th regen at 2026-06-23T01:17:07.432Z (~9:17 PM ET Jun 22) — was 13th regen at 00:14:00.273Z (~8:14 PM ET). Counts stable: 25 total, 24 accurate, 0 inaccurate, 1 unverifiable, all 25 current. Vol. 1 No. 83. Masthead claim: 'Updated Jun 22, 2026, 9:17 PM ET' verified accurate. HTTP 4/4 200.</div>
-      </div>
-      <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--warn);border-radius:var(--radius);padding:var(--pad)">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--warn);background:var(--warn-bg);padding:2px 7px;border-radius:5px;white-space:nowrap;flex:none">Delta 2</span>
-          <span style="font-weight:600;font-size:14.5px">Notion connector UNREACHABLE this pass — all Notion sources carried from 22nd pass (~9:04 PM ET)</span>
-        </div>
-        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">The Notion MCP server failed to connect this pass. DB | Personal Tasks, DB | Action Items, DB | Status Runs, DB | Projects, and all other Notion sources could NOT be re-queried live. Values carried forward from RUN-20260622-2104 (~9:04 PM ET): 3 overdue tasks (70/45/33d — now +1h, likely still 70/45/33d), 1 Tier-1 overdue (QualOS gate, Jun 19), 2 reds (Davai + AI bucket P0). Status Run NOT logged to Notion this pass (connector down). Light held RED (cannot clear reds without Notion verify).</div>
+        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">accuracy.json re-fetched ~11:03 PM ET: NEW 15th regen at 2026-06-23T02:21:13.859Z (~10:21 PM ET Jun 22) — was 14th regen at 01:17:07.432Z (~9:17 PM ET). Counts stable: 25 total, 24 accurate, 0 inaccurate, 1 unverifiable, all 25 current. Vol. 1 No. 83. Masthead now reads 'Updated Jun 22, 2026, 10:21 PM ET' — verified accurate. HTTP 4/4 200.</div>
       </div>
       <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--info);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--info);background:var(--info-bg);padding:2px 7px;border-radius:5px;white-space:nowrap;flex:none">Delta 3</span>
-          <span style="font-weight:600;font-size:14.5px">PHI @WSH LIVE ~10:03 PM ET (~3h 18min in) — Tim Mayza (PHI) vs Foster Griffin (WSH) · no cloud score</span>
+          <span style="font-weight:600;font-size:14.5px">PHI @WSH Game 1 of 4 — likely FINAL by ~11 PM ET (~4h 18min since first pitch) · no cloud score</span>
         </div>
-        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">Game 1 of 4 at Nationals Park started 6:45 PM ET. At ~10:03 PM ET (~3h 18min in) the game is in progress but no live score is available from the cloud sandbox — check MLB.com, Nationals.TV, or WJFK 106.7. PHI 42-35 W2 (6.5 GB vs ATL 48-28). No new project Status Runs confirmed (Notion unreachable this pass; last verified run RUN-20260622-1946 🟢 ~7:51 PM ET).</div>
+        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">Game 1 of 4 at Nationals Park started 6:45 PM ET. At ~11:03 PM ET (~4h 18min in) the game has almost certainly concluded — check MLB.com, Nationals.TV, or WJFK 106.7 for final score. PHI 42-35 W2 (6.5 GB vs ATL 48-28). Next: Tue Jun 23 6:45 PM ET (Luzardo 4.20 ERA 6-4 vs Zack Littell @WSH).</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--ok);border-radius:var(--radius);padding:var(--pad)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ok);background:var(--ok-bg);padding:2px 7px;border-radius:5px;white-space:nowrap;flex:none">Delta 4</span>
+          <span style="font-weight:600;font-size:14.5px">Notion LIVE this pass — all sources re-queried · 3 overdue confirmed · Garden OS NEW run surfaced</span>
+        </div>
+        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">DB | Personal Tasks, DB | Action Items (Tier 1), DB | Status Runs all live-queried this pass. Confirmed: 3 Tier-2 overdue tasks (70/45/33d — still Jun 22 ET). 1 Tier-1 overdue Action Item (QualOS visual gate, Jun 19, 3d, Priority Medium). Active Command Queue: 109 total active items. Newest project Status Run: RUN-20260622-2119-GARDENOS-PHASES 🟢 GREEN (~9:19 PM ET Jun 22). 2 reds still open (Davai + AI bucket P0).</div>
       </div>
       <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--info);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--info);background:var(--info-bg);padding:2px 7px;border-radius:5px;white-space:nowrap;flex:none">Delta 4</span>
-          <span style="font-weight:600;font-size:14.5px">23rd automated cloud pass of Jun 22 — local sources NOT refreshed · Notion unreachable · 2 reds carried</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--info);background:var(--info-bg);padding:2px 7px;border-radius:5px;white-space:nowrap;flex:none">Delta 5</span>
+          <span style="font-weight:600;font-size:14.5px">24th automated cloud pass of Jun 22 — local sources NOT refreshed · DB | Projects carried</span>
         </div>
-        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">Davai memory (~30d stale) and Mac-wide git scan (~150h+ stale, last 06-17 08:43 ET) are local Mac only and cannot be refreshed from the cloud. Notion MCP connector also unreachable this pass — no live DB queries possible. All Notion-based data carried from 22nd pass. 2 reds still carried (Davai + AI bucket P0). HTTP deploys 4/4 200.</div>
+        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">Davai memory (~30d stale) and Mac-wide git scan (~150h+ stale, last 06-17 08:43 ET) are local Mac only and cannot be refreshed from the cloud. DB | Projects last queried 06-17 (carried). HTTP deploys 4/4 200. Both repos published this pass.</div>
       </div>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:var(--gap);margin-top:var(--gap)">
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:baseline;gap:8px">
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:600;color:var(--info);line-height:1">23</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:600;color:var(--info);line-height:1">24</span>
         </div>
         <div style="font-size:12.5px;font-weight:600;margin-top:7px">Cloud passes today</div>
-        <div style="font-size:11.5px;color:var(--text-mute);font-family:'IBM Plex Mono',monospace;margin-top:2px">~10:03 PM ET</div>
+        <div style="font-size:11.5px;color:var(--text-mute);font-family:'IBM Plex Mono',monospace;margin-top:2px">~11:03 PM ET</div>
       </div>
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:baseline;gap:8px">
@@ -337,7 +344,7 @@
     <div style="display:flex;align-items:center;gap:12px;margin-bottom:6px">
       <div style="width:32px;height:32px;border-radius:9px;background:var(--accent-bg);display:grid;place-items:center;font-size:16px;border:1px solid var(--border)">🤖</div>
       <h2 style="margin:0;font-size:19px;font-weight:600;letter-spacing:-.01em">Active agent sessions</h2>
-      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-mute)">12</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-mute)">13</span>
       <a href="https://app.notion.com/p/382255fc8f4480a59241cb1ab6fce4cb" target="_blank" style="margin-left:auto;font-size:12px;color:var(--text-mute);text-decoration:none;font-family:'IBM Plex Mono',monospace">Notes @Today ↗</a>
     </div>
     <div style="font-size:12px;color:var(--text-mute);margin-bottom:16px">Notes @Today owns visible lanes · Status Runs verifies the traffic light · LLM Notes owns durable handoff.</div>
@@ -345,6 +352,16 @@
       <div>
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:11px"><span style="font-size:15px">🧠</span><span style="font-weight:600;font-size:14px">Codex</span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute);background:var(--surface2);padding:1px 7px;border-radius:5px">lane</span></div>
         <div style="display:flex;flex-direction:column;gap:var(--gap)">
+            <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+              <div style="display:flex;align-items:center;gap:9px;margin-bottom:8px">
+                <span style="width:9px;height:9px;border-radius:50%;background:var(--ok);flex:none"></span>
+                <span style="font-weight:600;font-size:14px;flex:1">Garden OS — Phase 6-8 deployed</span>
+                <span style="font-size:10.5px;font-weight:600;color:var(--ok);background:var(--ok-bg);padding:2px 8px;border-radius:5px;text-transform:uppercase;letter-spacing:.04em">On track</span>
+              </div>
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--accent);margin-bottom:6px">PRJ | Garden OS</div>
+              <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5;margin-bottom:8px">RUN-20260622-2119-GARDENOS-PHASES 🟢 GREEN (~9:19 PM ET Jun 22): Phase 6 to Phase 8 implemented, smoke verified, pushed to main, deployed by GitHub Pages. Commit 6b5431c; Pages run 27996434066 success; live planner APP_VERSION 4.6, reasoned-export-1.0.0, payload.reasonedExport; live schema has reasonedExport/ReasonedExport. Target: davehomeassist.github.io/garden-os/.</div>
+              <div style="font-size:12.5px;line-height:1.5;padding-top:8px;border-top:1px solid var(--border)"><span style="color:var(--text-mute);font-weight:600">Next · </span><span style="color:var(--text-dim)">Monitor next daily regen. Phase 9+ TBD. Two Action Items still open in Active Queue: 'Commit current worktree for planner phase 6' + 'Commit or restore 35 deleted sprite files' — may be stale post-deploy.</span></div>
+            </div>
             <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
               <div style="display:flex;align-items:center;gap:9px;margin-bottom:8px">
                 <span style="width:9px;height:9px;border-radius:50%;background:var(--warn);flex:none"></span>
@@ -597,9 +614,9 @@
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:var(--gap)">
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px"><span style="font-size:16px">⚾</span><span style="font-weight:600;font-size:14px">Game day</span><span style="font-size:10px;font-weight:600;color:var(--ok);background:var(--ok-bg);padding:2px 7px;border-radius:5px;text-transform:uppercase;letter-spacing:.04em">live</span></div>
-        <div style="font-weight:600;font-size:15px;margin-bottom:5px">PHI @WSH · LIVE · Game 1 of 4 · Mon Jun 22 (started 6:45 PM ET)</div>
-        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.55"><b style="color:var(--ok)">LIVE: PHI @WSH · Game 1 of 4 · Mon Jun 22 · started 6:45 PM ET (~10:03 PM ET, ~3h 18min in · Nationals.TV · MLB.TV · WJFK 106.7)</b> — Tim Mayza (PHI LHP) vs Foster Griffin (WSH LHP). No live score from cloud sandbox — check MLB.com. Coming off: <b style="color:var(--ok)">PHI wins NYM series 2-1 (W2)</b> — Game 3 FINAL PHI 6, NYM 2 · Record 42-35 · NL East 2nd (6.5 GB vs ATL 48-28). Phillies Wire <span style="font-family:'IBM Plex Mono',monospace;color:var(--accent)">Vol. 1 No. 83</span> — accuracy.json 14th regen ~9:17 PM ET Jun 22: 25 claims · 24 accurate · 0 inaccurate · 1 unverifiable · all 25 current.</div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px"><span style="font-size:16px">⚾</span><span style="font-weight:600;font-size:14px">Game day</span></div>
+        <div style="font-weight:600;font-size:15px;margin-bottom:5px">PHI @WSH · Game 1 of 4 · Mon Jun 22 · FINAL (likely — ~4h 18min)</div>
+        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.55"><b style="color:var(--warn)">PHI @WSH · Game 1 of 4 · Mon Jun 22 · LIKELY FINAL (~11:03 PM ET, ~4h 18min since 6:45 PM ET first pitch)</b> — check MLB.com / Nationals.TV / WJFK 106.7 for final score. Tim Mayza (PHI LHP) vs Foster Griffin (WSH LHP). Coming off: <b style="color:var(--ok)">PHI wins NYM series 2-1 (W2)</b> — record 42-35 · NL East 2nd (6.5 GB vs ATL 48-28). Phillies Wire <span style="font-family:'IBM Plex Mono',monospace;color:var(--accent)">Vol. 1 No. 83</span> — accuracy.json 15th regen ~10:21 PM ET Jun 22: 25 claims · 24 accurate · 0 inaccurate · 1 unverifiable · all 25 current.</div>
         <div style="margin-top:10px;display:flex;gap:14px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute)">
           <span>Tue Jun 23 · @WSH · Luzardo (4.20 ERA 6-4) vs Zack Littell 6:45 PM ET</span><span>Wed Jun 24 · @WSH · Nola (5.71 ERA 3-4) vs Miles Mikolas 6:45 PM ET</span><span>Thu Jun 25 · @WSH · Sánchez (1.80 ERA 9-3) vs Cade Cavalli 6:45 PM ET</span>
         </div>
@@ -826,7 +843,7 @@
             <span style="width:9px;height:9px;border-radius:50%;background:var(--ok);flex:none"></span>
             <span style="font-size:13px;font-weight:500;flex:1;min-width:0">🪴 Garden OS daily self-improve</span>
             <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute);width:72px">daily 9am</span>
-            <span style="font-size:11.5px;color:var(--text-dim);flex:1;min-width:0;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">fired 06-17 · body thin</span>
+            <span style="font-size:11.5px;color:var(--text-dim);flex:1;min-width:0;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Phase 6-8 🟢 SHIPPED (RUN-20260622-2119 ~9:19 PM ET) — commit 6b5431c; APP_VERSION 4.6; reasoned-export-1.0.0 live</span>
           </div>
           <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)">
             <span style="width:9px;height:9px;border-radius:50%;background:var(--warn);flex:none"></span>
@@ -906,10 +923,10 @@
     <div style="display:flex;align-items:center;gap:12px;margin-bottom:6px">
       <div style="width:32px;height:32px;border-radius:9px;background:var(--accent-bg);display:grid;place-items:center;font-size:16px;border:1px solid var(--border)">✅</div>
       <h2 style="margin:0;font-size:19px;font-weight:600;letter-spacing:-.01em">Next steps &amp; open decisions</h2>
-      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-mute)">17</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-mute)">18</span>
       <a href="https://app.notion.com/p/37d102824c7b46e7862f2639a228f292" target="_blank" style="margin-left:auto;font-size:12px;color:var(--text-mute);text-decoration:none;font-family:'IBM Plex Mono',monospace">Action Items ↗</a>
     </div>
-    <div style="font-size:12px;color:var(--text-mute);margin-bottom:16px">DB | Action Items (Tier 1) carried from 22nd pass ~9:04 PM ET Jun 22 (Notion unreachable this pass) · <b style="color:var(--text-dim)">1 overdue active row</b> (Quality OS visual gate, due Jun 19, 3d overdue).</div>
+    <div style="font-size:12px;color:var(--text-mute);margin-bottom:16px">DB | Action Items (Tier 1) live-queried ~11:03 PM ET Jun 22 · <b style="color:var(--text-dim)">1 overdue active row</b> (Quality OS visual gate, due Jun 19, 3d overdue, Priority Medium) · 109 total active items in Active Command Queue.</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:var(--gap)">
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
@@ -931,6 +948,13 @@
           <span style="font-weight:600;font-size:13.5px">ReadOut — Phase 1 cleanup SHIPPED 🟢 GREEN (RUN-20260622-1946 ~7:51 PM ET) · Phase 3 also green</span>
         </div>
         <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5">RUN-20260622-1946 🟢 GREEN (~7:51 PM ET): Phase 1 cleanup — browser engine UI removed, PATCH /config validates against registry (HTTP 400 on unknown). c158728 pushed; CI 27986807122 green; pytest 58/0. RUN-20260622-0226 🟢 (~2:27 AM ET): Phase 3 — engines/ package + registry, OpenAI/EL shims, /voices catalogue, registry-driven UI. Open: stray git ref refs/remotes/origin/main 2 (Dave to delete). github.com/DaveHomeAssist/readout</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none"></span>
+          <span style="font-weight:600;font-size:13.5px">Garden OS — Phase 6-8 DEPLOYED 🟢 GREEN (RUN-20260622-2119 ~9:19 PM ET Jun 22)</span>
+        </div>
+        <div style="font-size:12.5px;color:var(--text-dim);line-height:1.5">RUN-20260622-2119-GARDENOS-PHASES 🟢 GREEN (~9:19 PM ET Jun 22): Phase 6 to Phase 8 implemented, smoke verified, pushed to main by GitHub Pages. Evidence: commit 6b5431c; Pages run 27996434066 success; live planner APP_VERSION 4.6, reasoned-export-1.0.0, payload.reasonedExport. Target: davehomeassist.github.io/garden-os/. Note: 2 open Action Items in Active Queue may be stale post-deploy (worktree commit + sprite files).</div>
       </div>
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
@@ -1034,6 +1058,28 @@
     <div style="margin-top:26px">
       <div style="font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-mute);margin-bottom:13px">🚦 Status runs · DB confirmed · newest first</div>
       <div style="display:flex;flex-direction:column;gap:1px">
+          <div style="display:flex;gap:13px;padding:11px var(--pad);background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:7px;align-items:flex-start">
+            <span style="width:9px;height:9px;border-radius:50%;background:var(--bad);margin-top:5px;flex:none"></span>
+            <div style="flex:1;min-width:0">
+              <div style="display:flex;align-items:baseline;gap:9px;flex-wrap:wrap">
+                <span style="font-weight:600;font-size:13px">Automated cloud — 24th Jun 22 ET pass (Notion LIVE)</span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)">RUN-20260622-2303</span>
+              </div>
+              <div style="font-size:12px;color:var(--text-dim);line-height:1.45;margin-top:2px">🔴 RED (2 reds carried: Davai + AI bucket P0). Notion LIVE this pass — all sources re-queried. NEW: Garden OS Phase 6-8 🟢 GREEN (RUN-20260622-2119-GARDENOS-PHASES ~9:19 PM ET, missed by 23rd pass when Notion was down). NEW: accuracy.json 15th regen ~10:21 PM ET Jun 22 (02:21:13.859Z Jun 23; 25/24/0/1 stable · all 25 current · masthead 'Updated Jun 22, 2026, 10:21 PM ET'). PHI @WSH Game 1 of 4 likely FINAL by ~11 PM ET (~4h 18min; no cloud score — check MLB.com). PHI 42-35 W2 6.5 GB vs ATL 48-28. Tasks 70/45/33d (confirmed Jun 22). QualOS OD 3d (confirmed Jun 22; Priority Medium). Active Command Queue: 109 items. 2 reds: Davai + AI bucket P0 (🙋 Dave: revoke + rotate Notion token). HTTP 4/4 200. Both repos published.</div>
+            </div>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);flex:none;white-space:nowrap">06-22 ~11:03 PM ET</span>
+          </div>
+          <div style="display:flex;gap:13px;padding:11px var(--pad);background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:7px;align-items:flex-start">
+            <span style="width:9px;height:9px;border-radius:50%;background:var(--ok);margin-top:5px;flex:none"></span>
+            <div style="flex:1;min-width:0">
+              <div style="display:flex;align-items:baseline;gap:9px;flex-wrap:wrap">
+                <span style="font-weight:600;font-size:13px">Garden OS — Phase 6 to Phase 8 deployed and smoke verified 🟢 GREEN</span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)">RUN-20260622-2119-GARDENOS-PHASES</span>
+              </div>
+              <div style="font-size:12px;color:var(--text-dim);line-height:1.45;margin-top:2px">🟢 GREEN: Garden OS Phase 6 to Phase 8 implemented, smoke verified, pushed to main, deployed by GitHub Pages. Evidence: commit 6b5431c on main; Pages run 27996434066 success; live planner APP_VERSION 4.6, reasoned-export-1.0.0, payload.reasonedExport; live schema has reasonedExport/ReasonedExport. Target: davehomeassist.github.io/garden-os/. Thread: 🟢Garden OS --&gt; Phase 6 to Phase 8 deployed and smoke verified.</div>
+            </div>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);flex:none;white-space:nowrap">06-22 ~9:19 PM ET (last edit ~10:35 PM ET)</span>
+          </div>
           <div style="display:flex;gap:13px;padding:11px var(--pad);background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:7px;align-items:flex-start">
             <span style="width:9px;height:9px;border-radius:50%;background:var(--bad);margin-top:5px;flex:none"></span>
             <div style="flex:1;min-width:0">
@@ -1843,22 +1889,22 @@
     </div>
     <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:6px var(--pad)">
         <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border)">
-          <span style="width:8px;height:8px;border-radius:50%;background:var(--idle);flex:none"></span>
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none"></span>
           <span style="flex:1;min-width:0;font-size:12.5px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">DB | Status Runs (All Runs)</span>
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);width:130px;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">notion-query</span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">carried · Notion unreachable ~10:03 PM ET Jun 22 (last live: 22nd pass ~9:04 PM ET)</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">live-queried ~11:03 PM ET Jun 22 · newest project run: RUN-20260622-2119-GARDENOS-PHASES 🟢 ~9:19 PM ET</span>
         </div>
         <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border)">
-          <span style="width:8px;height:8px;border-radius:50%;background:var(--idle);flex:none"></span>
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none"></span>
           <span style="flex:1;min-width:0;font-size:12.5px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">DB | Action Items (Tier 1)</span>
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);width:130px;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">notion-query</span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">carried · Notion unreachable ~10:03 PM ET Jun 22 (last live: 22nd pass ~9:04 PM ET)</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">live-queried ~11:03 PM ET Jun 22 · 1 overdue active · 109 total active</span>
         </div>
         <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border)">
-          <span style="width:8px;height:8px;border-radius:50%;background:var(--idle);flex:none"></span>
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none"></span>
           <span style="flex:1;min-width:0;font-size:12.5px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">DB | Personal Tasks (Tier 2)</span>
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);width:130px;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">view query</span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">carried · Notion unreachable ~10:03 PM ET Jun 22 (last live: 22nd pass ~9:04 PM ET)</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">live-queried ~11:03 PM ET Jun 22 · 3 overdue (70/45/33d)</span>
         </div>
         <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border)">
           <span style="width:8px;height:8px;border-radius:50%;background:var(--warn);flex:none"></span>
@@ -1894,7 +1940,7 @@
           <span style="width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none"></span>
           <span style="flex:1;min-width:0;font-size:12.5px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Phillies Wire accuracy.json</span>
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);width:130px;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">http check</span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">06-22 ~10:03 PM ET (14th regen ~9:17 PM ET Jun 22 · 25/24/0/1 stable · all 25 current · Vol. 1 No. 83 · PHI @WSH LIVE ~10:03 PM ET · /dashboard/accuracy/accuracy.json; NEW regen since 22nd pass)</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">06-22 ~11:03 PM ET (15th regen ~10:21 PM ET Jun 22 · 25/24/0/1 stable · all 25 current · Vol. 1 No. 83 · /dashboard/accuracy/accuracy.json; NEW regen since 23rd pass)</span>
         </div>
         <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border)">
           <span style="width:8px;height:8px;border-radius:50%;background:var(--idle);flex:none"></span>
@@ -1942,7 +1988,7 @@ Git: read latest Mac evidence in 90-governance/docs/. Deploys: HTTP-check live s
 pull real counts from accuracy.json — never quote stale numbers. Record every change in
 meta.thisPass + the deltas[] array (the "This pass" banner), then open the file.</span><button id="cc-copy" style="position:absolute;top:10px;right:10px;padding:5px 12px;border-radius:7px;border:1px solid var(--border2);background:var(--surface);color:var(--text);font-size:11px;font-weight:600;cursor:pointer;font-family:'IBM Plex Sans',sans-serif">Copy</button></div>
     </div>
-    <div style="text-align:center;margin-top:26px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute)">Snapshot re-reconciled 2026-06-22 ~10:03 PM ET · 23rd automated cloud pass of Jun 22 · built by Claude Code</div>
+    <div style="text-align:center;margin-top:26px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute)">Snapshot re-reconciled 2026-06-22 ~11:03 PM ET · 24th automated cloud pass of Jun 22 · built by Claude Code</div>
   </section>
 
 </div>
