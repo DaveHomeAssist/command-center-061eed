@@ -1,0 +1,22 @@
+      function toggle(e){if(e&&e.target&&e.target.closest('a,button,[data-cc-theme],[data-cc-density]'))return;state[key]=!state[key];save();apply();syncBtn();}
+      header.addEventListener('click',toggle);
+      header.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle();}});
+      appliers[key]=apply; apply();
+    });
+    function anyOpen(){return keys.some(function(k){return !state[k];});}
+    function setAll(collapsed){keys.forEach(function(k){state[k]=collapsed;});save();keys.forEach(function(k){appliers[k]();});syncBtn();}
+    var btn=document.getElementById('cc-collapse-all');
+    function syncBtn(){if(!btn)return;var open=anyOpen();btn.textContent=open?'⊟':'⊞';btn.title=(open?'Collapse all sections':'Expand all sections')+' (Cmd/Ctrl + Alt + T)';}
+    if(btn)btn.addEventListener('click',function(){setAll(anyOpen());});
+    syncBtn();
+    // Notion-style: Cmd/Ctrl + Alt + T toggles all sections open/closed
+    window.addEventListener('keydown',function(e){
+      if((e.metaKey||e.ctrlKey)&&e.altKey&&(e.code==='KeyT'||e.key==='t'||e.key==='T'||e.key==='†')){e.preventDefault();setAll(anyOpen());}
+    });
+    function reveal(id){if(id&&state[id]){state[id]=false;save();if(appliers[id])appliers[id]();syncBtn();}}
+    window.addEventListener('hashchange',function(){reveal((location.hash||'').slice(1));});
+    if(location.hash)reveal(location.hash.slice(1));
+  })();
+</script>
+</body>
+</html>
