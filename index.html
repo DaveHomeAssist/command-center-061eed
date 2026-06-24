@@ -154,34 +154,34 @@
   <section id="overview" style="max-width:1280px;margin:0 auto;padding:26px 24px 0">
     <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:13px;flex-wrap:wrap">
       <h2 style="margin:0;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-mute)">This pass · changed since last run</h2>
-      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-dim)">RUN-20260624-0203 · 3rd Jun 24 ET pass · ~2:03 AM ET</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-dim)">RUN-20260624-0305 · 4th Jun 24 ET pass · ~3:05 AM ET</span>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:var(--gap)">
       <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--info);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--info);background:var(--info-bg);padding:2px 7px;border-radius:5px;white-space:nowrap;flex:none">Delta 1</span>
-          <span style="font-weight:600;font-size:14.5px">3rd cloud pass of Jun 24 (~2:03 AM ET) — no state changes vs 2nd pass · all live sources re-queried</span>
+          <span style="font-weight:600;font-size:14.5px">4th cloud pass of Jun 24 (~3:05 AM ET) · Action queue: 109 confirmed exact · all live sources re-queried</span>
         </div>
-        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">All hard-truth DBs re-queried at ~2:03 AM ET Jun 24: Personal Tasks 3 OD (72/47/35d) unchanged; Action Items 1 OD active (QualOS 5d OD), 100+ queue (has_more=true), 0 Waiting; HTTP 5/5 200; Phillies Wire main page Vol. 1 No. 85 LIVE; accuracy.json STILL Vol. 1 No. 78 (Jun 17, stale). Status Runs: RUN-20260624-0107 confirmed in Notion. No new project runs since RUN-20260624-0042-READOUT-GREEN 🟢. Light: 🔴 RED (AI P0 only, unchanged).</div>
+        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">All hard-truth DBs re-queried at ~3:05 AM ET Jun 24: Personal Tasks 3 OD (72/47/35d) unchanged; Action Items 1 OD active (QualOS 5d OD), 109 active exact count confirmed via SQL (was 100+ has_more=true last pass), 0 Waiting; HTTP 4/4 200; Phillies Wire main page Vol. 1 No. 85 LIVE; accuracy.json STILL Vol. 1 No. 78 (Jun 17, stale). Status Runs: RUN-20260624-0203 confirmed in Notion. No new project runs since RUN-20260624-0042-READOUT-GREEN 🟢. Light: 🔴 RED (AI P0 only, unchanged).</div>
       </div>
       <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--ok);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ok);background:var(--ok-bg);padding:2px 7px;border-radius:5px;white-space:nowrap;flex:none">Delta 2</span>
-          <span style="font-weight:600;font-size:14.5px">Active Command Queue: 100+ items (has_more=true) · 0 Waiting confirmed · QualOS 5d OD sole active overdue</span>
+          <span style="font-weight:600;font-size:14.5px">Active Command Queue: 109 items (exact SQL count) · 0 Waiting confirmed · QualOS 5d OD sole active overdue</span>
         </div>
-        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">Action Items re-queried ~2:03 AM ET Jun 24: Active Command Queue page cap 100 returned with has_more=true (100+ total items). 0 Waiting items confirmed — ReadOut fully cleared (RUN-20260624-0042-READOUT-GREEN 🟢 ALL GATES PASSED at 329095b). Overdue Active: 1 item only — QualOS visual gate (due Jun 19, 5d OD, Medium, To Do — blocked on authenticated HA screenshots).</div>
+        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">Action Items re-queried ~3:05 AM ET Jun 24 via direct SQL: 109 active items confirmed (exact count — was 100+ has_more=true via page view last pass). 0 Waiting items confirmed — ReadOut fully cleared (RUN-20260624-0042-READOUT-GREEN 🟢 ALL GATES PASSED at 329095b). Overdue Active: 1 item only — QualOS visual gate (due Jun 19, 5d OD, Medium, To Do — blocked on authenticated HA screenshots).</div>
       </div>
       <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--warn);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--warn);background:var(--warn-bg);padding:2px 7px;border-radius:5px;white-space:nowrap;flex:none">Delta 3</span>
           <span style="font-weight:600;font-size:14.5px">Phillies Wire: Vol. 1 No. 85 LIVE on main · accuracy.json dashboard path STILL stale (No. 78, Jun 17) · Game 3 TONIGHT 6:45 PM ET</span>
         </div>
-        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">Confirmed ~2:03 AM ET: davehomeassist.github.io/phillies-wire/ shows Vol. 1 No. 85 (Jun 24 pregame edition, HTTP 200). accuracy.json dashboard path returns Vol. 1 No. 78 (Jun 17, generated_at 2026-06-17T18:15:02.965Z) — persistent regression, no regen since last pass. Game 3 TONIGHT Jun 24: Nola (PHI) vs Miles Mikolas (WSH) 6:45 PM ET @Nationals Park. PHI 43-36 W1, ATL 48-29, ~6 GB.</div>
+        <div style="font-size:13px;color:var(--text-dim);line-height:1.5">Confirmed ~3:05 AM ET: davehomeassist.github.io/phillies-wire/ shows Vol. 1 No. 85 (Jun 24 pregame edition, HTTP 200). accuracy.json dashboard path returns Vol. 1 No. 78 (Jun 17, generated_at 2026-06-17T18:15:02.965Z) — persistent regression, no regen since last pass. Game 3 TONIGHT Jun 24: Nola (PHI) vs Miles Mikolas (WSH) 6:45 PM ET @Nationals Park. PHI 43-36 W1, ATL 48-29, ~6 GB.</div>
       </div>
       <div style="background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--idle);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-mute);background:var(--idle-bg);padding:2px 7px;border-radius:5px;white-space:nowrap;flex:none">Delta 4</span>
-          <span style="font-weight:600;font-size:14.5px">3rd cloud pass of Jun 24 — local sources NOT refreshed · AUTOMATED CLOUD ONLY</span>
+          <span style="font-weight:600;font-size:14.5px">4th cloud pass of Jun 24 — local sources NOT refreshed · AUTOMATED CLOUD ONLY</span>
         </div>
         <div style="font-size:13px;color:var(--text-dim);line-height:1.5">Davai memory (~30d stale, last sync 2026-05-22) and Mac-wide git scan (06-17 12:43Z, ~150h+ stale) are local Mac only and cannot be refreshed from the cloud. DB | Projects carried from 06-17. This pass is AUTOMATED CLOUD ONLY — no local Mac data was refreshed.</div>
       </div>
@@ -189,10 +189,10 @@
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:var(--gap);margin-top:var(--gap)">
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:baseline;gap:8px">
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:600;color:var(--info);line-height:1">3</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:600;color:var(--info);line-height:1">4</span>
         </div>
         <div style="font-size:12.5px;font-weight:600;margin-top:7px">Cloud passes today</div>
-        <div style="font-size:11.5px;color:var(--text-mute);font-family:'IBM Plex Mono',monospace;margin-top:2px">~2:03 AM Jun 24 (3rd) · 2nd ~1:07 AM · 1st ~12:05 AM</div>
+        <div style="font-size:11.5px;color:var(--text-mute);font-family:'IBM Plex Mono',monospace;margin-top:2px">~3:05 AM Jun 24 (4th) · 3rd ~2:03 AM · 2nd ~1:07 AM</div>
       </div>
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:baseline;gap:8px">
@@ -939,7 +939,7 @@
       <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-mute)">19</span>
       <a href="https://app.notion.com/p/37d102824c7b46e7862f2639a228f292" target="_blank" style="margin-left:auto;font-size:12px;color:var(--text-mute);text-decoration:none;font-family:'IBM Plex Mono',monospace">Action Items ↗</a>
     </div>
-    <div style="font-size:12px;color:var(--text-mute);margin-bottom:16px">DB | Action Items (Tier 1) live-queried ~2:03 AM ET Jun 24 · <b style="color:var(--text-dim)">1 overdue active row</b> (Quality OS visual gate, due Jun 19, 5d OD, Priority Medium) · Active Command Queue: 100+ items (has_more=true) · <b style="color:var(--ok)">0 Waiting items (ReadOut fully cleared — RUN-20260624-0042-READOUT-GREEN 🟢 GREEN)</b></div>
+    <div style="font-size:12px;color:var(--text-mute);margin-bottom:16px">DB | Action Items (Tier 1) live-queried ~3:05 AM ET Jun 24 · <b style="color:var(--text-dim)">1 overdue active row</b> (Quality OS visual gate, due Jun 19, 5d OD, Priority Medium) · Active Command Queue: <b style="color:var(--text)">109 items (exact SQL count)</b> · <b style="color:var(--ok)">0 Waiting items (ReadOut fully cleared — RUN-20260624-0042-READOUT-GREEN 🟢 GREEN)</b></div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:var(--gap)">
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad)">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
@@ -1082,6 +1082,17 @@
             <span style="width:9px;height:9px;border-radius:50%;background:var(--bad);margin-top:5px;flex:none"></span>
             <div style="flex:1;min-width:0">
               <div style="display:flex;align-items:baseline;gap:9px;flex-wrap:wrap">
+                <span style="font-weight:600;font-size:13px">Automated cloud — 4th Jun 24 ET pass</span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)">RUN-20260624-0305</span>
+              </div>
+              <div style="font-size:12px;color:var(--text-dim);line-height:1.45;margin-top:2px">🔴 RED (1 red: AI bucket P0 only). KEY DELTA: Action queue confirmed 109 exact (was 100+ has_more=true last pass). 3 OD personal tasks (72/47/35d), 1 OD action item (QualOS 5d OD), 0 Waiting. HTTP 4/4 200. Phillies Wire: Vol. 1 No. 85 LIVE main page; accuracy.json STILL Vol. 1 No. 78 (Jun 17, stale). Game 3 TONIGHT 6:45 PM ET: Nola vs Mikolas @WSH. RUN-20260624-0203 confirmed in Notion. No new project runs. ReadOut 🟢 GREEN holds (329095b). Final: 🔴 RED.</div>
+            </div>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);flex:none;white-space:nowrap">06-24 ~3:05 AM ET</span>
+          </div>
+          <div style="display:flex;gap:13px;padding:11px var(--pad);background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:7px;align-items:flex-start">
+            <span style="width:9px;height:9px;border-radius:50%;background:var(--bad);margin-top:5px;flex:none"></span>
+            <div style="flex:1;min-width:0">
+              <div style="display:flex;align-items:baseline;gap:9px;flex-wrap:wrap">
                 <span style="font-weight:600;font-size:13px">Automated cloud — 3rd Jun 24 ET pass</span>
                 <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)">RUN-20260624-0203</span>
               </div>
@@ -1208,19 +1219,19 @@
           <span style="width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none"></span>
           <span style="flex:1;min-width:0;font-size:12.5px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">DB | Status Runs (All Runs)</span>
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);width:130px;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">notion-query</span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">live-queried ~2:03 AM ET Jun 24 · newest project run: RUN-20260624-0042-READOUT-GREEN 🟢 GREEN (ReadOut FULLY GREEN at 329095b — all gates passed) · cloud: RUN-20260624-0203 🔴 (this pass) · 1 red open (AI P0 only)</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">live-queried ~3:05 AM ET Jun 24 · newest project run: RUN-20260624-0042-READOUT-GREEN 🟢 GREEN (ReadOut FULLY GREEN at 329095b — all gates passed) · cloud: RUN-20260624-0305 🔴 (this pass) · 1 red open (AI P0 only)</span>
         </div>
         <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border)">
           <span style="width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none"></span>
           <span style="flex:1;min-width:0;font-size:12.5px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">DB | Action Items (Tier 1)</span>
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);width:130px;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">notion-query</span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">live-queried ~2:03 AM ET Jun 24 · 1 overdue active (QualOS visual gate, Jun 19, 5d OD, Medium, To Do) · 0 Waiting items (ReadOut fully cleared) · 100+ active items (has_more=true)</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">live-queried ~3:05 AM ET Jun 24 · 1 overdue active (QualOS visual gate, Jun 19, 5d OD, Medium, To Do) · 0 Waiting items (ReadOut fully cleared) · 109 active items (exact SQL count)</span>
         </div>
         <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border)">
           <span style="width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none"></span>
           <span style="flex:1;min-width:0;font-size:12.5px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">DB | Personal Tasks (Tier 2)</span>
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);width:130px;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">view query</span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">live-queried ~2:03 AM ET Jun 24 · 3 overdue (72/47/35d — CR1000A Apr 13, Dominic May 8, Laptops May 20)</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">live-queried ~3:05 AM ET Jun 24 · 3 overdue (72/47/35d — CR1000A Apr 13, Dominic May 8, Laptops May 20)</span>
         </div>
         <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border)">
           <span style="width:8px;height:8px;border-radius:50%;background:var(--warn);flex:none"></span>
@@ -1256,7 +1267,7 @@
           <span style="width:8px;height:8px;border-radius:50%;background:var(--warn);flex:none"></span>
           <span style="flex:1;min-width:0;font-size:12.5px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Phillies Wire accuracy.json</span>
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);width:130px;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">http check</span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">06-24 ~2:03 AM ET — main page: Vol. 1 No. 85 LIVE (Jun 24 pregame, HTTP 200). dashboard path STILL returns Vol. 1 No. 78 (Jun 17, generated_at 2026-06-17T18:15:02.965Z). Persistent regression — No. 85 regen pending.</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);width:96px;text-align:right">06-24 ~3:05 AM ET — main page: Vol. 1 No. 85 LIVE (Jun 24 pregame, HTTP 200). dashboard path STILL returns Vol. 1 No. 78 (Jun 17, generated_at 2026-06-17T18:15:02.965Z). Persistent regression — No. 85 regen pending.</span>
         </div>
         <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border)">
           <span style="width:8px;height:8px;border-radius:50%;background:var(--idle);flex:none"></span>
@@ -1304,7 +1315,7 @@ Git: read latest Mac evidence in 90-governance/docs/. Deploys: HTTP-check live s
 pull real counts from accuracy.json — never quote stale numbers. Record every change in
 meta.thisPass + the deltas[] array (the "This pass" banner), then open the file.</span><button id="cc-copy" style="position:absolute;top:10px;right:10px;padding:5px 12px;border-radius:7px;border:1px solid var(--border2);background:var(--surface);color:var(--text);font-size:11px;font-weight:600;cursor:pointer;font-family:'IBM Plex Sans',sans-serif">Copy</button></div>
     </div>
-    <div style="text-align:center;margin-top:26px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute)">Snapshot re-reconciled 2026-06-24 ~2:03 AM ET · 3rd automated cloud pass of Jun 24 · built by Claude Code</div>
+    <div style="text-align:center;margin-top:26px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute)">Snapshot re-reconciled 2026-06-24 ~3:05 AM ET · 4th automated cloud pass of Jun 24 · built by Claude Code</div>
   </section>
 
 </div>
