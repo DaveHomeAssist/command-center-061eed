@@ -88,6 +88,18 @@
   .cc-dmeta{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:9px}
   .cc-fresh{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute)}
   .cc-links{display:flex;gap:14px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:11.5px}
+  /* domain health badge */
+  .cc-health{display:inline-flex;align-items:center;gap:5px;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.02em;padding:1px 7px;border-radius:999px;border:1px solid var(--border);color:var(--text-mute);vertical-align:middle;margin-left:5px;white-space:nowrap}
+  .cc-health .d{width:7px;height:7px;border-radius:50%;background:currentColor;flex:none}
+  .cc-health[data-state="checking"]{color:var(--text-mute)}
+  .cc-health[data-state="checking"] .d{animation:ccp 1s ease-in-out infinite}
+  .cc-health[data-state="ok"]{color:var(--ok);background:var(--ok-bg)}
+  .cc-health[data-state="warn"]{color:var(--warn);background:var(--warn-bg)}
+  .cc-health[data-state="bad"]{color:var(--bad);background:var(--bad-bg)}
+  .cc-health[data-state="reach"]{color:var(--info);background:var(--info-bg)}
+  .cc-health[data-state="off"]{color:var(--idle);background:var(--idle-bg)}
+  .cc-recheck{padding:4px 11px;border-radius:7px;border:1px solid var(--border2);background:var(--surface);color:var(--text);font-size:11px;font-weight:600;cursor:pointer;font-family:'IBM Plex Sans',sans-serif}
+  .cc-recheck:hover{border-color:var(--accent);color:var(--accent)}
   /* blocks */
   .cc-block{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--pad);margin-bottom:var(--gap)}
   .cc-block-h{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-mute);margin-bottom:11px}
@@ -258,6 +270,13 @@
       </section><section class="cc-railgroup" data-group="Workspace">
         <button class="cc-raillabel" type="button" data-collapse aria-expanded="true"><span class="cc-chev" aria-hidden="true">▸</span><span>Workspace</span></button>
         <div class="cc-railitems">
+        <div class="cc-railitem" role="button" tabindex="0" data-target="live-surfaces" data-group="Workspace">
+          <span class="cc-drag" data-drag title="Drag to reorder" aria-hidden="true">⠿</span>
+          <span class="cc-dot" style="background:var(--info);box-shadow:0 0 0 3px var(--info-bg)"></span>
+          <span class="cc-railitem-tx"><span class="cc-railitem-n">🌐 Live Surfaces</span><span class="cc-railitem-s">Every live page in one place · client-side health check (200 / 401 / 403 / 404).</span></span>
+
+          <button class="cc-pin" data-pin type="button" title="Pin" aria-label="Pin Live Surfaces" aria-pressed="false">📌</button>
+        </div>
         <div class="cc-railitem" role="button" tabindex="0" data-target="attention" data-group="Workspace">
           <span class="cc-drag" data-drag title="Drag to reorder" aria-hidden="true">⠿</span>
           <span class="cc-dot" style="background:var(--ok);box-shadow:0 0 0 3px var(--ok-bg)"></span>
@@ -405,6 +424,23 @@ Git: read latest Mac evidence in 90-governance/docs/. Deploys: HTTP-check live s
           <div class="cc-dnext"><span>Next ·</span> Sync DB | Projects row to Green; clear 5 dep-audit vulns + Node deprecation warning.</div>
           <div class="cc-dmeta"><span class="cc-fresh">RUN-20260623-1816 🟢 · edited 06-25 07:40Z</span><span class="cc-links"><a href="https://davehomeassist.github.io/garden-os/story-mode/" target="_blank" rel="noopener">story-mode ↗</a><a href="https://github.com/DaveHomeAssist/garden-os" target="_blank" rel="noopener">repo ↗</a></span></div>
         </div>
+        <div class="cc-block"><div class="cc-block-h">📋 Profile</div><div class="cc-facets">
+        <div class="cc-facet">
+          <div class="cc-facet-l">Statement</div>
+          <div class="cc-facet-b">Open-world gardening life-sim — players travel between zones, tend beds and forage, follow a branching story with quests, and trade in a bounded in-game market. Ships with content packs, examples, and creator docs for extending the world.</div>
+        </div>
+        <div class="cc-facet">
+          <div class="cc-facet-l">Dev history</div>
+          <div class="cc-facet-b">Built in phases; open-world <b>Phases 5–8</b> are the latest milestone (world map, story mode, market). Verified green at RUN-20260623-1816 🟢 — commit <b>1cd7b76</b> on origin/main, Pages deploy 28082505637, open-world smoke 8/8, npm test 349, Playwright persistence ✓.</div>
+        </div>
+        <div class="cc-facet">
+          <div class="cc-facet-l" style="color:var(--ok)">Live features</div>
+          <div class="cc-facet-b">World-map / zone travel · beds &amp; forage with save-and-reload persistence · story log + branching quests · bounded market · content packs · examples · creator docs.</div>
+        </div>
+        <div class="cc-facet">
+          <div class="cc-facet-l" style="color:var(--info)">Live pages</div>
+          <div class="cc-facet-b"><a href="https://davehomeassist.github.io/garden-os/story-mode/" target="_blank" rel="noopener" data-health>story-mode ↗</a> &nbsp;·&nbsp; <a href="https://github.com/DaveHomeAssist/garden-os" target="_blank" rel="noopener">repo ↗</a></div>
+        </div></div></div>
         <div class="cc-block"><div class="cc-facets">
         <div class="cc-facet">
           <div class="cc-facet-l" style="color:var(--ok)">Shipped</div>
@@ -434,6 +470,23 @@ Git: read latest Mac evidence in 90-governance/docs/. Deploys: HTTP-check live s
           <div class="cc-dnext"><span>Next ·</span> Monitor; delete stray git ref refs/remotes/origin/main 2.</div>
           <div class="cc-dmeta"><span class="cc-fresh">RUN-20260624-0042 🟢 · 329095b</span><span class="cc-links"><a href="https://github.com/DaveHomeAssist/readout" target="_blank" rel="noopener">repo ↗</a></span></div>
         </div>
+        <div class="cc-block"><div class="cc-block-h">📋 Profile</div><div class="cc-facets">
+        <div class="cc-facet">
+          <div class="cc-facet-l">Statement</div>
+          <div class="cc-facet-b">Text-to-speech "read aloud" toolkit — a pluggable <code>engines/</code> package with provider shims (OpenAI, ElevenLabs) and a <code>/voices</code> catalogue, packaged as a macOS tray app.</div>
+        </div>
+        <div class="cc-facet">
+          <div class="cc-facet-l">Dev history</div>
+          <div class="cc-facet-b">Phase 1 cleanup (c158728, pytest 58/0) → Phase 3 <code>engines/</code> package + registry, provider shims, <code>/voices</code>. Architect sign-off + macOS tray package smoke cleared; RUN-20260624-0042 🟢, commit <b>329095b</b>, hosted mac job 17/17 rows PASS. All 9 ReadOut "Waiting" items resolved.</div>
+        </div>
+        <div class="cc-facet">
+          <div class="cc-facet-l" style="color:var(--ok)">Live features</div>
+          <div class="cc-facet-b">Pluggable <code>engines/</code> package + registry · OpenAI &amp; ElevenLabs shims · <code>/voices</code> catalogue · macOS tray package.</div>
+        </div>
+        <div class="cc-facet">
+          <div class="cc-facet-l" style="color:var(--info)">Live pages</div>
+          <div class="cc-facet-b">Desktop (macOS tray) app — no public web surface to health-check. &nbsp; <a href="https://github.com/DaveHomeAssist/readout" target="_blank" rel="noopener">repo ↗</a></div>
+        </div></div></div>
         <div class="cc-block"><div class="cc-facets">
         <div class="cc-facet">
           <div class="cc-facet-l" style="color:var(--ok)">Cleared</div>
@@ -463,6 +516,23 @@ Git: read latest Mac evidence in 90-governance/docs/. Deploys: HTTP-check live s
           <div class="cc-dnext"><span>Next ·</span> URGENT: accuracy.json CDN is oscillating (4 reversals today: No.78 passes 1–6/9–11/14; No.86 passes 7–8/12–13). Permanent CDN cache-bust required — temporary purges are not holding.</div>
           <div class="cc-dmeta"><span class="cc-fresh">live Jun 25 (14th pass) · acc.json No.78 (CDN oscillating, 4th reversal)</span><span class="cc-links"><a href="https://davehomeassist.github.io/phillies-wire/" target="_blank" rel="noopener">main ↗</a><a href="https://davehomeassist.github.io/phillies-wire/dashboard/accuracy/accuracy.json" target="_blank" rel="noopener">accuracy.json ↗</a></span></div>
         </div>
+        <div class="cc-block"><div class="cc-block-h">📋 Profile</div><div class="cc-facets">
+        <div class="cc-facet">
+          <div class="cc-facet-l">Statement</div>
+          <div class="cc-facet-b">Automated Philadelphia Phillies newsletter — a daily pipeline generates each edition and a fact-check pass (<code>factcheck.mjs</code>) scores every claim into <code>accuracy.json</code> (accurate / inaccurate / unverifiable).</div>
+        </div>
+        <div class="cc-facet">
+          <div class="cc-facet-l">Dev history</div>
+          <div class="cc-facet-b">Pipeline + docs at v1.6-preview (RUN-20260623-0836 🟢), npm test 18/18 (RUN-20260621-0132). Currently serving <b>Vol. 1 No. 86</b>; <code>accuracy.json</code> regenerated on each pipeline run.</div>
+        </div>
+        <div class="cc-facet">
+          <div class="cc-facet-l" style="color:var(--ok)">Live features</div>
+          <div class="cc-facet-b">Daily edition page · <code>accuracy.json</code> fact-check artifact (current edition 22/23 accurate, 0 inaccurate, 1 unverifiable).</div>
+        </div>
+        <div class="cc-facet">
+          <div class="cc-facet-l" style="color:var(--info)">Live pages</div>
+          <div class="cc-facet-b"><a href="https://davehomeassist.github.io/phillies-wire/" target="_blank" rel="noopener" data-health>main ↗</a> &nbsp;·&nbsp; <a href="https://davehomeassist.github.io/phillies-wire/dashboard/accuracy/accuracy.json" target="_blank" rel="noopener" data-health>accuracy.json ↗</a></div>
+        </div></div></div>
         <div class="cc-block"><div class="cc-facets">
         <div class="cc-facet">
           <div class="cc-facet-l" style="color:var(--idle)">Latest</div>
@@ -488,6 +558,23 @@ Git: read latest Mac evidence in 90-governance/docs/. Deploys: HTTP-check live s
           <div class="cc-dnext"><span>Next ·</span> 🙋 Dave: confirm Vercel HOSTED_ALLOWED_ANTHROPIC_MODELS env + Clerk CVE tracking call.</div>
           <div class="cc-dmeta"><span class="cc-fresh">row 06-17 · RUN-20260621-1459 🟡</span><span class="cc-links"><a href="https://app.notion.com/p/1f2255fc8f448128994df83b59539ded" target="_blank" rel="noopener">hub ↗</a></span></div>
         </div>
+        <div class="cc-block"><div class="cc-block-h">📋 Profile</div><div class="cc-facets">
+        <div class="cc-facet">
+          <div class="cc-facet-l">Statement</div>
+          <div class="cc-facet-b">Prompt-engineering web app (Vercel) — proxies Anthropic models (clamped to <code>sonnet-4-6</code>) behind Clerk auth, with a WCAG-AA UI.</div>
+        </div>
+        <div class="cc-facet">
+          <div class="cc-facet-l">Dev history</div>
+          <div class="cc-facet-b">PRs #14 (proxy clamp), #15 (favicons), #16 (CTA WCAG-AA 5.19:1) merged to main; hosted Anthropic 404 fix landed; build gate closed (0e13d8e). Last status RUN-20260621-1459 🟡.</div>
+        </div>
+        <div class="cc-facet">
+          <div class="cc-facet-l" style="color:var(--ok)">Live features</div>
+          <div class="cc-facet-b">Anthropic model proxy (<code>sonnet-4-6</code>) · Clerk auth · accessible CTAs / favicons.</div>
+        </div>
+        <div class="cc-facet">
+          <div class="cc-facet-l" style="color:var(--info)">Live pages</div>
+          <div class="cc-facet-b">Hosted on Vercel (auth-gated) — public URL not captured in the dashboard. &nbsp; <a href="https://app.notion.com/p/1f2255fc8f448128994df83b59539ded" target="_blank" rel="noopener">hub ↗</a></div>
+        </div></div></div>
         <div class="cc-block"><div class="cc-facets">
         <div class="cc-facet">
           <div class="cc-facet-l" style="color:var(--ok)">Merged</div>
@@ -513,6 +600,23 @@ Git: read latest Mac evidence in 90-governance/docs/. Deploys: HTTP-check live s
           <div class="cc-dnext"><span>Next ·</span> P3: MVR/GDTF interop, OSC bridge, multi-show registry, PWA, AI plot starter.</div>
           <div class="cc-dmeta"><span class="cc-fresh">RUN-20260623-0159 · baaeb98</span></div>
         </div>
+        <div class="cc-block"><div class="cc-block-h">📋 Profile</div><div class="cc-facets">
+        <div class="cc-facet">
+          <div class="cc-facet-l">Statement</div>
+          <div class="cc-facet-b">Theatrical lighting-design tool — build and inspect light plots with a fixture Inspector UX; roadmap adds MVR/GDTF interop, an OSC bridge, a multi-show registry, and a PWA.</div>
+        </div>
+        <div class="cc-facet">
+          <div class="cc-facet-l">Dev history</div>
+          <div class="cc-facet-b">P0+P1+P2 deployed; Inspector UX shipped (origin/main <b>baaeb98</b>, lint/build/tests ✓). P2 98a3fce, Vitest 16 files / 84 tests ✓, domain smoke 15/15, plotforge-beta returned HTTP 200.</div>
+        </div>
+        <div class="cc-facet">
+          <div class="cc-facet-l" style="color:var(--ok)">Live features</div>
+          <div class="cc-facet-b">Light-plot editor · fixture Inspector UX · P0–P2 feature set.</div>
+        </div>
+        <div class="cc-facet">
+          <div class="cc-facet-l" style="color:var(--info)">Live pages</div>
+          <div class="cc-facet-b">plotforge-beta deployment (last smoke HTTP 200) — public URL not captured in the dashboard.</div>
+        </div></div></div>
         <div class="cc-block"><div class="cc-facets">
         <div class="cc-facet">
           <div class="cc-facet-l" style="color:var(--ok)">Shipped</div>
@@ -534,6 +638,23 @@ Git: read latest Mac evidence in 90-governance/docs/. Deploys: HTTP-check live s
           <div class="cc-dnext"><span>Next ·</span> Search Console setup + FEC key verification.</div>
           <div class="cc-dmeta"><span class="cc-fresh">RUN-20260623-0140 / RUN-20260621-0130</span><span class="cc-links"><a href="https://hatinring.com" target="_blank" rel="noopener">hatinring.com ↗</a></span></div>
         </div>
+        <div class="cc-block"><div class="cc-block-h">📋 Profile</div><div class="cc-facets">
+        <div class="cc-facet">
+          <div class="cc-facet-l">Statement</div>
+          <div class="cc-facet-b">Political campaign tracker — FEC-data-driven candidate pages with a daily-regenerated syndication feed (<code>feed.xml</code>), plus a native SwiftUI iOS companion app.</div>
+        </div>
+        <div class="cc-facet">
+          <div class="cc-facet-l">Dev history</div>
+          <div class="cc-facet-b">Web P0 live (HTTP 200); daily-regen pipeline fixed RUN-20260621-0130 🟢 (candidate pages + <code>feed.xml</code> verified current); native iOS app complete + verified RUN-20260623-0140 🟢.</div>
+        </div>
+        <div class="cc-facet">
+          <div class="cc-facet-l" style="color:var(--ok)">Live features</div>
+          <div class="cc-facet-b">Candidate pages · daily-regenerated <code>feed.xml</code> · native iOS app.</div>
+        </div>
+        <div class="cc-facet">
+          <div class="cc-facet-l" style="color:var(--info)">Live pages</div>
+          <div class="cc-facet-b"><a href="https://hatinring.com" target="_blank" rel="noopener" data-health>hatinring.com ↗</a></div>
+        </div></div></div>
         <div class="cc-block"><div class="cc-facets">
         <div class="cc-facet">
           <div class="cc-facet-l" style="color:var(--ok)">Web</div>
@@ -563,6 +684,23 @@ Git: read latest Mac evidence in 90-governance/docs/. Deploys: HTTP-check live s
           <div class="cc-dnext"><span>Next ·</span> Authenticated HA screenshot capture; verify Frigate monitoring + entity wiring.</div>
           <div class="cc-dmeta"><span class="cc-fresh">Home OS row Yellow 06-17</span></div>
         </div>
+        <div class="cc-block"><div class="cc-block-h">📋 Profile</div><div class="cc-facets">
+        <div class="cc-facet">
+          <div class="cc-facet-l">Statement</div>
+          <div class="cc-facet-b">Home-automation hub — Home Assistant dashboards and routes, Frigate camera monitoring (go2rtc / ffmpeg / MQTT), and a Ring integration. Runs on local hardware.</div>
+        </div>
+        <div class="cc-facet">
+          <div class="cc-facet-l">Dev history</div>
+          <div class="cc-facet-b">Canon smoke passes <b>20 dashboards / 72 routes / 0 fail</b>. Ring auth complete; Frigate running (🟡 resolved). Quality OS visual gate still open (blocked on authenticated HA screenshots).</div>
+        </div>
+        <div class="cc-facet">
+          <div class="cc-facet-l" style="color:var(--ok)">Live features</div>
+          <div class="cc-facet-b">20 dashboards · 72 routes · Ring + Frigate camera monitoring.</div>
+        </div>
+        <div class="cc-facet">
+          <div class="cc-facet-l" style="color:var(--idle)">Live pages</div>
+          <div class="cc-facet-b">Local network only — not internet-exposed, so no public health check applies.</div>
+        </div></div></div>
         <div class="cc-block"><div class="cc-facets">
         <div class="cc-facet">
           <div class="cc-facet-l" style="color:var(--idle)">Status</div>
@@ -588,6 +726,23 @@ Git: read latest Mac evidence in 90-governance/docs/. Deploys: HTTP-check live s
           <div class="cc-dnext"><span>Next ·</span> Repo hygiene + dialog-guard cleanup.</div>
           <div class="cc-dmeta"><span class="cc-fresh">RUN-20260625-0407 🟢 · c198117</span><span class="cc-links"><a href="https://systembydave.com/teleprompter.html" target="_blank" rel="noopener">site ↗</a><a href="https://github.com/DaveHomeAssist/system-by-dave" target="_blank" rel="noopener">repo ↗</a></span></div>
         </div>
+        <div class="cc-block"><div class="cc-block-h">📋 Profile</div><div class="cc-facets">
+        <div class="cc-facet">
+          <div class="cc-facet-l">Statement</div>
+          <div class="cc-facet-b">AV / production tools site — a browser-based teleprompter (WYSIWYG rich-text editor, per-span formatting, WPM speed control) and related AV utilities.</div>
+        </div>
+        <div class="cc-facet">
+          <div class="cc-facet-l">Dev history</div>
+          <div class="cc-facet-b">Teleprompter WPM+WYSIWYG fully shipped RUN-20260625-0407 🟢 — phases 0–2 (rich-HTML model, contenteditable WYSIWYG, per-span formatting) + phase 5 (WPM speed, pinnable paces, completion bar, mousewheel live speed). Commit <b>c198117</b> on main, HTTP 200, unit tests 9/9 + 27/27 + 9/9.</div>
+        </div>
+        <div class="cc-facet">
+          <div class="cc-facet-l" style="color:var(--ok)">Live features</div>
+          <div class="cc-facet-b">Teleprompter: WYSIWYG editor · per-span formatting · WPM speed control · pinnable paces · completion bar · mousewheel live speed.</div>
+        </div>
+        <div class="cc-facet">
+          <div class="cc-facet-l" style="color:var(--info)">Live pages</div>
+          <div class="cc-facet-b"><a href="https://systembydave.com/teleprompter.html" target="_blank" rel="noopener" data-health>teleprompter ↗</a> &nbsp;·&nbsp; <a href="https://systembydave.com" target="_blank" rel="noopener" data-health>systembydave.com ↗</a> &nbsp;·&nbsp; <a href="https://github.com/DaveHomeAssist/system-by-dave" target="_blank" rel="noopener">repo ↗</a></div>
+        </div></div></div>
         <div class="cc-block"><div class="cc-facets">
         <div class="cc-facet">
           <div class="cc-facet-l" style="color:var(--ok)">Live</div>
@@ -613,6 +768,23 @@ Git: read latest Mac evidence in 90-governance/docs/. Deploys: HTTP-check live s
           <div class="cc-dnext"><span>Next ·</span> Device verification (simulator); M2/M4 features deferred by design.</div>
           <div class="cc-dmeta"><span class="cc-fresh">RUN-20260621-1527 · 8d5a736</span></div>
         </div>
+        <div class="cc-block"><div class="cc-block-h">📋 Profile</div><div class="cc-facets">
+        <div class="cc-facet">
+          <div class="cc-facet-l">Statement</div>
+          <div class="cc-facet-b">Festival-season planning mobile app (React Native / Expo) — a local-first store with a ported season engine, five tabs, and a detail modal with logistics links.</div>
+        </div>
+        <div class="cc-facet">
+          <div class="cc-facet-l">Dev history</div>
+          <div class="cc-facet-b">Mobile spec + RN/Expo build merged as PR #1 (34 files, commit <b>8d5a736</b> on main, tsc exit 0). RUN-20260621-1527. M2/M4 features deferred by design.</div>
+        </div>
+        <div class="cc-facet">
+          <div class="cc-facet-l" style="color:var(--ok)">Live features</div>
+          <div class="cc-facet-b">Seed pipeline · local-first store · ported season engine · 5 tabs · detail modal w/ logistics links.</div>
+        </div>
+        <div class="cc-facet">
+          <div class="cc-facet-l" style="color:var(--idle)">Live pages</div>
+          <div class="cc-facet-b">Mobile (RN/Expo) app, pending device verification — no public web surface.</div>
+        </div></div></div>
         <div class="cc-block"><div class="cc-facets">
         <div class="cc-facet">
           <div class="cc-facet-l" style="color:var(--ok)">Shipped</div>
@@ -630,6 +802,23 @@ Git: read latest Mac evidence in 90-governance/docs/. Deploys: HTTP-check live s
           <div class="cc-dnext"><span>Next ·</span> Submit to App Store Review (1 Waiting action item, High priority).</div>
           <div class="cc-dmeta"><span class="cc-fresh">RUN-20260625-0407 🟢 · iPad Live Map verified</span></div>
         </div>
+        <div class="cc-block"><div class="cc-block-h">📋 Profile</div><div class="cc-facets">
+        <div class="cc-facet">
+          <div class="cc-facet-l">Statement</div>
+          <div class="cc-facet-b">Curling event ("spiel") planning iOS app (SwiftUI / MapKit) — browse spiels and view venues on a native Live Map.</div>
+        </div>
+        <div class="cc-facet">
+          <div class="cc-facet-l">Dev history</div>
+          <div class="cc-facet-b">iOS SwiftUI port running on iPhone 17 / iOS 26.5; Live Map iPad visual QA passed after a layout fix (RUN-20260625-0407 🟢, xcodebuild pass, iPad screenshot confirms fixed card + zoom layout).</div>
+        </div>
+        <div class="cc-facet">
+          <div class="cc-facet-l" style="color:var(--ok)">Live features</div>
+          <div class="cc-facet-b">Spiels tab (3 events) · custom tab bar · native SwiftUI/MapKit Live Map.</div>
+        </div>
+        <div class="cc-facet">
+          <div class="cc-facet-l" style="color:var(--idle)">Live pages</div>
+          <div class="cc-facet-b">iOS app — 1 "Waiting" item: submit 1.0 to App Store Review (High). No public web surface.</div>
+        </div></div></div>
         <div class="cc-block"><div class="cc-facets">
         <div class="cc-facet">
           <div class="cc-facet-l" style="color:var(--ok)">Shipped</div>
@@ -655,6 +844,23 @@ Git: read latest Mac evidence in 90-governance/docs/. Deploys: HTTP-check live s
           <div class="cc-dnext"><span>Next ·</span> Re-sync Davai memory (local, last 2026-05-22).</div>
           <div class="cc-dmeta"><span class="cc-fresh">RUN-20260623-0145 🟢</span></div>
         </div>
+        <div class="cc-block"><div class="cc-block-h">📋 Profile</div><div class="cc-facets">
+        <div class="cc-facet">
+          <div class="cc-facet-l">Statement</div>
+          <div class="cc-facet-b">Davai Editor — an AI-assisted editor (desktop).</div>
+        </div>
+        <div class="cc-facet">
+          <div class="cc-facet-l">Dev history</div>
+          <div class="cc-facet-b">Editor Desktop fully resolved RUN-20260623-0145 🟢 — desktop path symlinked to a hydrated recovery checkout, .git locks cleared, npm test/typecheck/harness pass under Node 22. Davai memory (current-context) last synced 2026-05-22 (~33d, local only).</div>
+        </div>
+        <div class="cc-facet">
+          <div class="cc-facet-l" style="color:var(--ok)">Live features</div>
+          <div class="cc-facet-b">Davai Editor Desktop (local app).</div>
+        </div>
+        <div class="cc-facet">
+          <div class="cc-facet-l" style="color:var(--idle)">Live pages</div>
+          <div class="cc-facet-b">Local desktop app — no public web surface.</div>
+        </div></div></div>
         <div class="cc-block"><div class="cc-facets">
         <div class="cc-facet">
           <div class="cc-facet-l" style="color:var(--ok)">Editor</div>
@@ -676,11 +882,52 @@ Git: read latest Mac evidence in 90-governance/docs/. Deploys: HTTP-check live s
           <div class="cc-dnext"><span>Next ·</span> Decide legal entity / disclaimers; produce first investor brief.</div>
           <div class="cc-dmeta"><span class="cc-fresh">row 06-19</span></div>
         </div>
+        <div class="cc-block"><div class="cc-block-h">📋 Profile</div><div class="cc-facets">
+        <div class="cc-facet">
+          <div class="cc-facet-l">Statement</div>
+          <div class="cc-facet-b">Electrical-suite venture — the business track (investor brief / deck, legal entity, disclaimers); the electrical-suite code work is tracked separately in Dev Logs.</div>
+        </div>
+        <div class="cc-facet">
+          <div class="cc-facet-l">Dev history</div>
+          <div class="cc-facet-b">DB | Projects row created 06-19 — Yellow / Planned / Medium. Investor brief / deck pending; legal entity + disclaimers undecided.</div>
+        </div>
+        <div class="cc-facet">
+          <div class="cc-facet-l" style="color:var(--idle)">Live features</div>
+          <div class="cc-facet-b">None live yet — planning / business track.</div>
+        </div>
+        <div class="cc-facet">
+          <div class="cc-facet-l" style="color:var(--idle)">Live pages</div>
+          <div class="cc-facet-b">No deployed surface yet.</div>
+        </div></div></div>
         <div class="cc-block"><div class="cc-facets">
         <div class="cc-facet">
           <div class="cc-facet-l" style="color:var(--idle)">Note</div>
           <div class="cc-facet-b">Yellow / Planned / Medium. Electrical-suite code work lives in Dev Logs; the business track lives in DB | Projects.</div>
         </div></div></div>
+      </section>
+      <section class="cc-pane" id="pane-live-surfaces" hidden>
+        <div class="cc-dhead">
+          <div class="cc-dhead-top">
+            <span class="cc-dlight" style="background:var(--info);box-shadow:0 0 0 4px var(--info-bg)"></span>
+            <h2 class="cc-dtitle">🌐 Live Surfaces</h2>
+            <span class="cc-pill" style="color:var(--info);background:var(--info-bg)">health</span>
+          </div>
+          <div class="cc-dstatus">Every public web surface across the projects, listed and linked for quick access — each one gets a live health check that flags error responses (401 / 403 / 404 / 5xx).</div>
+          <div class="cc-dmeta"><span class="cc-fresh" id="cc-health-ts">checking…</span><button class="cc-recheck" data-health-recheck type="button">↻ Re-check all</button></div>
+        </div>
+        <div class="cc-block cc-note" style="border-left-color:var(--info)"><div class="cc-note-h" style="color:var(--info)">How the check works</div><div class="cc-note-b">Checks run in your browser on page load (and on demand). Same-origin GitHub Pages surfaces return their real HTTP status — a <b>200 OK</b> reads green, while <b>401 / 403 / 404 / 5xx</b> read red. Cross-origin custom domains often hide their status code from the browser (CORS); those show <span class="cc-health" data-state="reach" style="margin:0"><span class="d"></span><span class="t">reachable</span></span> when the server answers and <span class="cc-health" data-state="bad" style="margin:0"><span class="d"></span><span class="t">unreachable</span></span> when it does not. This is a lightweight liveness signal, not a substitute for the verified Status Runs.</div></div>
+        <div class="cc-block"><div class="cc-block-h">Live web surfaces</div>
+        <table class="cc-table"><thead><tr><th>Project</th><th>Live surface</th><th>Hosting</th></tr></thead>
+        <tbody>
+          <tr><td>🌱 Garden OS</td><td><a href="https://davehomeassist.github.io/garden-os/story-mode/" target="_blank" rel="noopener" data-health>story-mode ↗</a></td><td>GitHub Pages</td></tr>
+          <tr><td>⚾ Phillies Wire</td><td><a href="https://davehomeassist.github.io/phillies-wire/" target="_blank" rel="noopener" data-health>main edition ↗</a></td><td>GitHub Pages</td></tr>
+          <tr><td>⚾ Phillies Wire</td><td><a href="https://davehomeassist.github.io/phillies-wire/dashboard/accuracy/accuracy.json" target="_blank" rel="noopener" data-health>accuracy.json ↗</a></td><td>GitHub Pages</td></tr>
+          <tr><td>🎩 Hat-in-Ring</td><td><a href="https://hatinring.com" target="_blank" rel="noopener" data-health>hatinring.com ↗</a></td><td>custom domain</td></tr>
+          <tr><td>🛠️ System by Dave</td><td><a href="https://systembydave.com/teleprompter.html" target="_blank" rel="noopener" data-health>teleprompter ↗</a></td><td>custom domain</td></tr>
+          <tr><td>🛠️ System by Dave</td><td><a href="https://systembydave.com" target="_blank" rel="noopener" data-health>systembydave.com ↗</a></td><td>custom domain</td></tr>
+          <tr><td>🧰 Skill Library</td><td><a href="https://davehomeassist.github.io/command-center-061eed/skill-library/index.html" target="_blank" rel="noopener" data-health>library ↗</a></td><td>GitHub Pages</td></tr>
+        </tbody></table></div>
+        <div class="cc-block cc-note" style="border-left-color:var(--idle)"><div class="cc-note-h" style="color:var(--idle)">No public web surface</div><div class="cc-note-b"><b>ReadOut</b> (macOS tray app) · <b>PromptLab</b> &amp; <b>PlotForge</b> (Vercel, auth-gated / URL not captured) · <b>Home Assistant</b> (local network) · <b>Festival Atlas</b> (RN/Expo mobile) · <b>CurlPlan</b> (iOS) · <b>Davai</b> (local desktop) · <b>Metagrid</b> (planning). These have no internet-facing page to health-check.</div></div>
       </section>
       <section class="cc-pane" id="pane-attention" hidden>
         <div class="cc-dhead">
@@ -1040,6 +1287,68 @@ Git: read latest Mac evidence in 90-governance/docs/. Deploys: HTTP-check live s
     var rb=document.getElementById('cc-rail-reset');
     if(rb)rb.addEventListener('click',function(){try{localStorage.removeItem(KEY);}catch(e){}location.reload();});
   })();}
+})();
+</script>
+<script>
+// ---- live domain health checks ----
+(function(){
+  var TIMEOUT=8000;
+  function mkBadge(a){
+    var b=document.createElement('span');
+    b.className='cc-health';b.setAttribute('data-state','checking');
+    b.innerHTML='<span class="d"></span><span class="t">checking…</span>';
+    a.insertAdjacentElement('afterend',b);
+    return b;
+  }
+  function set(b,state,text,title){
+    b.setAttribute('data-state',state);
+    var t=b.querySelector('.t');if(t)t.textContent=text;
+    if(title)b.title=title;
+  }
+  function withTimeout(p,ms){
+    return new Promise(function(res,rej){
+      var to=setTimeout(function(){rej(new Error('timeout'));},ms);
+      p.then(function(v){clearTimeout(to);res(v);},function(e){clearTimeout(to);rej(e);});
+    });
+  }
+  function check(a,b){
+    set(b,'checking','checking…','');
+    var url=a.getAttribute('data-health')||a.href;
+    // Prefer a real CORS read so we can see the exact status code (401/403/404/5xx).
+    withTimeout(fetch(url,{method:'GET',mode:'cors',cache:'no-store',redirect:'follow'}),TIMEOUT)
+      .then(function(res){
+        var s=res.status;
+        if(s>=200&&s<300)set(b,'ok',s+' OK','HTTP '+s+' · '+url);
+        else if(s===401)set(b,'bad','401 unauth','HTTP 401 Unauthorized · '+url);
+        else if(s===403)set(b,'bad','403 forbidden','HTTP 403 Forbidden · '+url);
+        else if(s===404)set(b,'bad','404 not found','HTTP 404 Not Found · '+url);
+        else if(s>=500)set(b,'bad',s+' server','HTTP '+s+' server error · '+url);
+        else if(s>=400)set(b,'bad',s+' error','HTTP '+s+' · '+url);
+        else if(s>=300)set(b,'warn',s+' redirect','HTTP '+s+' · '+url);
+        else set(b,'reach',(s||'resp'),'HTTP '+s+' · '+url);
+      })
+      .catch(function(){
+        // CORS hid the response — fall back to an opaque request for liveness only.
+        withTimeout(fetch(url,{method:'GET',mode:'no-cors',cache:'no-store'}),TIMEOUT)
+          .then(function(){set(b,'reach','reachable','Server answered, but CORS hides the exact status code · '+url);})
+          .catch(function(){set(b,'bad','unreachable','No response — DNS, network, or blocked · '+url);});
+      });
+  }
+  function run(){
+    var links=[].slice.call(document.querySelectorAll('a[data-health]'));
+    links.forEach(function(a){
+      var b=a.nextElementSibling;
+      if(!b||!b.classList||!b.classList.contains('cc-health'))b=mkBadge(a);
+      check(a,b);
+    });
+    var ts=document.getElementById('cc-health-ts');
+    if(ts){var n=new Date();function p(x){return String(x).padStart(2,'0');}ts.textContent='last checked '+p(n.getHours())+':'+p(n.getMinutes())+':'+p(n.getSeconds())+' · '+links.length+' surfaces';}
+  }
+  if(window.fetch)run();else{var ts=document.getElementById('cc-health-ts');if(ts)ts.textContent='health check unavailable (no fetch)';}
+  document.addEventListener('click',function(e){
+    var btn=e.target.closest&&e.target.closest('[data-health-recheck]');
+    if(btn&&window.fetch){e.preventDefault();run();}
+  });
 })();
 </script>
 </body></html>
