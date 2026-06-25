@@ -164,7 +164,7 @@
         <div class="cc-railitem" role="button" tabindex="0" data-target="overview" data-group="Overview">
           <span class="cc-drag" data-drag title="Drag to reorder" aria-hidden="true">⠿</span>
           <span class="cc-dot" style="background:var(--ok);box-shadow:0 0 0 3px var(--ok-bg)"></span>
-          <span class="cc-railitem-tx"><span class="cc-railitem-n">🛰️ Overview</span><span class="cc-railitem-s">Workspace snapshot — 0 verified reds · accuracy.json CDN reverted to No.78.</span></span>
+          <span class="cc-railitem-tx"><span class="cc-railitem-n">🛰️ Overview</span><span class="cc-railitem-s">Workspace snapshot — 0 verified reds · accuracy.json CDN still stale No.78 (10th pass).</span></span>
           
           <button class="cc-pin" data-pin type="button" title="Pin" aria-label="Pin Overview" aria-pressed="false">📌</button>
         </div></div>
@@ -316,11 +316,11 @@
             <h2 class="cc-dtitle">🛰️ Overview</h2>
             <span class="cc-pill" style="color:var(--ok);background:var(--ok-bg)">0 reds</span>
           </div>
-          <div class="cc-dstatus">Workspace snapshot — 0 verified reds · accuracy.json CDN reverted to No.78.</div>
+          <div class="cc-dstatus">Workspace snapshot — 0 verified reds · accuracy.json CDN still stale No.78 (10th pass).</div>
           
-          <div class="cc-dmeta"><span class="cc-fresh">reconciled Jun 25 ~7:03 AM ET</span></div>
+          <div class="cc-dmeta"><span class="cc-fresh">reconciled Jun 25 ~8:06 AM ET</span></div>
         </div>
-        <div class="cc-block cc-note" style="border-left-color:var(--warn)"><div class="cc-note-h" style="color:var(--warn)">This pass</div><div class="cc-note-b"><b>9th automated cloud pass</b> Jun 25 ~7:03 AM ET (RUN-20260625-0703). <b>KEY DELTA vs 8th pass:</b> accuracy.json CDN <b>REVERTED</b> to Vol. 1 No. 78 (stale, generated 2026-06-17T18:15Z) — CDN oscillated back after 7th/8th passes briefly showed No. 86. This is the CDN oscillation warned in 8th pass notes (path has oscillated stale/current multiple times). Action Items <b>111 active (+0, view-confirmed 100+11)</b>; 1 Waiting (CurlPlan App Store Review, High); 1 OD (QualOS visual gate Jun 19, 6d OD, Medium, To Do). Personal Tasks: 3 OD unchanged (73/48/36d). <b>Game 4 of 4 TONIGHT</b> 6:45 PM ET @WSH (Sánchez vs Cade Cavalli, Nationals.TV) — not yet started. <b>0 verified reds.</b> 5/5 live HTTP 200. Mac git carried from 06-24 scan (cloud cannot rescan). Cloud pass — Davai memory not refreshed. Final: 🟡 YELLOW.</div></div>
+        <div class="cc-block cc-note" style="border-left-color:var(--info)"><div class="cc-note-h" style="color:var(--info)">This pass</div><div class="cc-note-b"><b>10th automated cloud pass</b> Jun 25 ~8:06 AM ET (RUN-20260625-0806). <b>NO STATE CHANGE vs 9th pass</b> (RUN-20260625-0703). accuracy.json CDN confirmed <b>still stale</b> — Vol. 1 No. 78 (generated 2026-06-17T18:15Z) for the 10th consecutive pass after the reversion; was briefly No. 86 in 7th/8th, reverted in 9th, still No. 78 in 10th. Action Items <b>111 active (+0, view-confirmed 100+11)</b>; 1 Waiting (CurlPlan App Store Review, High); 1 OD (QualOS visual gate Jun 19, 6d OD, Medium, To Do). Personal Tasks: 3 OD unchanged (73/48/36d). Phillies Wire Vol. 1 No. 86 live — <b>Game 4 of 4 TONIGHT</b> 6:45 PM ET @WSH (Sánchez vs Cade Cavalli) pre-game; PHI 44-36, series 2-1. <b>0 verified reds.</b> 5/5 live HTTP 200. Mac git carried from 06-24 scan (cloud cannot rescan). Cloud pass — Davai memory not refreshed. Final: 🟡 YELLOW.</div></div>
 <div class="cc-block"><div class="cc-kpis">
         <div class="cc-kpi">
           <div class="cc-kpi-v" style="color:var(--ok)">0</div>
@@ -875,7 +875,7 @@ Git: read latest Mac evidence in 90-governance/docs/. Deploys: HTTP-check live s
         <div class="cc-block cc-note" style="border-left-color:var(--info)"><div class="cc-note-h" style="color:var(--info)">Conflict rule</div><div class="cc-note-b">Newest verified Status Run wins. DB | Projects owns identity/health; DB | Action Items owns due dates. Narrative-only values show as context and can't go green. Live example — Garden OS: Status Run 🟢 vs Projects row 🟡 → trust the verified light.</div></div>
 <div class="cc-block"><div class="cc-block-h">Source freshness</div>
       <table class="cc-table"><thead><tr><th>Source</th><th>Type</th><th>Verified</th></tr></thead>
-      <tbody><tr><td style="border-left:3px solid var(--ok);padding-left:8px">DB | Status Runs</td><td>notion-query</td><td>RUN-20260625-0604 🟡 · 0 reds · latest 8th pass</td></tr><tr><td style="border-left:3px solid var(--ok);padding-left:8px">DB | Action Items</td><td>notion-query</td><td>Jun 25 9th pass · 1 OD · 111 active (view 100+11)</td></tr><tr><td style="border-left:3px solid var(--ok);padding-left:8px">DB | Personal Tasks</td><td>view query</td><td>Jun 25 9th pass · 3 OD (73/48/36d)</td></tr><tr><td style="border-left:3px solid var(--ok);padding-left:8px">DB | Projects</td><td>notion-query</td><td>06-24 · ReadOut Green; GardenOS row Yellow</td></tr><tr><td style="border-left:3px solid var(--warn);padding-left:8px">Phillies accuracy.json</td><td>http check</td><td>Jun 25 · No.78 STALE (CDN oscillated: No.86 in 7th/8th → back to No.78 in 9th)</td></tr><tr><td style="border-left:3px solid var(--idle);padding-left:8px">Mac git rescan</td><td>local report</td><td>06-24 03:24Z · 97/70/27 · carried (cloud pass)</td></tr><tr><td style="border-left:3px solid var(--idle);padding-left:8px">Davai memory</td><td>local file</td><td>05-22 · ~33d</td></tr><tr><td style="border-left:3px solid var(--ok);padding-left:8px">Notes @Today / Dev Logs</td><td>narrative</td><td>06-18 · carried</td></tr><tr><td style="border-left:3px solid var(--ok);padding-left:8px">Frontier Signals</td><td>daily artifact</td><td>06-17</td></tr></tbody></table></div>
+      <tbody><tr><td style="border-left:3px solid var(--ok);padding-left:8px">DB | Status Runs</td><td>notion-query</td><td>RUN-20260625-0703 🟡 · 0 reds · latest 9th pass; no new runs since</td></tr><tr><td style="border-left:3px solid var(--ok);padding-left:8px">DB | Action Items</td><td>notion-query</td><td>Jun 25 10th pass · 1 OD · 111 active (view 100+11, unchanged)</td></tr><tr><td style="border-left:3px solid var(--ok);padding-left:8px">DB | Personal Tasks</td><td>view query</td><td>Jun 25 10th pass · 3 OD (73/48/36d, unchanged)</td></tr><tr><td style="border-left:3px solid var(--ok);padding-left:8px">DB | Projects</td><td>notion-query</td><td>06-24 · ReadOut Green; GardenOS row Yellow</td></tr><tr><td style="border-left:3px solid var(--warn);padding-left:8px">Phillies accuracy.json</td><td>http check</td><td>Jun 25 · No.78 STALE (CDN oscillated: No.86 in 7th/8th → No.78 in 9th, still No.78 in 10th)</td></tr><tr><td style="border-left:3px solid var(--idle);padding-left:8px">Mac git rescan</td><td>local report</td><td>06-24 03:24Z · 97/70/27 · carried (cloud pass)</td></tr><tr><td style="border-left:3px solid var(--idle);padding-left:8px">Davai memory</td><td>local file</td><td>05-22 · ~33d</td></tr><tr><td style="border-left:3px solid var(--ok);padding-left:8px">Notes @Today / Dev Logs</td><td>narrative</td><td>06-18 · carried</td></tr><tr><td style="border-left:3px solid var(--ok);padding-left:8px">Frontier Signals</td><td>daily artifact</td><td>06-17</td></tr></tbody></table></div>
       </section>
     </main>
   </div>
@@ -894,7 +894,7 @@ Git: read latest Mac evidence in 90-governance/docs/. Deploys: HTTP-check live s
       </tbody></table>
     </div>
   </div>
-  <div class="cc-foot">Snapshot re-reconciled 2026-06-25 ~7:03 AM ET · 9th automated cloud pass · 0 verified reds · Action Items 111 active (+0) · accuracy.json CDN REVERTED to No.78 (stale) · Mac git 06-24 (97/70/27) · built by Claude Code</div>
+  <div class="cc-foot">Snapshot re-reconciled 2026-06-25 ~8:06 AM ET · 10th automated cloud pass · 0 verified reds · Action Items 111 active (+0) · accuracy.json CDN still stale No.78 (oscillation) · Mac git 06-24 (97/70/27) · built by Claude Code</div>
 
 <script>
 (function(){
