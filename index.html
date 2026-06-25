@@ -63,6 +63,19 @@
   .cc-rail-reset{margin-top:4px;align-self:flex-start;background:none;border:1px solid var(--border);border-radius:8px;color:var(--text-mute);cursor:pointer;font-family:inherit;font-size:11px;padding:5px 9px}
   .cc-rail-reset:hover{color:var(--text-dim);border-color:var(--border2)}
   body.cc-noselect{user-select:none}
+  .cc-railfilter{width:100%;margin-bottom:7px;padding:7px 10px;border-radius:9px;border:1px solid var(--border);background:var(--surface);color:var(--text);font-family:inherit;font-size:12.5px;outline:none}
+  .cc-railfilter:focus{border-color:var(--accent)}
+  .cc-railfilter::placeholder{color:var(--text-mute)}
+  .cc-rail.cc-filtering .cc-railgroup.cc-collapsed .cc-railitems{display:flex}
+  .cc-help{position:fixed;inset:0;z-index:60;display:grid;place-items:center;background:rgba(0,0,0,.5);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+  .cc-help-card{background:var(--surface);border:1px solid var(--border2);border-radius:14px;padding:18px 20px;max-width:400px;width:calc(100% - 40px);box-shadow:0 24px 60px rgba(0,0,0,.45)}
+  .cc-help-h{display:flex;align-items:center;justify-content:space-between;font-weight:600;font-size:14px;margin-bottom:12px}
+  .cc-help-x{background:none;border:none;color:var(--text-mute);font-size:20px;line-height:1;cursor:pointer;padding:0 4px}
+  .cc-help-x:hover{color:var(--text)}
+  .cc-help-t{width:100%;border-collapse:collapse;font-size:12.5px}
+  .cc-help-t td{padding:5px 0;color:var(--text-dim);vertical-align:top}
+  .cc-help-t td:first-child{width:124px;white-space:nowrap;color:var(--text)}
+  kbd{font-family:'IBM Plex Mono',monospace;font-size:11px;background:var(--surface2);border:1px solid var(--border2);border-radius:5px;padding:1px 6px;color:var(--text)}
   /* detail */
   .cc-detail{min-width:0}
   .cc-dhead{margin-bottom:var(--gap)}
@@ -122,7 +135,7 @@
   @media(max-width:880px){
     .cc-shell{grid-template-columns:1fr;gap:14px}
     .cc-rail{position:static;max-height:none;flex-direction:row;overflow-x:auto;gap:8px;padding-bottom:6px}
-    .cc-railgroup{flex-direction:row;align-items:center;gap:6px}.cc-raillabel,.cc-drag,.cc-pin,.cc-rail-reset{display:none}
+    .cc-railgroup{flex-direction:row;align-items:center;gap:6px}.cc-raillabel,.cc-drag,.cc-pin,.cc-rail-reset,.cc-railfilter{display:none}
     .cc-railitems{flex-direction:row!important;gap:6px}
     .cc-railgroup.cc-collapsed .cc-railitems{display:flex}
     .cc-railitem{width:auto;white-space:nowrap}.cc-railitem-s,.cc-railtag{display:none}
@@ -142,7 +155,7 @@
   </div></header>
 
   <div class="cc-shell">
-    <nav class="cc-rail" id="cc-rail"><section class="cc-railgroup cc-pinned" data-group="__pinned__" hidden>
+    <nav class="cc-rail" id="cc-rail"><input class="cc-railfilter" id="cc-railfilter" type="text" placeholder="Filter  ·  press /" aria-label="Filter entities" autocomplete="off" spellcheck="false"><section class="cc-railgroup cc-pinned" data-group="__pinned__" hidden>
         <button class="cc-raillabel" type="button" data-collapse aria-expanded="true"><span class="cc-chev" aria-hidden="true">▸</span><span>📌 Pinned</span></button>
         <div class="cc-railitems" data-pinned></div>
       </section><section class="cc-railgroup" data-group="Overview">
@@ -858,6 +871,21 @@ Git: read latest Mac evidence in 90-governance/docs/. Deploys: HTTP-check live s
       </section>
     </main>
   </div>
+  <div class="cc-help" id="cc-help" hidden role="dialog" aria-modal="true" aria-label="Keyboard shortcuts">
+    <div class="cc-help-card">
+      <div class="cc-help-h"><span>⌨ Keyboard shortcuts</span><button class="cc-help-x" id="cc-help-x" type="button" aria-label="Close">×</button></div>
+      <table class="cc-help-t"><tbody>
+        <tr><td><kbd>j</kbd> / <kbd>↓</kbd></td><td>Next entity</td></tr>
+        <tr><td><kbd>k</kbd> / <kbd>↑</kbd></td><td>Previous entity</td></tr>
+        <tr><td><kbd>Home</kbd> / <kbd>End</kbd></td><td>First / last entity</td></tr>
+        <tr><td><kbd>Enter</kbd></td><td>Open the focused entity</td></tr>
+        <tr><td><kbd>/</kbd></td><td>Filter the rail (<kbd>Esc</kbd> clears)</td></tr>
+        <tr><td><kbd>Alt</kbd> + <kbd>↑</kbd>/<kbd>↓</kbd></td><td>Reorder the focused entity</td></tr>
+        <tr><td>📌 · ⠿</td><td>Pin to top · drag handle to reorder</td></tr>
+        <tr><td><kbd>?</kbd></td><td>Toggle this help · <kbd>Esc</kbd> closes</td></tr>
+      </tbody></table>
+    </div>
+  </div>
   <div class="cc-foot">Snapshot re-reconciled 2026-06-25 ~4:13 AM ET · 6th automated cloud pass · 0 verified reds · Action Items 110 active (−1) · accuracy.json 30th stale pass (No.78 vs No.86) · Mac git 06-24 (97/70/27) · built by Claude Code</div>
 
 <script>
@@ -940,8 +968,44 @@ Git: read latest Mac evidence in 90-governance/docs/. Deploys: HTTP-check live s
 
     rail.addEventListener('keydown',function(e){
       var it=e.target.closest&&e.target.closest('.cc-railitem');if(!it)return;
+      if(helpOpen())return;
       if(e.altKey&&(e.key==='ArrowUp'||e.key==='ArrowDown')){e.preventDefault();moveItem(it,e.key==='ArrowUp'?-1:1);return;}
+      if(!e.altKey&&e.key==='ArrowDown'){e.preventDefault();navMove(1,it);return;}
+      if(!e.altKey&&e.key==='ArrowUp'){e.preventDefault();navMove(-1,it);return;}
+      if(e.key==='Home'){e.preventDefault();navEdge(0);return;}
+      if(e.key==='End'){e.preventDefault();navEdge(-1);return;}
       if((e.key==='Enter'||e.key===' ')&&!(e.target.closest&&e.target.closest('[data-pin],[data-drag]'))){e.preventDefault();it.click();}
+    });
+    // ---- keyboard navigation + rail filter + help overlay ----
+    function visItems(){return [].slice.call(rail.querySelectorAll('.cc-railitem')).filter(function(x){return x.offsetParent!==null;});}
+    function navTo(t){if(t){t.click();t.focus();if(t.scrollIntoView)t.scrollIntoView({block:'nearest'});}}
+    function navMove(dir,anchor){var v=visItems();if(!v.length)return;var a=(anchor&&v.indexOf(anchor)>=0)?anchor:rail.querySelector('.cc-railitem.active');var i=a?v.indexOf(a):-1;var j=i<0?(dir>0?0:v.length-1):i+dir;if(j<0)j=0;if(j>=v.length)j=v.length-1;navTo(v[j]);}
+    function navEdge(which){var v=visItems();if(!v.length)return;navTo(which===0?v[0]:v[v.length-1]);}
+    var flt=document.getElementById('cc-railfilter');
+    function applyFilter(){
+      var q=(flt&&flt.value||'').trim().toLowerCase();
+      rail.classList.toggle('cc-filtering',!!q);
+      [].slice.call(rail.querySelectorAll('.cc-railitem')).forEach(function(it){var nEl=it.querySelector('.cc-railitem-n');var n=nEl?nEl.textContent:'';it.style.display=(!q||n.toLowerCase().indexOf(q)>=0)?'':'none';});
+      groupSecs.forEach(function(s){var box=s.querySelector('.cc-railitems');var any=box&&[].slice.call(box.children).some(function(c){return c.classList&&c.classList.contains('cc-railitem')&&c.style.display!=='none';});s.style.display=(!q||any)?'':'none';});
+    }
+    if(flt){
+      flt.addEventListener('input',applyFilter);
+      flt.addEventListener('keydown',function(e){if(e.key==='Escape'){e.preventDefault();flt.value='';applyFilter();flt.blur();}else if(e.key==='Enter'){e.preventDefault();var v=visItems();if(v[0])navTo(v[0]);}else if(e.key==='ArrowDown'){e.preventDefault();var v2=visItems();if(v2[0])navTo(v2[0]);}});
+    }
+    var help=document.getElementById('cc-help'),helpX=document.getElementById('cc-help-x'),lastFocus=null;
+    function helpOpen(){return !!(help&&!help.hidden);}
+    function showHelp(){if(!help)return;lastFocus=document.activeElement;help.hidden=false;if(helpX)helpX.focus();}
+    function hideHelp(){if(!help)return;help.hidden=true;if(lastFocus&&lastFocus.focus){try{lastFocus.focus();}catch(_){}}}
+    if(help)help.addEventListener('click',function(e){if(e.target===help)hideHelp();});
+    if(helpX)helpX.addEventListener('click',hideHelp);
+    document.addEventListener('keydown',function(e){
+      var t=e.target,typing=!!(t&&(t.tagName==='INPUT'||t.tagName==='TEXTAREA'||t.isContentEditable));
+      if(e.key==='?'&&!typing){e.preventDefault();helpOpen()?hideHelp():showHelp();return;}
+      if(e.key==='Escape'&&helpOpen()){e.preventDefault();hideHelp();return;}
+      if(helpOpen()||typing||e.metaKey||e.ctrlKey||e.altKey)return;
+      if(e.key==='/'){if(flt&&flt.offsetParent!==null){e.preventDefault();flt.focus();flt.select();}return;}
+      if(e.key==='j'){e.preventDefault();navMove(1);return;}
+      if(e.key==='k'){e.preventDefault();navMove(-1);return;}
     });
 
     var dg=null;
