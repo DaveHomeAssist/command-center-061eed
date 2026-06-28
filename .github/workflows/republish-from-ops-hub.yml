@@ -1,0 +1,84 @@
+name: Republish from ops-hub
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Assemble index.html from staged chunks
+        run: |
+          cat _cc_chunks/c01.html \
+              _cc_chunks/c02.html \
+              _cc_chunks/c03.html \
+              _cc_chunks/c04.html \
+              _cc_chunks/c05.html \
+              _cc_chunks/c06.html \
+              _cc_chunks/c07.html \
+              _cc_chunks/c08.html \
+              _cc_chunks/c09.html \
+              _cc_chunks/c10.html \
+              _cc_chunks/c11.html \
+              _cc_chunks/c12.html \
+              _cc_chunks/c13.html \
+              _cc_chunks/c14.html \
+              _cc_chunks/c15.html \
+              _cc_chunks/c16.html \
+              _cc_chunks/c17.html \
+              _cc_chunks/c18.html \
+              _cc_chunks/c19.html \
+              _cc_chunks/c20.html \
+              _cc_chunks/c21.html \
+              _cc_chunks/c22.html \
+              _cc_chunks/c23.html \
+              _cc_chunks/c24.html \
+              _cc_chunks/c25.html \
+              _cc_chunks/c26.html \
+              _cc_chunks/c27.html \
+              _cc_chunks/c28.html \
+              _cc_chunks/c29.html \
+              _cc_chunks/c30.html \
+              _cc_chunks/c31.html \
+              _cc_chunks/c32.html \
+              _cc_chunks/c33.html \
+              _cc_chunks/c34.html \
+              _cc_chunks/c35.html \
+              _cc_chunks/c36.html \
+              _cc_chunks/c37.html \
+              _cc_chunks/c38.html \
+              _cc_chunks/c39.html \
+              _cc_chunks/c40.html \
+              _cc_chunks/c41.html \
+              _cc_chunks/c42.html \
+              _cc_chunks/c43.html \
+              _cc_chunks/c44.html \
+              _cc_chunks/c45.html \
+              _cc_chunks/c46.html \
+              _cc_chunks/c47.html \
+              _cc_chunks/c48.html \
+              _cc_chunks/c49.html > index.html
+          echo "Assembled: $(wc -c < index.html | tr -d ' ') bytes, $(wc -l < index.html | tr -d ' ') lines"
+      - name: Verify output is current design
+        run: |
+          grep -q 'cc-collapse-all' index.html || { echo "FATAL: missing cc-collapse-all"; exit 2; }
+          grep -q 'data-cc-theme' index.html || { echo "FATAL: missing data-cc-theme"; exit 2; }
+          grep -q 'noindex, nofollow' index.html || { echo "FATAL: noindex not found"; exit 2; }
+          grep -q 'RUN-20260623-1304' index.html || { echo "FATAL: 14th pass marker not found"; exit 2; }
+          echo "All markers verified"
+      - name: Commit index.html and remove chunks
+        run: |
+          git config user.name "Claude"
+          git config user.email "noreply@anthropic.com"
+          git add index.html
+          git rm -rf _cc_chunks/ 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "Nothing to commit"
+          else
+            git commit -m "Daily republish: 14th Jun 23 ET pass — 2 reds remain, PHI @WSH Game 2 TONIGHT 6:45 PM ET"
+            git push
+            echo "Done — pushed 14th pass to command-center-061eed"
+          fi
