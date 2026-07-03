@@ -286,6 +286,13 @@
           
           <button class="cc-pin" data-pin type="button" title="Pin" aria-label="Pin Daily Runs" aria-pressed="false">📌</button>
         </div>
+        <div class="cc-railitem" role="button" tabindex="0" data-target="domain-status" data-group="Workspace">
+          <span class="cc-drag" data-drag title="Drag to reorder" aria-hidden="true">⠿</span>
+          <span class="cc-dot" style="background:var(--warn);box-shadow:0 0 0 3px var(--warn-bg)"></span>
+          <span class="cc-railitem-tx"><span class="cc-railitem-n">🌐 Domain Status</span><span class="cc-railitem-s">Namecheap inventory: 9 active domains, privacy ON, auto-renew ON. HTTPS is green for 8/9 apex domains and 8/9 www aliases; mixmash.games is parked on Namecheap HTTP and has no working HTTPS.</span></span>
+          <span class="cc-railtag">domains</span>
+          <button class="cc-pin" data-pin type="button" title="Pin" aria-label="Pin Domain Status" aria-pressed="false">📌</button>
+        </div>
         <div class="cc-railitem" role="button" tabindex="0" data-target="triage" data-group="Workspace">
           <span class="cc-drag" data-drag title="Drag to reorder" aria-hidden="true">⠿</span>
           <span class="cc-dot" style="background:var(--ok);box-shadow:0 0 0 3px var(--ok-bg)"></span>
@@ -889,6 +896,43 @@ Git: read latest Mac evidence in 90-governance/docs/. Deploys: HTTP-check live s
           <span class="cc-li-dot" style="background:var(--warn)"></span>
           <div><div class="cc-li-t">Workspace Registry Verifier 🟡 (RUN-20260627-2112, 9:12 PM ET Jun 27)</div><div class="cc-li-b">Registry 104 entries, 37 active; active sweep 35 pass / 1 blocked / 1 timeout (97.3% non-timeout). Festival Atlas blocked (missing Playwright — known dylib issue). Metagrid timeout (full test suite &gt;45s). Override reason confirmed in Status Run.</div></div>
         </div></div></div>
+      </section>
+      <section class="cc-pane" id="pane-domain-status" hidden>
+        <div class="cc-dhead">
+          <div class="cc-dhead-top">
+            <span class="cc-dlight" style="background:var(--warn);box-shadow:0 0 0 4px var(--warn-bg)"></span>
+            <h2 class="cc-dtitle">🌐 Domain Status</h2>
+            <span class="cc-pill" style="color:var(--warn);background:var(--warn-bg)">8/9 HTTPS green</span>
+          </div>
+          <div class="cc-dstatus">Namecheap inventory: 9 active domains, privacy ON, auto-renew ON. HTTPS is green for 8/9 apex domains and 8/9 www aliases; mixmash.games is parked on Namecheap HTTP and has no working HTTPS.</div>
+          <div class="cc-dnext"><span>Next ·</span> Point mixmash.games at its target host and enable HTTPS; keep promptlab.tools www alias monitored after Vercel assignment fix.</div>
+          <div class="cc-dmeta"><span class="cc-fresh">curl Jul 3 2026 8:02 AM EDT · source CSV Domain_List.csv</span><span class="cc-links"><a href="https://systembydave.com/command53/" target="_blank" rel="noopener">command53 ↗</a><a href="https://promptlab.tools/" target="_blank" rel="noopener">promptlab ↗</a></span></div>
+        </div>
+        <div class="cc-block cc-note" style="border-left-color:var(--warn)"><div class="cc-note-h" style="color:var(--warn)">Live domain health</div><div class="cc-note-b"><b>8 of 9 domains are HTTPS green on apex and www.</b> <b>www.promptlab.tools is now fixed</b> after adding the alias to Vercel project <code>prompt-lab</code>. <b>mixmash.games remains the only failing HTTPS domain</b>; HTTP resolves to Namecheap parking.</div></div>
+<div class="cc-block"><div class="cc-kpis">
+        <div class="cc-kpi">
+          <div class="cc-kpi-v" style="color:var(--ok)">9</div>
+          <div class="cc-kpi-l">Active domains</div>
+          <div class="cc-kpi-s">CSV source</div>
+        </div>
+        <div class="cc-kpi">
+          <div class="cc-kpi-v" style="color:var(--ok)">8</div>
+          <div class="cc-kpi-l">Apex HTTPS 200</div>
+          <div class="cc-kpi-s">mixmash fails</div>
+        </div>
+        <div class="cc-kpi">
+          <div class="cc-kpi-v" style="color:var(--ok)">8</div>
+          <div class="cc-kpi-l">WWW HTTPS 200</div>
+          <div class="cc-kpi-s">mixmash fails</div>
+        </div>
+        <div class="cc-kpi">
+          <div class="cc-kpi-v" style="color:var(--warn)">1</div>
+          <div class="cc-kpi-l">Needs hosting</div>
+          <div class="cc-kpi-s">mixmash.games</div>
+        </div></div></div>
+<div class="cc-block"><div class="cc-block-h">Domain reachability</div><table class="cc-table" style="width:100%;table-layout:fixed;word-break:break-word"><thead><tr><th>Domain</th><th>Expiry</th><th>Apex</th><th>WWW</th><th>Action</th></tr></thead><tbody><tr><td style="border-left:3px solid var(--ok);padding-left:8px">frontiersignals.io</td><td>Apr 30 2027</td><td>200</td><td>200 → apex</td><td>Monitor</td></tr><tr><td style="border-left:3px solid var(--ok);padding-left:8px">hatinring.com</td><td>Jun 16 2027</td><td>200</td><td>200 → apex</td><td>Monitor</td></tr><tr><td style="border-left:3px solid var(--warn);padding-left:8px"><b>mixmash.games</b></td><td>Apr 06 2027</td><td><b>HTTPS fail</b></td><td><b>HTTPS fail</b></td><td>Assign host + SSL</td></tr><tr><td style="border-left:3px solid var(--ok);padding-left:8px">phillieswire.com</td><td>Jun 24 2027</td><td>200</td><td>200 → apex</td><td>Monitor</td></tr><tr><td style="border-left:3px solid var(--ok);padding-left:8px">promptlab.tools</td><td>Mar 14 2027</td><td>200</td><td><b>200 fixed</b></td><td>Monitor cert</td></tr><tr><td style="border-left:3px solid var(--ok);padding-left:8px">shieldboxsecurity.com</td><td>Apr 10 2027</td><td>200</td><td>200 → apex</td><td>Monitor</td></tr><tr><td style="border-left:3px solid var(--ok);padding-left:8px">standardacidprocedure.com</td><td>Mar 25 2027</td><td>200</td><td>200 www</td><td>Monitor</td></tr><tr><td style="border-left:3px solid var(--ok);padding-left:8px">systembydave.com</td><td>Mar 31 2027</td><td>200</td><td>200 → apex</td><td>Monitor</td></tr><tr><td style="border-left:3px solid var(--ok);padding-left:8px">veronicaandlucas.com</td><td>Apr 06 2027</td><td>200</td><td>200 → apex</td><td>Monitor</td></tr></tbody></table></div>
+<div class="cc-block"><div class="cc-block-h">Checks included</div>
+      <div class="cc-checks"><div class="cc-check"><span class="cc-check-m" style="color:var(--ok);background:var(--ok-bg)">✓</span><span style="color:var(--text-dim)">Namecheap CSV parsed: 9 active domains</span></div><div class="cc-check"><span class="cc-check-m" style="color:var(--ok);background:var(--ok-bg)">✓</span><span style="color:var(--text-dim)">Apex HTTPS checked for every domain</span></div><div class="cc-check"><span class="cc-check-m" style="color:var(--ok);background:var(--ok-bg)">✓</span><span style="color:var(--text-dim)">WWW HTTPS checked for every domain</span></div><div class="cc-check"><span class="cc-check-m" style="color:var(--ok);background:var(--ok-bg)">✓</span><span style="color:var(--text-dim)">promptlab.tools www alias verified after Vercel fix</span></div><div class="cc-check"><span class="cc-check-m" style="color:var(--text-mute);background:var(--surface2)">·</span><span style="color:var(--text)">mixmash.games hosting target still unassigned</span></div></div></div>
       </section>
       <section class="cc-pane" id="pane-triage" hidden>
         <div class="cc-dhead">
