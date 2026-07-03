@@ -307,6 +307,13 @@
           
           <button class="cc-pin" data-pin type="button" title="Pin" aria-label="Pin Skill Library" aria-pressed="false">📌</button>
         </div>
+        <div class="cc-railitem" role="button" tabindex="0" data-target="notion-track" data-group="Workspace">
+          <span class="cc-drag" data-drag title="Drag to reorder" aria-hidden="true">⠿</span>
+          <span class="cc-dot" style="background:var(--ok);box-shadow:0 0 0 3px var(--ok-bg)"></span>
+          <span class="cc-railitem-tx"><span class="cc-railitem-n">🗂️ Notion Track</span><span class="cc-railitem-s">DBX source decisions are verified clear (0 open), audited source truth unknown/blank is 0, and audited Routing Rule gaps are verified 0 after three routing expansion batches.</span></span>
+          <span class="cc-railtag">DBX</span>
+          <button class="cc-pin" data-pin type="button" title="Pin" aria-label="Pin Notion Track" aria-pressed="false">📌</button>
+        </div>
         <div class="cc-railitem" role="button" tabindex="0" data-target="sources" data-group="Workspace">
           <span class="cc-drag" data-drag title="Drag to reorder" aria-hidden="true">⠿</span>
           <span class="cc-dot" style="background:var(--ok);box-shadow:0 0 0 3px var(--ok-bg)"></span>
@@ -399,6 +406,12 @@ Git: read latest Mac evidence in 90-governance/docs/. Deploys: HTTP-check live s
             <button class="cc-copy" data-copy="starter-5" type="button">Copy</button></div>
           <div class="cc-starter-d">Route DB | Capture → canonical DBs; resolve ambiguous targets.</div>
           <textarea id="starter-5" hidden>Run the Notion inbox triage: read DB | Capture, classify each item, route to the correct canonical DB, resolve the ambiguous AI Subrouter targets + duplicate-DB issue that has blocked the daily sort twice, and report processed / moved / held counts.</textarea>
+        </div>
+        <div class="cc-starter" style="border-top:3px solid var(--warn)">
+          <div class="cc-starter-h"><span class="cc-starter-i">🗂️</span><span class="cc-starter-t">Refresh Notion track</span>
+            <button class="cc-copy" data-copy="starter-6" type="button">Copy</button></div>
+          <div class="cc-starter-d">Re-query DBX, reconcile routing gaps, and rebuild the Notion Track panel.</div>
+          <textarea id="starter-6" hidden>Refresh the Notion Track: fetch REG | Database Index, query Needs Source Decision and Needs Routing Rule, verify the canonical routing reference, update only quick-start/dashboard-state.json and source-registry.json with current counts/evidence, run node quick-start/render.mjs, then publish via quick-start/publish-061eed.sh. Use grey for any source that cannot be queried.</textarea>
         </div></div></div>
       </section>
       <section class="cc-pane" id="pane-garden-os" hidden>
@@ -1004,6 +1017,45 @@ Git: read latest Mac evidence in 90-governance/docs/. Deploys: HTTP-check live s
           
         </div></div></div>
 <div class="cc-block cc-note" style="border-left-color:var(--idle)"><div class="cc-note-h" style="color:var(--idle)">Breakdown</div><div class="cc-note-b">Code: 8 Languages · 7 Design/FE · 6 Workflow · 6 Notion/Media · 4 AI/Infra · 4 Quality. Notion: 47 rows · 31 Live · 11 Draft · 3 Archived · 2 no status set.</div></div>
+      </section>
+      <section class="cc-pane" id="pane-notion-track" hidden>
+        <div class="cc-dhead">
+          <div class="cc-dhead-top">
+            <span class="cc-dlight" style="background:var(--ok);box-shadow:0 0 0 4px var(--ok-bg)"></span>
+            <h2 class="cc-dtitle">🗂️ Notion Track</h2>
+            <span class="cc-pill" style="color:var(--ok);background:var(--ok-bg)">DBX routed</span>
+          </div>
+          <div class="cc-dstatus">DBX source decisions are verified clear (0 open), audited source truth unknown/blank is 0, and audited Routing Rule gaps are verified 0 after three routing expansion batches.</div>
+          <div class="cc-dnext"><span>Next ·</span> Keep DBX and the canonical routing reference in the refresh prompt; rerun before each dashboard publish.</div>
+          <div class="cc-dmeta"><span class="cc-fresh">DBX live query Jul 3 2026 ~12:28 PM ET: Source Decision 0 · audited source truth unknown/blank 0 · audited Routing Rule gaps 0.</span><span class="cc-links"><a href="https://app.notion.com/p/2b4255fc8f4480f2bcb0eabf57f1d6a5" target="_blank" rel="noopener">DBX ↗</a><a href="https://app.notion.com/p/330255fc8f4481af94cbecabefa5718e" target="_blank" rel="noopener">routing ref ↗</a><a href="https://app.notion.com/p/392255fc8f448128b450f233ae0768f1" target="_blank" rel="noopener">plan ↗</a></span></div>
+        </div>
+        <div class="cc-block"><div class="cc-kpis">
+        <div class="cc-kpi">
+          <div class="cc-kpi-v" style="color:var(--ok)">0</div>
+          <div class="cc-kpi-l">Source decisions</div>
+          <div class="cc-kpi-s">verified before rate limit</div>
+        </div>
+        <div class="cc-kpi">
+          <div class="cc-kpi-v" style="color:var(--info)">75</div>
+          <div class="cc-kpi-l">DBX rows touched</div>
+          <div class="cc-kpi-s">18 first pass + 57 routing rows</div>
+        </div>
+        <div class="cc-kpi">
+          <div class="cc-kpi-v" style="color:var(--ok)">0</div>
+          <div class="cc-kpi-l">Routing gaps</div>
+          <div class="cc-kpi-s">audited rows verified</div>
+        </div>
+        <div class="cc-kpi">
+          <div class="cc-kpi-v" style="color:var(--info)">1</div>
+          <div class="cc-kpi-l">Public lane</div>
+          <div class="cc-kpi-s">SBD page patch ready</div>
+        </div></div></div>
+<div class="cc-block cc-note" style="border-left-color:var(--info)"><div class="cc-note-h" style="color:var(--info)">Verified source contract</div><div class="cc-note-b">REG | Database Index owns database identity, source-of-truth state, schema status, routing rule status, and consolidation flags. The refreshed canonical routing reference owns write destinations. Quick Start and Command53 display only queried evidence; failed queries stay grey/unverified.</div></div>
+<div class="cc-block"><div class="cc-block-h">Upgrade phases</div>
+      <table class="cc-table"><thead><tr><th>Phase</th><th>State</th><th>Evidence</th></tr></thead>
+      <tbody><tr><td style="border-left:3px solid var(--ok);padding-left:8px">Canonical map</td><td>Current</td><td>DBX + routing reference verified Jul 3</td></tr><tr><td style="border-left:3px solid var(--ok);padding-left:8px">Source decisions</td><td>Cleared</td><td>Needs Source Decision view returned 0 rows</td></tr><tr><td style="border-left:3px solid var(--warn);padding-left:8px">Routing rules</td><td>Cleared</td><td>Audited Routing Rule gaps verified 0</td></tr><tr><td style="border-left:3px solid var(--warn);padding-left:8px">Consolidation</td><td>Queued</td><td>Legacy and duplicate rows remain read-only until audit approval</td></tr><tr><td style="border-left:3px solid var(--info);padding-left:8px">Quick Start</td><td>Implemented</td><td>Notion Track panel added to dashboard-state.json</td></tr><tr><td style="border-left:3px solid var(--idle);padding-left:8px">Public SBD track</td><td>Ready</td><td>notion.html separates product claims from DBX truth</td></tr></tbody></table></div>
+<div class="cc-block"><div class="cc-block-h">Health checks</div>
+      <div class="cc-checks"><div class="cc-check"><span class="cc-check-m" style="color:var(--ok);background:var(--ok-bg)">✓</span><span style="color:var(--text-dim)">Query DBX before reporting source truth</span></div><div class="cc-check"><span class="cc-check-m" style="color:var(--ok);background:var(--ok-bg)">✓</span><span style="color:var(--text-dim)">Show grey when an owning source cannot be queried</span></div><div class="cc-check"><span class="cc-check-m" style="color:var(--ok);background:var(--ok-bg)">✓</span><span style="color:var(--text-dim)">Keep raw Capture separate from verified state</span></div><div class="cc-check"><span class="cc-check-m" style="color:var(--ok);background:var(--ok-bg)">✓</span><span style="color:var(--text-dim)">Finish remaining audited DBX routing rules</span></div><div class="cc-check"><span class="cc-check-m" style="color:var(--ok);background:var(--ok-bg)">✓</span><span style="color:var(--text-dim)">Re-query DBX after routing batches</span></div></div></div>
       </section>
       <section class="cc-pane" id="pane-sources" hidden>
         <div class="cc-dhead">
