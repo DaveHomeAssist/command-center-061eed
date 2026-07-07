@@ -9,6 +9,7 @@ This repo is a **publish mirror**, not a source workspace. The dashboard is auth
 | Path | What it is |
 |---|---|
 | `index.html` | The dashboard — a single static HTML file (styles, script, and data all inline). Rendered and overwritten wholesale on every republish; never hand-edited in place. |
+| `private.html` | Stable private entry hub for Command53. It groups the generated command center with other noindex/operator surfaces without exposing them through public System by Dave navigation. |
 | `skill-library/` | A secondary static page (`index.html` + `skills-data.js`) that browses Dave's Claude Code skill library. `skills-data.js` is auto-generated ("do not edit by hand") by a `generate-data.py` script that lives in the ops-hub source workspace, not here. |
 | `.github/workflows/republish-from-ops-hub.yml` | An older, manually-triggered (`workflow_dispatch`) publish path that assembled `index.html` from staged `_cc_chunks/*.html`. It appears superseded by `publish-061eed.sh`'s direct-push flow (which is how nearly all recent commits actually land) but is left in place. |
 | `.nojekyll` | Disables Jekyll processing so GitHub Pages serves `index.html` as-is. |
