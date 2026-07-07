@@ -2,7 +2,7 @@
 
 A private, single-page ops dashboard that gives Dave a one-screen view of all his active projects — status, git sync state, domain health, daily automation runs, and open triage items. The page is `noindex, nofollow` and carries no login; privacy comes only from the URL being unlisted.
 
-This repo is a **publish mirror**, not a source workspace. The dashboard is authored and rendered elsewhere (in a local `ops-hub` workspace, from `quick-start/render.mjs` + a JSON source registry) and pushed here verbatim by `ops-hub/quick-start/publish-061eed.sh`, which the ops-hub automation calls on every reconcile pass. There is no build step, editable source, or package manifest in this repo — `index.html` is the deployed artifact itself.
+This repo is a **publish mirror**, not a source workspace. The dashboard is authored and rendered elsewhere (in a local `ops-hub` workspace, from `quick-start/render.mjs` + a JSON source registry) and pushed here verbatim by `ops-hub/quick-start/publish-061eed.sh`, which the ops-hub automation calls on every reconcile pass. This mirror stores the deployed artifact itself, not the source architecture. That mirror constraint does not restrict the source workspace from using the right app architecture.
 
 ## What's here
 
@@ -18,7 +18,7 @@ The dashboard itself surfaces panels for: Overview, Garden OS, ReadOut, Phillies
 
 ## How to run it
 
-Static site, no build: open `index.html` directly in a browser, or serve the repo root with any static file server. In production it's served via GitHub Pages from the `main` branch root.
+Mirror usage: open `index.html` directly in a browser, or serve the repo root with any static file server. In production it's served via GitHub Pages from the `main` branch root.
 
 ## Conventions
 
